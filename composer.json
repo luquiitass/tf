@@ -6,7 +6,24 @@
     "type": "project",
     "require": {
         "php": ">=5.5.9",
-        "laravel/framework": "5.2.*"
+        "laravel/framework": "5.2.*",
+        "barryvdh/laravel-ide-helper": "^2.2",
+        "canerdogan/laravelcollective-html": "v5.2.4",
+        "amranidev/scaffold-interface": "v1.4.11",
+        "acacha/adminlte-laravel-installer": "2.0",
+        "spatie/laravel-permission": "^1.4",
+        "acacha/admin-lte-template-laravel": "2.*",
+        "yajra/laravel-datatables-oracle": "~6.0",
+        "laracasts/flash": "2.0.1",
+        "doctrine/dbal": "2.4.0",
+        "bican/roles": "2.1.7",
+        "proengsoft/laravel-jsvalidation": "~1.1",
+        "laracasts/utilities": "~2.0",
+        "intervention/image": "^2.3",
+        "barryvdh/laravel-debugbar": "^2.3",
+        "filp/whoops": "^2.1",
+        "jenssegers/date": "^3.2"
+
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
