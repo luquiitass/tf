@@ -65,7 +65,7 @@ return [
     |
     */
 
-    'locale' => 'en',
+        'locale' => 'es',
 
     /*
     |--------------------------------------------------------------------------
@@ -147,6 +147,7 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
+        Illuminate\Foundation\Providers\ArtisanServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -162,8 +163,34 @@ return [
 
         //composer install
         //composer update
+
+        Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
+
         Acacha\AdminLTETemplateLaravel\Providers\AdminLTETemplateServiceProvider::class,
 
+        Collective\Html\HtmlServiceProvider::class,
+
+        Amranidev\ScaffoldInterface\ScaffoldInterfaceServiceProvider::class,
+        Amranidev\Ajaxis\AjaxisServiceProvider::class,
+
+        Yajra\Datatables\DatatablesServiceProvider::class,
+
+        Laracasts\Flash\FlashServiceProvider::class,
+
+        Bican\Roles\RolesServiceProvider::class,
+
+        Proengsoft\JsValidation\JsValidationServiceProvider::class,
+
+        Intervention\Image\ImageServiceProvider::class,
+
+        Barryvdh\Debugbar\ServiceProvider::class,
+
+        Jenssegers\Date\DateServiceProvider::class,
+
+        //Migrations Genetator
+        Way\Generators\GeneratorsServiceProvider::class,
+
+        Xethron\MigrationsGenerator\MigrationsGeneratorServiceProvider::class,
     ],
 
     /*
