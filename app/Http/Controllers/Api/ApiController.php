@@ -1,9 +1,9 @@
 <?php
 
-namespace f8a\Http\Controllers\Api;
+namespace App\Http\Controllers\Api;
 
 
-use f8a\Http\Controllers\Controller;
+use App\Http\Controllers\Controller;
 
 class ApiController extends  Controller
 {

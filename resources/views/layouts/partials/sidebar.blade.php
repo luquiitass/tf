@@ -35,14 +35,22 @@
             <!-- Optionally, you can add icons to the links -->
 
 
-            <router-link tag="li" to="/" exact>
+            {{--<router-link tag="li" to="/" exact>--}}
+                {{--<a>--}}
+                    {{--<i class='fa fa-link'></i>--}}
+                    {{--<span>{{trans('string.inicio') }}</span>--}}
+                {{--</a>--}}
+
+            {{--</router-link>--}}
+
+
+            <router-link tag="li" to="/usuarios" exact>
                 <a>
                     <i class='fa fa-link'></i>
-                    <span>{{trans('string.inicio') }}</span>
+                    <span>{{trans('string.usuarios') }}
+                </span>
                 </a>
-
             </router-link>
-
 
             <router-link tag="li" to="/comedores" exact>
                 <a>
@@ -52,37 +60,37 @@
                 </a>
             </router-link>
 
-            <router-link tag="li" to="/mercaderias" exact>
-                <a>
-                    <i class='fa fa-link'></i>
-                    <span>{{trans('string.mercaderias') }}
-                </span>
-                </a>
-            </router-link>
+            {{--<router-link tag="li" to="/mercaderias" exact>--}}
+                {{--<a>--}}
+                    {{--<i class='fa fa-link'></i>--}}
+                    {{--<span>{{trans('string.mercaderias') }}--}}
+                {{--</span>--}}
+                {{--</a>--}}
+            {{--</router-link>--}}
 
-            <router-link tag="li" to="/recetas" exact>
-                <a>
-                    <i class='fa fa-link'></i>
-                    <span>{{trans('string.recetas') }}</span>
-                </a>
-            </router-link>
+            {{--<router-link tag="li" to="/recetas" exact>--}}
+                {{--<a>--}}
+                    {{--<i class='fa fa-link'></i>--}}
+                    {{--<span>{{trans('string.recetas') }}</span>--}}
+                {{--</a>--}}
+            {{--</router-link>--}}
 
 
-            <li>
-                <a href="#">
-                    <i class='fa fa-link'></i>
-                    <span>{{trans('string.comedores') }}
-                    </span>
-                </a>
-            </li>
+            {{--<li>--}}
+                {{--<a href="#">--}}
+                    {{--<i class='fa fa-link'></i>--}}
+                    {{--<span>{{trans('string.comedores') }}--}}
+                    {{--</span>--}}
+                {{--</a>--}}
+            {{--</li>--}}
 
-            <li class="treeview">
-                <a href="#"><i class='fa fa-link'></i> <span>{{ trans('adminlte_lang::message.multilevel') }}</span> <i class="fa fa-angle-left pull-right"></i></a>
-                <ul class="treeview-menu">
-                    <li><a href="#">{{ trans('adminlte_lang::message.linklevel2') }}</a></li>
-                    <li><a href="#">{{ trans('adminlte_lang::message.linklevel2') }}</a></li>
-                </ul>
-            </li>
+            {{--<li class="treeview">--}}
+                {{--<a href="#"><i class='fa fa-link'></i> <span>{{ trans('adminlte_lang::message.multilevel') }}</span> <i class="fa fa-angle-left pull-right"></i></a>--}}
+                {{--<ul class="treeview-menu">--}}
+                    {{--<li><a href="#">{{ trans('adminlte_lang::message.linklevel2') }}</a></li>--}}
+                    {{--<li><a href="#">{{ trans('adminlte_lang::message.linklevel2') }}</a></li>--}}
+                {{--</ul>--}}
+            {{--</li>--}}
         </ul><!-- /.sidebar-menu -->
     </section>
     <!-- /.sidebar -->

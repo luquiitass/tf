@@ -3,7 +3,8 @@ let mix = require('laravel-mix');
 
 
 
-mix.js('resources/assets/js/miapp.js', 'public/js');
+mix.js('resources/assets/js/miapp.js', 'public/js')
+    .less('resources/assets/less/miapp.less','public/css/miapp.css');
 
 // Full API
 // mix.js(src, output);

@@ -511,7 +511,7 @@ planilla_id</columns>
       <data-type>int(11)|0</data-type>
       <sequence-identity>1</sequence-identity>
     </column>
-    <column id="143" parent="31" name="nombrre">
+    <column id="143" parent="31" name="nombre">
       <mandatory>1</mandatory>
       <data-type>varchar(255)|0</data-type>
     </column>

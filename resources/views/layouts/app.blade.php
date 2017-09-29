@@ -44,6 +44,7 @@ desired effect
         <section class="content">
             <!-- Your Page Content Here -->
                 @yield('main-content')
+                <notifications group="g" />
 
         </section><!-- /.content -->
     </div><!-- /.content-wrapper -->
@@ -51,7 +52,6 @@ desired effect
     @include('layouts.partials.controlsidebar')
 
     @include('layouts.partials.footer')
-
 </div><!-- ./wrapper -->
 
 @section('scripts')

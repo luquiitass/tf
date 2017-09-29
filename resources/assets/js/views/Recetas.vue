@@ -1,3 +1,9 @@
 <template>
-    <h1>Recetas</h1>
+    <div>
+        <titulo>
+            Usuarios
+        </titulo>
+
+        <add-usuario></add-usuario>
+    </div>
 </template>

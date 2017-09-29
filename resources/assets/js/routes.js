@@ -9,6 +9,12 @@ let routes = [
         }
     },
     {
+        path : '/usuarios',
+        components :{
+            menu : require('./views/Usuarios')
+        }
+    },
+    {
         path : '/comedores',
         components :{
             menu : require('./views/Comedores')

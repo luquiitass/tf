@@ -11,9 +11,14 @@
 |
 */
 
-$factory->define(App\User::class, function (Faker\Generator $faker) {
+use App\Models\User;
+
+$factory->define(User::class, function (Faker\Generator $faker) {
     return [
-        'name' => $faker->name,
+        'nombre' => $faker->name,
+        'apellido' => $faker->name,
+        'dni' => $faker->creditCardNumber(),
+        'fecha_nacimiento' => $faker->dateTimeThisDecade,
         'email' => $faker->safeEmail,
         'password' => bcrypt(str_random(10)),
         'remember_token' => str_random(10),

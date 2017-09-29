@@ -12,14 +12,33 @@
 */
 
 Route::get('/prueba',function (){
-   $retorno = \App\User::get();
-    dd($retorno);
+    $model = \App\Models\User::searchPaginateAndOrder();
+    $columns = User::$columns;
+
+    return response()
+        ->json([
+            'model' => $model,
+            'columns' => $columns
+        ]);
 });
 
 Route::get('/', function () {
     return view('welcome');
 });
 
+
 Route::get('/admin',function (){
     return view('home');
 });
+
+
+//ROUTE Usuario
+
+Route::get('/usuarios','Api\UsersController@index');
+Route::get('/usuarios/create','Api\UsersController@create');
+Route::get('/usuarios/{id}/edit','Api\UsersController@edit');
+Route::get('/usuarios/getData','Api\UsersController@getData');
+
+Route::post('/usuarios','Api\UsersController@store');
+Route::put('/usuarios/{id}','Api\UsersController@update');
+Route::delete('/usuarios/{id}','Api\UsersController@destroy');

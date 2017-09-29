@@ -4,13 +4,13 @@ require('./bootstrap');
 import router from './routes';
 
 
-new Vue({
-    el: '#app',
-
-    data : {
-        user : {}
+window.vm = new Vue({
+    data:{
+        app:{}
     },
-
     router : router
 
 });
+
+vm.$mount('#app');;
+

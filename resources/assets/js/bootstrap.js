@@ -4,6 +4,16 @@ import Axios from 'axios';
 
 import VuewRouter from 'vue-router';
 
+import Form from './utilities/Form';
+
+import Utilidades from './utilities/Utilidades';
+
+import VModal from 'vue-js-modal';
+
+import Notifications from 'vue-notification';
+
+
+window.Utilidades = Utilidades;
 
 window.Vue = Vue;
 
@@ -11,9 +21,12 @@ Vue.use(VuewRouter);
 
 window.axios = Axios;
 
+window.Form = Form;
+
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 let token = document.head.querySelector('meta[name="csrf-token"]');
+
 
 if (token) {
   window.axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content;
@@ -36,7 +49,11 @@ Vue.prototype.trans = (key) => {
 
 // Laravel AdminLTE vue components
 
+Vue.use(VModal, { dialog: true });
+Vue.use(Notifications);
+
 Vue.component('titulo',require('./components/Titulo.vue'));
+Vue.component('data-viewer',require('./utilities/DataViewer.vue'));
 
 
 //Vue.component('register-form', require('./components/auth/RegisterForm.vue'))

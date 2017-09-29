@@ -1,6 +1,6 @@
 <?php
 
-namespace f8a\Http\Controllers\Web;
+namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
 

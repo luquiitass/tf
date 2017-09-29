@@ -10,5 +10,6 @@ return [
     'inicio' =>'Inicio',
     'recetas' =>'Recetas',
     'mercaderias' =>'Mercaderias',
+    'usuarios' =>'Usuarios',
 
 ];

@@ -1,20 +1,21 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
+use App\Helper\DataViewer;
 use Bican\Roles\Traits\HasRoleAndPermission;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
-    use HasRoleAndPermission;
+    use HasRoleAndPermission,DataViewer;
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'nombre','apellido','dni','fecha_nacimiento', 'email', 'password'
     ];
 
     /**
@@ -24,6 +25,16 @@ class User extends Authenticatable
      */
     protected $hidden = [
         'password', 'remember_token',
+    ];
+
+    public static $columns = [
+        'id', 'nombre', 'apellido',
+        'dni', 'email'
+    ];
+
+    public static $titles = [
+        'Id', 'Nombre', 'Apellido',
+        'DNI', 'Email'
     ];
 
 }
