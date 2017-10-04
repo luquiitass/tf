@@ -5,15 +5,12 @@
             <button class="btn btn-primary padding-left-10" @click="showCreate">
                 <span class="fa  fa-plus"></span> Crear Usuario
             </button>
-            <button class="btn btn-primary padding-left-10" @click="getUsuarios()">
-                <span class="fa  fa-undo"></span> Actualizar
-            </button>
         </titulo>
         <div class="row">
             <!--Columna del listado de usuario-->
             <div class="col-xs-12 col-md-8">
 
-                <data-viewer source="usuarios/getData" title="Usuarios" @selectItem="showUsuario" @updatedList="updateList" :list="usuarios" :itemSelected="usuarioShow"/>
+                <data-viewer source="usuarios/getData" title="Usuarios" @selectItem="showUsuario" @updatedList="updateList" :list="usuarios" :itemSelected="usuarioShow" :atributos="columnasTabla"/>
                 <!--<div id="content_table" class="white content-table">-->
                     <!--<table class="table table-bordered">-->
                         <!--<tbody>-->
@@ -61,13 +58,6 @@
                      @eliminado="deletUsuario(usuarioDelet)"
                      @cancelado="usuarioDelet = null"
         ></modal-delet>
-
-
-
-        <!--<div>{{ vm.app[nameList] | json}}</div>-->
-        <!--<input type="text" v-model="vm.app[nameList]"/>-->
-        <!--<button @click="getUsuarios()">rec</button>-->
-
     </div>
 </template>
 
@@ -94,6 +84,12 @@ export default{
             usuarioShow:null,
             usuarioEdit :null,
             usuarioDelet: '',
+            columnasTabla:{
+                nombre:'Nombre',
+                apellido:'Apellido',
+                dni:'DNI',
+                email:'Correo'
+            }
         }
     },
     boforeMount:function () {
@@ -103,21 +99,6 @@ export default{
         console.log('mounted')
     },
     methods : {
-        init(){
-            var self = this;
-            new Promise((resolve, reject) => {
-                setTimeout(function(){
-                    Vue.set(vm.app , self.nameList,'');
-                    Vue.set(vm.app , self.nameRowSelect,'');
-
-                    self.getUsuarios();
-                    resolve('cargado');
-                }, 250);
-            }).then(mensaje =>{
-                console.log(mensaje)
-            });
-
-        },
         getUsuarios(){
             this.reset();
             var self = this;
@@ -142,7 +123,6 @@ export default{
             window.scrollTo(0,0);
         },
         editUsuario(usuario){
-            console.log(usuario);
             this.usuarios = Utilidades.changeObjectListById(this.usuarios,usuario.id,usuario)
             this.showUsuario(usuario);
             this.$notify({
@@ -160,7 +140,7 @@ export default{
                     title: 'Felicitaciones',
                     text: 'Usuario Eliminado',
                     type: 'success',
-                    duration: 20000,
+                    duration: 2000,
                 });
                 this.showUsuario(null);
             }

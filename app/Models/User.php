@@ -3,12 +3,14 @@
 namespace App\Models;
 
 use App\Helper\DataViewer;
+use App\Helper\Search;
+use App\Http\Controllers\Auth\Filtros;
 use Bican\Roles\Traits\HasRoleAndPermission;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
-    use HasRoleAndPermission,DataViewer;
+    use HasRoleAndPermission,DataViewer,Search;
     /**
      * The attributes that are mass assignable.
      *
@@ -28,13 +30,13 @@ class User extends Authenticatable
     ];
 
     public static $columns = [
-        'id', 'nombre', 'apellido',
-        'dni', 'email'
+        'id'=>'Id', 'nombre'=>'Nombre', 'apellido'=>'Apellido',
+        'dni'=>'DNI', 'email'=>'Email'
     ];
 
-    public static $titles = [
-        'Id', 'Nombre', 'Apellido',
-        'DNI', 'Email'
-    ];
+
+    public function comedores(){
+        return $this->belongsToMany(Comedor::class);
+    }
 
 }

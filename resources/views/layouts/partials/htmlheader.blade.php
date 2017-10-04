@@ -34,6 +34,9 @@
     <![endif]-->
 
     {{--Mios--}}
+    <link href="{{ asset('/plugins/select2/select2.css') }}" rel="stylesheet" type="text/css" />
+
+
 
 
 </head>

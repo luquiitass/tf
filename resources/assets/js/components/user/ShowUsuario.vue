@@ -23,9 +23,9 @@
                 </div>
 
                 <div>
-                    <ul>
-                        <li v-for="(value,key ) in usuario">
-                            {{key}} : {{value}}
+                    <ul class="list-group">
+                        <li class="list-group-item" v-for="(value,key ) in usuario">
+                            <b>{{key | key}}</b> : {{value}}
                         </li>
                     </ul>
                 </div>

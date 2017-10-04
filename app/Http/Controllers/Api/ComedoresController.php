@@ -2,12 +2,29 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Comedor;
+use App\Helper\Funciones;
+use App\Http\Requests\ComedorSstoreRequest;
+use App\Http\Requests\ComedorUpdateRequest;
+use App\Models\Comedor;
 use App\Http\Requests\ComensalStoreRequest;
 use Illuminate\Http\Request;
+use PhpParser\Error;
 
 class ComedoresController extends ApiController
 {
+    use Funciones;
+
+    public function getData()
+    {
+        $columns = Comedor::$columns;
+        $model = Comedor::searchPaginateAndOrder();
+
+        return response()
+            ->json([
+                'model' => $model,
+                'columns' => $columns
+            ]);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -30,12 +47,29 @@ class ComedoresController extends ApiController
 
     /**
      * Store a newly created resource in storage.
-
+     * @param ComedorSstoreRequest $request
      * @return \Illuminate\Http\Response
      */
-    public function store(ComensalStoreRequest $request)
+    public function store(ComedorSstoreRequest $request)
     {
-        //
+        try {
+            \DB::beginTransaction();
+            $inputs = request()->only('nombre', 'creado');
+            $inputs['activo']=0;
+            $comedor = Comedor::create($inputs);
+            $administradores = $request->get('administradores');
+
+            //dd(self::getIds($administradores));
+
+            $comedor->administradores()->sync(self::getIds($administradores));
+            $comedor->load('administradores');
+            \DB::commit();
+        }catch (\Exception $e){
+            \DB::rollBack();
+            return response()->json($e->getMessage(),422);
+        }
+
+        return $comedor;
     }
 
     /**
@@ -44,9 +78,11 @@ class ComedoresController extends ApiController
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Comedor $comedor)
     {
-        //
+        $comedor->load('administradores');
+        return view('comedor.show',compact('comedor'));
+
     }
 
     /**
@@ -63,13 +99,29 @@ class ComedoresController extends ApiController
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ComedorUpdateRequest $request, $id)
     {
-        //
+        try {
+            \DB::beginTransaction();
+            $comedor = Comedor::findOrFail($id);
+            $comedor->update(request()->only('nombre', 'creado'));
+            $administradores = $request->get('administradores');
+
+            //dd(self::getIds($administradores));
+
+            $comedor->administradores()->sync(self::getIds($administradores));
+            $comedor->load('administradores');
+
+            \DB::commit();
+
+            return $comedor;
+        }catch (\Exception $e){
+            \DB::rollBack();
+            return response()->json($e->getMessage(),422);
+        }
     }
 
     /**
@@ -78,8 +130,13 @@ class ComedoresController extends ApiController
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Comedor $comedor)
     {
-        //
+        try{
+            $comedor->delete();
+        }catch (\Exception $e){
+            return response()->json('Primedo debe eliminar todos los registros de un comedor',442);
+        }
+        return response('true');
     }
 }

@@ -20,7 +20,8 @@
         "intervention/image": "^2.3",
         "barryvdh/laravel-debugbar": "^2.3",
         "filp/whoops": "^2.1",
-        "jenssegers/date": "^3.2"
+        "jenssegers/date": "^3.2",
+        "barryvdh/laravel-dompdf": "^0.8.1"
 
     },
     "require-dev": {

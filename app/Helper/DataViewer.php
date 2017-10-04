@@ -20,19 +20,24 @@ trait DataViewer {
     {
         $request = app()->make('request');
 
+
+        $columns = collect(self::$columns)->keys()->implode(',');
+
         $v = Validator::make($request->only([
             'column', 'direction', 'per_page',
             'search_column', 'search_operator', 'search_input'
         ]), [
-            'column' => 'required|alpha_dash|in:'.implode(',', self::$columns),
+            'column' => 'required|alpha_dash|in:'.$columns,
             'direction' => 'required|in:asc,desc',
             'per_page' => 'integer|min:1',
-            'search_column' => 'required|alpha_dash|in:'.implode(',', self::$columns),
+            'search_column' => 'required|alpha_dash|in:'.$columns,
             'search_operator' => 'required|alpha_dash|in:'.implode(',', array_keys($this->operators)),
             'search_input' => 'max:255'
         ]);
 
+
         if($v->fails()) {
+            dd($v->messages());
             throw new \Illuminate\Validation\ValidationException($v);
         }
 
@@ -51,6 +56,10 @@ trait DataViewer {
                 }
             })
             ->paginate($request->per_page);
+    }
+
+    public function getPDF(){
+
     }
 
 }

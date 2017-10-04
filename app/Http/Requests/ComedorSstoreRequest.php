@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use App\Http\Requests\Request;
 
-class ComensalStoreRequest extends Request
+class ComedorSstoreRequest extends Request
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,7 +24,7 @@ class ComensalStoreRequest extends Request
     public function rules()
     {
         return [
-            'nombre'=>'required|min:3',
+            'nombre'=>'required|min:2|unique:comedores,nombre',
             'administradores'=>'required',
         ];
     }

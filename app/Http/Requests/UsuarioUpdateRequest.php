@@ -23,13 +23,13 @@ class UsuarioUpdateRequest extends Request
      */
     public function rules()
     {
-        $id = $this->request->get('id');
+        $id = $this->route()->parameters()['id'];
         return [
             'nombre'=> 'required|min:3',
             'apellido'=> 'required|min:3',
             'fecha_nacimiento'=> 'required|date',
-            'dni'=> 'required',
-            'email'=> 'required|email',
+            'dni'=> 'required|unique:users,dni,'.$id . ',id',
+            'email'=> 'required|unique:users,email,'.$id .',id',
         ];
     }
 }

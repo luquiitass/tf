@@ -12,6 +12,9 @@ import VModal from 'vue-js-modal';
 
 import Notifications from 'vue-notification';
 
+import Lang from 'lang.js';
+
+window.mensajes = require('./text/mensajes.json');
 
 window.Utilidades = Utilidades;
 
@@ -54,6 +57,27 @@ Vue.use(Notifications);
 
 Vue.component('titulo',require('./components/Titulo.vue'));
 Vue.component('data-viewer',require('./utilities/DataViewer.vue'));
+Vue.component('select-auto',require('./utilities/Select.vue'));
+
+
+Vue.filter('key',function (value) {
+  return mensajes.keys[value]? mensajes.keys[value] : value;
+});
+
+
+Vue.mixin({
+  methods: {
+    getItems: function (list) {
+      var ob =[];
+      for(var key in list){
+          if(!Array.isArray(list[key])){
+            ob[key]=list[key]
+          }
+      }
+      return ob;
+    }
+  }
+});
 
 
 //Vue.component('register-form', require('./components/auth/RegisterForm.vue'))

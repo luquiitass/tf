@@ -5,25 +5,14 @@ namespace App\Http\Controllers\Api;
 use App\Http\Requests\UserStoreRequest;
 use App\Http\Requests\UsuarioUpdateRequest;
 use App\Models\User;
+use Barryvdh\DomPDF\PDF as PDF;
 use Illuminate\Http\Request;
 
 
 class UsersController extends ApiController
 {
 
-    public function getData()
-    {
-        $columns = User::$columns;
-        $titles = User::$titles;
-        $model = User::searchPaginateAndOrder();
 
-        return response()
-            ->json([
-                'model' => $model,
-                'columns' => $columns,
-                'titles' => $titles
-            ]);
-    }
     /**
      * Display a listing of the resource.
      *
@@ -31,7 +20,7 @@ class UsersController extends ApiController
      */
     public function index()
     {
-        return User::get();
+        return User::with('comedores')->get();
     }
 
     /**
@@ -109,5 +98,37 @@ class UsersController extends ApiController
             return $e->getMessage();
         }
         return response('true');
+    }
+
+    public function getData()
+    {
+        $columns = User::$columns;
+        $model = User::searchPaginateAndOrder();
+
+
+        $request = app()->make('request');
+        $items = response()->json($model)->getData('data')['data'];
+        //dd($columns);
+        if ($request->get('pdf')){
+            $pdf = \PDF::loadView('reporte',['columns'=>$columns,'items'=>$items]);
+            //return $pdf->download('invoice.pdf');
+            return $pdf->stream();
+            //return view('reporte',compact('items','columns'));
+        }
+
+        return response()
+            ->json([
+                'model' => $model,
+                'columns' => $columns
+            ]);
+    }
+
+    public function search(){
+        $usuarios  = User::search()->get();
+
+        $retorno = $usuarios->each(function ($item, $key) {
+            return $item['text'] = $item->apellido . ' ' . $item->nombre . ' "' . $item->email .'""';
+        });
+        return response()->json($usuarios);
     }
 }

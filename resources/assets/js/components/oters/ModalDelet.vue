@@ -48,7 +48,6 @@ export default{
                     .then(data=>{
                         if (data.data == true ){
                             this.$emit('eliminado');
-                            console.log('eliminado')
                         }else{
                             console.error(data.data);
                             this.$notify({

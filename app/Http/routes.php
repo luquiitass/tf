@@ -12,14 +12,7 @@
 */
 
 Route::get('/prueba',function (){
-    $model = \App\Models\User::searchPaginateAndOrder();
-    $columns = User::$columns;
-
-    return response()
-        ->json([
-            'model' => $model,
-            'columns' => $columns
-        ]);
+   return view('reporte',['items'=>[],'columns'=>[]]);
 });
 
 Route::get('/', function () {
@@ -42,3 +35,10 @@ Route::get('/usuarios/getData','Api\UsersController@getData');
 Route::post('/usuarios','Api\UsersController@store');
 Route::put('/usuarios/{id}','Api\UsersController@update');
 Route::delete('/usuarios/{id}','Api\UsersController@destroy');
+Route::get('/usuarios/search','Api\UsersController@search');
+
+//Route Comedor
+
+Route::get('comedores/getData','Api\ComedoresController@getData');
+Route::get('comedores','Api\ComedoresController@index');
+Route::resource('comedor','Api\ComedoresController');

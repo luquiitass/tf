@@ -57,7 +57,11 @@ class Form {
      */
     reset() {
         for (let field in this.originalData) {
-            this[field] = '';
+            if (Array.isArray(this[field])){
+                this[field] = [];
+            }else {
+                this[field] = '';
+            }
         }
 
         this.errors.clear();
@@ -120,7 +124,6 @@ class Form {
                 })
                 .catch(error => {
                     this.onFail(error.response.data);
-
                     reject(error.response.data);
                 });
         });

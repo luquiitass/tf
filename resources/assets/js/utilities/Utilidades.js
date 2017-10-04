@@ -1,5 +1,6 @@
 class Utilidades{
 
+
     static getHeightById(el){
         var x = document.getElementById(el);
         if (x){
@@ -179,6 +180,7 @@ class Utilidades{
         //     }
         // });
     }
+
 
 
 }
