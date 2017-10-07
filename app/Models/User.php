@@ -4,13 +4,14 @@ namespace App\Models;
 
 use App\Helper\DataViewer;
 use App\Helper\Search;
+use App\Helper\Tabla;
 use App\Http\Controllers\Auth\Filtros;
 use Bican\Roles\Traits\HasRoleAndPermission;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
-    use HasRoleAndPermission,DataViewer,Search;
+    use HasRoleAndPermission,Tabla,Search;
     /**
      * The attributes that are mass assignable.
      *

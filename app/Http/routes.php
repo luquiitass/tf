@@ -12,7 +12,7 @@
 */
 
 Route::get('/prueba',function (){
-   return view('reporte',['items'=>[],'columns'=>[]]);
+   return 'prueba';
 });
 
 Route::get('/', function () {
@@ -31,6 +31,7 @@ Route::get('/usuarios','Api\UsersController@index');
 Route::get('/usuarios/create','Api\UsersController@create');
 Route::get('/usuarios/{id}/edit','Api\UsersController@edit');
 Route::get('/usuarios/getData','Api\UsersController@getData');
+Route::post('/usuarios/getData','Api\UsersController@getData');
 
 Route::post('/usuarios','Api\UsersController@store');
 Route::put('/usuarios/{id}','Api\UsersController@update');
@@ -39,6 +40,8 @@ Route::get('/usuarios/search','Api\UsersController@search');
 
 //Route Comedor
 
-Route::get('comedores/getData','Api\ComedoresController@getData');
-Route::get('comedores','Api\ComedoresController@index');
+Route::get('comedor/getData','Api\ComedoresController@getData');
+Route::get('comedor','Api\ComedoresController@index');
 Route::resource('comedor','Api\ComedoresController');
+
+

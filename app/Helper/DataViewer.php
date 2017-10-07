@@ -18,6 +18,8 @@ trait DataViewer {
 
     public function scopeSearchPaginateAndOrder($query)
     {
+        dd(request()->get('query'));
+
         $request = app()->make('request');
 
 

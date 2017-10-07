@@ -20,7 +20,7 @@ class UsersController extends ApiController
      */
     public function index()
     {
-        return User::with('comedores')->get();
+        return User::with('comedor')->get();
     }
 
     /**
@@ -102,25 +102,7 @@ class UsersController extends ApiController
 
     public function getData()
     {
-        $columns = User::$columns;
-        $model = User::searchPaginateAndOrder();
-
-
-        $request = app()->make('request');
-        $items = response()->json($model)->getData('data')['data'];
-        //dd($columns);
-        if ($request->get('pdf')){
-            $pdf = \PDF::loadView('reporte',['columns'=>$columns,'items'=>$items]);
-            //return $pdf->download('invoice.pdf');
-            return $pdf->stream();
-            //return view('reporte',compact('items','columns'));
-        }
-
-        return response()
-            ->json([
-                'model' => $model,
-                'columns' => $columns
-            ]);
+        return User::searchPaginateAndOrder();
     }
 
     public function search(){

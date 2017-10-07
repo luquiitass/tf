@@ -84,12 +84,6 @@ export default{
             usuarioShow:null,
             usuarioEdit :null,
             usuarioDelet: '',
-            columnasTabla:{
-                nombre:'Nombre',
-                apellido:'Apellido',
-                dni:'DNI',
-                email:'Correo'
-            }
         }
     },
     boforeMount:function () {

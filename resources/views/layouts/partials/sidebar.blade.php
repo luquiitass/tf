@@ -29,7 +29,7 @@
         </form>
         <!-- /.search form -->
 
-        <!-- Sidebar Menu -->
+        <!-- Sidebar menu -->
         <ul class="sidebar-menu">
             <li class="header">{{ trans('adminlte_lang::message.header') }}</li>
             <!-- Optionally, you can add icons to the links -->
@@ -55,7 +55,7 @@
             <router-link tag="li" to="/comedores" exact>
                 <a>
                     <i class='fa fa-link'></i>
-                    <span>{{trans('string.comedores') }}
+                    <span>{{trans('comedor') }}
                 </span>
                 </a>
             </router-link>
@@ -79,7 +79,7 @@
             {{--<li>--}}
                 {{--<a href="#">--}}
                     {{--<i class='fa fa-link'></i>--}}
-                    {{--<span>{{trans('string.comedores') }}--}}
+                    {{--<span>{{trans('string.comedorescomedor
                     {{--</span>--}}
                 {{--</a>--}}
             {{--</li>--}}

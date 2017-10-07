@@ -1,9 +1,9 @@
 <template>
-    <div>
-        <h1 >
+    <div class="titulo">
+        <h3 >
             <slot>
                 Sin titulo
             </slot>
-        </h1>
+        </h3>
     </div>
 </template>

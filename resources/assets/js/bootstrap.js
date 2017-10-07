@@ -55,8 +55,9 @@ Vue.prototype.trans = (key) => {
 Vue.use(VModal, { dialog: true });
 Vue.use(Notifications);
 
-Vue.component('titulo',require('./components/Titulo.vue'));
+Vue.component('titulo',require('./components/oters/Titulo.vue'));
 Vue.component('data-viewer',require('./utilities/DataViewer.vue'));
+Vue.component('tabla',require('./utilities/Tabla.vue'));
 Vue.component('select-auto',require('./utilities/Select.vue'));
 
 

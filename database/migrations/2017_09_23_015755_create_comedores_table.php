@@ -12,7 +12,7 @@ class CreateComedoresTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('comedores', function(Blueprint $table)
+		Schema::create('comedor', function(Blueprint $table)
 		{
 			$table->integer('id', true);
 			$table->string('nombre', 250);
@@ -29,7 +29,7 @@ class CreateComedoresTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('comedores');
+		Schema::drop('comedor');
 	}
 
 }

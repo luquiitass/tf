@@ -6,7 +6,7 @@
 
 <script >
 
-import Titulo from '../components/Titulo.vue';
+import Titulo from '../components/oters/Titulo.vue';
 
 export default{
     components :{

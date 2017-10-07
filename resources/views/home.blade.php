@@ -4,7 +4,7 @@
 
 @endsection
 
-@section('contentheader_title','Menu')
+@section('contentheader_title','menu')
 
 @section('main-content')
 

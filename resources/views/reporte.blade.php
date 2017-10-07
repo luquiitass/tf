@@ -144,9 +144,9 @@
         </tbody>
         @foreach($items as $item)
             <tr>
-                @foreach($columns as $key=>$value)
+                @foreach($columns as $column)
                     <td>
-                        {{$item[$key]}}
+                        {{$item[$column]}}
                     </td>
                 @endforeach
             </tr>

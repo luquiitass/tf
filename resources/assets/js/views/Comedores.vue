@@ -48,9 +48,9 @@
 
 <script>
 
-import CreateComedor from '../components/comedores/CreateComedor';
-import EditComedor from '../components/comedores/EditComedor';
-import ShowComedor from '../components/comedores/ShowComedor';
+import CreateComedor from '../components/comedor/view/CreateComedor';
+import EditComedor from '../components/comedor/view/EditComedor';
+import ShowComedor from '../components/comedor/view/ShowComedor';
 import ModalDelet from '../components/oters/ModalDelet';
 
 

@@ -4,11 +4,11 @@
         <div class="modal-dialog modal-sm">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">{{titulo}}</h5>
                     <button type="button" class="close" @click="hide()" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
-                </div>
+                <h5 class="modal-title" id="exampleModalLabel">{{titulo}}</h5>
+            </div>
                 <div class="modal-body">
                     {{text}}
                 </div>

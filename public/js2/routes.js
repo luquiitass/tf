@@ -1,7 +1,7 @@
 import VueRouter from 'vue-router';
 
 let routes = [
-    //Menu principal
+    //menu principal
     {
         path : '/',
         components :{
@@ -9,7 +9,7 @@ let routes = [
         }
     },
     {
-        path : '/comedores',
+        path : '/comedor',
         components :{
             menu : require('./views/Comedores')
         }

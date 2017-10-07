@@ -15,7 +15,7 @@
         <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
             <span class="sr-only">{{ trans('adminlte_lang::message.togglenav') }}</span>
         </a>
-        <!-- Navbar Right Menu -->
+        <!-- Navbar Right menu -->
         <div class="navbar-custom-menu">
             <ul class="nav navbar-nav">
                 {{--<li>--}}
@@ -23,7 +23,7 @@
                 {{--</li>--}}
                 <!-- Messages: style can be found in dropdown.less-->
                 <li class="dropdown messages-menu">
-                    <!-- Menu toggle button -->
+                    <!-- menu toggle button -->
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <i class="fa fa-envelope-o"></i>
                         <span class="label label-success">4</span>
@@ -54,9 +54,9 @@
                     </ul>
                 </li><!-- /.messages-menu -->
 
-                <!-- Notifications Menu -->
+                <!-- Notifications menu -->
                 <li class="dropdown notifications-menu">
-                    <!-- Menu toggle button -->
+                    <!-- menu toggle button -->
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <i class="fa fa-bell-o"></i>
                         <span class="label label-warning">10</span>
@@ -64,7 +64,7 @@
                     <ul class="dropdown-menu">
                         <li class="header">{{ trans('adminlte_lang::message.notifications') }}</li>
                         <li>
-                            <!-- Inner Menu: contains the notifications -->
+                            <!-- Inner menu: contains the notifications -->
                             <ul class="menu">
                                 <li><!-- start notification -->
                                     <a href="#">
@@ -76,9 +76,9 @@
                         <li class="footer"><a href="#">{{ trans('adminlte_lang::message.viewall') }}</a></li>
                     </ul>
                 </li>
-                <!-- Tasks Menu -->
+                <!-- Tasks menu -->
                 <li class="dropdown tasks-menu">
-                    <!-- Menu Toggle Button -->
+                    <!-- menu Toggle Button -->
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <i class="fa fa-flag-o"></i>
                         <span class="label label-danger">9</span>
@@ -115,9 +115,9 @@
                     <li><a href="{{ url('/register') }}">{{ trans('adminlte_lang::message.register') }}</a></li>
                     <li><a href="{{ url('/login') }}">{{ trans('adminlte_lang::message.login') }}</a></li>
                 @else
-                    <!-- User Account Menu -->
+                    <!-- User Account menu -->
                     <li class="dropdown user user-menu">
-                        <!-- Menu Toggle Button -->
+                        <!-- menu Toggle Button -->
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             <!-- The user image in the navbar-->
                             <img src="{{asset('/img/user2-160x160.jpg')}}" class="user-image" alt="User Image"/>
@@ -133,7 +133,7 @@
                                     <small>{{ trans('adminlte_lang::message.login') }} Nov. 2012</small>
                                 </p>
                             </li>
-                            <!-- Menu Body -->
+                            <!-- menu Body -->
                             <li class="user-body">
                                 <div class="col-xs-4 text-center">
                                     <a href="#">{{ trans('adminlte_lang::message.followers') }}</a>
@@ -145,7 +145,7 @@
                                     <a href="#">{{ trans('adminlte_lang::message.friends') }}</a>
                                 </div>
                             </li>
-                            <!-- Menu Footer-->
+                            <!-- menu Footer-->
                             <li class="user-footer">
                                 <div class="pull-left">
                                     <a href="#" class="btn btn-default btn-flat">{{ trans('adminlte_lang::message.profile') }}</a>

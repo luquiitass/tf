@@ -15,7 +15,7 @@ class AddForeignKeysToPlanillasTable extends Migration {
 		Schema::table('planillas', function(Blueprint $table)
 		{
 			$table->foreign('comida_por_dia_id', 'comidas_por_dia_planillas_fk')->references('id')->on('comidas_por_dia')->onUpdate('NO ACTION')->onDelete('NO ACTION');
-			$table->foreign('comedor_id', 'comedores_planillas_fk')->references('id')->on('comedores')->onUpdate('NO ACTION')->onDelete('NO ACTION');
+			$table->foreign('comedor_id', 'comedores_planillas_fk')->references('id')->on('comedor')->onUpdate('NO ACTION')->onDelete('NO ACTION');
 		});
 	}
 

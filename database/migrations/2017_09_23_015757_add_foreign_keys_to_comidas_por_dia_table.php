@@ -14,7 +14,7 @@ class AddForeignKeysToComidasPorDiaTable extends Migration {
 	{
 		Schema::table('comidas_por_dia', function(Blueprint $table)
 		{
-			$table->foreign('comedor_id', 'comedores_comidas_por_dia_fk')->references('id')->on('comedores')->onUpdate('NO ACTION')->onDelete('NO ACTION');
+			$table->foreign('comedor_id', 'comedores_comidas_por_dia_fk')->references('id')->on('comedor')->onUpdate('NO ACTION')->onDelete('NO ACTION');
 		});
 	}
 

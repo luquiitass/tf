@@ -1,7 +1,7 @@
 import VueRouter from 'vue-router';
 
 let routes = [
-    //Menu principal
+    //menu principal
     {
         path : '/',
         components :{
@@ -15,7 +15,7 @@ let routes = [
         }
     },
     {
-        path : '/comedores',
+        path : '/comedor',
         components :{
             menu : require('./views/Comedores')
         }
@@ -32,6 +32,29 @@ let routes = [
             menu : require('./views/Mercaderias')
         }
     },
+
+
+    //menu de un Comedor
+    {
+        path : '/inicio',
+        components :{
+            content_comedor : require('./components/comedor/menu/Inicio')
+        }
+    },
+    {
+        path : '/comensales',
+        components :{
+            content_comedor : require('./components/comedor/menu/Comensales')
+        }
+    },
+    {
+        path : '/anotados',
+        components :{
+            content_comedor : require('./components/comedor/menu/Anotados')
+        }
+    },
+
+
 ];
 
 

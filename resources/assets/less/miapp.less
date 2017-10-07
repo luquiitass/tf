@@ -157,3 +157,155 @@
 	padding-left: 15px;
 }
 //---------------------------------------------
+
+.borde{
+	border:1px solid #000;
+}
+
+.titulo{
+	display: -moz-flex;
+	display: -webkit-flex;
+	display: -ms-flex;
+	display: flex;
+	border-bottom: solid 5px #f56a6a;
+	padding: 1px 1px 10px 10px;
+	margin-bottom: 5px;
+	position: relative;
+}
+
+.titulo >h3{
+	padding : 0px;
+	margin:0px;
+}
+
+//Submenu
+
+//
+//
+//.sub_menu {
+//	font-size:15px;
+//	width:100%;
+//	z-index:100;
+//	top:0;
+//	left:0;
+//	background:#2e2e2e;
+//}
+//
+//.sub_menu > ul {
+//	list-style:none;
+//	text-align:center;
+//	padding:0;
+//	margin:0;
+//	letter-spacing:-4px;
+//}
+//
+//.sub_menu ul li {
+//	display:inline-block;
+//	border-top:3px solid;
+//	padding: 3px 0;
+//	*display:inline;
+//	zoom:1;
+//	line-height:normal;
+//	letter-spacing:normal;
+//	text-transform:uppercase;
+//	min-width:110px;
+//	line-height:60px;
+//	margin:0;
+//}
+//
+//.sub_menu ul li a, .sub_menu ul li a:visited {
+//	display:block;
+//	color:#fff;
+//	text-decoration:none;
+//	font-weight:600;
+//	opacity:.75;
+//}
+//
+//.sub_menu ul li a:hover {
+//	opacity:1
+//}
+//.sub_menu ul li:hover, .sub_menu ul li.active {
+//	border-top-width: 6px;
+//	padding-top: 0;
+//}
+
+
+.sub_menu {
+	font-size:15px;
+	width:100%;
+	z-index:100;
+	padding-left:20px;
+	top:0;
+	left:0;
+}
+
+.sub_menu > ul {
+	list-style:none;
+	text-align:left;
+	padding:0;
+	margin:0;
+	letter-spacing:-4px;
+}
+
+.sub_menu ul li {
+	display:inline-block;
+	border-top:3px solid;
+	padding: 3px 0;
+	*display:inline;
+	zoom:1;
+	line-height:normal;
+	letter-spacing:normal;
+	text-transform:uppercase;
+	min-width:110px;
+	line-height:30px;
+	margin:0;
+	background-color: #ffffff;
+	text-align:center;
+	border: 1px solid #b5b5b5;
+	border-bottom: 0px solid;
+	border-radius: 5px 5px 0px 0px;
+
+}
+
+.sub_menu ul li a, .sub_menu ul li a:visited {
+	display:block;
+	color:#000000;
+	text-decoration:none;
+	font-weight:100;
+	opacity:.75;
+}
+
+.sub_menu ul li a:hover {
+	opacity:1
+}
+.sub_menu ul li:hover, .sub_menu ul li.active {
+
+	border-color:#003d93;
+	padding-top: 0;
+}
+
+.sub_menu ul li:hover, .sub_menu ul li.active a {
+	color:#003d93;
+	font-weight:600;
+
+}
+.sub_menu_content{
+	background-color: white;
+	border: 0px solid;
+	padding: 1px 10px;
+	border-radius: 3px;
+}
+
+/* mid size (tablets, landscapes) */
+@media only screen and (max-width: 679px) {
+	.sub_menu { font-size:11px; }
+	.sub_menu ul li {
+		min-width:60px;
+		line-height:40px;
+	}
+}
+
+/* tiny size (phones) */
+@media only screen and (max-width: 380px) {
+	.sub_menu ul li { min-width:90px; line-height:20px; }
+}
