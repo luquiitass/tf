@@ -1,27 +1,25 @@
 <template>
     <div>
         <div class="input-group btn-block">
-            <input class="form-control" type="text" v-model="stringSearch" :placeholder="placeholder" @keyup="find"/>
-            <i v-if="loading" class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
-            <span v-if="loading" class="input-group-btn fa fa-spinner"></span>
+            <input class="form-control loading" type="text" v-model="stringSearch" :placeholder="placeholder" @keyup="find"/>
         </div>
-
-        <div v-if="!m_items.lenght">
-            <ul class="list-group">
-                <slot name="li-items">
-                    <li
-                            class="list-group-item"
+        <slot name="showList">
+            <div v-if="!m_items.lenght">
+                <ul class="list-group">
+                    <slot name="li-items">
+                        <li
+                            class="list-group-item manita"
                             v-for="item in m_items"
                             @click="itemSelected(item)">
 
-                        {{item.text}}
-                    </li>
-
-                </slot>
-            </ul>
-
-        </div>
-
+                            <a title="Seleccionar">
+                                {{item.text}}
+                            </a>
+                        </li>
+                    </slot>
+                </ul>
+            </div>
+        </slot>
     </div>
 </template>
 
@@ -46,14 +44,18 @@ export default{
     data(){
         return{
             stringSearch:'',
-            placeholder :'Valor a buscar',
+            placeholder :'Buscar por ' + this.columns,
             loading : false,
             m_items :[],
         }
     },
+    watch:{
+        m_items(){
+            this.$emit('update',this.m_items);
+        }
+    },
     methods : {
         find(){
-            console.log('quizo realizar una busqueda con ' + this.stringSearch + ',\nel tmaño de la palabra es  con las columnas ' + this.columns)
             if(this.stringSearch.length >= this.minText){
                 this.loading = true;
                 var parms = '?query='+ this.stringSearch +'&columns="' + this.columns+'"';

@@ -10,7 +10,10 @@
 
         <div class="row">
             <div class="col-xs-12 col-md-8">
-                <data-viewer source="comedores/getData" title="" @selectItem="showComedor" @updatedList="updateList" :list="comedores" :itemSelected="comedorSelect"/>
+
+                <tabla source="comedores/getData" title="" @selectItem="showComedor" @updatedList="updateList" :list="comedores" :itemSelected="comedorSelect" :attributes="{nombre:'Nombre'}"></tabla>
+
+            <!--<data-viewer source="comedores/getData" title="" @selectItem="showComedor" @updatedList="updateList" :list="comedores" :itemSelected="comedorSelect"/>-->
             </div>
             <div class="col-xs-12 col-md-4">
                 <create-comedor

@@ -10,7 +10,9 @@
             <!--Columna del listado de usuario-->
             <div class="col-xs-12 col-md-8">
 
-                <data-viewer source="usuarios/getData" title="Usuarios" @selectItem="showUsuario" @updatedList="updateList" :list="usuarios" :itemSelected="usuarioShow" :atributos="columnasTabla"/>
+                <tabla source="usuarios/getData" title="" @selectItem="showUsuario" @updatedList="updateList" :list="usuarios" :itemSelected="usuarioShow" :attributes="{nombre:'Nombre',apellido:'Apelliddo',dni:'DNI',email:'Correo'}"></tabla>
+
+            <!--<data-viewer source="usuarios/getData" title="Usuarios" @selectItem="showUsuario" @updatedList="updateList" :list="usuarios" :itemSelected="usuarioShow" :atributos="columnasTabla"/>-->
                 <!--<div id="content_table" class="white content-table">-->
                     <!--<table class="table table-bordered">-->
                         <!--<tbody>-->
@@ -54,7 +56,7 @@
         <modal-delet v-if="usuarioDelet"
                      :titulo="'Eliminar Usuario'"
                      :text="'Esta seguro de eliminar al usuario ' + usuarioDelet.nombre+' '+ usuarioDelet.apellido"
-                     :url="'usuarios/' + usuarioDelet.id"
+                     :url="'usuario/' + usuarioDelet.id"
                      @eliminado="deletUsuario(usuarioDelet)"
                      @cancelado="usuarioDelet = null"
         ></modal-delet>
@@ -111,7 +113,7 @@ export default{
                 title: 'Felicitaciones',
                 text: 'Usuario registrado',
                 type: 'success',
-                duration: 20000,
+                duration: 2000,
             });
 
             window.scrollTo(0,0);

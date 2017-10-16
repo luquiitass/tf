@@ -55,7 +55,7 @@
             <router-link tag="li" to="/comedores" exact>
                 <a>
                     <i class='fa fa-link'></i>
-                    <span>{{trans('comedor') }}
+                    <span>{{trans('string.comedores') }}
                 </span>
                 </a>
             </router-link>

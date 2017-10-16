@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Helper;
+use phpDocumentor\Reflection\Types\Self_;
 use Validator;
 use Barryvdh\DomPDF\PDF as PDF;
 
@@ -21,8 +22,6 @@ trait Tabla {
     public function scopeSearchPaginateAndOrder($query)
     {
 
-        //$request = app()->make('request');
-
         $requestArray = request()->get('query');
 
         $request = (object) $requestArray;
@@ -34,10 +33,10 @@ trait Tabla {
 
 
         $v = Validator::make($requestArray, [
-            'column' => 'required|alpha_dash|in:'.$columns,
+            'column' => 'required|in:'.$columns,
             'direction' => 'required|in:asc,desc',
             'per_page' => 'integer|min:1',
-            'search_column' => 'required|alpha_dash|in:'.$columns,
+            'search_column' => 'required|in:'.$columns,
             'search_operator' => 'required|alpha_dash|in:'.implode(',', array_keys($this->operators)),
             'search_input' => 'max:255'
         ]);
@@ -47,6 +46,8 @@ trait Tabla {
             dd($v->messages());
             throw new \Illuminate\Validation\ValidationException($v);
         }
+
+
 
         $retorno = $query
             ->orderBy($request->column, $request->direction)
@@ -70,6 +71,7 @@ trait Tabla {
                 }
             })
             ->paginate($request->per_page);
+
 
         $operation = request()->get('operation');
 

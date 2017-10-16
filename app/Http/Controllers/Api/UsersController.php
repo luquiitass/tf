@@ -47,12 +47,14 @@ class UsersController extends ApiController
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param User $usuario
      * @return \Illuminate\Http\Response
+     * @internal param int $id
      */
-    public function show($id)
+    public function show(User $usuario)
     {
-        //
+        $usuario->load('comensal','comedores');
+        return response()->json($usuario);
     }
 
     /**
@@ -78,6 +80,9 @@ class UsersController extends ApiController
         $usuario = User::findOrFail($id);
 
         $usuario->update($request->all());
+        if ($request->has('foto')){
+            $usuario->setFoto($request->foto);
+        }
 
         return $usuario;
 
@@ -109,7 +114,7 @@ class UsersController extends ApiController
         $usuarios  = User::search()->get();
 
         $retorno = $usuarios->each(function ($item, $key) {
-            return $item['text'] = $item->apellido . ' ' . $item->nombre . ' "' . $item->email .'""';
+            return $item['text'] = $item->apellido . ' ' . $item->nombre . ' "' . $item->email .'"';
         });
         return response()->json($usuarios);
     }

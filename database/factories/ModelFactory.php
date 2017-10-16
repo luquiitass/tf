@@ -14,13 +14,14 @@
 use App\Models\User;
 
 $factory->define(User::class, function (Faker\Generator $faker) {
+    $dni = $faker->creditCardNumber();
     return [
         'nombre' => $faker->name,
         'apellido' => $faker->name,
-        'dni' => $faker->creditCardNumber(),
+        'dni' =>$dni,
         'fecha_nacimiento' => $faker->dateTimeThisDecade,
         'email' => $faker->safeEmail,
-        'password' => bcrypt(str_random(10)),
+        'password' => bcrypt($dni),
         'remember_token' => str_random(10),
     ];
 });

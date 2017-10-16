@@ -57,7 +57,7 @@ export default{
     methods:{
         onSubmit(){
             this.form
-                    .put(PATH +'/usuarios/'+this.usuario.id)
+                    .put(PATH +'/usuario/'+this.usuario.id)
                     .then(usurio => this.$emit('usuarioModificado',usurio));
         },
         cancelar(){

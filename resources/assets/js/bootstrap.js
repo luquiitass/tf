@@ -6,7 +6,11 @@ import VuewRouter from 'vue-router';
 
 import Form from './utilities/Form';
 
+import Coleccion from './utilities/Coleccion';
+
 import Utilidades from './utilities/Utilidades';
+
+import Constants from './utilities/Constats';
 
 import VModal from 'vue-js-modal';
 
@@ -17,6 +21,8 @@ import Lang from 'lang.js';
 window.mensajes = require('./text/mensajes.json');
 
 window.Utilidades = Utilidades;
+window.Coleccion = Coleccion;
+window.Constants = Constants;
 
 window.Vue = Vue;
 
@@ -56,14 +62,20 @@ Vue.use(VModal, { dialog: true });
 Vue.use(Notifications);
 
 Vue.component('titulo',require('./components/oters/Titulo.vue'));
+Vue.component('modal',require('./components/oters/Modal.vue'));
+Vue.component('modal-delet',require('./components/oters/ModalDelet.vue'));
+Vue.component('search',require('./components/oters/Search.vue'));
 Vue.component('data-viewer',require('./utilities/DataViewer.vue'));
 Vue.component('tabla',require('./utilities/Tabla.vue'));
 Vue.component('select-auto',require('./utilities/Select.vue'));
+Vue.component('comensal-index',require('./components/comensal/Index.vue'));
+Vue.component('comedor-index',require('./components/comedor/Index.vue'));
 
 
 Vue.filter('key',function (value) {
   return mensajes.keys[value]? mensajes.keys[value] : value;
 });
+
 
 
 Vue.mixin({
@@ -79,7 +91,6 @@ Vue.mixin({
     }
   }
 });
-
 
 //Vue.component('register-form', require('./components/auth/RegisterForm.vue'))
 //Vue.component('login-form', require('./components/auth/LoginForm.vue'))

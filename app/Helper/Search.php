@@ -13,13 +13,15 @@ trait Search
 {
 
     public function scopeSearch($query){
-        $query_search = request()->get('query','columns');
+        $query_search = request()->get('query');
         $columns = request()->get('columns');
+        $columns = str_replace("\"",'',$columns);
+        $columns = explode(',',$columns);
 
-
-        $query->orWhere('id', 'LIKE', '%'.$query_search.'%');
-        $query->orWhere('nombre', 'LIKE', '%'.$query_search.'%');
-
+        //dd($columns);
+        foreach ($columns as $column){
+            $query->orWhere($column, 'LIKE', '%'.$query_search.'%');
+        }
     }
 
 }

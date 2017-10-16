@@ -11,8 +11,10 @@
 |
 */
 
+use App\Models\User;
+
 Route::get('/prueba',function (){
-   return 'prueba';
+    return view('comensal.index');
 });
 
 Route::get('/', function () {
@@ -24,24 +26,44 @@ Route::get('/admin',function (){
     return view('home');
 });
 
+Route::get('getUser',function (){
+    if (!Auth::guest()){
+        return response()->json(Auth::user()->load('comedores','roles','comensal'));
+    }
+    return response()->json(['no login'],402);
+});
+
 
 //ROUTE Usuario
 
-Route::get('/usuarios','Api\UsersController@index');
-Route::get('/usuarios/create','Api\UsersController@create');
-Route::get('/usuarios/{id}/edit','Api\UsersController@edit');
-Route::get('/usuarios/getData','Api\UsersController@getData');
+//Route::get('/usuarios','Api\UsersController@index');
+//Route::get('/usuarios/create','Api\UsersController@create');
+//Route::get('/usuarios/{id}/edit','Api\UsersController@edit');
+//Route::get('/usuarios/{id}','Api\UsersController@show');
+//Route::get('/usuarios/getData','Api\UsersController@getData');
 Route::post('/usuarios/getData','Api\UsersController@getData');
 
-Route::post('/usuarios','Api\UsersController@store');
-Route::put('/usuarios/{id}','Api\UsersController@update');
-Route::delete('/usuarios/{id}','Api\UsersController@destroy');
+//Route::post('/usuarios','Api\UsersController@store');
+//Route::put('/usuarios/{id}','Api\UsersController@update');
+//Route::delete('/usuarios/{id}','Api\UsersController@destroy');
 Route::get('/usuarios/search','Api\UsersController@search');
+Route::resource('usuario','Api\UsersController');
 
 //Route Comedor
-
-Route::get('comedor/getData','Api\ComedoresController@getData');
-Route::get('comedor','Api\ComedoresController@index');
+Route::post('comedor/attachUsuario/{comedor}','Api\ComedoresController@attachUsuario');
+Route::delete('comedor/detachUsuario/{comedor}','Api\ComedoresController@detachUsuario');
+Route::post('comedores/getData','Api\ComedoresController@getData');
+Route::get('comedores','Api\ComedoresController@index');
 Route::resource('comedor','Api\ComedoresController');
+
+Route::post('comensales/getData','Api\ComensalesController@getData');
+Route::post('comensal/attachUsuario/{usuario}','Api\ComensalesController@attachUsuario');
+Route::resource('comensal','Api\ComensalesController');
+
+
+
+//Tipos de comidas
+Route::get('tiposComida','Api\TiposComidaController@index');
+Route::resource('tipoComida','Api\TiposComidaController');
 
 

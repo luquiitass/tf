@@ -1,5 +1,5 @@
 <template>
-    <div id="modal-delet" class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+    <div :id="idModal" class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
         <div :class="'modal-dialog modal-' + type ">
             <div class="modal-content">
                 <div class="modal-header">
@@ -28,26 +28,43 @@ export default{
 
     data(){
         return{
-
+            idModal : _.random(0, 9999),
+            id: ''
         }
     },
     props:{
         type:{
-            required:true,
+            required:false,
+        },
+        p_show:{
+            required:true
+        }
+    },
+    watch:{
+        p_show(value){
+            this.toggle();
         }
     },
     methods:{
+        toggle(){
+            if(this.p_show){
+                $(this.id).modal('show');
+            }else {
+                $(this.id).modal('hide');
+            }
+        },
         show () {
-            $('#modal-delet').modal('toggle')
+            $(this.id).modal('toggle')
         },
         hide () {
-            $('#modal-delet').modal('toggle');
+            $(this.id).modal('toggle');
         },
     },
     mounted : function () {
-        this.show();
+        this.id = '#' + this.idModal;
+        this.toggle();
         var self = this;
-        $('#modal-delet').on('hidden.bs.modal', function () {
+        $(this.id).on('hidden.bs.modal', function () {
             console.log('hide modal');
             self.$emit('cancelado')
         })

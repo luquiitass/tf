@@ -1,9 +1,11 @@
 <template>
-    <div class="titulo">
+    <section class="titulo">
         <h3 >
             <slot>
                 Sin titulo
             </slot>
         </h3>
-    </div>
+
+        <slot name="breadcrump"></slot>
+    </section>
 </template>

@@ -6,17 +6,17 @@
             <span class="help-block" v-if="form.errors.has('nombre')" v-text="form.errors.get('nombre')"></span>
         </div>
 
-        <div :class="form.getClassForm('creado')" >
-            <label >Creado el</label>
-            <input type="text" class="form-control"  v-model="form.creado">
-            <span class="help-block" v-if="form.errors.has('creado')" v-text="form.errors.get('creado')"></span>
+        <div :class="form.getClassForm('capacidad')" >
+            <label >Capacidad</label>
+            <input type="text" class="form-control"  v-model="form.capacidad">
+            <span class="help-block" v-if="form.errors.has('capacidad')" v-text="form.errors.get('capacidad')"></span>
         </div>
 
         <div :class="form.getClassForm('administradores')" >
             <label >Buscar administradores</label>
 
             <search :url="'usuarios/search'"
-                    :columns="'id,nombre,apellido,dni,email'"
+                    :columns="'nombre,apellido,dni,email'"
                     :items="form.administradores"
                     @itemSelected="addAdministrador">
             </search>

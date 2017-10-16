@@ -15,7 +15,7 @@ let routes = [
         }
     },
     {
-        path : '/comedor',
+        path : '/comedores',
         components :{
             menu : require('./views/Comedores')
         }
@@ -51,6 +51,18 @@ let routes = [
         path : '/anotados',
         components :{
             content_comedor : require('./components/comedor/menu/Anotados')
+        }
+    },
+    {
+        path : '/tiposDeComida',
+        components :{
+            content_comedor : require('./components/comedor/menu/TiposDeComida.vue')
+        }
+    },
+    {
+        path : '/administradores',
+        components :{
+            content_comedor : require('./components/comedor/menu/Administradores.vue')
         }
     },
 

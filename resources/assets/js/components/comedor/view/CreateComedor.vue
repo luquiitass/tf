@@ -30,7 +30,7 @@ export default{
 
     data(){
         return{
-            form: new Form({nombre:'',creado:'',administradores:[]}),
+            form: new Form({nombre:'',capacidad:'',administradores:[]}),
         }
     },
     components:{

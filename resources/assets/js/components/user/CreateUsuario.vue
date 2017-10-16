@@ -45,7 +45,7 @@ export default{
     methods:{
         onSubmit(){
             this.form
-                    .post(PATH +'/usuarios')
+                    .post(PATH +'/usuario')
                     .then(usurio => this.$emit('usuarioCreado',usurio));
         },
         cancelar(){

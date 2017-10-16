@@ -17,16 +17,23 @@
         <div class="row">
           <div class="col-xs-12 col-md-4">
             <div class="input-group">
-              <input type="text" class="form-control" placeholder="Buscar por..." v-model="query.search_input">
+              <input type="text" class="form-control" placeholder="Buscar por..." v-model="query.search_input" @keyup.enter="search()">
               <span class="input-group-btn">
-              <button class="btn btn-secondary" type="button"  @click="search()">Buscar</button>
+              <button class="btn btn-secondary" type="button"  @click="search()">
+                <i class="fa  fa-search-plus"></i>
+              </button>
             </span>
             </div>
           </div>
           <div class="col-xs-12 col-md-8">
             <div class="pull-right">
-              <a  class="btn btn-default btn-xs " target="_blank" @click="pdf()">PDF</a>
-              <a  class="btn btn-default btn-xs " target="_blank" @click="toggleFiltro()">Filtrar</a>
+
+              <a v-if="nuevo" class="btn btn-primary btn-xs " @click="showNuevo()">
+                Nuevo
+                <i class="fa fa-plus-circle"></i>
+              </a>
+              <a  class="btn btn-default btn-xs " @click="pdf()">PDF</a>
+              <a  class="btn btn-default btn-xs " @click="toggleFiltro()">Filtrar</a>
           </div>
           </div>
         </div>
@@ -72,11 +79,21 @@
                       <span v-else>&darr;</span>
                     </span>
               </th>
+              <th v-if="isOperaciones">Op.</th>
+
             </tr>
           </thead>
           <tbody>
-            <tr v-if="!items.lenght" v-for="row in items" @click="selectRow(row)" :class="classRow(row)">
+            <tr v-if="!items.lenght" v-for="row in items" :class="classRow(row)">
               <td v-for="(value,key) in columns">{{row[key]}}</td>
+              <td v-if="isOperaciones">
+                <div class="btn-group">
+                  <button class="btn btn-xs btn-success" @click="selectRow(row)">
+                    <i class="fa fa-search-plus"></i>
+                  </button>
+                </div>
+
+              </td>
             </tr>
           </tbody>
         </table>
@@ -93,16 +110,16 @@
         <div class="dv-footer-item">
           <div class="dv-footer-sub">
             <span>Filas por pagina</span>
-            <input type="text" v-model="query.per_page"
+            <input type="number" v-model="query.per_page"
                    class="dv-footer-input"
             @keyup.enter="filter()">
           </div>
 
           <div class="dv-footer-sub">
             <button class="dv-footer-btn" @click="prev()">&laquo;</button>
-            <input type="text" v-model="query.page"
+            <input type="number" v-model="query.page"
                  class="dv-footer-input"
-          @keyup.enter="filter()">
+                  @keyup.enter="filter()">
             <button class="dv-footer-btn" @click="next()">&raquo;</button>
           </div>
         </div>
@@ -116,7 +133,29 @@
   //similar to vue-resource
 
   export default {
-    props: ['source', 'title','list','itemSelected','attributes'],
+    props:{
+      source:{
+        required:true
+      },
+      title : {},
+      list : {
+        required:false
+      },
+      itemSelected : {
+        required:false
+      },
+      attributes : {
+        required:true
+      },
+      nuevo:{
+        default:false,
+      },
+      ver:{
+        required:false,
+        default:false,
+      }
+
+    },
     data() {
       return {
         loading:false,
@@ -124,6 +163,7 @@
         itemSelect:{},
         model:{},
         columns: {},
+
         query: {
           page: 1,
           column: Object.keys(this.attributes)[0],
@@ -146,6 +186,9 @@
       }
     },
     computed:{
+      page(){
+        return this.query.page;
+      }
     },
     created() {
       this.columns = this.attributes
@@ -166,11 +209,15 @@
       list: function (value) {
         this.model.data = this.list;
       },
-      query : function (value) {
-        console.log(value);
-        if (this.model.total){
-          this.query.per_page = this.query.per_page > this.model.total ? this.model.total : this.query.per_page;
+      page(){
+        if (this.model.total) {
+          if (this.query.page > this.model.total) {
+            this.query.page = this.model.total
+          } else if (0 >= this.query.page) {
+            this.query.page = 1;
+          }
         }
+        console.log(this.query.page)
       },
       attributes:function () {
         this.columns = this.attributes;
@@ -237,11 +284,12 @@
         this.select('filter');
       },
       search(){
+        this.query.page = 1;
         this.query.search_operator = 'search';
         this.select('search');
       },
       select(operation){
-        var form = new Form({query : this.query,columns : this.attributes , operation : operation});
+        var form = new Form({query : this.query,columns : this.attributes , operation : operation,page : this.query.page});
         this.loading = true;
         var vmm = this;
         form.post(PATH + this.source)
@@ -258,7 +306,6 @@
                   vmm.selectRow(null);
                 });
       },
-
       fetchIndexData() {
         this.loading = true;
         var vmm = this
@@ -285,6 +332,12 @@
       },
       setItems(){
         this.items = this.model.data;
+      },
+      showNuevo(){
+        this.$emit('nuevo');
+      },
+      isOperaciones(){
+        return this.ver;
       }
     }
   }

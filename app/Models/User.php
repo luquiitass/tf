@@ -2,7 +2,9 @@
 
 namespace App\Models;
 
+use App\Models\Comensal;
 use App\Helper\DataViewer;
+use App\Helper\Foto;
 use App\Helper\Search;
 use App\Helper\Tabla;
 use App\Http\Controllers\Auth\Filtros;
@@ -11,7 +13,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
-    use HasRoleAndPermission,Tabla,Search;
+    use HasRoleAndPermission,Tabla,Search,Foto;
     /**
      * The attributes that are mass assignable.
      *
@@ -30,6 +32,8 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    protected $appends = ['foto'];
+
     public static $columns = [
         'id'=>'Id', 'nombre'=>'Nombre', 'apellido'=>'Apellido',
         'dni'=>'DNI', 'email'=>'Email'
@@ -38,6 +42,28 @@ class User extends Authenticatable
 
     public function comedores(){
         return $this->belongsToMany(Comedor::class);
+    }
+
+    public function comensal(){
+        return $this->hasOne(Comensal::class);
+    }
+
+    public function setFoto($foto)
+    {
+        $this->guardarFoto($foto,'/img/','user_'. $this->id,'jpg');
+    }
+
+    public function getFotoAttribute($data){
+        $url = 'img/user_'. $this->id . '.jpg';
+        $random = '?'.str_random(5);
+        if (file_exists($url)){
+            return asset($url).$random;
+        }
+        return asset('img/user.png') .$random;
+    }
+
+    public function setPasswordAttribute($data){
+        $this->attributes['password'] = bcrypt($data);
     }
 
 }

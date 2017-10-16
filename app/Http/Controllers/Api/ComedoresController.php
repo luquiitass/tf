@@ -3,10 +3,12 @@
 namespace App\Http\Controllers\Api;
 
 use App\Helper\Funciones;
+use App\Http\Requests\ComedorAttachUsuarioRequest;
 use App\Http\Requests\ComedorSstoreRequest;
 use App\Http\Requests\ComedorUpdateRequest;
 use App\Models\Comedor;
 use App\Http\Requests\ComensalStoreRequest;
+use App\Models\User;
 use Illuminate\Http\Request;
 use PhpParser\Error;
 
@@ -16,14 +18,7 @@ class ComedoresController extends ApiController
 
     public function getData()
     {
-        $columns = Comedor::$columns;
-        $model = Comedor::searchPaginateAndOrder();
-
-        return response()
-            ->json([
-                'model' => $model,
-                'columns' => $columns
-            ]);
+        return Comedor::searchPaginateAndOrder();
     }
     /**
      * Display a listing of the resource.
@@ -54,7 +49,7 @@ class ComedoresController extends ApiController
     {
         try {
             \DB::beginTransaction();
-            $inputs = request()->only('nombre', 'creado');
+            $inputs = request()->only('nombre', 'capacidad');
             $inputs['activo']=0;
             $comedor = Comedor::create($inputs);
             $administradores = $request->get('administradores');
@@ -124,11 +119,35 @@ class ComedoresController extends ApiController
         }
     }
 
+    public function attachUsuario(ComedorAttachUsuarioRequest $request, $comedor){
+        try{
+            $comedor = Comedor::findOrFail($comedor);
+            $idUsuario = request()->usuario;
+            $comedor->administradores()->attach([$idUsuario]);
+            $usuario = User::findOrFail($idUsuario);
+            return response()->json($usuario);
+        }catch (\Exception $e){
+            return response()->json(['error'=> $e->getMessage()],402);
+        }
+    }
+
+    public function detachUsuario(Comedor $comedor){
+        try{
+            //$comedor = Comedor::findOrFail($comedor);
+            $idUsuario = request()->usuario;
+            $comedor->administradores()->detach([$idUsuario]);
+            return response()->json(true);
+        }catch (\Exception $e){
+            return response()->json(['error'=> $e->getMessage()],402);
+        }
+    }
+
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param Comedor $comedor
      * @return \Illuminate\Http\Response
+     * @internal param int $id
      */
     public function destroy(Comedor $comedor)
     {

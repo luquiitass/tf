@@ -24,8 +24,12 @@ class ComensalStoreRequest extends Request
     public function rules()
     {
         return [
-            'nombre'=>'required|min:3',
-            'administradores'=>'required',
+            'nombre'=> 'required|min:3',
+            'apellido'=> 'required|min:3',
+            'fecha_nacimiento'=> 'required|date',
+            'dni'=> 'required|unique:users,dni',
+            'email'=> 'required|email|unique:users,email',
+            'password' => 'required|min:4'
         ];
     }
 }

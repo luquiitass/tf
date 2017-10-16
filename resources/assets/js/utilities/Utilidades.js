@@ -11,6 +11,7 @@ class Utilidades{
     }
 
     static changeObjectListById(list,id,newObject){
+        var result = "no existe el id";
         for (var i in list) {
             if(!list[i].id){
                 console.error('No existe id en los objetos de la coleccion');
@@ -19,8 +20,32 @@ class Utilidades{
 
             if (list[i].id == id) {
                 list[i] = newObject;
+                result="modificado"
                 break
             }
+        }
+        var x = list.pop();
+        list.push(x);
+        console.log('changed =>' +result);
+    }
+
+    static changeObjectListBykeyAndValue(list,key,value,newObject){
+        var result = "no existe el id";
+        try {
+            list.every(function (item, index) {
+                console.log(item);
+                if (!item[key]) {
+                    throw 'No existe id  '+ key +'  en los objetos de la coleccion';
+                }
+                if (item[key] == value) {
+                    list[index] = newObject;
+                    throw "modificado";
+                }
+
+            });
+            throw 'No se encontro un objeto con el valor ' +value;
+        }catch(excep){
+            console.log(excep);
         }
         var x = list.pop();
         list.push(x);

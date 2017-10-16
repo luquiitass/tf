@@ -6,12 +6,13 @@
  * Time: 10:59
  */
 return [
-    'comedor' => 'Comedores',
+    'comedores' => 'Comedores',
     'inicio' =>'Inicio',
     'recetas' =>'Recetas',
     'mercaderias' =>'Mercaderias',
     'usuarios' =>'Usuarios',
     'comensales'=>'Comensales',
     'anotados'=>'Anotados',
-
+    'administradores'=>'Administradores',
+    'tipos_de_comida'=>'Tipos de Comida',
 ];

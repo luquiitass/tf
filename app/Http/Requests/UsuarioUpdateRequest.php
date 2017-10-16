@@ -23,7 +23,8 @@ class UsuarioUpdateRequest extends Request
      */
     public function rules()
     {
-        $id = $this->route()->parameters()['id'];
+        $id = $this->route()->parameters()['usuario'];
+        //dd($id);
         return [
             'nombre'=> 'required|min:3',
             'apellido'=> 'required|min:3',

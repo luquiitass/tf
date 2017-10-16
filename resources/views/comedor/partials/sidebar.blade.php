@@ -49,10 +49,26 @@
                 </span>
                 </a>
             </router-link>
+
+            <router-link tag="li" to="/tiposDeComida" exact>
+                <a>
+                    <i class='fa fa-link'></i>
+                    <span>{{trans('string.tipos_de_comida') }}
+                </span>
+                </a>
+            </router-link>
             <router-link tag="li" to="/anotados" exact>
                 <a>
                     <i class='fa fa-link'></i>
                     <span>{{trans('string.anotados') }}
+                </span>
+                </a>
+            </router-link>
+
+            <router-link tag="li" to="/administradores" exact>
+                <a>
+                    <i class='fa fa-link'></i>
+                    <span>{{trans('string.administradores') }}
                 </span>
                 </a>
             </router-link>

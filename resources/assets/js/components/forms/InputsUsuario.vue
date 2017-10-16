@@ -1,5 +1,22 @@
 <template>
     <div>
+        <div :class="form.getClassForm('dni')">
+            <label >DNI</label>
+            <input type="text" class="form-control"  v-model="form.dni" @keyup="conContra">
+            <div v-if="listAutocomplete.length">
+                <ul class="list-group " >
+                    <li class="list-group-item alert-danger">
+                        Estos DNI ya se encuentran registrados.
+                    </li>
+                    <li class="list-group-item select-wrapper" v-for="user in listAutocomplete">
+                        <span class="btn btn-xs btn-success pull-right" @click="completarCampos(user)">Asociar</span>
+                    {{user.dni}}
+                </li>
+            </ul>
+            </div>
+            <span class="help-block" v-if="form.errors.has('dni')" v-text="form.errors.get('dni')"></span>
+        </div>
+
         <div :class="form.getClassForm('nombre')" >
             <label >Nombre</label>
             <input type="text" class="form-control"  v-model="form.nombre">
@@ -16,12 +33,6 @@
             <label >Fecha nacimiento</label>
             <input type="text" class="form-control"  v-model="form.fecha_nacimiento">
             <span class="help-block" v-if="form.errors.has('fecha_nacimiento')" v-text="form.errors.get('fecha_nacimiento')"></span>
-        </div>
-
-        <div :class="form.getClassForm('dni')">
-            <label >DNI</label>
-            <input type="text" class="form-control"  v-model="form.dni" @keyup="conContra">
-            <span class="help-block" v-if="form.errors.has('dni')" v-text="form.errors.get('dni')"></span>
         </div>
 
         <div :class="form.getClassForm('email')">
@@ -55,12 +66,16 @@ export default{
         },
         form:{
             required :true,
+        },
+        autocomplete:{
+            default:false,
         }
     },
 
     data(){
         return{
-            conPass : false
+            conPass : false,
+            listAutocomplete:[]
         }
 
     },
@@ -76,7 +91,24 @@ export default{
             if (!this.edit){
                 this.form.password = this.conPass ? '' : this.form.dni;
             }
+            if(this.autocomplete && this.form.dni.length > 6){
+                this.searchUsuario();
+            }
         },
+        searchUsuario(){
+            var parms = '?query='+ this.form.dni + '&columns=dni';
+            axios.get(PATH + 'usuarios/search' + parms )
+                    .then(response =>{
+                        this.listAutocomplete = response.data;
+                    })
+                    .catch(error => {
+                        console.log(error);
+                    });
+        }
+        ,
+        completarCampos(usuario){
+            this.$emit('atthachUsuario',usuario);
+        }
     }
 }
 

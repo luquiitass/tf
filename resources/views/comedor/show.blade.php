@@ -2,13 +2,13 @@
 
 <html lang="es">
 @section('htmlheader')
-    @include('layouts.partials.htmlheader')
+    @include('comedor.partials.htmlheader')
 @show
 
 <body class="skin-blue sidebar-mini">
 <div id="app" class="wrapper">
 
-@include('layouts.partials.mainheader')
+@include('comedor.partials.mainheader')
 
 @include('comedor.partials.sidebar')
 
@@ -20,7 +20,9 @@
     <!-- Main content -->
         <section class="content">
             <!-- Your Page Content Here -->
-            <router-view name="content_comedor"></router-view>
+            <comedor-index :p_comedor="{{$comedor}}">
+
+            </comedor-index>
 
             <notifications group="g" />
 
@@ -33,7 +35,7 @@
 </div><!-- ./wrapper -->
 
 @section('scripts')
-    @include('layouts.partials.scripts')
+    @include('comedor.partials.scripts')
 @show
 
 </body>

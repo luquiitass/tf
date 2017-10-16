@@ -178,6 +178,17 @@
 	margin:0px;
 }
 
+.titulo>.breadcrumb {
+	float: right;
+	background: transparent;
+	margin-top: 0;
+	margin-bottom: 0;
+	padding: 7px 5px;
+	position: absolute;
+	right: 10px;
+	border-radius: 2px;
+}
+
 //Submenu
 
 //
@@ -308,4 +319,87 @@
 /* tiny size (phones) */
 @media only screen and (max-width: 380px) {
 	.sub_menu ul li { min-width:90px; line-height:20px; }
+}
+
+
+//_________PERFIL-------------
+.perfil-img{
+	width: 90%;
+	margin: auto;
+	max-width: 160px;
+	padding: 5px;
+}
+
+.perfil-datos{
+	width: 60%;
+	min-width: 200px;
+	margin: auto;
+	list-style-type: none;
+	padding: 0px;
+}
+
+.manita {
+	cursor: pointer;
+}
+
+.row.match-my-cols {
+	overflow: hidden;
+}
+
+.row.match-my-cols [class*="col-"]{
+	margin-bottom: -99999px;
+	padding-bottom: 99999px;
+}
+
+
+.not-border{
+	border: 0px;
+}
+
+
+.btn-circle {
+	outline: auto;
+	width: 30px;
+	height: 30px;
+	padding: 6px 0 !important;
+	border-radius: 15px !important;
+	text-align: center !important;
+	font-size: 12px !important;
+	line-height: 1.428571429 !important;
+	outline: 0px auto -webkit-focus-ring-color !important;
+	outline-offset: 0px !important;
+}
+
+.btn-circle.btn-lg {
+	width: 50px;
+	height: 50px;
+	padding: 10px 16px;
+	border-radius: 25px;
+	font-size: 18px;
+	line-height: 1.33;
+}
+
+.btn-circle.btn-xl {
+	width: 70px;
+	height: 70px;
+	padding: 10px 16px;
+	border-radius: 35px;
+	font-size: 24px;
+	line-height: 1.33;
+}
+
+.nombre-usuario-list-search{
+	position: relative;
+	padding: 5px 10px;
+	border-bottom: 1px solid #d2d6de;
+	margin: 5px 0 0 50px;
+	color: #444444;
+}
+
+.loading {
+	background-color: #ffffff;
+	background-image: url("/img/loading.gif");
+	background-size: 25px 25px;
+	background-position:right center;
+	background-repeat: no-repeat;
 }

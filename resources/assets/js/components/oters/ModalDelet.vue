@@ -13,7 +13,7 @@
                     {{text}}
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" @click="eliminar()">Eliminar</button>
+                    <button type="button" class="btn btn-danger" @click="eliminar()">Eliminar</button>
                     <button type="button" class="btn btn-secondary" @click="hide()" >Cancelar</button>
                 </div>
             </div>
