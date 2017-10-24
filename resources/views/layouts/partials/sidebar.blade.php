@@ -60,6 +60,14 @@
                 </a>
             </router-link>
 
+            <router-link tag="li" to="/tiposDeComida" exact>
+                <a>
+                    <i class='fa fa-link'></i>
+                    <span>{{trans('string.tipos_de_comida') }}
+                </span>
+                </a>
+            </router-link>
+
             {{--<router-link tag="li" to="/mercaderias" exact>--}}
                 {{--<a>--}}
                     {{--<i class='fa fa-link'></i>--}}

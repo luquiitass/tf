@@ -10,14 +10,14 @@ use Illuminate\Database\Eloquent\Model;
     use Tabla;
 
      protected $table = "tipos_comida";
-     protected $fillable = ['nombre','inicio','fin','comedor_id'];
 
-     protected $with =['comidasPorDia'];
+     protected $fillable = ['nombre'];
+
 
      public $timestamps = false;
 
      public function comidasPorDia(){
-         return $this->hasMany(ComidaPorDia::class,'tipo_comida_id');
+         return $this->hasMany(ComidaPorDia::class);
      }
 
  }

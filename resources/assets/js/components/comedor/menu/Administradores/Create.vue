@@ -1,5 +1,8 @@
 <template>
     <div>
+        <div class="box box-primary">
+
+        </div>
         <form @submit.prevent="onSubmit" @keydown="form.errors.clear()" >
 
         <inputs :form="form"></inputs>

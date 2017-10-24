@@ -1,7 +1,7 @@
 <template>
     <div>
         <titulo>
-            Personal
+            Administradores
 
             <button class="btn btn-primary btn-md" title="Nuevo Personal" @click="showModal=true">
                 Nuevo
@@ -93,9 +93,12 @@ export default{
     },
     methods:{
         init(){
-            console.log(this.administradores.all());
-            console.log(Array.isArray(this.administradores.all()));
             this.idSelect = this.administradores.first().id;
+            Comedor.attribure(
+                    this.comedor.id,
+                    'administradores',
+                    admins => this.administradores.record(admins)
+            )
         },
         attachAdministrador(admin){
             this.idSelect = admin.id;

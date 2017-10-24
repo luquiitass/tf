@@ -16,6 +16,17 @@ import VModal from 'vue-js-modal';
 
 import Notifications from 'vue-notification';
 
+import Conexion from './models/Conexion';
+
+
+//--Modelos
+
+import Comedor from './models/Comedor';
+import Comensal from './models/Comensal';
+import TipoComida from './models/TipoComida';
+import Dia from './models/Dia';
+
+
 import Lang from 'lang.js';
 
 window.mensajes = require('./text/mensajes.json');
@@ -23,6 +34,14 @@ window.mensajes = require('./text/mensajes.json');
 window.Utilidades = Utilidades;
 window.Coleccion = Coleccion;
 window.Constants = Constants;
+window.Conexion = Conexion;
+
+//Models--
+window.Comedor = Comedor;
+window.Comensal = Comensal;
+window.TipoComida = TipoComida;
+window.Dia = Dia;
+
 
 window.Vue = Vue;
 
@@ -74,6 +93,10 @@ Vue.component('comedor-index',require('./components/comedor/Index.vue'));
 
 Vue.filter('key',function (value) {
   return mensajes.keys[value]? mensajes.keys[value] : value;
+});
+
+Vue.filter('path',function (value) {
+  return PATH + value;
 });
 
 

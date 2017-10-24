@@ -3,7 +3,7 @@ import VueRouter from 'vue-router';
 let routes = [
     //menu principal
     {
-        path : '/',
+        path : '/home',
         components :{
             menu : require('./views/Home')
         }
@@ -18,6 +18,12 @@ let routes = [
         path : '/comedores',
         components :{
             menu : require('./views/Comedores')
+        }
+    },
+    {
+        path : '/tiposDeComida',
+        components :{
+            menu : require('./components/sistema/tiposComida/Index')
         }
     },
     {
@@ -36,7 +42,7 @@ let routes = [
 
     //menu de un Comedor
     {
-        path : '/inicio',
+        path : '/',
         components :{
             content_comedor : require('./components/comedor/menu/Inicio')
         }
@@ -45,18 +51,40 @@ let routes = [
         path : '/comensales',
         components :{
             content_comedor : require('./components/comedor/menu/Comensales')
-        }
+        },
+        children :[
+            {
+                path : '/',
+                component : require('./components/comedor/menu/comensales/Index.vue')
+            },
+            {
+                path : ':id',
+                component : require('./components/comedor/menu/comensales/Show'),
+                props : dynamicPropsFn
+            }
+        ]
     },
     {
         path : '/anotados',
         components :{
             content_comedor : require('./components/comedor/menu/Anotados')
-        }
+        },
+        children : [
+            {
+                path : '/',
+                component : require('./components/comedor/menu/anotados/Index'),
+                props : dynamicPropsFn
+            }
+            ,{
+                path : ':id',
+                component : require('./components/comedor/menu/anotados/Anotados'),
+            }
+        ]
     },
     {
-        path : '/tiposDeComida',
+        path : '/tiposComidas',
         components :{
-            content_comedor : require('./components/comedor/menu/TiposDeComida.vue')
+            content_comedor : require('./components/comedor/menu/tiposDeComida/Index.vue'),
         }
     },
     {
@@ -65,9 +93,20 @@ let routes = [
             content_comedor : require('./components/comedor/menu/Administradores.vue')
         }
     },
+    {
+        path : '/saludar',
+        components :{
+            content_comedor : require('./views/Saludar')
+        }
+    },
 
 
 ];
+
+function dynamicPropsFn (route) {
+
+    return route.query;
+}
 
 
 export  default new VueRouter({

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Helper\AjaxGetAttribute;
 use App\Helper\Funciones;
 use App\Http\Requests\ComedorAttachUsuarioRequest;
 use App\Http\Requests\ComedorSstoreRequest;
@@ -10,21 +11,22 @@ use App\Models\Comedor;
 use App\Http\Requests\ComensalStoreRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
+use PhpParser\Builder\Class_;
 use PhpParser\Error;
 
 class ComedoresController extends ApiController
 {
-    use Funciones;
+    use Funciones,AjaxGetAttribute;
 
-    public function getData()
-    {
-        return Comedor::searchPaginateAndOrder();
-    }
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
+    public function attribute(Comedor $comedor){
+       return $this->ajaxGetAtribute($comedor);
+    }
+
     public function index()
     {
         return Comedor::get();
@@ -76,6 +78,9 @@ class ComedoresController extends ApiController
     public function show(Comedor $comedor)
     {
         $comedor->load('administradores');
+        //comedor->comidasPorDia ;//=
+        //$comedor->comidasPorDia();
+        //$comedor->comidasPorDiaCount();
         return view('comedor.show',compact('comedor'));
 
     }
@@ -157,5 +162,10 @@ class ComedoresController extends ApiController
             return response()->json('Primedo debe eliminar todos los registros de un comedor',442);
         }
         return response('true');
+    }
+
+    public function getData()
+    {
+        return Comedor::searchPaginateAndOrder();
     }
 }

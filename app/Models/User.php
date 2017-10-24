@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Helper\AjaxGetAttribute;
 use App\Models\Comensal;
 use App\Helper\DataViewer;
 use App\Helper\Foto;
@@ -13,7 +14,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
-    use HasRoleAndPermission,Tabla,Search,Foto;
+    use HasRoleAndPermission,Tabla,Search,Foto,AjaxGetAttribute;
     /**
      * The attributes that are mass assignable.
      *

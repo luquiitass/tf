@@ -1,8 +1,10 @@
 <template>
     <div>
-        <div :class="form.getClassForm('nombre')" >
-            <label >Nombre</label>
-            <input type="text" class="form-control"  v-model="form.nombre">
+        <div :class="form.getClassForm('tipo')" >
+            <label >Tipo de Comida</label>
+            <select class="form-control" v-model="form.tipoComida">
+                <option  v-for="tipo in tipos" :value="tipo.id">{{tipo.nombre}}</option>
+            </select>
             <span class="help-block" v-if="form.errors.has('nombre')" v-text="form.errors.get('nombre')"></span>
         </div>
 
@@ -18,17 +20,26 @@
             <span class="help-block" v-if="form.errors.has('fin')" v-text="form.errors.get('fin')"></span>
         </div>
 
+        <div :class="form.getClassForm('horas_pre_inscripcion')" >
+            <label >Hora:</label>
+            <input type="text" class="form-control timepicker"  v-model="form.horas_pre_inscripcion">
+                <div class="has-info">
+                    <span class="help-block"> explicación </span>
+                </div>
+            <span class="help-block" v-if="form.errors.has('horas_pre_inscripcion')" v-text="form.errors.get('horas_pre_inscripcion')"></span>
+        </div>
+
         <div class="form-group">
             <label class="checkbox">Dias</label>
 
             <label class="btn-block">
                 <input type="checkbox" v-model="todos"/>
-                Todos
+                Seleccionar todos
             </label>
 
-            <label v-for="dia in dias" for="dia" class="checkbox-inline" @click="selectDia(dia)">
-                <input type="checkbox" :id="dia" :value="dia" v-model="diasSelect"/>
-                {{dia}}
+            <label v-for="dia in dias.all()" for="dia" class="checkbox-inline" @click="selectDia(dia.nombre)">
+                <input type="checkbox" :id="dia.nombre" :value="dia.id" v-model="diasSelect"/>
+                {{dia.nombre}}
             </label>
             <!-- fin checkbox -->
         </div>
@@ -46,8 +57,9 @@ export default{
 
     data(){
         return{
-            dias :Constants.dias(),
-            diasSelect : [],
+            dias :'',
+            diasSelect:[],
+            tipos : [],
             todos:'',
         }
     },
@@ -65,12 +77,10 @@ export default{
     },
     methods:{
         init(){
-            var self = this;
-            for ( var item in this.form.comidas_por_dia) {
-                self.diasSelect.unshift(this.form.comidas_por_dia[item].dia)
-            }
+            Dia.all(dias => this.dias = new Coleccion( dias ) );
+            TipoComida.all(tipos => this.tipos = tipos);
 
-            this.form.comidas_por_dia = self.diasSelect;
+
         },
         selectDia(dia){
             $('#' + dia).click()
@@ -78,11 +88,11 @@ export default{
     },
     watch:{
         diasSelect:function (value) {
-            this.form.comidas_por_dia = value
+            this.form.dias = value
         },
         todos:function (value) {
             if (value){
-                this.diasSelect = Constants.dias();
+                this.diasSelect = _.keys(this.dias.datos);
             }else{
                 this.diasSelect = [];
             }

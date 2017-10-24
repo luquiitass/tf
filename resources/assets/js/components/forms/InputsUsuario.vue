@@ -31,11 +31,11 @@
 
         <div :class="form.getClassForm('fecha_nacimiento')">
             <label >Fecha nacimiento</label>
-            <input type="text" class="form-control"  v-model="form.fecha_nacimiento">
+            <input type="text" class="form-control datepicker"  v-model="form.fecha_nacimiento">
             <span class="help-block" v-if="form.errors.has('fecha_nacimiento')" v-text="form.errors.get('fecha_nacimiento')"></span>
         </div>
 
-        <div :class="form.getClassForm('email')">
+        <div :class="form.getClassForm('email')" id="datepicker">
             <label >Email</label>
             <input type="text" class="form-control"  v-model="form.email">
             <span class="help-block" v-if="form.errors.has('email')" v-text="form.errors.get('email')"></span>
@@ -79,7 +79,11 @@ export default{
         }
 
     },
-
+    created(){
+        $('#datetimepicker').datetimepicker({
+            language: 'pt-BR'
+        });
+    },
     computed : {
         conCont : function (){
             return this.conPass ? 'LA contrtaseña sera el DNI' : '';

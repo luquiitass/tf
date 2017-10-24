@@ -2,17 +2,20 @@
 
 namespace App\Models;
 
+use App\Helper\AjaxGetAttribute;
 use App\Helper\Search;
 use App\Helper\Tabla;
 use Illuminate\Database\Eloquent\Model;
 
 class Comensal extends Model
 {
-    use Tabla,Search;
+    use Tabla,Search,AjaxGetAttribute;
 
     protected $table = "comensales";
 
-    protected $fillable = [];
+    protected $fillable = ['user_id','comedor_id'];
+
+    protected $with = ['usuario'];
 
 
     public $timestamps = true;
@@ -21,14 +24,20 @@ class Comensal extends Model
         return $this->belongsTo(User::class,'user_id');
     }
 
-    public function scopeGetData($query){
+    public function comedor(){
+        return $this->belongsTo(Comedor::class);
+    }
 
+    public function inscripciones(){
+        return $this->belongsToMany(ComidaPorDia::class,'inscripciones','comensal_id','comidas_por_dia_id')->with('tipoComida');
+    }
+
+    public function scopeGetData($query,$idComedor){
+
+        $query->join('comedores','comensales.comedor_id','=','comedores.id')
+            ->where('comedores.id',$idComedor);
         $query->leftJoin('users','users.id','=','comensales.user_id');
-        //$query->whereNull('comensales.user_id');
         $query->select('users.*','comensales.*');
-        //$query = User::query()->with('comensal');
-        //$query = User::query()->has('comensal');
-
         return $this->scopeSearchPaginateAndOrder($query);
     }
 

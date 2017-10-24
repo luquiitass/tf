@@ -9,12 +9,16 @@ class ComidaPorDia extends Model
 
     protected $table = "comidas_por_dia";
 
-    protected $fillable = ['dia','tipo_comida_id'];
+    protected $fillable = ['dia_id','tipo_comida_id'];
 
     public $timestamps = true;
 
-    public function TipoComida(){
-        $this->belongsTo(TipoComida::class);
+    public function tipoComida(){
+        return $this->belongsTo(TipoComida::class);
+    }
+
+    public function dia(){
+        return $this->belongsTo(Dia::class);
     }
 
 }

@@ -4,7 +4,8 @@
             Comensales
         </titulo>
 
-        <tabla source="comensales/getData"
+        <tabla
+            :source="'comensales/getData?comedor=' + comedor.id"
             @selectItem="showComensal"
             @updatedList="updateList"
             :list="comensales"
@@ -44,6 +45,7 @@ export default{
 
     data(){
         return {
+            comedor: vm.app.comedor,
             comensales:[],
             modalShow:'',
             comensalShow:''
@@ -64,7 +66,9 @@ export default{
     },
     watch: {
         comensalShow: function () {
-            this.$emit('showComensal', this.comensalShow);
+            //this.$emit('showComensal', this.comensalShow);
+            router.push({ path: 'comensales/' + this.comensalShow.id , query:{p_comensal : this.comensalShow}});
+
         },
         comensal: function(){
             this.showComensal(this.comensal)
@@ -75,6 +79,8 @@ export default{
         },
         comensales(){
             this.$set(vm.app.comedor,'comensales',this.comensales);
+            //router.push({ path: 'comensales'});
+
         }
     },
     methods:{

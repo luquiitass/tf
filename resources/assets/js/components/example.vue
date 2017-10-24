@@ -12,9 +12,7 @@ export  default{
         }
     },
     props: {
-        usuario: {
-            requerid: true,
-        }
+
     },
     created(){
         this.init();

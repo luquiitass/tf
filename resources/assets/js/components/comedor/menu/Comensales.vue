@@ -1,8 +1,11 @@
 <template>
     <div>
-        <index v-show="!comensalShow" :comensal="comensalShow" @showComensal="showComensal"></index>
 
-        <show v-if="comensalShow" :p_comensal="comensalShow" @cancelar="cancelarShow" @updateComensal="updateComensal"></show>
+        <router-view></router-view>
+
+        <!--<index v-show="!comensalShow" :comensal="comensalShow" @showComensal="showComensal"></index>-->
+
+        <!--<show v-if="comensalShow" :p_comensal="comensalShow" @cancelar="cancelarShow" @updateComensal="updateComensal"></show>-->
     </div>
 </template>
 

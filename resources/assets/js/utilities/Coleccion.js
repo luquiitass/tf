@@ -38,20 +38,20 @@ class Coleccion {
     }
 
     addOrReplace(item){
-        if (this.has(item.id)){
-            this.datos[item.id]= item;
-        }else {
-            this.datos[item.id]=item;
-        }
+
+        this.datos[item.id] = item;
+
     }
 
     remove(item){
         if(this.datos[item]){
             delete this.datos[item];
+            console.log('remove for id')
             return true;
         }else{
             if(this.datos[item.id]) {
                 delete this.datos[item.id];
+                console.log('remove for id of object')
                 return true;
             }
         }
@@ -72,7 +72,7 @@ class Coleccion {
     }
 
     map(callback){
-        _.map(this.datos, callback);
+        return _.map(this.datos, callback);
     }
 
     each(callback){
@@ -87,9 +87,12 @@ class Coleccion {
      * @param {object} datos
      */
     record(datos) {
-        this.datos = datos;
+        this.datos = _.indexBy(datos, 'id');
     }
 
+    update(){
+        this.record(this.all());
+    }
 
     /**
      * Clear one or all error fields.

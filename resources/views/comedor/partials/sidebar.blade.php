@@ -34,7 +34,7 @@
             {{--</router-link>--}}
 
 
-            <router-link tag="li" to="/inicio" exact>
+            <router-link tag="li" to="/" exact>
                 <a>
                     <i class='fa fa-link'></i>
                     <span>{{trans('string.inicio') }}
@@ -50,7 +50,7 @@
                 </a>
             </router-link>
 
-            <router-link tag="li" to="/tiposDeComida" exact>
+            <router-link tag="li" to="/tiposComidas" exact>
                 <a>
                     <i class='fa fa-link'></i>
                     <span>{{trans('string.tipos_de_comida') }}

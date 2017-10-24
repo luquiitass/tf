@@ -69,7 +69,7 @@ export  default{
     },
     methods:{
       init(){
-          this.form = new Form(this.usuario);
+          this.form = new Form({comedor_id : vm.app.comedor.id});
       },
         attach(usuario){
           this.form.post(PATH + 'comensal/attachUsuario/' + this.usuario.id)

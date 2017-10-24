@@ -24,12 +24,8 @@ class TipoComidaUpdateRequest extends Request
     public function rules()
     {
         $id = $this->route()->parameters()['tipoComida'];
-        $comedor_id = $this->request->get('comedor_id');
         return [
-            'nombre'=>'required|unique:tipos_comida,nombre,'.$id.',id,comedor_id,'.$comedor_id,
-            'inicio'=>'required',
-            'fin'=>'required',
-            'comedor_id'=>'required'
+            'nombre'=>'required|unique:tipos_comida,nombre,'.$id.',id',
         ];
     }
 }

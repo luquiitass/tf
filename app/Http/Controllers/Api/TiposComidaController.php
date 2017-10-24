@@ -6,6 +6,7 @@ use App\Http\Requests\TipoComidaStoreRequest;
 use App\Http\Requests\TipoComidaUpdateRequest;
 use App\Models\Comedor;
 use App\Models\ComidaPorDia;
+use App\Models\Dia;
 use App\Models\TipoComida;
 use Illuminate\Http\Request;
 
@@ -19,14 +20,9 @@ class TiposComidaController extends ApiController
      */
     public function index()
     {
-        //
-        if (request()->has('comedor')){
-            $comedor = Comedor::findOrFail(request()->comedor);
-            //dd($comedor->tiposComidas);
-            $tipos = $comedor->tiposComidas;
-        }else{
-            $tipos = TipoComida::get();
-        }
+
+        $tipos = TipoComida::get();
+
         return response()->json($tipos);
 
     }
@@ -51,12 +47,11 @@ class TiposComidaController extends ApiController
     {
         try {
             \DB::beginTransaction();
-            $tipo = TipoComida::create($request->only('nombre', 'inicio', 'fin', 'comedor_id'));
-            $dias = $request->get('comidas_por_dia');
+            $tipo = TipoComida::create($request->only('nombre'));
+            $dias = Dia::get();
             foreach ($dias as $dia) {
-                $tipo->comidasPorDia()->create(['dia' => $dia]);
+                $tipo->comidasPorDia()->create(['dia_id' => $dia->id]);
             }
-            $tipo->load('comidasPorDia');
             \DB::commit();
             return response()->json($tipo);
         }catch (\Exception $e){
@@ -101,14 +96,7 @@ class TiposComidaController extends ApiController
 
         try {
             \DB::beginTransaction();
-            $tipoComida->update($request->only('nombre', 'inicio', 'fin', 'comedor_id'));
-            $dias = $request->get('comidas_por_dia');
-            $tipoComida->comidasPorDia()->delete();
-            foreach ($dias as $dia) {
-                $tipoComida->comidasPorDia()->create(['dia' => $dia]);
-            }
-            $tipoComida->load('comidasPorDia');
-
+                $tipoComida->update($request->only('nombre'));
             \DB::commit();
             return response()->json($tipoComida);
         }catch (\Exception $e){

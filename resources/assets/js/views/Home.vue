@@ -1,6 +1,9 @@
 <template>
     <div>
-       Inicio
+        <titulo>
+            Inicio
+        </titulo>
+
     </div>
 </template>
 
@@ -9,9 +12,22 @@
 import Titulo from '../components/oters/Titulo.vue';
 
 export default{
+    data(){
+        return {
+
+        }
+    },
+
+    created(){
+
+
+    },
     components :{
         Titulo
     },
+    methods:{
+
+    }
 }
 
 </script>

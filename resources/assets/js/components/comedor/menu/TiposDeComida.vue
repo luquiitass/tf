@@ -3,13 +3,11 @@
         <titulo>
             Tipos de comida
 
-
             <button class="btn btn-primary " @click="modalShow=true">Nuevo
                 <i class="fa fa-plus"></i>
             </button>
 
         </titulo>
-
 
         <div class="row match-my-cols">
             <div class="col-xs-12 col-md-2" id="colmin">
@@ -80,7 +78,7 @@ export default{
             comedor : vm.app.comedor,
             modalShow :false,
             componenteDerecho:'show',
-            tiposComidas:[],
+            tiposComidas : vm.app.comedor.tiposComidas,
             tipoComidaShow:null,
             tipoComidaEdit:null,
             tipoComidaDelet:null,
@@ -104,14 +102,15 @@ export default{
             this.showTipoComida(_.first(this.tiposComidas));
         },
         getTiposComidas(){
-            axios.get(PATH + 'tiposComida?comedor=' + this.comedor.id)
-                    .then(response=>{
-                        this.tiposComidas = response.data;
-                        this.showTipoComida(_.first(this.tiposComidas));
-                    })
-                    .catch(error=>{
-                        console.log(error);
-                    })
+//            axios.get(PATH + 'tiposComida?comedor=' + this.comedor.id)
+//                    .then(response=>{
+//                        this.tiposComida = response.data;
+//                        this.showTipoComida(_.first(this.tiposComida));
+//                    })
+//                    .catch(error=>{
+//                        console.log(error);
+//                    })
+            Comedor.attribure(this.comedor.id,'tiposComidas',tipos => this.tiposComidas = tipos);
         },
 
         addTipoComida(tipo){

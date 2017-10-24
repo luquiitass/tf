@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Helper\AjaxGetAttribute;
 use App\Models\Comensal;
 use App\Http\Requests\ComensalStoreRequest;
 use App\Models\User;
@@ -9,6 +10,15 @@ use Illuminate\Http\Request;
 
 class ComensalesController extends ApiController
 {
+
+    use AjaxGetAttribute;
+
+
+    public function attribute(Comensal $comensal){
+
+        return $this->ajaxGetAtribute($comensal);
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -39,8 +49,9 @@ class ComensalesController extends ApiController
     {
         try{
             \DB::beginTransaction();
+            $comedor_id = $request->get('comedor_id');
             $usuario = User::create($request->all());
-            $usuario->comensal()->create([]);
+            $usuario->comensal()->create(['comedor_id'=>$comedor_id]);
             $usuario->setFoto($request->foto);
             $usuario->id = $usuario->comensal->id;
             \DB::commit();
@@ -90,13 +101,26 @@ class ComensalesController extends ApiController
 
     public function attachUsuario(User $usuario){
 
-        if (!Comensal::where('user_id',$usuario->id)->first()){
-            $usuario->comensal()->create([]);
+        //dd($usuario);
+        $comedor_id = request()->get('comedor_id');
+        if (!Comensal::where('user_id',$usuario->id)->where('comedor_id',$comedor_id)->first()){
+            $usuario->comensal()->create(['comedor_id'=>$comedor_id]);
         }else{
             return response()->json(['error'=>'El comensal ya existe'],402);
         }
         $usuario->id = $usuario->comensal->id;
         return $usuario->load('comensal');
+    }
+
+    public function cambiarInscripcion(Comensal $comensal){
+        $comida = request()->get('comida');
+        //dd($comensal->inscripciones->where('id' , $comida['id']));
+        if ($comensal->inscripciones->where('id' , $comida['id'])->first()){
+            $comensal->inscripciones()->detach($comida['id']);
+        }else{
+            $comensal->inscripciones()->attach($comida['id']);
+        }
+
     }
 
     /**
@@ -115,7 +139,8 @@ class ComensalesController extends ApiController
      */
     public function getData()
     {
-        return Comensal::getData();
+        $idComedor = request()->get('comedor');
+        return Comensal::getData($idComedor);
     }
 
 }

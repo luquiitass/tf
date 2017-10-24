@@ -14,7 +14,11 @@
 use App\Models\User;
 
 Route::get('/prueba',function (){
-    return view('comensal.index');
+
+    $comedor = \App\Models\Comedor::first();
+    $retorno = $comedor->comidasByTipoComida();
+
+    return dd($retorno);
 });
 
 Route::get('/', function () {
@@ -50,12 +54,15 @@ Route::get('/usuarios/search','Api\UsersController@search');
 Route::resource('usuario','Api\UsersController');
 
 //Route Comedor
+Route::get('comedor/{comedor}/attribute','Api\ComedoresController@attribute');
 Route::post('comedor/attachUsuario/{comedor}','Api\ComedoresController@attachUsuario');
 Route::delete('comedor/detachUsuario/{comedor}','Api\ComedoresController@detachUsuario');
 Route::post('comedores/getData','Api\ComedoresController@getData');
 Route::get('comedores','Api\ComedoresController@index');
 Route::resource('comedor','Api\ComedoresController');
 
+Route::get('comensal/{comensal}/attribute','Api\ComensalesController@attribute');
+Route::post('comensal/cambiarInscripcion/{comensal}' , 'Api\ComensalesController@cambiarInscripcion');
 Route::post('comensales/getData','Api\ComensalesController@getData');
 Route::post('comensal/attachUsuario/{usuario}','Api\ComensalesController@attachUsuario');
 Route::resource('comensal','Api\ComensalesController');
@@ -63,7 +70,14 @@ Route::resource('comensal','Api\ComensalesController');
 
 
 //Tipos de comidas
-Route::get('tiposComida','Api\TiposComidaController@index');
+//Route::get('tiposComida','Api\TiposComidaController@index');
 Route::resource('tipoComida','Api\TiposComidaController');
+
+//Dias
+Route::resource('dia','Api\DiasController');
+
+
+//Comedores comidas por dia
+Route::resource('comedoresComidaPorDia','Api\ComedoresComidasPorDias');
 
 

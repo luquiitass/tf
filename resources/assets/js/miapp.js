@@ -2,6 +2,7 @@
 require('./bootstrap');
 
 import router from './routes';
+window.router = router;
 
 
 window.vm = new Vue({
@@ -24,6 +25,15 @@ window.vm = new Vue({
                     console.log(error);
                 });
 
+        },
+        created(){
+            $(document).on('focus','.datepicker',function () {
+                $(this).datepicker({
+                    format: "dd-mm-yyyy",
+                    language: "es",
+                    autoclose: true,
+                });
+            });
         }
     }
 

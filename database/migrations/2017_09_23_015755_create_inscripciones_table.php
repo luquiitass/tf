@@ -15,9 +15,9 @@ class CreateInscripcionesTable extends Migration {
 		Schema::create('inscripciones', function(Blueprint $table)
 		{
 			$table->integer('id', true);
-			$table->integer('comidas_por_dia_id');
+			$table->integer('comida_por_dia_id');
 			$table->integer('comensal_id')->index('comensales_inscripciones_fk');
-			$table->unique(['comidas_por_dia_id','comensal_id'], 'inscripciones_idx');
+			$table->unique(['comida_por_dia_id','comensal_id'], 'inscripciones_idx');
 		});
 	}
 

@@ -23,13 +23,8 @@ class TipoComidaStoreRequest extends Request
      */
     public function rules()
     {
-        $comedor_id = $this->request->get('comedor_id');
-        //dd($comedor_id);
         return [
-            'nombre'=>'required|unique:tipos_comida,nombre,null,id,comedor_id,'.$comedor_id,
-            'inicio'=>'required',
-            'fin'=>'required',
-            'comedor_id'=>'required'
+            'nombre'=>'required|unique:tipos_comida,nombre',
         ];
     }
 }

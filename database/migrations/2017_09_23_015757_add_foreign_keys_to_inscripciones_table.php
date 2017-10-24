@@ -15,7 +15,7 @@ class AddForeignKeysToInscripcionesTable extends Migration {
 		Schema::table('inscripciones', function(Blueprint $table)
 		{
 			$table->foreign('comensal_id', 'comensales_inscripciones_fk')->references('id')->on('comensales')->onUpdate('CASCADE')->onDelete('CASCADE');
-			$table->foreign('comidas_por_dia_id', 'comidas_por_dia_inscripciones_fk')->references('id')->on('comidas_por_dia')->onUpdate('CASCADE')->onDelete('CASCADE');
+			$table->foreign('comida_por_dia_id', 'comidas_por_dia_inscripciones_fk')->references('id')->on('comidas_por_dia')->onUpdate('CASCADE')->onDelete('CASCADE');
 		});
 	}
 

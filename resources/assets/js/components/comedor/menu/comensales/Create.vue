@@ -53,7 +53,7 @@ import AttachUsuario from './AttachUsuario';
 export default{
     data(){
         return {
-            form : new Form({foto: PATH + 'img/user.png',nombre:'',apellido: '',dni: '',fecha_nacimiento: '',email: '',password: ''}),
+            form : new Form({foto: PATH + 'img/user.png',nombre:'',apellido: '',dni: '',fecha_nacimiento: '',email: '',password: '', comedor_id : vm.app.comedor.id}),
             show: false,
             params: {
                 token: '123456798',

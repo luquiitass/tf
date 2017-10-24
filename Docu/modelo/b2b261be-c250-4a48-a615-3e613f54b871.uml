@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>DATABASE</ID>
+  <OriginalElement>b2b261be-c250-4a48-a615-3e613f54b871</OriginalElement>
+  <nodes>
+    <node x="974.1052631578948" y="0.0">b2b261be-c250-4a48-a615-3e613f54b871.TABLE:tf.comedores</node>
+    <node x="933.0" y="968.0">b2b261be-c250-4a48-a615-3e613f54b871.TABLE:tf.presencias</node>
+    <node x="1244.5" y="219.0">b2b261be-c250-4a48-a615-3e613f54b871.TABLE:tf.tipos_comida</node>
+    <node x="719.1052631578948" y="760.5">b2b261be-c250-4a48-a615-3e613f54b871.TABLE:tf.comensales</node>
+    <node x="0.0" y="1136.0">b2b261be-c250-4a48-a615-3e613f54b871.TABLE:tf.migrations</node>
+    <node x="0.0" y="461.0">b2b261be-c250-4a48-a615-3e613f54b871.TABLE:tf.roles</node>
+    <node x="244.0" y="461.0">b2b261be-c250-4a48-a615-3e613f54b871.TABLE:tf.permissions</node>
+    <node x="521.0526315789474" y="415.0">b2b261be-c250-4a48-a615-3e613f54b871.TABLE:tf.users</node>
+    <node x="1279.75" y="979.5">b2b261be-c250-4a48-a615-3e613f54b871.TABLE:tf.inscripciones</node>
+    <node x="1147.1052631578948" y="760.5">b2b261be-c250-4a48-a615-3e613f54b871.TABLE:tf.planillas</node>
+    <node x="20.0526315789474" y="760.5">b2b261be-c250-4a48-a615-3e613f54b871.TABLE:tf.permission_role</node>
+    <node x="280.1052631578948" y="760.5">b2b261be-c250-4a48-a615-3e613f54b871.TABLE:tf.role_user</node>
+    <node x="1244.5" y="484.0">b2b261be-c250-4a48-a615-3e613f54b871.TABLE:tf.comidas_por_dia</node>
+    <node x="923.1052631578948" y="749.0">b2b261be-c250-4a48-a615-3e613f54b871.TABLE:tf.comedor_user</node>
+    <node x="497.0526315789474" y="760.5">b2b261be-c250-4a48-a615-3e613f54b871.TABLE:tf.permission_user</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="b2b261be-c250-4a48-a615-3e613f54b871.TABLE:tf.inscripciones" target="b2b261be-c250-4a48-a615-3e613f54b871.TABLE:tf.comensales">
+      <point x="-36.0" y="-50.0" />
+      <point x="1315.75" y="938.0" />
+      <point x="857.1052631578948" y="938.0" />
+      <point x="46.0" y="73.0" />
+    </edge>
+    <edge source="b2b261be-c250-4a48-a615-3e613f54b871.TABLE:tf.inscripciones" target="b2b261be-c250-4a48-a615-3e613f54b871.TABLE:tf.comidas_por_dia">
+      <point x="36.0" y="-50.0" />
+      <point x="1387.75" y="729.0" />
+      <point x="1382.5" y="729.0" />
+      <point x="46.0" y="73.0" />
+    </edge>
+    <edge source="b2b261be-c250-4a48-a615-3e613f54b871.TABLE:tf.planillas" target="b2b261be-c250-4a48-a615-3e613f54b871.TABLE:tf.comidas_por_dia">
+      <point x="0.0" y="-73.0" />
+      <point x="1239.1052631578948" y="729.0" />
+      <point x="1290.5" y="729.0" />
+      <point x="-46.0" y="73.0" />
+    </edge>
+    <edge source="b2b261be-c250-4a48-a615-3e613f54b871.TABLE:tf.comensales" target="b2b261be-c250-4a48-a615-3e613f54b871.TABLE:tf.comedores">
+      <point x="46.0" y="-73.0" />
+      <point x="857.1052631578948" y="729.0" />
+      <point x="873.3552631578948" y="729.0" />
+      <point x="873.3552631578948" y="194.0" />
+      <point x="1008.1052631578948" y="194.0" />
+      <point x="-68.0" y="84.5" />
+    </edge>
+    <edge source="b2b261be-c250-4a48-a615-3e613f54b871.TABLE:tf.presencias" target="b2b261be-c250-4a48-a615-3e613f54b871.TABLE:tf.comensales">
+      <point x="-41.0" y="-61.5" />
+      <point x="974.0" y="948.0" />
+      <point x="765.1052631578948" y="948.0" />
+      <point x="-46.0" y="73.0" />
+    </edge>
+    <edge source="b2b261be-c250-4a48-a615-3e613f54b871.TABLE:tf.comidas_por_dia" target="b2b261be-c250-4a48-a615-3e613f54b871.TABLE:tf.tipos_comida">
+      <point x="0.0" y="-73.0" />
+      <point x="0.0" y="73.0" />
+    </edge>
+    <edge source="b2b261be-c250-4a48-a615-3e613f54b871.TABLE:tf.comedor_user" target="b2b261be-c250-4a48-a615-3e613f54b871.TABLE:tf.users">
+      <point x="-51.0" y="-84.5" />
+      <point x="974.1052631578948" y="719.0" />
+      <point x="787.0526315789474" y="719.0" />
+      <point x="114.0" y="142.0" />
+    </edge>
+    <edge source="b2b261be-c250-4a48-a615-3e613f54b871.TABLE:tf.role_user" target="b2b261be-c250-4a48-a615-3e613f54b871.TABLE:tf.roles">
+      <point x="-46.0" y="-73.0" />
+      <point x="326.1052631578948" y="719.0" />
+      <point x="168.0" y="719.0" />
+      <point x="56.0" y="96.0" />
+    </edge>
+    <edge source="b2b261be-c250-4a48-a615-3e613f54b871.TABLE:tf.tipos_comida" target="b2b261be-c250-4a48-a615-3e613f54b871.TABLE:tf.comedores">
+      <point x="0.0" y="-73.0" />
+      <point x="1336.5" y="194.0" />
+      <point x="1144.1052631578948" y="194.0" />
+      <point x="68.0" y="84.5" />
+    </edge>
+    <edge source="b2b261be-c250-4a48-a615-3e613f54b871.TABLE:tf.permission_role" target="b2b261be-c250-4a48-a615-3e613f54b871.TABLE:tf.permissions">
+      <point x="46.0" y="-73.0" />
+      <point x="158.0526315789474" y="729.0" />
+      <point x="300.0" y="729.0" />
+      <point x="-56.0" y="96.0" />
+    </edge>
+    <edge source="b2b261be-c250-4a48-a615-3e613f54b871.TABLE:tf.permission_user" target="b2b261be-c250-4a48-a615-3e613f54b871.TABLE:tf.users">
+      <point x="46.0" y="-73.0" />
+      <point x="-38.0" y="142.0" />
+    </edge>
+    <edge source="b2b261be-c250-4a48-a615-3e613f54b871.TABLE:tf.comedor_user" target="b2b261be-c250-4a48-a615-3e613f54b871.TABLE:tf.comedores">
+      <point x="51.0" y="-84.5" />
+      <point x="0.0" y="84.5" />
+    </edge>
+    <edge source="b2b261be-c250-4a48-a615-3e613f54b871.TABLE:tf.permission_role" target="b2b261be-c250-4a48-a615-3e613f54b871.TABLE:tf.roles">
+      <point x="-46.0" y="-73.0" />
+      <point x="66.0526315789474" y="729.0" />
+      <point x="56.0" y="729.0" />
+      <point x="-56.0" y="96.0" />
+    </edge>
+    <edge source="b2b261be-c250-4a48-a615-3e613f54b871.TABLE:tf.presencias" target="b2b261be-c250-4a48-a615-3e613f54b871.TABLE:tf.planillas">
+      <point x="41.0" y="-61.5" />
+      <point x="1056.0" y="948.0" />
+      <point x="1239.1052631578948" y="948.0" />
+      <point x="0.0" y="73.0" />
+    </edge>
+    <edge source="b2b261be-c250-4a48-a615-3e613f54b871.TABLE:tf.role_user" target="b2b261be-c250-4a48-a615-3e613f54b871.TABLE:tf.users">
+      <point x="46.0" y="-73.0" />
+      <point x="418.1052631578948" y="729.0" />
+      <point x="559.0526315789474" y="729.0" />
+      <point x="-114.0" y="142.0" />
+    </edge>
+    <edge source="b2b261be-c250-4a48-a615-3e613f54b871.TABLE:tf.permission_user" target="b2b261be-c250-4a48-a615-3e613f54b871.TABLE:tf.permissions">
+      <point x="-46.0" y="-73.0" />
+      <point x="543.0526315789474" y="719.0" />
+      <point x="412.0" y="719.0" />
+      <point x="56.0" y="96.0" />
+    </edge>
+    <edge source="b2b261be-c250-4a48-a615-3e613f54b871.TABLE:tf.comensales" target="b2b261be-c250-4a48-a615-3e613f54b871.TABLE:tf.users">
+      <point x="-46.0" y="-73.0" />
+      <point x="765.1052631578948" y="729.0" />
+      <point x="711.0526315789474" y="729.0" />
+      <point x="38.0" y="142.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.4301948051948052" x="729.4566037735849" y="626.0" />
+  <SelectedNodes>
+    <node>b2b261be-c250-4a48-a615-3e613f54b871.TABLE:tf.permission_user</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Key columns</Category>
+    <Category>Columns</Category>
+  </Categories>
+</Diagram>
+

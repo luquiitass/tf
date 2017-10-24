@@ -24,7 +24,7 @@ import Inputs from '../../../forms/InputsTiposDeComida.vue';
 export  default{
     data(){
         return{
-            form:new Form({nombre:'',inicio:'',fin:'',comedor_id:vm.app.comedor.id,comidas_por_dia:[]}),
+            form:new Form({tipoComida:'',inicio:'',fin:'',comedor_id:vm.app.comedor.id,dias:[],horas_pre_inscripcion:''}),
         }
     },
     components:{
@@ -41,7 +41,7 @@ export  default{
 
         },
         onSubmit(){
-            this.form.post( PATH +'tipoComida')
+            this.form.post( PATH +'comedoresComidaPorDia')
                     .then(tipo =>{
                         this.$emit('addTipoComida',tipo);
                         this.cancelar();

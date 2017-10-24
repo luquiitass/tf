@@ -9,6 +9,8 @@
 namespace App\Helper;
 
 
+use App\Models\Comedor;
+
 Trait Funciones
 {
 
@@ -19,5 +21,6 @@ Trait Funciones
         }
         return $retorno;
     }
+
 
 }
