@@ -4,12 +4,14 @@
         <div class="dias">
 
 
-                    <div class="dia" v-for="(comidas,dia) in comidasPorDia()" style="border: 0px; background-color: transparent !important;">
+                    <div class="dia" v-for="(comidas,dia) in comidasByDia" >
                         {{dia}}
-                                <div class="btn-group btn-block comidas"  v-for="comida in comidas">
+                        <span>{{comidas[0].fecha.date | moment('Do MMMM') }}</span>
+                        <div class="btn-group btn-block comidas"  v-for="comida in comidas">
 
                                     <button type="button" :class="classButton(comida)" :disabled="comida == select" @click="change(comida)">
                                         {{nombreComidaCambiando(comida)}}
+
                                         <i :class="iconButton(comida)" v-if="comida != select"></i>
                                         <i v-else class="fa fa-spinner fa-spin fa-fw pull-right"></i>
                                     </button>
@@ -44,6 +46,7 @@ export  default{
         return{
             comedor : vm.app.comedor,
             inscripciones : [],
+            comidasByDia : [],
             select:null,
             dias : Constants.dias(),
         }
@@ -57,7 +60,25 @@ export  default{
     created(){
         this.init();
     },
-    computed:{
+    computed : {
+        comidas(){
+            return this.comedor.comidas;
+        }
+    },
+    watch:{
+        dias(){
+            console.log(' updates comids by dis')
+            this.comidasByDia = this.comidasPorDia();
+        },
+        comidas(){
+            console.log(' updates comids by comidas')
+            this.comidasByDia = this.comidasPorDia();
+        },
+        inscripciones(){
+            console.log(' updates comids by inscripciones')
+            this.comidasByDia = this.comidasPorDia();
+
+        }
 
     },
     methods: {
@@ -65,13 +86,18 @@ export  default{
             this.inscripciones = new Coleccion(this.comensal.inscripciones);
             Comedor.attribure(
                     this.comedor.id,
-                    'comidasPorDia',
-                    comidas => this.comedor.comidasPorDia = comidas
+                    'comidasByDia',
+                    comidas => this.comedor.comidas = comidas
             );
+
+            Dia.all(dias => {
+                this.dias = _.pluck(dias, 'nombre');
+            });
+
             Comensal.attribure(
                     this.comensal.id,
-                    'inscripciones',
-                    inscripciones => this.comensal.inscripciones = new Coleccion(inscripciones)
+                    'comidas',
+                    inscripciones => this.inscripciones = new Coleccion(inscripciones)
             );
             //
         },
@@ -115,9 +141,9 @@ export  default{
             var retorno = {};
             var dias = this.dias;
             for( var key in dias){
-                var exist = _.has(this.comedor.comidasPorDia , dias[key]);
+                var exist = _.has(this.comidas , dias[key]);
                 if(exist){
-                    retorno[dias[key]] = this.comedor.comidasPorDia[dias[key]];
+                    retorno[dias[key]] = this.comidas[dias[key]];
                 }
             }
             return retorno;

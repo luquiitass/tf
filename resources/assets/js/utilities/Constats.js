@@ -4,7 +4,7 @@
 class Constants{
 
     static dias(){
-        return ['Lunes','Martes','Miercoles','Jueves','Viernes','Sabado','Domingo'];
+        return ['Lunes','Martes','Miércoles','Jueves','Viernes','Sábado','Domingo'];
     }
 
 }

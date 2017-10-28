@@ -31,7 +31,10 @@
 
         <div :class="form.getClassForm('fecha_nacimiento')">
             <label >Fecha nacimiento</label>
-            <input type="text" class="form-control datepicker"  v-model="form.fecha_nacimiento">
+            <!--<input type="text" class="form-control datepicker"  v-model="form.fecha_nacimiento">-->
+
+            <datepicker v-model="form.fecha_nacimiento" language="es" :bootstrapStyling="true"></datepicker>
+
             <span class="help-block" v-if="form.errors.has('fecha_nacimiento')" v-text="form.errors.get('fecha_nacimiento')"></span>
         </div>
 
@@ -80,9 +83,15 @@ export default{
 
     },
     created(){
-        $('#datetimepicker').datetimepicker({
-            language: 'pt-BR'
-        });
+
+//        $('.datepicker').datepicker({
+//            endDate: "now",
+//            maxViewMode: 3,
+//            language: "es",
+//            calendarWeeks: true,
+//            autoclose: true,
+//            todayHighlight: true
+//        });
     },
     computed : {
         conCont : function (){

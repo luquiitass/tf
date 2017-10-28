@@ -53,24 +53,24 @@ export  default{
         init(){
             Comedor.attribure(
                     this.comedor.id,
-                    'comidasPorDiaCount',
-                    comidas => this.comedor.comidasPorDiaCount = comidas
+                    'comidasByDia',
+                    comidas => this.comedor.comidas = comidas
             )
         },
         comidasPorDia(){
             var retorno = {};
             var dias = this.dias;
             for( var key in dias){
-                var exist = _.has(this.comedor.comidasPorDiaCount , dias[key]);
+                var exist = _.has(this.comedor.comidas , dias[key]);
                 if(exist){
-                    retorno[dias[key]] = this.comedor.comidasPorDiaCount[dias[key]];
+                    retorno[dias[key]] = this.comedor.comidas[dias[key]];
                 }
             }
             return retorno;
         },
         verAnotados(comida){
 
-            router.push({ path:'/anotados/' + comida.id,query : {comida : comida}});
+            router.push({ path:'/anotados/' + comida.id});
 
         }
     }

@@ -14,7 +14,7 @@
         <div class="col-xs-12 col-md-2" id="colmin">
 
             <ul class="nav nav-pills nav-stacked">
-                <li v-for="(tipo,nombre) in tiposComidas" :class="isActive(tipo)">
+                <li v-for="(tipo,nombre) in comidasByTipo" :class="isActive(tipo)">
                     <a @click="showTipoComida(tipo)" >{{nombre}}</a>
                 </li>
             </ul>
@@ -34,7 +34,7 @@
                 <edit-tipo-comida
                     v-if="componenteDerecho=='edit'"
                     :p_tipo="tipoComidaEdit"
-                    @tipoComidaEdited="tipoComidaEdited"
+                    @tipoComidasEdited="tipoComidasEdited"
                     @cancelado="showTipoComida(tipoComidaShow)">
                 </edit-tipo-comida>
 
@@ -59,7 +59,7 @@
 
         <create
             v-if="modalShow"
-            @addTipoComida="addTipoComida"
+            @addTiposComida="addTiposComida"
             @cancelado="modalShow=false">
         </create>
 
@@ -80,7 +80,7 @@ export default{
         return{
             comedor : vm.app.comedor,
             modalShow :false,
-            tiposComidas : '',
+            comidasByTipo : '',
             componenteDerecho:'show',
             tipoComidaShow:null,
             tipoComidaEdit:null,
@@ -98,30 +98,22 @@ export default{
     },
     created(){
         this.init();
-        this.getTiposComidas()
     },
     methods:{
         init(){
 
             Comedor.attribure(this.comedor.id,
             'comidasByTipoComida',
-            tipos => this.tiposComidas = tipos);
-        },
-        getTiposComidas(){
-//            axios.get(PATH + 'tiposComida?comedor=' + this.comedor.id)
-//                    .then(response=>{
-//                        this.tiposComida = response.data;
-//                        this.showTipoComida(_.first(this.tiposComida));
-//                    })
-//                    .catch(error=>{
-//                        console.log(error);
-//                    })
-            //Comedor.attribure(this.comedor.id,'tiposComidas',tipos => this.tiposComidas = tipos);
+            tipos => {
+                this.comidasByTipo = tipos;
+            });
+
+
         },
 
-        addTipoComida(tipo){
-            this.tiposComidas.push(tipo);
-            this.showTipoComida(tipo);
+        addTiposComida(tipos){
+            this.comidasByTipo = tipos;
+            this.componenteDerecho = 'create'
             this.$notify({
                 group:'g',
                 title:'Felicitaciones',
@@ -131,9 +123,11 @@ export default{
             });
 
         },
-        tipoComidaEdited(tipo){
-            this.showTipoComida(tipo);
-            Utilidades.changeObjectListById(this.tiposComidas,tipo.id,tipo);
+        tipoComidasEdited(tipos){
+            //this.showTipoComida(tipo);
+            this.comidasByTipo = tipos;
+            this.showTipoComida( this.comidasByTipo[this.tipoComidaShow.nombre]);
+
             this.$notify({
                 group:'g',
                 title:'Felicitaciones',
@@ -143,8 +137,8 @@ export default{
             })
         },
         tipoComidaDeleted(tipo){
-            Utilidades.deleteObjectList(this.tiposComidas,tipo.id);
-            this.showTipoComida(_.first(this.tiposComidas));
+            Utilidades.deleteObjectList(this.comidasByTipo,tipo.id);
+            this.showTipoComida(_.first(this.comidasByTipo));
             this.$notify({
                 group:'g',
                 title:'Felicitaciones',
@@ -161,13 +155,23 @@ export default{
         },
         showEdit(){
             this.componenteDerecho = 'edit'
-            this.tipoComidaEdit = this.tipoComidaShow;
+            this.tipoComidaEdit = this.tipoComidaShow ;
         },
         showDelet(){
             this.tipoComidaDelet = this.tipoComidaShow;
         },
         isActive(tipo){
             return this.tipoComidaShow == tipo ? 'manita active' : 'manita';
+        },
+        getTipoEdit(tipo){
+            var dias = [];
+            for (var comida in tipo){
+                dias.unshift(tipo[comida].dia.id);
+            }
+            var comida = tipo[0];
+
+            return {comedor_id:this.comedor.id,inicio:comida.inicio,fin:comida.fin,hora_pre_inscripcion : comida.hora_pre_inscripcion,tipo_comida : comida.tipo_comida_id,dias : dias};
+
         }
     }
 

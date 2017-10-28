@@ -18,6 +18,10 @@ import Notifications from 'vue-notification';
 
 import Conexion from './models/Conexion';
 
+import Moment from 'vue-moment';
+
+
+
 
 //--Modelos
 
@@ -25,6 +29,7 @@ import Comedor from './models/Comedor';
 import Comensal from './models/Comensal';
 import TipoComida from './models/TipoComida';
 import Dia from './models/Dia';
+import Comida from './models/Comida';
 
 
 import Lang from 'lang.js';
@@ -41,6 +46,7 @@ window.Comedor = Comedor;
 window.Comensal = Comensal;
 window.TipoComida = TipoComida;
 window.Dia = Dia;
+window.Comida = Comida;
 
 
 window.Vue = Vue;
@@ -76,9 +82,11 @@ Vue.prototype.trans = (key) => {
 }
 
 // Laravel AdminLTE vue components
+require('moment/locale/es');
 
 Vue.use(VModal, { dialog: true });
 Vue.use(Notifications);
+Vue.use(Moment);
 
 Vue.component('titulo',require('./components/oters/Titulo.vue'));
 Vue.component('modal',require('./components/oters/Modal.vue'));
@@ -89,12 +97,31 @@ Vue.component('tabla',require('./utilities/Tabla.vue'));
 Vue.component('select-auto',require('./utilities/Select.vue'));
 Vue.component('comensal-index',require('./components/comensal/Index.vue'));
 Vue.component('comedor-index',require('./components/comedor/Index.vue'));
+Vue.component('loading',require('./components/oters/Loading.vue'));
+
+Vue.component('datepicker',require('vuejs-datepicker'));
+
+
 
 
 Vue.filter('key',function (value) {
   return mensajes.keys[value]? mensajes.keys[value] : value;
 });
-
+Vue.filter('tipoComida',function (value) {
+  if(value.indexOf('DESAYUNO') > -1){
+     return 'el '  + value;
+  }else if (value.toUpperCase().indexOf('ALMUERZO') > -1){
+    return 'el '  + value;
+  }else if (value.toUpperCase().indexOf('MERIENDA') > -1){
+    return 'la '  + value;
+  }else if (value.toUpperCase().indexOf('CENA') > -1){
+    return 'la '  + value;
+  }
+  return value;
+});
+Vue.filter('cLength', function (result, key) {
+  this.$set(key, result.length)
+});
 Vue.filter('path',function (value) {
   return PATH + value;
 });
@@ -111,6 +138,9 @@ Vue.mixin({
           }
       }
       return ob;
+    },
+    hasRoute: function (partial) {
+      return (window.location.href.indexOf(partial) > -1)
     }
   }
 });

@@ -15,10 +15,24 @@ use App\Models\User;
 
 Route::get('/prueba',function (){
 
-    $comedor = \App\Models\Comedor::first();
-    $retorno = $comedor->comidasByTipoComida();
+//    $comedor = \App\Models\Comedor::first();
+//    $usuarios= \App\Models\User::get();
+//
+//    $comida = $comedor->comidas->first();
+//
+//    foreach ($usuarios as $usuario) {
+//        try{
+//        //$comensal = \App\Models\Comensal::create(['user_id' => $usuario->id, 'comedor_id' => $comedor->id]);
+//        $usuario->comensal->comidas()->detach($comida->id);
+//        }catch (Exception $e){
+//            echo 'Error => ' . $e->getMessage();
+//        }
+//    }
 
-    return dd($retorno);
+//    $retorno = $comedor->comidas;
+    $retorno = \App\Models\Comensal::find(100)->inscripciones;
+
+    return $retorno;
 });
 
 Route::get('/', function () {
@@ -78,6 +92,7 @@ Route::resource('dia','Api\DiasController');
 
 
 //Comedores comidas por dia
-Route::resource('comedoresComidaPorDia','Api\ComedoresComidasPorDias');
+Route::get('comida/{comida}/attribute','Api\ComidasController@attribute');
+Route::resource('comida','Api\ComidasController');
 
 

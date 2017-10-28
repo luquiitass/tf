@@ -12,17 +12,17 @@ namespace App\Helper;
 trait AjaxGetAttribute
 {
 
-    public function ajaxGetAtribute($model){
+    public function ajaxGetAtribute($object){
         $attribute = request()->get('attribute');
         $retorno = '';
 
-        if($model->existAttribute($attribute)) {
+        if($object->existAttribute($attribute)) {
 
-            $retorno = $model->$attribute;
+            $retorno = $object->$attribute;
 
-        }else if($model->existFunction($attribute)){
+        }else if($object->existFunction($attribute)){
 
-            $retorno = $model->$attribute();
+            $retorno = $object->$attribute();
 
         }
         return response()->json($retorno);

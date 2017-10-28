@@ -22,7 +22,6 @@ export default{
     },
     methods:{
         init(){
-            console.log(vm.path)
             Vue.set(vm.$data.app,'comedor',this.p_comedor);
         }
     }

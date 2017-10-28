@@ -50,12 +50,12 @@ let routes = [
     {
         path : '/comensales',
         components :{
-            content_comedor : require('./components/comedor/menu/Comensales')
+            content_comedor : require('./components/comedor/menu/comensales/Index')
         },
         children :[
             {
                 path : '/',
-                component : require('./components/comedor/menu/comensales/Index.vue')
+                component : require('./components/comedor/menu/comensales/List')
             },
             {
                 path : ':id',
@@ -72,19 +72,23 @@ let routes = [
         children : [
             {
                 path : '/',
-                component : require('./components/comedor/menu/anotados/Index'),
+                components : {
+                    submenu: require('./components/comedor/menu/anotados/Index'),
+                },
                 props : dynamicPropsFn
             }
             ,{
                 path : ':id',
-                component : require('./components/comedor/menu/anotados/Anotados'),
+                components : {
+                    submenu: require('./components/comedor/menu/anotados/Anotados'),
+                },
             }
         ]
     },
     {
         path : '/tiposComidas',
         components :{
-            content_comedor : require('./components/comedor/menu/tiposDeComida/Index.vue'),
+            content_comedor : require('./components/comedor/menu/comidas/Index.vue'),
         }
     },
     {

@@ -1,0 +1,36 @@
+<template>
+
+    <div class="text-center">
+        <div class="pace pace-active">
+            <div class="pace-progress" data-progress="50" data-progress-text="50%" style="-webkit-transform: translate3d(50%, 0px, 0px); -ms-transform: translate3d(50%, 0px, 0px); transform: translate3d(50%, 0px, 0px);">
+                <div class="pace-progress-inner"></div>
+            </div>
+            <div class="pace-activity"></div>
+        </div>
+    </div>
+
+</template>
+
+
+<script>
+
+export  default{
+    data(){
+        return{
+
+        }
+    },
+    props: {
+
+    },
+    created(){
+        this.init();
+    },
+    methods:{
+        init(){
+
+        }
+    }
+}
+
+</script>

@@ -3,7 +3,6 @@
 
     <meta name="csrf-token" content="{{csrf_token()}}">
 
-    <link href="{{ asset('/css/miapp.css') }}" rel="stylesheet" type="text/css" />
 
     <title> AdminLTE 2 with Laravel - @yield('htmlheader_title', 'Your title here') </title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
@@ -30,7 +29,9 @@
     <!-- iCheck -->
     <link href="{{ asset('/plugins/iCheck/square/blue.css') }}" rel="stylesheet" type="text/css" />
 
-    <link href="{{ asset('/plugins/datepicker/datepicker3.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('/plugins/datepicker/css/bootstrap-datepicker.min.css') }}" rel="stylesheet" type="text/css" />
+
+    <link href="{{ asset('/plugins/time/dist/wickedpicker.min.css') }}" rel="stylesheet" type="text/css" />
 
     <link href="{{ asset('/plugins/timepicker/bootstrap-timepicker.min.css') }}" rel="stylesheet" type="text/css" />
 
@@ -48,6 +49,7 @@
     <link href="{{ asset('/plugins/select2/select2.css') }}" rel="stylesheet" type="text/css" />
 
 
+    <link href="{{ asset('/css/miapp.css') }}" rel="stylesheet" type="text/css" />
 
 
 </head>

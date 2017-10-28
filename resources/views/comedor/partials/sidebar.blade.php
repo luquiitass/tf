@@ -42,7 +42,8 @@
                 </a>
             </router-link>
 
-            <router-link tag="li" to="/comensales" exact>
+            <router-link tag="li" to="/comensales" :claass="{
+            active : hasRoute('/comensales')}">
                 <a>
                     <i class='fa fa-link'></i>
                     <span>{{trans('string.comensales') }}
@@ -50,14 +51,16 @@
                 </a>
             </router-link>
 
-            <router-link tag="li" to="/tiposComidas" exact>
+            <router-link tag="li" to="/tiposComidas" :claass="{
+            active : hasRoute('/tiposComida')}">
                 <a>
                     <i class='fa fa-link'></i>
                     <span>{{trans('string.tipos_de_comida') }}
                 </span>
                 </a>
             </router-link>
-            <router-link tag="li" to="/anotados" exact>
+            <router-link tag="li" to="/anotados" :claass="{
+            active : hasRoute('/anotados')}">
                 <a>
                     <i class='fa fa-link'></i>
                     <span>{{trans('string.anotados') }}

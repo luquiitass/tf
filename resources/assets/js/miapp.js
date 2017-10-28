@@ -23,17 +23,12 @@ window.vm = new Vue({
                 })
                 .catch(error=> {
                     console.log(error);
+                    window.location = PATH + '/login';
                 });
 
         },
         created(){
-            $(document).on('focus','.datepicker',function () {
-                $(this).datepicker({
-                    format: "dd-mm-yyyy",
-                    language: "es",
-                    autoclose: true,
-                });
-            });
+
         }
     }
 

@@ -123,7 +123,14 @@ class Form {
                     resolve(response.data);
                 })
                 .catch(error => {
-                    this.onFail(error.response.data);
+                    if (error.request.status  == 401){
+                        window.axios.defaults.headers.common['X-CSRF-TOKEN'] = error.response.data.token;
+                        this.submit(requestType,url);
+                    }
+                    if (error.request.status == 402 || error.request.status  == 422){
+                        this.onFail(error.response.data);
+                    }
+
                     reject(error.response.data);
                 });
         });

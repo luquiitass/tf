@@ -48,10 +48,6 @@ class TiposComidaController extends ApiController
         try {
             \DB::beginTransaction();
             $tipo = TipoComida::create($request->only('nombre'));
-            $dias = Dia::get();
-            foreach ($dias as $dia) {
-                $tipo->comidasPorDia()->create(['dia_id' => $dia->id]);
-            }
             \DB::commit();
             return response()->json($tipo);
         }catch (\Exception $e){
@@ -116,7 +112,6 @@ class TiposComidaController extends ApiController
         //
         $tipo = TipoComida::findOrFail($id);
         try{
-            $tipo->comidasPorDia()->delete();
             $tipo->delete();
 
         }catch (\Exception $e){

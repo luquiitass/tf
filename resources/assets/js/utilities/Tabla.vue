@@ -37,7 +37,6 @@
           </div>
           </div>
         </div>
-
       </div>
 
       <div class="dv-header" id="filtro" style="display: none">

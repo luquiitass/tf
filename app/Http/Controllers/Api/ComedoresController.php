@@ -78,7 +78,7 @@ class ComedoresController extends ApiController
     public function show(Comedor $comedor)
     {
         $comedor->load('administradores');
-        //comedor->comidasPorDia ;//=
+        $comedor->comidasByDia();//=
         //$comedor->comidasPorDia();
         //$comedor->comidasPorDiaCount();
         return view('comedor.show',compact('comedor'));

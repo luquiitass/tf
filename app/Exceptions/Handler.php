@@ -45,6 +45,9 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $e)
     {
+        if ($request->ajax() && $e instanceof \Illuminate\Session\TokenMismatchException){
+            return response(['token'=>csrf_token()],401);
+        }
         return parent::render($request, $e);
     }
 }

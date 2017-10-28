@@ -11,7 +11,10 @@ class Model {
 
         return Conexion.get(PATH + this.url() + '/' + id)
 
-            .then(data=> then(data));
+            .then(data=> {
+                then(data);
+                vm.$forceUpdate();
+            });
 
     }
 
@@ -19,12 +22,18 @@ class Model {
 
         return Conexion.get(PATH + this.url())
 
-            .then(data=> then(data));
+            .then(data=> {
+                then(data);
+                vm.$forceUpdate();
+            });
     }
 
     static attribure(id,attribute ,then){
         Conexion.get(PATH + this.url() + '/' + id + '/attribute?attribute=' + attribute)
-            .then(data => then(data));
+            .then(data => {
+                then(data);
+                vm.$forceUpdate();
+            });
     }
 
 
@@ -33,7 +42,10 @@ class Model {
 
         return Conexion.get(PATH + this.url())
 
-            .then(comedores => then(comedores))
+            .then(comedores => {
+                then(comedores);
+                vm.$forceUpdate();
+            })
     }
 }
 

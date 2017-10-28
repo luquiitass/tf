@@ -13,22 +13,25 @@
             </div>
 
             <h2>
-                {{tipo[0].tipo_comida}}
+                {{tipo.nombre}}
             </h2>
             <hr/>
             <div>
                 <ul class="list-group">
                     <li class="list-group-item not-border">
-                        <strong>Inicia: </strong> {{tipo[0].inicio}}
+                        <strong>Inicia: </strong> {{tipo.inicio}}
                     </li>
                     <li class="list-group-item not-border">
-                        <strong>Finaliza: </strong> {{tipo[0].fin}}
+                        <strong>Finaliza: </strong> {{tipo.fin}}
+                    </li>
+                    <li class="list-group-item not-border">
+                        <strong>Horas: </strong> {{tipo.hora_pre_inscripcion}}
                     </li>
                     <li class="list-group-item not-border">
                         <h3>Dias </h3>
                         <ul v-if="tipo">
-                            <li v-for="comida in tipo">
-                               {{comida.dia}}
+                            <li v-for="dia in tipo.dias">
+                               {{dia.nombre}}
                             </li>
                         </ul>
                         <div v-else="" class="alert alert-info">

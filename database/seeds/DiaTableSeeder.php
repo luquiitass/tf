@@ -11,10 +11,10 @@ class DiaTableSeeder extends Seeder
      */
     public function run()
     {
-        $dias = ['Lunes','Martes','Miércoles','Jueves','Viernes','Sábado','Domingo'];
+        $dias = ['Lunes'=> 'Monday','Martes'=>'Tuesday','Miércoles' => 'Wednesday','Jueves'=>'Thursday','Viernes'=>'Friday','Sábado'=>'Saturday','Domingo'=>'Sunday'];
 
-        foreach ($dias as $dia){
-            \App\Models\Dia::create(['nombre' => $dia]);
+        foreach ($dias as $dia => $key){
+            \App\Models\Dia::create(['nombre' => $dia,'name'=>$key]);
         }
     }
 }

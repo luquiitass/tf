@@ -1,8 +1,8 @@
 <template>
     <div>
-        <div :class="form.getClassForm('tipo')" >
+        <div :class="form.getClassForm('tipo')" v-if="!edit">
             <label >Tipo de Comida</label>
-            <select class="form-control" v-model="form.tipoComida">
+            <select class="form-control" v-model="form.tipo_comida_id">
                 <option  v-for="tipo in tipos" :value="tipo.id">{{tipo.nombre}}</option>
             </select>
             <span class="help-block" v-if="form.errors.has('nombre')" v-text="form.errors.get('nombre')"></span>
@@ -20,13 +20,13 @@
             <span class="help-block" v-if="form.errors.has('fin')" v-text="form.errors.get('fin')"></span>
         </div>
 
-        <div :class="form.getClassForm('horas_pre_inscripcion')" >
+        <div :class="form.getClassForm('hora_pre_inscripcion')" >
             <label >Hora:</label>
-            <input type="text" class="form-control timepicker"  v-model="form.horas_pre_inscripcion">
+            <input type="text" class="form-control timepicker"  v-model="form.hora_pre_inscripcion">
                 <div class="has-info">
                     <span class="help-block"> explicación </span>
                 </div>
-            <span class="help-block" v-if="form.errors.has('horas_pre_inscripcion')" v-text="form.errors.get('horas_pre_inscripcion')"></span>
+            <span class="help-block" v-if="form.errors.has('hora_pre_inscripcion')" v-text="form.errors.get('hora_pre_inscripcion')"></span>
         </div>
 
         <div class="form-group">
@@ -37,11 +37,35 @@
                 Seleccionar todos
             </label>
 
+            <!--<ul class="list-unstyled">-->
+                <!--<li v-for="dia in dias.all()" class="row">-->
+                    <!--<div class="col-xs-4">-->
+                        <!--<label for="dia" class="checkbox-inline" @click="selectDia(dia.nombre)">-->
+                            <!--<input type="checkbox" :id="dia.nombre" :value="dia.id" v-model="diasSelect"/>-->
+                            <!--{{dia.nombre}}-->
+                        <!--</label>-->
+                    <!--</div>-->
+                    <!--<div class="col-xs-6">-->
+                        <!--<div class="form-group input-group input-group-sm">-->
+                            <!--<span class="input-group-addon bg-gray">inicia</span>-->
+                            <!--<input type="text" class="form-control" placeholder="Hora">-->
+                        <!--</div>-->
+                        <!--<div class="form-group input-group input-group-sm">-->
+                            <!--<span class="input-group-addon bg-gray">Finaliza</span>-->
+                            <!--<input type="text" class="form-control " placeholder="Hora">-->
+                        <!--</div>-->
+                        <!--<div class="form-group input-group input-group-sm">-->
+                            <!--<label >Hora:</label>-->
+                            <!--<input type="text" class="form-control " placeholder="Hora">-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</li>-->
+            <!--</ul>-->
+
             <label v-for="dia in dias.all()" for="dia" class="checkbox-inline" @click="selectDia(dia.nombre)">
                 <input type="checkbox" :id="dia.nombre" :value="dia.id" v-model="diasSelect"/>
                 {{dia.nombre}}
             </label>
-            <!-- fin checkbox -->
         </div>
 
 
@@ -57,7 +81,7 @@ export default{
 
     data(){
         return{
-            dias :'',
+            dias : new Coleccion({}),
             diasSelect:[],
             tipos : [],
             todos:'',
@@ -79,6 +103,11 @@ export default{
         init(){
             Dia.all(dias => this.dias = new Coleccion( dias ) );
             TipoComida.all(tipos => this.tipos = tipos);
+
+            this.diasSelect = _.pluck(this.form.dias, 'id');
+
+
+            $('.timepicker').wickedpicker();
 
 
         },

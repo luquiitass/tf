@@ -67,9 +67,9 @@
 
 <script>
 
-import Create from './tiposDeComida/Create.vue';
-import ShowTipoComida from './tiposDeComida/Show.vue';
-import EditTipoComida from './tiposDeComida/Edit.vue';
+import Create from './comidas/Create.vue';
+import ShowTipoComida from './comidas/Show.vue';
+import EditTipoComida from './comidas/Edit.vue';
 
 
 export default{

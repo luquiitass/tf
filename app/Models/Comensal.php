@@ -28,8 +28,16 @@ class Comensal extends Model
         return $this->belongsTo(Comedor::class);
     }
 
+    public function comidas(){
+        return $this->belongsToMany(Comida::class);
+    }
+
     public function inscripciones(){
-        return $this->belongsToMany(ComidaPorDia::class,'inscripciones','comensal_id','comidas_por_dia_id')->with('tipoComida');
+        return $this->hasMany(Inscripcion::class)->with('comida','usuario');
+    }
+
+    public function inscripcionesWithMes(){
+        return $this->inscripciones()->select('inscripciones.*',\DB::raw("DATE_FORMAT(created_at, '%m-%Y') mes"))->orderBy('created_at','desc')->get();
     }
 
     public function scopeGetData($query,$idComedor){
@@ -38,6 +46,8 @@ class Comensal extends Model
             ->where('comedores.id',$idComedor);
         $query->leftJoin('users','users.id','=','comensales.user_id');
         $query->select('users.*','comensales.*');
+        //request()->columns-> = '';
+        //$query->with('comedor','usuario')->where('comedor_id',$idComedor);
         return $this->scopeSearchPaginateAndOrder($query);
     }
 

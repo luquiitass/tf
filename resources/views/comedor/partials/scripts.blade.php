@@ -8,9 +8,10 @@
 <script src="{{ asset('/plugins/select2/select2.js') }}"></script>
 <script src="{{ asset('/js/underscore-min.js') }}" type="text/javascript"></script>
 
+<script src="{{ asset('/plugins/time/dist/wickedpicker.min.js') }}"></script>
 
-<script src="{{ asset('/plugins/datepicker/bootstrap-datepicker.js') }}"></script>
-<script src="{{ asset('/plugins/timepicker/bootstrap-timepicker.min.js') }}"></script>
+<script src="{{ asset('/plugins/datepicker/js/bootstrap-datepicker.min.js') }}"></script>
+<script src="{{ asset('/plugins/datepicker/locales/bootstrap-datepicker.es.js') }}"></script>
 <!-- Bootstrap 3.3.2 JS -->
 <script src="{{ asset('/js/bootstrap.min.js') }}" type="text/javascript"></script>
 <!-- AdminLTE App -->

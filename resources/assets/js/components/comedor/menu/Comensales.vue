@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import Index from './comensales/Index.vue';
+import Index from './comensales/List.vue';
 import Show from './comensales/Show.vue';
 
 export default{

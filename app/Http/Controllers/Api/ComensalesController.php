@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Helper\AjaxGetAttribute;
+use App\Inscripcion;
 use App\Models\Comensal;
 use App\Http\Requests\ComensalStoreRequest;
 use App\Models\User;
@@ -114,11 +115,17 @@ class ComensalesController extends ApiController
 
     public function cambiarInscripcion(Comensal $comensal){
         $comida = request()->get('comida');
-        //dd($comensal->inscripciones->where('id' , $comida['id']));
-        if ($comensal->inscripciones->where('id' , $comida['id'])->first()){
-            $comensal->inscripciones()->detach($comida['id']);
+
+        $inscripcion = ['comida_id'=>$comida['id'],'user_id'=>\Auth::user()->id,'fecha'=>$comida['fecha']['date']];
+
+        //dd($comida);
+        if ($comensal->comidas->where('id' , $comida['id'])->first()){
+            $comensal->comidas()->detach($comida['id']);
+            $comensal->inscripciones()->create( array_merge($inscripcion,['inscripto'=>0]));
+
         }else{
-            $comensal->inscripciones()->attach($comida['id']);
+            $comensal->comidas()->attach($comida['id']);
+            $comensal->inscripciones()->create( array_merge($inscripcion,['inscripto'=>1]));
         }
 
     }
