@@ -16,7 +16,7 @@
                         </div>
                     </div>
                     <a v-for="comida in comidas" @click="verAnotados(comida)">
-                    <div class="panel-footer">
+                    <div class="panel-footer" v-if="comida.activo">
                         <span class="pull-left">{{comida.tipo_comida.nombre}} </span>
                         <span class="pull-right badge">{{ comida.comensales_count }}</span>
                         <div class="clearfix"></div>
@@ -44,6 +44,15 @@ export  default{
     props: {
         usuario: {
             requerid: true,
+        }
+    },
+    computed:{
+        comidas(){
+            return _.each(this.comidasPorDia,function (item) {
+                return _.filter(item,function (item) {
+                    return item.activo;
+                })
+            })
         }
     },
     created(){

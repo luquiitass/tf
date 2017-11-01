@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use App\Http\Requests\Request;
 
-class ComedorUpdateRequest extends Request
+class ComidaUpdateRequst extends Request
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -13,7 +13,7 @@ class ComedorUpdateRequest extends Request
      */
     public function authorize()
     {
-        return true;
+        return false;
     }
 
     /**
@@ -23,11 +23,8 @@ class ComedorUpdateRequest extends Request
      */
     public function rules()
     {
-        $id = $this->route()->parameters()['comedor'];
         return [
-            'nombre'=>'required|min:2|unique:comedores,nombre,' .$id . ',id',
-            'capacidad'=>'required|integer|min:1',
-            'administradores'=>'required',
+            //
         ];
     }
 }

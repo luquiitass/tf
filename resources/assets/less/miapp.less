@@ -167,7 +167,7 @@
 	display: -webkit-flex;
 	display: -ms-flex;
 	display: flex;
-	border-bottom: solid 5px #f56a6a;
+	border-bottom: solid 2px rgba(163, 163, 163, 0.13);
 	padding: 1px 1px 10px 10px;
 	margin-bottom: 5px;
 	position: relative;
@@ -400,11 +400,11 @@
 		cursor: pointer;
 	}
 
-	.row.match-my-cols {
+	.row .match-my-cols {
 		overflow: hidden;
 	}
 
-	.row.match-my-cols [class*="col-"]{
+	.row .match-my-cols [class*="col-"]{
 		margin-bottom: -99999px;
 		padding-bottom: 99999px;
 	}
@@ -714,3 +714,14 @@
 
 
 // Otros
+.border-top {
+	border-top: 1px solid rgba(0, 0, 0, 0.15);
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.dia-active{
+	background-color: #00a7d0;
+
+
+}

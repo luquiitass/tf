@@ -25,6 +25,7 @@ class ComedorSstoreRequest extends Request
     {
         return [
             'nombre'=>'required|min:2|unique:comedores,nombre',
+            'capacidad' =>'required|integer|min:1',
             'administradores'=>'required',
         ];
     }

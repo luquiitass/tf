@@ -22,7 +22,7 @@
                 </ul>
 
                 <div class="text-center">
-                    <a class="btn btn-danger" @click="detachAdmin()"><b>Eliminar</b></a>
+                    <a class="btn btn-danger" @click="detachAdmin()"><b>{{textEliminarAdministrador(p_admin)}}</b></a>
                 </div>
             </div>
             <!-- /.box-body -->
@@ -55,12 +55,16 @@ export  default{
         this.init();
     },
     methods:{
-      init(){
+        init(){
 
-      },
+        },
         detachAdmin(){
             this.$emit('showDetachAdmin',this.p_admin);
+        },
+        textEliminarAdministrador(admin){
+            return vm.app.usuario.id == admin.id ? 'Abandonar' : 'Eliminar';
         }
+
     }
 }
 

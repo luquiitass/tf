@@ -20,7 +20,7 @@ class Comedor extends Model
      protected $fillable = ['nombre','capacidad','activo'];
 
 
-     //protected $appends = ['comidasPorDia'];
+     protected $with = ['administradores'];
 
      public $timestamps = true;
 
@@ -50,9 +50,9 @@ class Comedor extends Model
 
 
      public function comidasByTipoComida(){
-         $retorno = array();
-         $tipos = $this->comidas->groupBy('tipoComida.nombre');
-         foreach ($tipos as $tipo => $comidas) {
+         $retorno = /*array();
+         $tipos = */$this->comidas->groupBy('tipoComida.nombre');
+         /*foreach ($tipos as $tipo => $comidas) {
              $com = new Object_();
              $comida = $comidas->first();
              $com->nombre = $tipo;
@@ -65,11 +65,12 @@ class Comedor extends Model
 
              $com->hora_pre_inscripcion = $comida->hora_pre_inscripcion;
              $com->dias =   array();
+             $com->activo = $comida->activo;
              foreach ($comidas as $unaComida){
                  $com->dias[] = $unaComida->dia;
              }
              $retorno[$tipo] = $com;
-         }
+         }*/
          return $retorno;
      }
 

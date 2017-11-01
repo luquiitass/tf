@@ -107,7 +107,7 @@ class ComedoresController extends ApiController
         try {
             \DB::beginTransaction();
             $comedor = Comedor::findOrFail($id);
-            $comedor->update(request()->only('nombre', 'creado'));
+            $comedor->update(request()->only('nombre', 'capacidad'));
             $administradores = $request->get('administradores');
 
             //dd(self::getIds($administradores));

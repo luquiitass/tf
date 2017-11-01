@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Api;
 
 use App\Helper\AjaxGetAttribute;
+use App\Http\Requests\ComidaStoreRequst;
 use App\Models\Comedor;
 use App\Models\Comida;
+use App\Models\Dia;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -41,25 +43,22 @@ class ComidasController extends ApiController
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param ComidaStoreRequst|Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ComidaStoreRequst $request)
     {
         $comedor = Comedor::findOrFail($request->comedor_id);
         try {
             $tipoComida = request()->tipo_comida_id;
-            $dias = request()->dias;
+            $dias = Dia::get();
+            $misDias = request()->dias;
             $inputs = $request->only('inicio', 'fin', 'hora_pre_inscripcion');
 
-
-            $sync = array();
-
             foreach ($dias as $dia) {
-                $comida =array_merge($inputs, ['tipo_comida_id'=>$tipoComida,'dia_id'=>$dia,'inicio']);
+                $comida =array_merge($inputs, ['tipo_comida_id'=>$tipoComida,'dia_id'=>$dia->id,'activo' => in_array($dia->id,$misDias)]);
                 $comedor->comidas()->create($comida);
             }
-
 
 
         }catch (\Exception $e){
@@ -100,7 +99,14 @@ class ComidasController extends ApiController
      */
     public function update(Request $request, $id)
     {
-        $comedor = Comedor::findOrFail($request->comedor_id);
+        $comidas = $request->comidas;
+        //dd($comidas);
+        foreach ($comidas as $comida){
+            $unaComida = Comida::find($comida['id']);
+            $unaComida->update($comida);
+        }
+
+        /*$comedor = Comedor::findOrFail($request->comedor_id);
         try {
             $tipoComida = request()->tipo_comida_id;
             $dias = request()->dias;
@@ -124,6 +130,7 @@ class ComidasController extends ApiController
         }
 
         return $comedor->comidasByTipoComida();
+    */
     }
 
     /**

@@ -16,8 +16,8 @@ use Illuminate\Database\Eloquent\Model;
 
      public $timestamps = false;
 
-     public function comidasPorDia(){
-         return $this->hasMany(ComidaPorDia::class);
+     public function comidas(){
+         return $this->hasMany(Comida::class);
      }
 
  }

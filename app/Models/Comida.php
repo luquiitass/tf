@@ -18,11 +18,15 @@ class Comida extends Model
 
      protected $table = "comidas";
 
-     protected $fillable = ['inicio','fin','hora_pre_inscripcion','comedor_id','dia_id','tipo_comida_id'];
+     protected $fillable = ['inicio','fin','hora_pre_inscripcion','comedor_id','dia_id','tipo_comida_id','activo'];
 
      public $timestamps = true;
 
      protected $appends = ['fecha'];
+
+    protected $casts = [
+        'activo' => 'boolean'
+    ];
 
      public function dia(){
          return $this->belongsTo(Dia::class);
@@ -39,7 +43,7 @@ class Comida extends Model
      public function getFechaAttribute(){
          $hoy = Carbon::now();
          $func = 'is' . $this->dia->name;
-         return $hoy->$func() ? 'Hoy' : Carbon::parse('next ' . $this->dia->name);
+         return $hoy->$func() ? /*'Hoy'*/ $hoy : Carbon::parse('next ' . $this->dia->name);
 
          //return Date::parse('this sunday');
      }

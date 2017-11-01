@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use App\Http\Requests\Request;
+use Carbon\Carbon;
 
 class UserStoreRequest extends Request
 {
@@ -26,7 +27,7 @@ class UserStoreRequest extends Request
         return [
             'nombre'=> 'required|min:3',
             'apellido'=> 'required|min:3',
-            'fecha_nacimiento'=> 'required|date',
+            'fecha_nacimiento'=> 'required|date|before:' . Carbon::now(),
             'dni'=> 'required|unique:users,dni',
             'email'=> 'required|email|unique:users,email',
             'password' => 'required|min:4'

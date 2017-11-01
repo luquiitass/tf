@@ -30,6 +30,7 @@ import Comensal from './models/Comensal';
 import TipoComida from './models/TipoComida';
 import Dia from './models/Dia';
 import Comida from './models/Comida';
+import Direccion from './models/Direccion';
 
 
 import Lang from 'lang.js';
@@ -47,6 +48,7 @@ window.Comensal = Comensal;
 window.TipoComida = TipoComida;
 window.Dia = Dia;
 window.Comida = Comida;
+window.Direccion = Direccion;
 
 
 window.Vue = Vue;
@@ -128,6 +130,7 @@ Vue.filter('path',function (value) {
 
 
 
+
 Vue.mixin({
   methods: {
     getItems: function (list) {
@@ -138,6 +141,13 @@ Vue.mixin({
           }
       }
       return ob;
+    },
+    get(list,keys){
+      var ret =  _.pick(list,function (value, key, object) {
+        var val = _.values(keys);
+        return _.contains(val,key);
+      });
+      return ret;
     },
     hasRoute: function (partial) {
       return (window.location.href.indexOf(partial) > -1)

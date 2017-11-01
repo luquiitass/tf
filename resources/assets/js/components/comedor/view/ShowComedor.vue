@@ -23,8 +23,8 @@
 
                 <div>
                     <ul class="list-group">
-                        <li class="list-group-item" v-for="(value,key ) in comedor" v-if="isArray(value)">
-                            <strong>{{key}}</strong> : {{value}}
+                        <li class="list-group-item" v-for="(value,key ) in  get(comedor,['nombre','capacidad','administradores'])" v-if="!isArray(value)" >
+                            <strong>{{key | key}}</strong> : {{value}}
                         </li>
                         <li class="list-group-item">
                             <strong>Administradores:</strong>
@@ -71,7 +71,7 @@ export default{
             this.$emit('cancelar');
         },
         isArray(val){
-            return !Array.isArray(val);
+            return Array.isArray(val);
         }
     }
 

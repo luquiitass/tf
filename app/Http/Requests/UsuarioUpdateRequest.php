@@ -28,9 +28,9 @@ class UsuarioUpdateRequest extends Request
         return [
             'nombre'=> 'required|min:3',
             'apellido'=> 'required|min:3',
-            'fecha_nacimiento'=> 'required|date',
+            'fecha_nacimiento'=> 'required|date|before' . Carbon::now(),
             'dni'=> 'required|unique:users,dni,'.$id . ',id',
-            'email'=> 'required|unique:users,email,'.$id .',id',
+            'email'=> 'required|email|unique:users,email,'.$id .',id',
         ];
     }
 }

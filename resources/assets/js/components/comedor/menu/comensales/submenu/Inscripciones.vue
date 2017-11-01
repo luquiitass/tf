@@ -7,7 +7,7 @@
                     <div class="dia" v-for="(comidas,dia) in comidasByDia" >
                         {{dia}}
                         <span>{{comidas[0].fecha.date | moment('Do MMMM') }}</span>
-                        <div class="btn-group btn-block comidas"  v-for="comida in comidas">
+                        <div class="btn-group btn-block comidas"  v-for="comida in comidas" v-if="comida.activo">
 
                                     <button type="button" :class="classButton(comida)" :disabled="comida == select" @click="change(comida)">
                                         {{nombreComidaCambiando(comida)}}

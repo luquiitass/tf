@@ -1,6 +1,7 @@
 {
   "keys":{
     "created_at":"Registrado:",
-    "updated_at":"Actualizado:"
+    "updated_at":"Actualizado:",
+    "nombre":"Nombre"
   }
 }

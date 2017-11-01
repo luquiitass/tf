@@ -20,7 +20,6 @@ class TiposComidaController extends ApiController
      */
     public function index()
     {
-
         $tipos = TipoComida::get();
 
         return response()->json($tipos);

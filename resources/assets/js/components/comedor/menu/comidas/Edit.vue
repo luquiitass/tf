@@ -1,7 +1,7 @@
 <template>
     <div>
         <h3>
-            Modificar Tipo de Comida {{p_tipo.nombre}}
+            Modificar Tipo de Comida {{p_comidas[0].tipo_comida.nombre}}
         </h3>
         <hr/>
         <form @submit.prevent="onSubmit" @keydown="form.errors.clear()" >
@@ -27,14 +27,14 @@ import Inputs from '../../../forms/InputsComidas.vue';
 export  default{
     data(){
         return{
-            form:new Form(this.p_tipo),
+            form:new Form({comidas :this.p_comidas}),
         }
     },
     components:{
         Inputs
     },
     props: {
-        p_tipo:{
+        p_comidas:{
             required:true,
         }
     },
@@ -46,9 +46,9 @@ export  default{
 
         },
         onSubmit(){
-            this.form.put( PATH +'comida/' + this.p_tipo.id)
+            this.form.put( PATH +'comida/' + '0')
                     .then(tipos =>{
-                        this.$emit('tipoComidasEdited',tipos);
+                        //this.$emit('tipoComidasEdited',tipos);
                         this.cancelar();
                     })
                     .catch(error=>{

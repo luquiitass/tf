@@ -24,7 +24,7 @@ class TipoComidaStoreRequest extends Request
     public function rules()
     {
         return [
-            'nombre'=>'required|unique:tipos_comida,nombre',
+            'nombre'=>'min:3|required|unique:tipos_comida,nombre',
         ];
     }
 }

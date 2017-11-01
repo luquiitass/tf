@@ -13,12 +13,12 @@
             </div>
 
             <h2>
-                {{tipo.nombre}}
+                {{tipo[0].tipo_comida.nombre}}
             </h2>
             <hr/>
             <div>
                 <ul class="list-group">
-                    <li class="list-group-item not-border">
+                    <!--<li class="list-group-item not-border">
                         <strong>Inicia: </strong> {{tipo.inicio}}
                     </li>
                     <li class="list-group-item not-border">
@@ -26,12 +26,14 @@
                     </li>
                     <li class="list-group-item not-border">
                         <strong>Horas: </strong> {{tipo.hora_pre_inscripcion}}
-                    </li>
+                    </li>-->
                     <li class="list-group-item not-border">
                         <h3>Dias </h3>
                         <ul v-if="tipo">
-                            <li v-for="dia in tipo.dias">
-                               {{dia.nombre}}
+                            <li v-for="comida in tipo">
+                                <p :class="getClassComida(comida)">
+                                    {{comida.dia.nombre}}
+                                </p>
                             </li>
                         </ul>
                         <div v-else="" class="alert alert-info">
@@ -87,6 +89,9 @@ export default{
         },
         showDelet(){
             this.$emit('showDelet');
+        },
+        getClassComida(comida){
+            return comida.activo == 1 ? 'text-green' : 'text-red';
         }
     }
 }

@@ -25,7 +25,7 @@ class TipoComidaUpdateRequest extends Request
     {
         $id = $this->route()->parameters()['tipoComida'];
         return [
-            'nombre'=>'required|unique:tipos_comida,nombre,'.$id.',id',
+            'nombre'=>'min:3|required|unique:tipos_comida,nombre,'.$id.',id',
         ];
     }
 }

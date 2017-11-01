@@ -33,7 +33,7 @@
 
                 <edit-tipo-comida
                     v-if="componenteDerecho=='edit'"
-                    :p_tipo="tipoComidaEdit"
+                    :p_comidas="tipoComidaEdit"
                     @tipoComidasEdited="tipoComidasEdited"
                     @cancelado="showTipoComida(tipoComidaShow)">
                 </edit-tipo-comida>
@@ -55,7 +55,7 @@
         v-show="modalShow"
         @cancelado="modalShow=false">
 
-        <div slot="title">Nuevo Comensal</div>
+        <div slot="title">Nuevo Tipo de comida</div>
 
         <create
             v-if="modalShow"

@@ -6,7 +6,7 @@
 
             <div class="box-footer">
                 <div class="pull-right">
-                    <button type="submit" :disabled="form.errors.any()" class="btn btn-success">Guardar</button>
+                    <button type="submit"  class="btn btn-success">Guardar</button>
                     <button class="btn btn-warning" @click="cancelar()">Cancelar</button>
                 </div>
             </div>
