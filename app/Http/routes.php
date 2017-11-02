@@ -30,9 +30,7 @@ Route::get('/prueba',function (){
 //    }
 
 //    $retorno = $comedor->comidas;
-    $retorno = \App\Models\Comensal::find(100)->inscripciones;
-
-    return $retorno;
+    //$retorno = \App\Models\Comensal::find(100)->inscripciones;
 });
 
 Route::get('/', function () {
@@ -94,5 +92,13 @@ Route::resource('dia','Api\DiasController');
 //Comedores comidas por dia
 Route::get('comida/{comida}/attribute','Api\ComidasController@attribute');
 Route::resource('comida','Api\ComidasController');
+
+Route::resource('direccion/','Api\DireccionesController');
+
+Route::resource('pais','Api\PaisesController');
+
+Route::resource('provincia','Api\ProvinciasController');
+
+Route::resource('localidades','Api\LocalidadesController');
 
 

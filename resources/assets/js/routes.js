@@ -38,6 +38,12 @@ let routes = [
             menu : require('./views/Mercaderias')
         }
     },
+    {
+        path : '/localidades',
+        components :{
+            menu : require('./components/sistema/localidades/Index')
+        }
+    },
 
 
     //menu de un Comedor

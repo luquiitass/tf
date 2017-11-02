@@ -7,14 +7,13 @@ class Direccion extends Model{
         return 'direccion';
     }
 
-    static new(){
-        var direccion = new Direccion();
-        direccion['calle'] = '';
-        direccion['altura'] = '';
-        direccion['piso'] = '';
-        direccion['dpto'] = '';
-        direccion['localidad_id'] = '';
-        return direccion;
+    constructor(){
+        super();
+        this.calle = '';
+        this.altura = '';
+        this.piso = '';
+        this.dpto = '';
+        this.localidad_id = '';
     }
 
 

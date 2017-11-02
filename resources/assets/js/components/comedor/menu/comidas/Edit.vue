@@ -10,7 +10,7 @@
 
             <div class="pull-right">
                 <button type="submit" :disabled="form.errors.any()" class="btn btn-success">Modificar</button>
-                <button class="btn btn-warning" @click="cancelar()">Cancelar</button>
+                <a class="btn btn-warning" @click="cancelar()">Cancelar</a>
 
             </div>
 
@@ -27,7 +27,8 @@ import Inputs from '../../../forms/InputsComidas.vue';
 export  default{
     data(){
         return{
-            form:new Form({comidas :this.p_comidas}),
+            form:'',
+            comidas:{}
         }
     },
     components:{
@@ -43,7 +44,8 @@ export  default{
     },
     methods:{
         init(){
-
+            this.comidas = this.p_comidas;
+            this.form = new Form(this.comidas);
         },
         onSubmit(){
             this.form.put( PATH +'comida/' + '0')

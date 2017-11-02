@@ -15,4 +15,5 @@ return [
     'anotados'=>'Anotados',
     'administradores'=>'Administradores',
     'tipos_de_comida'=>'Tipos de Comida',
+    'localidades' => 'Localidades'
 ];

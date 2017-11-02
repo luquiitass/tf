@@ -48,16 +48,45 @@
             <div class="form-group">
                 <label class="checkbox">Dias</label>
 
-                <label class="btn-block">
-                    <input type="checkbox" v-model="todos"/>
-                    Seleccionar/Quitar todos.
-                </label>
+                <ul class="list-unstyled">
+                    <li class="row border-top bg-info">
+
+                        <div class="col-xs-3">
+                            <label class="btn-block">
+                                <input type="checkbox" v-model="todos" />
+                                Seleccionar/Quitar todos.
+                            </label>
+                        </div>
+
+                        <div class="col-xs-9" >
+                            <div class="row">
+
+                                <div class=" col-xs-12 col-md-4 form-group  input-group-sm">
+                                    <input type="checkbox" class="pull-right" title="Asignat a todos la misma hora" style="position: absolute;right: 20px;}" v-model="d.todo_inicio"/>
+                                    <span class="input-group-addon bg-gray">Todos Inician</span>
+                                    <input type="time" class="form-control" placeholder="Hora" v-model="d.inicio" :disabled="!d.todo_inicio">
+                                </div>
+                                <div class="col-xs-12 col-md-4 form-group  input-group-sm">
+                                    <input type="checkbox" class="pull-right" title="Asignat a todos la misma hora" style="position: absolute;right: 20px;}" v-model="d.todo_fin"/>
+                                    <span class="input-group-addon bg-gray">Todos finalizan</span>
+                                    <input type="time" class="form-control " placeholder="Hora" v-model="d.fin" :disabled="!d.todo_fin" >
+                                </div>
+                                <div class="col-xs-12 col-md-4 form-group  input-group-sm">
+                                    <input type="checkbox" class="pull-right" title="Asignat a todos la misma hora" style="position: absolute;right: 20px;}" v-model="d.todo_hora"/>
+                                    <span class="input-group-addon bg-gray">Hora</span>
+                                    <input type="time" class="form-control " placeholder="Hora" v-model="d.hora_pre_inscripcion" :disabled="!d.todo_hora">
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+
 
                 <ul class="list-unstyled">
                     <li v-for="comida in form.comidas" :class="'row border-top ' + getClassComida(comida)">
 
                         <div class="col-xs-3">
-                            <label for="dia" class="checkbox-inline" @click="selectDia(comida.dia.nombre)">
+                            <label class="checkbox-inline">
                                 <input type="checkbox" :id="comida.dia.nombre" :value="comida.dia.id" v-model="comida.activo"/>
                                 {{comida.dia.nombre}}
                             </label>
@@ -82,7 +111,6 @@
                         </div>
                     </li>
                 </ul>
-
             </div>
 
 
@@ -107,7 +135,14 @@ export default{
             diasSelect:[],
             tipos : [],
             todos:'',
-            d:{}
+            d:{
+                inicio : '',
+                todo_inicio : false,
+                todo_fin : false,
+                fin : '',
+                todo_hora : false,
+                hora : '',
+            }
         }
     },
     props : {
@@ -155,12 +190,38 @@ export default{
             this.form.dias = value
         },
         todos:function (value) {
-            for (var comida in this.p_comidas){
-                comida.activo = value;
+
+            for (var comida in this.form.comidas){
+                this.form.comidas[comida].activo = value;
+            }
+        },
+        inicio(value){
+            for (var comida in this.form.comidas){
+                this.form.comidas[comida].inicio = value;
+            }
+        },
+        fin(value){
+            for (var comida in this.form.comidas){
+                this.form.comidas[comida].inicio = value;
+            }
+        },
+        hora(value){
+            for (var comida in this.form.comidas){
+                this.form.comidas[comida].hora = value;
             }
         },
 
-
+    },
+    computed :{
+        inicio(){
+            return this.d.inicio;
+        },
+        fin(){
+            return this.d.inicio;
+        },
+        hora(){
+            return this.d.inicio;
+        },
     }
 }
 </script>

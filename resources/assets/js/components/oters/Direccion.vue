@@ -41,7 +41,7 @@
 export  default{
     data(){
         return{
-            form : new Form({direccion:Direccion.new()}),
+            form : this.p_form,
         }
     },
     props: {

@@ -4,10 +4,10 @@
             Inicio
         </titulo>
 
-        <direccion
+        <direccionn
             :p_form="form"
             @update="dire=>{form.direccion = dire}">
-        </direccion>
+        </direccionn>
 
     </div>
 </template>
@@ -15,12 +15,12 @@
 <script >
 
 import Titulo from '../components/oters/Titulo.vue';
-import Direccion from '../components/oters/Direccion.vue';
+import Direccionn from '../components/oters/Direccion.vue';
 
 export default{
     data(){
         return {
-            form : new Form()
+            form : new Form({ direccion : new Direccion()})
         }
     },
 
@@ -30,7 +30,7 @@ export default{
     },
     components :{
         Titulo,
-        Direccion
+        Direccionn
     },
     methods:{
 

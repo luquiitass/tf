@@ -27,7 +27,7 @@
                 <show-tipo-comida
                     v-if="componenteDerecho=='show'"
                     :p_tipo="tipoComidaShow"
-                    @showEdit="showEdit()"
+                    @showEdit="showEdit(tipoComidaShow)"
                     @showDelet="showDelet()">
                 </show-tipo-comida>
 
@@ -96,6 +96,9 @@ export default{
     props: {
 
     },
+    computed(){
+
+    },
     created(){
         this.init();
     },
@@ -125,6 +128,7 @@ export default{
         },
         tipoComidasEdited(tipos){
             //this.showTipoComida(tipo);
+            this.get
             this.comidasByTipo = tipos;
             this.showTipoComida( this.comidasByTipo[this.tipoComidaShow.nombre]);
 
@@ -153,9 +157,9 @@ export default{
             this.tipoComidaShow = tipo;
             this.componenteDerecho = 'show'
         },
-        showEdit(){
+        showEdit(tipo){
             this.componenteDerecho = 'edit'
-            this.tipoComidaEdit = this.tipoComidaShow ;
+            this.tipoComidaEdit = tipo ;
         },
         showDelet(){
             this.tipoComidaDelet = this.tipoComidaShow;

@@ -68,6 +68,15 @@
                 </a>
             </router-link>
 
+
+            <router-link tag="li" to="/localidades" exact>
+                <a>
+                    <i class='fa fa-link'></i>
+                    <span>{{trans('string.localidades') }}
+                </span>
+                </a>
+            </router-link>
+
             {{--<router-link tag="li" to="/mercaderias" exact>--}}
                 {{--<a>--}}
                     {{--<i class='fa fa-link'></i>--}}

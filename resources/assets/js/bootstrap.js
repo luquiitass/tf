@@ -31,6 +31,7 @@ import TipoComida from './models/TipoComida';
 import Dia from './models/Dia';
 import Comida from './models/Comida';
 import Direccion from './models/Direccion';
+import Pais from './models/Pais';
 
 
 import Lang from 'lang.js';
@@ -49,6 +50,7 @@ window.TipoComida = TipoComida;
 window.Dia = Dia;
 window.Comida = Comida;
 window.Direccion = Direccion;
+window.Pais = Pais;
 
 
 window.Vue = Vue;
