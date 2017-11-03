@@ -38,7 +38,6 @@ class Coleccion {
     }
 
     addOrReplace(item){
-
         this.datos[item.id] = item;
 
     }
@@ -77,6 +76,10 @@ class Coleccion {
 
     each(callback){
         _.each(this.datos, callback);
+    }
+
+    count(){
+        return this.datos.length;
     }
 
 

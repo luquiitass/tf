@@ -13,7 +13,7 @@ class ProvinciaStoreRequest extends Request
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -23,8 +23,9 @@ class ProvinciaStoreRequest extends Request
      */
     public function rules()
     {
+        $idPais = $this->request->get('pais_id');
         return [
-            //
+            'nombre' => 'required|min:3|unique:provincias,nombre,NULL,id,pais_id,' . $idPais,
         ];
     }
 }

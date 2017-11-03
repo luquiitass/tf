@@ -4,36 +4,25 @@
             Localidades
         </titulo>
         <div class="row">
-            <div class="col-xs-12 col-md-4 bg-success">
-                <h3>
-                    Paises
+            <div class="col-xs-12 col-md-4">
+                <paises
+                    @paisSelect="selectPais">
 
-                    <div class="dropdown">
-                        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Nuevo
-                            <span class="caret"></span></button>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <create-pais
-                                    @nuevoPais="">
-                                </create-pais>
+                </paises>
+            </div>
+            <div class="col-xs-12 col-md-4">
 
+                <provincias
+                    :p_pais="paisSelect">
 
-                            </li>
+                </provincias>
 
-                        </ul>
-                    </div>
+            </div>
 
-                </h3>
-                <ul class="list-group">
-                    <li class="list-group-item" v-for="pais in paises">
-                        <a>{{pais.nombre}}</a>
-                    </li>
-                </ul>
+            <div class="col-xs-12 col-md-4">
 
 
             </div>
-            <div class="col-xs-12 col-md-4"></div>
-            <div class="col-xs-12 col-md-4"></div>
         </div>
     </div>
 </template>
@@ -41,17 +30,21 @@
 
 <script>
 
-import CreatePais from './paises/Create.vue';
+import Paises from './paises/Index.vue';
+import Provincias from './provincias/Index.vue';
+
 
 export  default{
     data(){
         return{
-            paises : new Coleccion({});
+            paises : new Coleccion({}),
+            paisSelect:null,
 
         }
     },
     components:{
-        CreatePais
+        Paises,
+        Provincias
     },
     props: {
 
@@ -62,9 +55,9 @@ export  default{
     methods:{
         init(){
 
-            Pais.all(all => {
-                this.paises = all
-            });
+        },
+        selectPais(pais){
+            this.paisSelect = pais;
         }
     }
 }

@@ -13,7 +13,7 @@ class PaisUpdateRequest extends Request
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -23,8 +23,9 @@ class PaisUpdateRequest extends Request
      */
     public function rules()
     {
+        $id = $this->route()->parameters()['pais'];
         return [
-            //
+            'nombre'=>'min:3|required|unique:paises,nombre,'.$id.',id',
         ];
     }
 }

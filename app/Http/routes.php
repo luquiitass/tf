@@ -95,6 +95,7 @@ Route::resource('comida','Api\ComidasController');
 
 Route::resource('direccion/','Api\DireccionesController');
 
+Route::get('pais/{pais}/attribute','Api\PaisesController@attribute');
 Route::resource('pais','Api\PaisesController');
 
 Route::resource('provincia','Api\ProvinciasController');

@@ -20,6 +20,10 @@ use Illuminate\Database\Eloquent\Model;
 
      public $timestamps = false;
 
+     public function provincias(){
+         return $this->hasMany(Provincia::class);
+     }
+
 
 
  }

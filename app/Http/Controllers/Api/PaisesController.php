@@ -5,13 +5,14 @@ namespace App\Http\Controllers\Api;
 use App\Helper\AjaxGetAttribute;
 use App\Http\Controllers\Api\ApiController;
 use App\Models\Pais;
+use App\Models\RetornoAjax;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
 class PaisesController extends ApiController
 {
-    use AjaxGetAttribute;
+    use AjaxGetAttribute,RetornoAjax;
 
     public function attribute(Pais $pais){
         return $this->ajaxGetAtribute($pais);
@@ -44,7 +45,8 @@ class PaisesController extends ApiController
      */
     public function store(Requests\PaisStoreRequest $request)
     {
-        return Pais::create($request->only('nombre'));
+        $pais = Pais::create($request->only('nombre'));
+        return $this->jsonMensajeData('Felicitaciones','El pais ha sido registrado exitosamente','info',$pais);
     }
 
     /**
@@ -72,25 +74,33 @@ class PaisesController extends ApiController
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param Requests\PaisUpdateRequest $request
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Requests\PaisUpdateRequest $request, $id)
     {
         $pais = Pais::findOrFail($id);
 
-        return $pais->update($request->get('nombre'));
+        $pais->update($request->only('nombre'));
+
+        return $this->jsonMensajeData('Felicitaciones','Nombre del pais modificado','success',$pais);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param Pais $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($pais)
     {
-        //
+        $pais = Pais::findOrFail($pais);
+        try{
+            $pais->delete();
+            return response('true');
+        }catch (\Exception $e){
+            return response()->json($e->getMessage(),422);
+        }
     }
 }

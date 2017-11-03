@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Models\Provincia;
+use App\Models\RetornoAjax;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
 class ProvinciasController extends ApiController
 {
+    use RetornoAjax;
     /**
      * Display a listing of the resource.
      *
@@ -31,12 +34,14 @@ class ProvinciasController extends ApiController
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param Requests\ProvinciaStoreRequest $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Requests\ProvinciaStoreRequest $request)
     {
-        //
+        $provincia = Provincia::create($request->only('nombre','pais_id'));
+        return $this->jsonMensajeData('Felicitaciones','La provincia ha sido registrado exitosamente','info',$provincia);
+
     }
 
     /**
@@ -68,9 +73,14 @@ class ProvinciasController extends ApiController
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Requests\ProvinciaUpdateRequest $request, $id)
     {
         //
+        $provincia = Provincia::findOrFail($id);
+
+        $provincia->update($request->only('nombre'));
+
+        return $this->jsonMensajeData('Felicitaciones','Nombre de la provincia ha sido modificado','success',$provincia);
     }
 
     /**
@@ -81,6 +91,12 @@ class ProvinciasController extends ApiController
      */
     public function destroy($id)
     {
-        //
+        $provincia = Provincia::findOrFail($id);
+        try{
+            $provincia->delete();
+            return response('true');
+        }catch (\Exception $e){
+            return response()->json($e->getMessage(),422);
+        }
     }
 }

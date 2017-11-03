@@ -24,7 +24,7 @@ class PaisStoreRequest extends Request
     public function rules()
     {
         return [
-            'nombre' => 'required|min:2|unique:paises,nombre'
+            'nombre' => 'required|min:3|unique:paises,nombre'
         ];
     }
 }

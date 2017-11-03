@@ -120,6 +120,8 @@ class Form {
                 .then(response => {
                     this.onSuccess(response.data);
 
+                    this.verificarMensajes(response ,resolve);
+
                     resolve(response.data);
                 })
                 .catch(error => {
@@ -128,6 +130,7 @@ class Form {
                         this.submit(requestType,url);
                     }
                     if (error.request.status == 402 || error.request.status  == 422){
+                        this.verificarMensajes(error.response.data, resolve);
                         this.onFail(error.response.data);
                     }
 
@@ -156,6 +159,27 @@ class Form {
      */
     onFail(errors) {
         this.errors.record(errors);
+    }
+
+    verificarMensajes(response, resolve) {
+
+        var data = response.data;
+        if(data.hasOwnProperty('data-mensaje')){
+
+            var retorno = data['data-mensaje'];
+
+            Notificacion.mostrarMensaje(retorno.mensaje)
+
+            resolve(retorno.data);
+        }
+        if(data.hasOwnProperty('simple-mensaje')){
+
+            var retorno = data['simple-mensaje'];
+
+            Notificacion.mostrarMensaje(retorno.mensaje)
+
+            resolve(retorno.data);
+        }
     }
 }
 

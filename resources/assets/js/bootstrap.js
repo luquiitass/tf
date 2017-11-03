@@ -25,6 +25,7 @@ import Moment from 'vue-moment';
 
 //--Modelos
 
+import Notificacion from './models/Notificacion';
 import Comedor from './models/Comedor';
 import Comensal from './models/Comensal';
 import TipoComida from './models/TipoComida';
@@ -44,6 +45,7 @@ window.Constants = Constants;
 window.Conexion = Conexion;
 
 //Models--
+window.Notificacion = Notificacion;
 window.Comedor = Comedor;
 window.Comensal = Comensal;
 window.TipoComida = TipoComida;

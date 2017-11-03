@@ -22,6 +22,10 @@ export  default{
     props: {
         form:{
             required : true
+        },
+        edit : {
+            required:false,
+            default : false
         }
     },
     created(){

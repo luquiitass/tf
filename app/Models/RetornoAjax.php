@@ -38,10 +38,8 @@ trait RetornoAjax
         $mensaje->titulo = $titulo;
         $mensaje->mensaje= $mens;
         $mensaje->tipo = $tipo;
-        $mensaje->data= $data;
         return response()->json(['data-mensaje'=>['mensaje'=>$mensaje,'data'=>$data]],200);
     }
-
 
 
     public function jsonMensajeOk($titulo,$mensaje){
