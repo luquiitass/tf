@@ -1043,7 +1043,7 @@
       <workItem from="1509633364392" duration="9731000" />
       <workItem from="1509666962205" duration="3458000" />
       <workItem from="1509690316139" duration="4909000" />
-      <workItem from="1509727168766" duration="7719000" />
+      <workItem from="1509727168766" duration="7725000" />
     </task>
     <task id="LOCAL-00001" summary="Primer commit -&gt; Proyecto limpio&#10;">
       <created>1505193084411</created>
@@ -1129,11 +1129,18 @@
       <option name="project" value="LOCAL" />
       <updated>1509736104566</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="paises, falta parte de provincias y localidades&#10;">
+      <created>1509736111059</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1509736111059</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="929687000" />
+    <option name="totallyTimeSpent" value="929693000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
