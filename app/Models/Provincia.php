@@ -20,6 +20,12 @@ use Illuminate\Database\Eloquent\Model;
 
      public $timestamps = false;
 
+     public function pais(){
+         return $this->belongsTo(Pais::class);
+     }
 
+     public function localidades(){
+         return $this->hasMany(Localidad::class);
+     }
 
  }

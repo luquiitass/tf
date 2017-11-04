@@ -33,6 +33,7 @@ import Dia from './models/Dia';
 import Comida from './models/Comida';
 import Direccion from './models/Direccion';
 import Pais from './models/Pais';
+import Provincia from './models/Provincia';
 
 
 import Lang from 'lang.js';
@@ -53,6 +54,7 @@ window.Dia = Dia;
 window.Comida = Comida;
 window.Direccion = Direccion;
 window.Pais = Pais;
+window.Provincia = Provincia;
 
 
 window.Vue = Vue;

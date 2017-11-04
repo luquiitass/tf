@@ -98,8 +98,9 @@ Route::resource('direccion/','Api\DireccionesController');
 Route::get('pais/{pais}/attribute','Api\PaisesController@attribute');
 Route::resource('pais','Api\PaisesController');
 
+Route::get('provincia/{provincia}/attribute','Api\ProvinciasController@attribute');
 Route::resource('provincia','Api\ProvinciasController');
 
-Route::resource('localidades','Api\LocalidadesController');
+Route::resource('localidad','Api\LocalidadesController');
 
 

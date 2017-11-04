@@ -13,7 +13,8 @@
             <div class="col-xs-12 col-md-4">
 
                 <provincias
-                    :p_pais="paisSelect">
+                    :p_pais="paisSelect"
+                    @provinciaSelect="selectProvincia">
 
                 </provincias>
 
@@ -21,6 +22,10 @@
 
             <div class="col-xs-12 col-md-4">
 
+                <localidades
+                    :p_provincia="provinciaSelect">
+
+                </localidades>
 
             </div>
         </div>
@@ -32,6 +37,7 @@
 
 import Paises from './paises/Index.vue';
 import Provincias from './provincias/Index.vue';
+import Localidades from './localidades/Index.vue';
 
 
 export  default{
@@ -39,12 +45,14 @@ export  default{
         return{
             paises : new Coleccion({}),
             paisSelect:null,
+            provinciaSelect:null
 
         }
     },
     components:{
         Paises,
-        Provincias
+        Provincias,
+        Localidades
     },
     props: {
 
@@ -58,6 +66,9 @@ export  default{
         },
         selectPais(pais){
             this.paisSelect = pais;
+        },
+        selectProvincia(provincia){
+            this.provinciaSelect = provincia;
         }
     }
 }

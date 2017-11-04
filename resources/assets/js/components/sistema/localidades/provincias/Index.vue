@@ -9,7 +9,7 @@
                     <div class="dropdown">
                         <button class="btn btn-xs dropdown-toggle" type="button" data-toggle="dropdown">                                    <i class="fa fa-plus"></i>
                         </button>
-                        <ul class="dropdown-menu">
+                        <ul class="dropdown-menu dropdown-menu-left">
                             <li>
                                 <create-provincia
                                     :p_pais="p_pais"
@@ -26,10 +26,10 @@
             <ul class="list-group">
                 <li class="list-group-item" v-for="provincia in provincias.datos">
                     <edit-provincia
-                            v-if="ProvinciaEdit == provincia"
-                            :p_Provincia="provincia"
-                            @ProvinciaModificado="pa => {provincia = pa}"
-                            @cancelado="ProvinciaEdit = null"
+                            v-if="provinciaEdit == provincia"
+                            :p_provincia="provincia"
+                            @provinciaModificado="pa => {provincia = pa}"
+                            @cancelado="provinciaEdit = null"
                     ></edit-provincia>
 
                     <div v-else="">
@@ -44,13 +44,13 @@
                             <i class="fa fa-edit"></i>
                         </a>
                         <a class="btn">
-                            <i class="fa fa-chevron-right"></i>
+                            <i class="fa fa-chevron-right" @click="selectProvincia(provincia)"></i>
                         </a>
                     </div>
 
                     </div>
                 </li>
-                <li class="list-group-item" v-if="!provincias.datos.length">
+                <li class="list-group-item" v-if="!provinciasCount()">
                     No posee provincias
                 </li>
             </ul>
@@ -134,6 +134,12 @@ export  default{
         eliminarProvincia(provincia){
             this.modalDelet = true;
             this.provinciaDelet = provincia;
+        },
+        provinciasCount(){
+            return this.provincias.datos.length;
+        },
+        selectProvincia(provincia){
+            this.$emit('provinciaSelect',provincia);
         }
     }
 }

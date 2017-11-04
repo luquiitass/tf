@@ -23,8 +23,10 @@ class LocalidadUpdateRequest extends Request
      */
     public function rules()
     {
+        $id = $this->route()->parameters()['localidad'];
+        $idProvincia = $this->request->get('provincia_id');
         return [
-            //
+            'nombre' => 'required|min:3|unique:localidades,nombre,'. $id .',id,provincia_id,' . $idProvincia,
         ];
     }
 }

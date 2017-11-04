@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Helper\AjaxGetAttribute;
 use App\Models\Provincia;
 use App\Models\RetornoAjax;
 use Illuminate\Http\Request;
@@ -10,7 +11,12 @@ use App\Http\Requests;
 
 class ProvinciasController extends ApiController
 {
-    use RetornoAjax;
+    use RetornoAjax,AjaxGetAttribute;
+
+
+    public function attribute(Provincia $provincia){
+        return $this->ajaxGetAtribute($provincia);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -78,7 +84,7 @@ class ProvinciasController extends ApiController
         //
         $provincia = Provincia::findOrFail($id);
 
-        $provincia->update($request->only('nombre'));
+        $provincia->update($request->only('nombre','pais_id'));
 
         return $this->jsonMensajeData('Felicitaciones','Nombre de la provincia ha sido modificado','success',$provincia);
     }

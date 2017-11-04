@@ -13,7 +13,7 @@ class LocalidadStoreRequest extends Request
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,7 @@ class LocalidadStoreRequest extends Request
     public function rules()
     {
         return [
-            //
+            'nombre' => 'required|min:3|unique:localidades,nombre'
         ];
     }
 }

@@ -12,7 +12,7 @@ class ProvinciaUpdateRequest extends Request
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,8 +22,11 @@ class ProvinciaUpdateRequest extends Request
      */
     public function rules()
     {
+        $id = $this->route()->parameters()['localidad'];
+
+        $idPais = $this->request->get('pais_id');
         return [
-            //
+            'nombre' => 'required|min:3|unique:provincias,nombre,'. $id .',id,pais_id,' . $idPais,
         ];
     }
 }

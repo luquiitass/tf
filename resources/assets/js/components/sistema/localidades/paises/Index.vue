@@ -9,7 +9,7 @@
                     <div class="dropdown">
                         <button class="btn btn-xs dropdown-toggle" type="button" data-toggle="dropdown">                                    <i class="fa fa-plus"></i>
                         </button>
-                        <ul class="dropdown-menu">
+                        <ul class="dropdown-menu dropdown-menu-left">
                             <li>
                                 <create-pais
                                     @nuevoPais="addPais">
