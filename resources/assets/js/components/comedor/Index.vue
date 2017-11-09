@@ -10,6 +10,9 @@ export default{
     props:{
         p_comedor:{
             required:true,
+        },
+        p_usuario:{
+            required:true,
         }
     },
     data(){
@@ -23,6 +26,7 @@ export default{
     methods:{
         init(){
             Vue.set(vm.$data.app,'comedor',this.p_comedor);
+            Vue.set(vm.$data.app,'usuario',this.p_usuario);
         }
     }
 

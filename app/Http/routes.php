@@ -104,3 +104,6 @@ Route::resource('provincia','Api\ProvinciasController');
 Route::resource('localidad','Api\LocalidadesController');
 
 
+Route::resource('anuncio','Api\AnunciosController');
+
+

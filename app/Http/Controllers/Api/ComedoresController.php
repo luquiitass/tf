@@ -79,9 +79,11 @@ class ComedoresController extends ApiController
     {
         $comedor->load('administradores');
         $comedor->comidasByDia();//=
+
+        $usuario = \Auth::user()->load('roles');
         //$comedor->comidasPorDia();
         //$comedor->comidasPorDiaCount();
-        return view('comedor.show',compact('comedor'));
+        return view('comedor.show',compact('comedor','usuario'));
 
     }
 

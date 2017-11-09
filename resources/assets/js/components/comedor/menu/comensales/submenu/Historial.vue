@@ -18,7 +18,7 @@
                     <h3 class="timeline-header">{{getOperacion(inscripcion)}}</h3>
 
                     <div class="timeline-body">
-                        {{modificador(inscripcion)}} dicho q asistiras a {{inscripcion.comida.tipo_comida.nombre | tipoComida}} del {{inscripcion.comida.dia.nombre}} {{ inscripcion.fecha | moment('Do MMMM')}}
+                        {{modificador(inscripcion)}} indicado q {{isInscripto(inscripcion) ? 'asistiras' : 'no asistiras' }} a {{inscripcion.comida.tipo_comida.nombre | tipoComida}} del {{inscripcion.comida.dia.nombre}} {{ inscripcion.fecha | moment('Do MMMM')}}
                     </div>
                 </div>
             </li>
@@ -112,7 +112,7 @@
 export  default{
     data(){
         return{
-            inscripciones : {},
+            inscripciones : this.comensal.inscripciones,
 
         }
     },

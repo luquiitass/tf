@@ -91,6 +91,21 @@ let routes = [
             }
         ]
     },
+
+    {
+        path : '/calendario',
+        components :{
+            content_comedor : require('./components/comedor/menu/calendario/Index.vue'),
+        }
+    },
+
+    {
+        path : '/anuncios',
+        components :{
+            content_comedor : require('./components/comedor/menu/anuncios/Index.vue'),
+        }
+    },
+
     {
         path : '/tiposComidas',
         components :{

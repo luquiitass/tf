@@ -18,7 +18,8 @@ import Notifications from 'vue-notification';
 
 import Conexion from './models/Conexion';
 
-import Moment from 'vue-moment';
+import VueMoment from 'vue-moment';
+
 
 
 
@@ -94,7 +95,7 @@ require('moment/locale/es');
 
 Vue.use(VModal, { dialog: true });
 Vue.use(Notifications);
-Vue.use(Moment);
+Vue.use(VueMoment);
 
 Vue.component('titulo',require('./components/oters/Titulo.vue'));
 Vue.component('modal',require('./components/oters/Modal.vue'));
@@ -165,3 +166,4 @@ Vue.mixin({
 //Vue.component('login-form', require('./components/auth/LoginForm.vue'))
 //Vue.component('email-reset-password-form', require('./components/auth/EmailResetPasswordForm.vue'))
 //Vue.component('reset-password-form', require('./components/auth/ResetPasswordForm.vue'))
+require('moment');

@@ -23,8 +23,9 @@ class LocalidadStoreRequest extends Request
      */
     public function rules()
     {
+        $provincia_id = $this->request->get('provincia_id');
         return [
-            'nombre' => 'required|min:3|unique:localidades,nombre'
+            'nombre' => 'required|min:3|unique:localidades,nombre,NULL,id,provincia_id,' . $provincia_id,
         ];
     }
 }

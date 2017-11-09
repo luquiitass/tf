@@ -66,6 +66,7 @@ export  default{
         },
         selectPais(pais){
             this.paisSelect = pais;
+            this.provinciaSelect = null;
         },
         selectProvincia(provincia){
             this.provinciaSelect = provincia;

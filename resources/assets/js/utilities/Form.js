@@ -164,6 +164,11 @@ class Form {
     verificarMensajes(response, resolve) {
 
         var data = response.data;
+
+        if (! data){
+            return;
+        }
+
         if(data.hasOwnProperty('data-mensaje')){
 
             var retorno = data['data-mensaje'];

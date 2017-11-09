@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use App\Http\Requests\Request;
+use Carbon\Carbon;
 
 class UsuarioUpdateRequest extends Request
 {
@@ -28,7 +29,7 @@ class UsuarioUpdateRequest extends Request
         return [
             'nombre'=> 'required|min:3',
             'apellido'=> 'required|min:3',
-            'fecha_nacimiento'=> 'required|date|before' . Carbon::now(),
+            'fecha_nacimiento'=> 'required|date|before:' . Carbon::now()->format('d-M-Y') ,
             'dni'=> 'required|unique:users,dni,'.$id . ',id',
             'email'=> 'required|email|unique:users,email,'.$id .',id',
         ];

@@ -51,14 +51,6 @@
                 </a>
             </router-link>
 
-            <router-link tag="li" to="/tiposComidas" :claass="{
-            active : hasRoute('/tiposComida')}">
-                <a>
-                    <i class='fa fa-link'></i>
-                    <span>{{trans('string.tipos_de_comida') }}
-                </span>
-                </a>
-            </router-link>
             <router-link tag="li" to="/anotados" :claass="{
             active : hasRoute('/anotados')}">
                 <a>
@@ -67,6 +59,35 @@
                 </span>
                 </a>
             </router-link>
+
+            <router-link tag="li" to="/calendario" :claass="{
+                active : hasRoute('/calendario')}">
+                <a>
+                    <i class='fa fa-link'></i>
+                    <span>{{trans('string.calendario') }}
+                </span>
+                </a>
+            </router-link>
+
+            <router-link tag="li" to="/anuncios" :claass="{
+                active : hasRoute('/anuncios')}">
+                <a>
+                    <i class='fa fa-link'></i>
+                    <span>{{trans('string.anuncios') }}
+                </span>
+                </a>
+            </router-link>
+
+            <router-link tag="li" to="/tiposComidas" :claass="{
+            active : hasRoute('/tiposComida')}">
+                <a>
+                    <i class='fa fa-link'></i>
+                    <span>{{trans('string.tipos_de_comida') }}
+                </span>
+                </a>
+            </router-link>
+
+
 
             <router-link tag="li" to="/administradores" exact>
                 <a>

@@ -20,7 +20,7 @@
     <!-- Main content -->
         <section class="content">
             <!-- Your Page Content Here -->
-            <comedor-index :p_comedor="{{$comedor}}">
+            <comedor-index :p_comedor="{{$comedor}}" :p_usuario="{{$usuario}}">
 
             </comedor-index>
 

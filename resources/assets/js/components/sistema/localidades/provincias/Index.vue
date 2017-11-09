@@ -37,20 +37,20 @@
                         <a>{{provincia.nombre}}</a>
 
                         <div class="btn-group btn-xs pull-right">
-                            <a class="btn">
-                                <i class="fa fa-trash" @click="eliminarProvincia(provincia)"></i>
+                            <a class="btn" data-toggle="tooltip" data-placement="top" data-original-title="Eliminar" @click="eliminarProvincia(provincia)">
+                                <i class="fa fa-trash"></i>
                             </a>
-                            <a class="btn" @click="editarProvincia(provincia)">
-                            <i class="fa fa-edit"></i>
-                        </a>
-                        <a class="btn">
-                            <i class="fa fa-chevron-right" @click="selectProvincia(provincia)"></i>
-                        </a>
-                    </div>
+                            <a class="btn" data-toggle="tooltip" data-placement="top" data-original-title="Editar" @click="editarProvincia(provincia)">
+                                <i class="fa fa-edit"></i>
+                            </a>
+                            <a class="btn" data-toggle="tooltip" data-placement="top" data-original-title="Ver Localidades" @click="selectProvincia(provincia)">
+                                <i class="fa fa-chevron-right" ></i>
+                            </a>
+                        </div>
 
                     </div>
                 </li>
-                <li class="list-group-item" v-if="!provinciasCount()">
+                <li class="list-group-item" v-if="false">
                     No posee provincias
                 </li>
             </ul>

@@ -13,6 +13,8 @@ return [
     'usuarios' =>'Usuarios',
     'comensales'=>'Comensales',
     'anotados'=>'Anotados',
+    'calendario'=>'Calendario',
+    'anuncios'=>'Anuncios',
     'administradores'=>'Administradores',
     'tipos_de_comida'=>'Tipos de Comida',
     'localidades' => 'Localidades'

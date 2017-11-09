@@ -36,14 +36,14 @@
                         <a>{{pais.nombre}}</a>
 
                         <div class="btn-group btn-xs pull-right">
-                            <a class="btn">
-                                <i class="fa fa-trash" @click="eliminarPais(pais)"></i>
+                            <a class="btn" data-toggle="tooltip" data-placement="top" data-original-title="Eliminar" @click="eliminarPais(pais)">
+                                <i class="fa fa-trash"></i>
                             </a>
-                            <a class="btn" @click="editarPais(pais)">
+                            <a class="btn" data-toggle="tooltip" data-placement="top" data-original-title="Editar" @click="editarPais(pais)">
                             <i class="fa fa-edit"></i>
                         </a>
-                        <a class="btn">
-                            <i class="fa fa-chevron-right" @click="selectPais(pais)"></i>
+                        <a class="btn" data-toggle="tooltip" data-placement="top" data-original-title="Ver Provincias" @click="selectPais(pais)">
+                            <i class="fa fa-chevron-right"></i>
                         </a>
                     </div>
 

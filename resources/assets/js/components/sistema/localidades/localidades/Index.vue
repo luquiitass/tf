@@ -12,7 +12,7 @@
                         <ul class="dropdown-menu dropdown-menu-left">
                             <li>
                                 <create-localidad
-                                    @nuevoLocalidad="addLocalidad"
+                                    @nuevaLocalidad="addLocalidad"
                                     :p_provincia="p_provincia">
                                 </create-localidad>
                             </li>
@@ -37,16 +37,14 @@
                         <a>{{localidad.nombre}}</a>
 
                         <div class="btn-group btn-xs pull-right">
-                            <a class="btn">
-                                <i class="fa fa-trash" @click="eliminarLocalidad(localidad)"></i>
+                            <a class="btn"  data-toggle="tooltip" data-placement="top" data-original-title="Eliminar" @click="eliminarLocalidad(localidad)">
+                                <i class="fa fa-trash"></i>
                             </a>
-                            <a class="btn" @click="editarLocalidad(localidad)">
-                            <i class="fa fa-edit"></i>
-                        </a>
-                        <a class="btn">
-                            <i class="fa fa-chevron-right" @click="selectLocalidad(localidad)"></i>
-                        </a>
-                    </div>
+                            <a class="btn"  data-toggle="tooltip" data-placement="top" data-original-title="Editar Localidad" @click="editarLocalidad(localidad)">
+                                <i class="fa fa-edit"></i>
+                            </a>
+
+                        </div>
 
                     </div>
 

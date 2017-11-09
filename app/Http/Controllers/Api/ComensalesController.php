@@ -73,7 +73,7 @@ class ComensalesController extends ApiController
      */
     public function show(Comensal $comensal)
     {
-        $comensal->load('usuario');
+        $comensal->load('usuario','inscripciones');
         return $comensal;
     }
 
@@ -121,12 +121,14 @@ class ComensalesController extends ApiController
         //dd($comida);
         if ($comensal->comidas->where('id' , $comida['id'])->first()){
             $comensal->comidas()->detach($comida['id']);
-            $comensal->inscripciones()->create( array_merge($inscripcion,['inscripto'=>0]));
+            $insc = $comensal->inscripciones()->create( array_merge($inscripcion,['inscripto'=>0]));
 
         }else{
             $comensal->comidas()->attach($comida['id']);
-            $comensal->inscripciones()->create( array_merge($inscripcion,['inscripto'=>1]));
+            $insc = $comensal->inscripciones()->create( array_merge($inscripcion,['inscripto'=>1]));
         }
+
+        return $insc->load('comida','usuario');
 
     }
 

@@ -83,7 +83,7 @@ class LocalidadesController extends ApiController
 
         $localidad->update($request->only('nombre'));
 
-        return $this->jsonMensajeData('Felicitaciones','Nombre de la localidad ha sido modificado','success',$provincia);
+        return $this->jsonMensajeData('Felicitaciones','Nombre de la localidad ha sido modificado','success',$localidad);
 
     }
 

@@ -23,7 +23,7 @@ window.vm = new Vue({
                 })
                 .catch(error=> {
                     console.log(error);
-                    window.location = PATH + '/login';
+                    //window.location = PATH + '/login';
                 });
 
         },

@@ -45,7 +45,7 @@ export  default{
     data(){
         return{
             comedor : vm.app.comedor,
-            inscripciones : [],
+            asistencias : [],
             comidasByDia : [],
             select:null,
             dias : Constants.dias(),
@@ -74,8 +74,8 @@ export  default{
             console.log(' updates comids by comidas')
             this.comidasByDia = this.comidasPorDia();
         },
-        inscripciones(){
-            console.log(' updates comids by inscripciones')
+        asistencias(){
+            console.log(' updates comids by asistencias')
             this.comidasByDia = this.comidasPorDia();
 
         }
@@ -83,7 +83,7 @@ export  default{
     },
     methods: {
         init(){
-            this.inscripciones = new Coleccion(this.comensal.inscripciones);
+            this.asistencias = new Coleccion(this.comensal.asistencias);
             Comedor.attribure(
                     this.comedor.id,
                     'comidasByDia',
@@ -97,7 +97,7 @@ export  default{
             Comensal.attribure(
                     this.comensal.id,
                     'comidas',
-                    inscripciones => this.inscripciones = new Coleccion(inscripciones)
+                    asistencias => this.asistencias = new Coleccion(asistencias)
             );
             //
         },
@@ -106,14 +106,14 @@ export  default{
             var form = new Form({comida: comida});
             var self = this;
             form.post(PATH + 'comensal/cambiarInscripcion/' + this.comensal.id)
-                    .then(data=> {
+                    .then(inscripcion=> {
                         self.select = null;
                         if (self.isInscripto(comida)) {
-                            self.inscripciones.remove(comida);
+                            self.asistencias.remove(comida);
                         } else {
-                            self.inscripciones.addOrReplace(comida);
+                            self.asistencias.addOrReplace(comida);
                         }
-
+                        this.comensal.inscripciones.unshift(inscripcion);
                     })
                     .catch(error => {
                         console.log(error);
@@ -123,7 +123,7 @@ export  default{
 
         },
         isInscripto(comida){
-            return this.inscripciones.has(comida.id);
+            return this.asistencias.has(comida.id);
         },
         classButton(comida){
             return this.isInscripto(comida) ? 'btn  btn-block dropdown-toggle btn-success' : 'btn  btn-block dropdown-toggle btn-danger';

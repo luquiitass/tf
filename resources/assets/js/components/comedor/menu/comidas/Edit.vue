@@ -45,7 +45,7 @@ export  default{
     methods:{
         init(){
             this.comidas = this.p_comidas;
-            this.form = new Form(this.comidas);
+            this.form = new Form({ comidas : this.comidas });
         },
         onSubmit(){
             this.form.put( PATH +'comida/' + '0')

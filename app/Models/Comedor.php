@@ -48,6 +48,9 @@ class Comedor extends Model
          return $data ? 'Activo':'Inactivo';
      }
 
+     public function anuncios(){
+         return $this->hasMany(Anuncio::class)->with('usuario');
+     }
 
      public function comidasByTipoComida(){
          $retorno = /*array();

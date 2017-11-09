@@ -23,14 +23,14 @@ import Inputs from '../../../forms/InputPais.vue'
 export  default{
     data(){
         return{
-            form : new Form(this.p_pais),
+            form : new Form(this.p_localidad),
         }
     },
     components:{
         Inputs
     },
     props: {
-        p_pais : {
+        p_localidad : {
             required:true
         }
     },
@@ -42,10 +42,10 @@ export  default{
 
         },
         onSubmit(){
-            this.form.put(PATH + 'pais/'+ this.p_pais.id)
+            this.form.put(PATH + 'localidad/'+ this.p_localidad.id)
                     .then(pais=>{
 
-                        this.p_pais.nombre = pais.nombre
+                        this.p_localidad.nombre = pais.nombre
 
                         this.cancelar();
                     })

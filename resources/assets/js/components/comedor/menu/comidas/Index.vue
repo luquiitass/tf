@@ -40,7 +40,7 @@
 
                 <modal-delet v-if="tipoComidaDelet"
                     :titulo="'Eliminar'"
-                    :text="'Esta seguro de eliminar  ' + tipoComidaDelet.nombre "
+                    :text="'Esta seguro de eliminar  ' + tipoComidaDelet[0].tipo_comida.nombre "
                     :url="'tipoComida/' + tipoComidaDelet.id"
                     @eliminado="tipoComidaDeleted(tipoComidaShow)"
                     @cancelado="tipoComidaDelet = null">
@@ -96,7 +96,7 @@ export default{
     props: {
 
     },
-    computed(){
+    computed:{
 
     },
     created(){
