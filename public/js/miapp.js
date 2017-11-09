@@ -48200,6 +48200,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -48285,6 +48293,10 @@ module.exports = Component.exports
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__forms_InputsAnuncio_vue__ = __webpack_require__(355);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__forms_InputsAnuncio_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__forms_InputsAnuncio_vue__);
+//
+//
+//
+//
 //
 //
 //
@@ -48531,7 +48543,7 @@ if (false) {
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', [_c('form', {
+  return _c('div', [_vm._m(0), _vm._v(" "), _c('form', {
     on: {
       "submit": function($event) {
         $event.preventDefault();
@@ -48554,7 +48566,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {
       "type": "submit"
     }
-  }, [_vm._v("Guardar")]), _vm._v(" "), _c('button', {
+  }, [_vm._v("Guardar")]), _vm._v(" "), _c('a', {
     staticClass: "btn btn-warning",
     on: {
       "click": function($event) {
@@ -48562,7 +48574,11 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       }
     }
   }, [_vm._v("Cancelar")])])])], 1)])
-},staticRenderFns: []}
+},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('div', {
+    staticClass: "text-center"
+  }, [_c('h3', [_vm._v("Nuevo Anuncio")])])
+}]}
 module.exports.render._withStripped = true
 if (false) {
   module.hot.accept()
@@ -48602,37 +48618,45 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_c('div', {
     staticClass: "chat"
   }, [_c('div', {
+    staticStyle: {
+      "display": "none"
+    },
     attrs: {
       "id": "create_anuncio"
     }
   }, [_c('create', {
     on: {
-      "addAnuncio": _vm.addAnuncio
+      "addAnuncio": _vm.addAnuncio,
+      "cancelado": function($event) {
+        _vm.toggleCreate()
+      }
     }
   })], 1), _vm._v(" "), _c('div', {
-    staticClass: "direct-chat-messages"
+    staticClass: "anuncios"
   }, _vm._l((_vm.anuncios), function(anuncio) {
     return _c('div', {
-      staticClass: "direct-chat-msg border-top"
+      staticClass: "anuncios-item"
     }, [_c('div', {
-      staticClass: "direct-chat-info clearfix"
+      staticClass: "clearfix"
     }, [_c('span', {
-      staticClass: "direct-chat-name pull-left"
-    }, [_vm._v(_vm._s(anuncio.usuario.apellido) + " " + _vm._s(anuncio.usuario.nombre))]), _vm._v(" "), _c('span', {
-      staticClass: "direct-chat-timestamp pull-right"
-    }, [_vm._v(_vm._s(anuncio.registrado))])]), _vm._v(" "), _c('img', {
-      staticClass: "direct-chat-img",
-      attrs: {
-        "src": anuncio.usuario.foto,
-        "alt": "message user image"
-      }
-    }), _vm._v(" "), _c('div', {
-      staticClass: "direct-chat-text"
-    }, [_c('p', {
-      staticClass: "direct-chat-title"
-    }, [_vm._v(_vm._s(anuncio.asunto))]), _vm._v(" "), _c('p', [_vm._v(_vm._s(anuncio.cuerpo))])]), _vm._v(" "), _c('div', {}, [_c('small', {
       staticClass: "pull-right"
-    }, [_vm._v("visible hasta "), _c('cite', {
+    }, [_c('i', {
+      staticClass: "fa fa-clock-o"
+    }), _vm._v(_vm._s(anuncio.registrado))]), _vm._v(" "), _c('p', {
+      staticClass: "anuncio-title pull-left"
+    }, [_vm._v(_vm._s(anuncio.asunto))])]), _vm._v(" "), _c('div', {
+      staticClass: "anuncio-cuerpo"
+    }, [_c('p', [_vm._v(_vm._s(anuncio.cuerpo))])]), _vm._v(" "), _c('div', {
+      staticClass: "clearfix"
+    }, [_c('span', {
+      staticClass: "anuncio-usuario pull-left"
+    }, [_c('i', {
+      staticClass: "fa fa-user"
+    }), _vm._v("\n                                         " + _vm._s(anuncio.usuario.apellido) + " " + _vm._s(anuncio.usuario.nombre) + "\n                                    ")]), _vm._v(" "), _c('small', {
+      staticClass: "pull-right"
+    }, [_c('i', {
+      staticClass: "fa fa-eye"
+    }), _vm._v("\n                                         visible hasta "), _c('cite', {
       attrs: {
         "title": "Source Title"
       }

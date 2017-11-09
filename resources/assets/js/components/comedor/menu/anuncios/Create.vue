@@ -1,5 +1,9 @@
 <template>
     <div>
+        <div class="text-center">
+            <h3>Nuevo Anuncio</h3>
+        </div>
+
         <form @submit.prevent="onSubmit" @keydown="form.errors.clear()" >
 
             <inputs :form="form"></inputs>
@@ -7,7 +11,7 @@
             <div class="box-footer">
                 <div class="pull-right">
                     <button type="submit"  class="btn btn-success">Guardar</button>
-                    <button class="btn btn-warning" @click="cancelar()">Cancelar</button>
+                    <a class="btn btn-warning" @click="cancelar()">Cancelar</a>
                 </div>
             </div>
 

@@ -2,480 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="61da1a9e-8e11-4143-bc4a-92b2c7a4a68c" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Docu/Estado de avance_1.pdf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/AnunciosController.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Http/Requests/AnuncioStoreRequest.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Http/Requests/AnuncioUpdateRequest.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Models/Anuncio.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/fullcalendar2/CHANGELOG.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/fullcalendar2/CONTRIBUTING.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/fullcalendar2/LICENSE.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/fullcalendar2/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/fullcalendar2/dist/fullcalendar.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/fullcalendar2/dist/fullcalendar.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/fullcalendar2/dist/fullcalendar.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/fullcalendar2/dist/fullcalendar.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/fullcalendar2/dist/fullcalendar.print.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/fullcalendar2/dist/fullcalendar.print.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/fullcalendar2/dist/gcal.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/fullcalendar2/dist/gcal.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/fullcalendar2/dist/locale-all.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/fullcalendar2/dist/locale/af.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/fullcalendar2/dist/locale/ar-dz.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/fullcalendar2/dist/locale/ar-kw.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/fullcalendar2/dist/locale/ar-ly.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/fullcalendar2/dist/locale/ar-ma.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/fullcalendar2/dist/locale/ar-sa.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/fullcalendar2/dist/locale/ar-tn.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/fullcalendar2/dist/locale/ar.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/fullcalendar2/dist/locale/bg.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/fullcalendar2/dist/locale/ca.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/fullcalendar2/dist/locale/cs.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/fullcalendar2/dist/locale/da.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/fullcalendar2/dist/locale/de-at.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/fullcalendar2/dist/locale/de-ch.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/fullcalendar2/dist/locale/de.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/fullcalendar2/dist/locale/el.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/fullcalendar2/dist/locale/en-au.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/fullcalendar2/dist/locale/en-ca.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/fullcalendar2/dist/locale/en-gb.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/fullcalendar2/dist/locale/en-ie.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/fullcalendar2/dist/locale/en-nz.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/fullcalendar2/dist/locale/es-do.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/fullcalendar2/dist/locale/es-us.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/fullcalendar2/dist/locale/es.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/fullcalendar2/dist/locale/et.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/fullcalendar2/dist/locale/eu.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/fullcalendar2/dist/locale/fa.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/fullcalendar2/dist/locale/fi.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/fullcalendar2/dist/locale/fr-ca.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/fullcalendar2/dist/locale/fr-ch.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/fullcalendar2/dist/locale/fr.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/fullcalendar2/dist/locale/gl.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/fullcalendar2/dist/locale/he.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/fullcalendar2/dist/locale/hi.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/fullcalendar2/dist/locale/hr.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/fullcalendar2/dist/locale/hu.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/fullcalendar2/dist/locale/id.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/fullcalendar2/dist/locale/is.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/fullcalendar2/dist/locale/it.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/fullcalendar2/dist/locale/ja.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/fullcalendar2/dist/locale/kk.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/fullcalendar2/dist/locale/ko.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/fullcalendar2/dist/locale/lb.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/fullcalendar2/dist/locale/lt.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/fullcalendar2/dist/locale/lv.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/fullcalendar2/dist/locale/mk.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/fullcalendar2/dist/locale/ms-my.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/fullcalendar2/dist/locale/ms.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/fullcalendar2/dist/locale/nb.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/fullcalendar2/dist/locale/nl-be.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/fullcalendar2/dist/locale/nl.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/fullcalendar2/dist/locale/nn.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/fullcalendar2/dist/locale/pl.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/fullcalendar2/dist/locale/pt-br.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/fullcalendar2/dist/locale/pt.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/fullcalendar2/dist/locale/ro.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/fullcalendar2/dist/locale/ru.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/fullcalendar2/dist/locale/sk.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/fullcalendar2/dist/locale/sl.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/fullcalendar2/dist/locale/sq.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/fullcalendar2/dist/locale/sr-cyrl.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/fullcalendar2/dist/locale/sr.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/fullcalendar2/dist/locale/sv.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/fullcalendar2/dist/locale/th.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/fullcalendar2/dist/locale/tr.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/fullcalendar2/dist/locale/uk.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/fullcalendar2/dist/locale/vi.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/fullcalendar2/dist/locale/zh-cn.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/fullcalendar2/dist/locale/zh-tw.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/fullcalendar2/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/.bower.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/CHANGELOG.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/LICENSE" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/bower.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/locale/af.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/locale/ar-dz.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/locale/ar-kw.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/locale/ar-ly.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/locale/ar-ma.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/locale/ar-sa.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/locale/ar-tn.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/locale/ar.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/locale/az.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/locale/be.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/locale/bg.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/locale/bn.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/locale/bo.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/locale/br.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/locale/bs.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/locale/ca.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/locale/cs.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/locale/cv.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/locale/cy.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/locale/da.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/locale/de-at.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/locale/de-ch.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/locale/de.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/locale/dv.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/locale/el.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/locale/en-au.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/locale/en-ca.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/locale/en-gb.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/locale/en-ie.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/locale/en-nz.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/locale/eo.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/locale/es-do.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/locale/es.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/locale/et.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/locale/eu.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/locale/fa.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/locale/fi.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/locale/fo.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/locale/fr-ca.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/locale/fr-ch.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/locale/fr.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/locale/fy.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/locale/gd.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/locale/gl.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/locale/gom-latn.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/locale/he.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/locale/hi.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/locale/hr.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/locale/hu.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/locale/hy-am.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/locale/id.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/locale/is.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/locale/it.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/locale/ja.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/locale/jv.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/locale/ka.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/locale/kk.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/locale/km.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/locale/kn.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/locale/ko.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/locale/ky.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/locale/lb.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/locale/lo.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/locale/lt.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/locale/lv.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/locale/me.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/locale/mi.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/locale/mk.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/locale/ml.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/locale/mr.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/locale/ms-my.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/locale/ms.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/locale/my.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/locale/nb.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/locale/ne.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/locale/nl-be.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/locale/nl.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/locale/nn.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/locale/pa-in.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/locale/pl.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/locale/pt-br.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/locale/pt.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/locale/ro.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/locale/ru.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/locale/sd.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/locale/se.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/locale/si.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/locale/sk.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/locale/sl.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/locale/sq.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/locale/sr-cyrl.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/locale/sr.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/locale/ss.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/locale/sv.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/locale/sw.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/locale/ta.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/locale/te.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/locale/tet.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/locale/th.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/locale/tl-ph.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/locale/tlh.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/locale/tr.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/locale/tzl.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/locale/tzm-latn.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/locale/tzm.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/locale/uk.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/locale/ur.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/locale/uz-latn.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/locale/uz.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/locale/vi.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/locale/x-pseudo.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/locale/yo.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/locale/zh-cn.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/locale/zh-hk.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/locale/zh-tw.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/min/locales.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/min/locales.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/min/moment-with-locales.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/min/moment-with-locales.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/min/moment.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/min/tests.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/moment.d.ts" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/moment.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/lib/create/check-overflow.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/lib/create/date-from-array.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/lib/create/from-anything.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/lib/create/from-array.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/lib/create/from-object.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/lib/create/from-string-and-array.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/lib/create/from-string-and-format.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/lib/create/from-string.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/lib/create/local.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/lib/create/parsing-flags.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/lib/create/utc.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/lib/create/valid.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/lib/duration/abs.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/lib/duration/add-subtract.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/lib/duration/as.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/lib/duration/bubble.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/lib/duration/constructor.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/lib/duration/create.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/lib/duration/duration.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/lib/duration/get.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/lib/duration/humanize.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/lib/duration/iso-string.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/lib/duration/prototype.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/lib/duration/valid.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/lib/format/format.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/lib/locale/base-config.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/lib/locale/calendar.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/lib/locale/constructor.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/lib/locale/en.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/lib/locale/formats.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/lib/locale/invalid.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/lib/locale/lists.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/lib/locale/locale.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/lib/locale/locales.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/lib/locale/ordinal.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/lib/locale/pre-post-format.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/lib/locale/prototype.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/lib/locale/relative.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/lib/locale/set.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/lib/moment/add-subtract.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/lib/moment/calendar.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/lib/moment/clone.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/lib/moment/compare.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/lib/moment/constructor.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/lib/moment/creation-data.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/lib/moment/diff.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/lib/moment/format.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/lib/moment/from.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/lib/moment/get-set.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/lib/moment/locale.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/lib/moment/min-max.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/lib/moment/moment.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/lib/moment/now.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/lib/moment/prototype.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/lib/moment/start-end-of.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/lib/moment/to-type.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/lib/moment/to.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/lib/moment/valid.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/lib/parse/regex.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/lib/parse/token.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/lib/units/aliases.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/lib/units/constants.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/lib/units/day-of-month.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/lib/units/day-of-week.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/lib/units/day-of-year.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/lib/units/hour.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/lib/units/millisecond.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/lib/units/minute.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/lib/units/month.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/lib/units/offset.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/lib/units/priorities.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/lib/units/quarter.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/lib/units/second.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/lib/units/timestamp.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/lib/units/timezone.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/lib/units/units.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/lib/units/week-calendar-utils.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/lib/units/week-year.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/lib/units/week.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/lib/units/year.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/lib/utils/abs-ceil.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/lib/utils/abs-floor.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/lib/utils/abs-round.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/lib/utils/compare-arrays.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/lib/utils/defaults.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/lib/utils/deprecate.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/lib/utils/extend.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/lib/utils/has-own-prop.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/lib/utils/hooks.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/lib/utils/index-of.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/lib/utils/is-array.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/lib/utils/is-date.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/lib/utils/is-function.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/lib/utils/is-number.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/lib/utils/is-object-empty.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/lib/utils/is-object.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/lib/utils/is-undefined.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/lib/utils/keys.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/lib/utils/map.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/lib/utils/some.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/lib/utils/to-int.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/lib/utils/zero-fill.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/locale/af.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/locale/ar-dz.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/locale/ar-kw.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/locale/ar-ly.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/locale/ar-ma.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/locale/ar-sa.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/locale/ar-tn.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/locale/ar.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/locale/az.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/locale/be.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/locale/bg.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/locale/bn.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/locale/bo.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/locale/br.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/locale/bs.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/locale/ca.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/locale/cs.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/locale/cv.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/locale/cy.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/locale/da.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/locale/de-at.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/locale/de-ch.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/locale/de.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/locale/dv.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/locale/el.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/locale/en-au.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/locale/en-ca.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/locale/en-gb.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/locale/en-ie.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/locale/en-nz.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/locale/eo.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/locale/es-do.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/locale/es.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/locale/et.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/locale/eu.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/locale/fa.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/locale/fi.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/locale/fo.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/locale/fr-ca.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/locale/fr-ch.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/locale/fr.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/locale/fy.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/locale/gd.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/locale/gl.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/locale/gom-latn.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/locale/he.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/locale/hi.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/locale/hr.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/locale/hu.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/locale/hy-am.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/locale/id.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/locale/is.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/locale/it.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/locale/ja.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/locale/jv.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/locale/ka.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/locale/kk.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/locale/km.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/locale/kn.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/locale/ko.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/locale/ky.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/locale/lb.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/locale/lo.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/locale/lt.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/locale/lv.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/locale/me.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/locale/mi.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/locale/mk.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/locale/ml.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/locale/mr.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/locale/ms-my.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/locale/ms.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/locale/my.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/locale/nb.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/locale/ne.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/locale/nl-be.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/locale/nl.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/locale/nn.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/locale/pa-in.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/locale/pl.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/locale/pt-br.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/locale/pt.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/locale/ro.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/locale/ru.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/locale/sd.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/locale/se.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/locale/si.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/locale/sk.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/locale/sl.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/locale/sq.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/locale/sr-cyrl.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/locale/sr.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/locale/ss.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/locale/sv.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/locale/sw.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/locale/ta.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/locale/te.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/locale/tet.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/locale/th.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/locale/tl-ph.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/locale/tlh.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/locale/tr.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/locale/tzl.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/locale/tzm-latn.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/locale/tzm.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/locale/uk.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/locale/ur.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/locale/uz-latn.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/locale/uz.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/locale/vi.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/locale/x-pseudo.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/locale/yo.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/locale/zh-cn.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/locale/zh-hk.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/locale/zh-tw.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/src/moment.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/templates/default.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/templates/locale-header.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/plugins/moment/templates/test-header.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/assets/js/components/comedor/menu/anuncios/Create.vue" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/assets/js/components/comedor/menu/anuncios/Index.vue" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/assets/js/components/comedor/menu/calendario/Index.vue" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/assets/js/components/forms/InputsAnuncio.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources/b2b261be-c250-4a48-a615-3e613f54b871.xml" afterPath="$PROJECT_DIR$/.idea/dataSources/b2b261be-c250-4a48-a615-3e613f54b871.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Docu/modelo/PA_modelo.architect" afterPath="$PROJECT_DIR$/Docu/modelo/PA_modelo.architect" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/ComedoresController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/ComedoresController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/ComensalesController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/ComensalesController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/LocalidadesController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/LocalidadesController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Requests/LocalidadStoreRequest.php" afterPath="$PROJECT_DIR$/app/Http/Requests/LocalidadStoreRequest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Requests/UsuarioUpdateRequest.php" afterPath="$PROJECT_DIR$/app/Http/Requests/UsuarioUpdateRequest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/routes.php" afterPath="$PROJECT_DIR$/app/Http/routes.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Models/Comedor.php" afterPath="$PROJECT_DIR$/app/Models/Comedor.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/seeds/UserTableSeeder.php" afterPath="$PROJECT_DIR$/database/seeds/UserTableSeeder.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/miapp.js" afterPath="$PROJECT_DIR$/public/js/miapp.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/js/bootstrap.js" afterPath="$PROJECT_DIR$/resources/assets/js/bootstrap.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/js/components/comedor/Index.vue" afterPath="$PROJECT_DIR$/resources/assets/js/components/comedor/Index.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/js/components/comedor/menu/comensales/submenu/Historial.vue" afterPath="$PROJECT_DIR$/resources/assets/js/components/comedor/menu/comensales/submenu/Historial.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/js/components/comedor/menu/comensales/submenu/Inscripciones.vue" afterPath="$PROJECT_DIR$/resources/assets/js/components/comedor/menu/comensales/submenu/Inscripciones.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/js/components/comedor/menu/comidas/Edit.vue" afterPath="$PROJECT_DIR$/resources/assets/js/components/comedor/menu/comidas/Edit.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/js/components/comedor/menu/comidas/Index.vue" afterPath="$PROJECT_DIR$/resources/assets/js/components/comedor/menu/comidas/Index.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/js/components/sistema/localidades/Index.vue" afterPath="$PROJECT_DIR$/resources/assets/js/components/sistema/localidades/Index.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/js/components/sistema/localidades/localidades/Edit.vue" afterPath="$PROJECT_DIR$/resources/assets/js/components/sistema/localidades/localidades/Edit.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/js/components/sistema/localidades/localidades/Index.vue" afterPath="$PROJECT_DIR$/resources/assets/js/components/sistema/localidades/localidades/Index.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/js/components/sistema/localidades/paises/Index.vue" afterPath="$PROJECT_DIR$/resources/assets/js/components/sistema/localidades/paises/Index.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/js/components/sistema/localidades/provincias/Index.vue" afterPath="$PROJECT_DIR$/resources/assets/js/components/sistema/localidades/provincias/Index.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/js/miapp.js" afterPath="$PROJECT_DIR$/resources/assets/js/miapp.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/js/routes.js" afterPath="$PROJECT_DIR$/resources/assets/js/routes.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/js/utilities/Form.js" afterPath="$PROJECT_DIR$/resources/assets/js/utilities/Form.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/js/components/comedor/menu/anuncios/Create.vue" afterPath="$PROJECT_DIR$/resources/assets/js/components/comedor/menu/anuncios/Create.vue" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/js/components/comedor/menu/anuncios/Index.vue" afterPath="$PROJECT_DIR$/resources/assets/js/components/comedor/menu/anuncios/Index.vue" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/less/miapp.less" afterPath="$PROJECT_DIR$/resources/assets/less/miapp.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/lang/es/string.php" afterPath="$PROJECT_DIR$/resources/lang/es/string.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/comedor/partials/htmlheader.blade.php" afterPath="$PROJECT_DIR$/resources/views/comedor/partials/htmlheader.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/comedor/partials/scripts.blade.php" afterPath="$PROJECT_DIR$/resources/views/comedor/partials/scripts.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/comedor/partials/sidebar.blade.php" afterPath="$PROJECT_DIR$/resources/views/comedor/partials/sidebar.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/comedor/show.blade.php" afterPath="$PROJECT_DIR$/resources/views/comedor/show.blade.php" />
     </list>
     <ignored path="TF.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -500,16 +31,6 @@
     <option name="SHOW_TABLE_DETAILS" value="true" />
     <option name="SHOW_EMPTY_GROUPS" value="false" />
     <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
-    <PATH>
-      <PATH_ELEMENT>
-        <option name="myItemId" />
-        <option name="myItemType" value="com.intellij.database.view.DatabaseStructure$Root" />
-      </PATH_ELEMENT>
-      <PATH_ELEMENT>
-        <option name="myItemId" value="MySQL - tf@localhost" />
-        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
-      </PATH_ELEMENT>
-    </PATH>
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
@@ -517,21 +38,31 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Index.vue" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Index.vue" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/assets/js/components/comedor/menu/anuncios/Index.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
-              <caret line="94" column="38" selection-start-line="94" selection-start-column="38" selection-end-line="94" selection-end-column="38" />
+            <state relative-caret-position="475">
+              <caret line="34" column="67" selection-start-line="34" selection-start-column="67" selection-end-line="34" selection-end-column="67" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="miapp.less" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Tabla.vue" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/assets/js/utilities/Tabla.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-3474">
+              <caret line="35" column="66" selection-start-line="35" selection-start-column="66" selection-end-line="35" selection-end-column="66" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="miapp.less" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/assets/less/miapp.less">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="351">
-              <caret line="740" column="17" selection-start-line="740" selection-start-column="17" selection-end-line="740" selection-end-column="17" />
+            <state relative-caret-position="253">
+              <caret line="747" column="11" selection-start-line="747" selection-start-column="11" selection-end-line="747" selection-end-column="11" />
               <folding />
             </state>
           </provider>
@@ -540,7 +71,7 @@
       <file leaf-file-name="Comedor.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Models/Comedor.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="293">
+            <state relative-caret-position="792">
               <caret line="51" column="35" selection-start-line="51" selection-start-column="35" selection-end-line="51" selection-end-column="35" />
               <folding />
             </state>
@@ -550,7 +81,7 @@
       <file leaf-file-name="Anuncio.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Models/Anuncio.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
+            <state relative-caret-position="414">
               <caret line="30" column="53" selection-start-line="30" selection-start-column="53" selection-end-line="30" selection-end-column="53" />
               <folding />
             </state>
@@ -560,18 +91,8 @@
       <file leaf-file-name="InputsAnuncio.vue" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/assets/js/components/forms/InputsAnuncio.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-431">
+            <state relative-caret-position="-198">
               <caret line="4" column="27" selection-start-line="4" selection-start-column="27" selection-end-line="4" selection-end-column="27" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Create.vue" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/assets/js/components/comedor/menu/anuncios/Create.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="828">
-              <caret line="46" column="46" selection-start-line="46" selection-start-column="46" selection-end-line="46" selection-end-column="46" />
               <folding />
             </state>
           </provider>
@@ -580,7 +101,7 @@
       <file leaf-file-name="routes.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="379">
+            <state relative-caret-position="1746">
               <caret line="106" column="24" selection-start-line="106" selection-start-column="24" selection-end-line="106" selection-end-column="24" />
               <folding />
             </state>
@@ -590,11 +111,9 @@
       <file leaf-file-name="AnunciosController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/AnunciosController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
+            <state relative-caret-position="630">
               <caret line="39" column="46" selection-start-line="39" selection-start-column="46" selection-end-line="39" selection-end-column="46" />
-              <folding>
-                <element signature="e#44#67#0#PHP" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -641,9 +160,6 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="mock:///Dummy.txt" root0="SKIP_INSPECTION" />
-  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
@@ -689,15 +205,15 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/Api/AnunciosController.php" />
         <option value="$PROJECT_DIR$/resources/assets/js/components/forms/InputsAnuncio.vue" />
         <option value="$PROJECT_DIR$/resources/assets/js/components/comedor/menu/comidas/Create.vue" />
-        <option value="$PROJECT_DIR$/resources/assets/js/components/comedor/menu/anuncios/Create.vue" />
         <option value="$PROJECT_DIR$/app/Http/routes.php" />
         <option value="$PROJECT_DIR$/app/Http/Requests/AnuncioStoreRequest.php" />
         <option value="$PROJECT_DIR$/database/seeds/UserTableSeeder.php" />
         <option value="$PROJECT_DIR$/resources/assets/js/miapp.js" />
         <option value="$PROJECT_DIR$/app/Models/Comedor.php" />
         <option value="$PROJECT_DIR$/app/Models/Anuncio.php" />
-        <option value="$PROJECT_DIR$/resources/assets/less/miapp.less" />
+        <option value="$PROJECT_DIR$/resources/assets/js/components/comedor/menu/anuncios/Create.vue" />
         <option value="$PROJECT_DIR$/resources/assets/js/components/comedor/menu/anuncios/Index.vue" />
+        <option value="$PROJECT_DIR$/resources/assets/less/miapp.less" />
       </list>
     </option>
   </component>
@@ -762,9 +278,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches">
-        <subPane />
-      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -1116,6 +629,9 @@
             </PATH_ELEMENT>
           </PATH>
         </subPane>
+      </pane>
+      <pane id="Scratches">
+        <subPane />
       </pane>
       <pane id="Scope">
         <subPane subId="Default">
@@ -1563,7 +1079,8 @@
       <workItem from="1509992086644" duration="1755000" />
       <workItem from="1510083804947" duration="10486000" />
       <workItem from="1510183921772" duration="7672000" />
-      <workItem from="1510228550935" duration="7442000" />
+      <workItem from="1510228550935" duration="7590000" />
+      <workItem from="1510246853965" duration="4557000" />
     </task>
     <task id="LOCAL-00001" summary="Primer commit -&gt; Proyecto limpio&#10;">
       <created>1505193084411</created>
@@ -1670,11 +1187,18 @@
       <option name="project" value="LOCAL" />
       <updated>1509774890523</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Inicio de imp de calendario de instancias.... &#10;&#10;Inicio de imp de anuncios.&#10;Alta de anuncio y listado. falta un par de cosas">
+      <created>1510238802832</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1510238802832</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="973612000" />
+    <option name="totallyTimeSpent" value="978317000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1691,15 +1215,14 @@
     <layout>
       <window_info id="PlantUML" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32954547" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32764506" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25460637" sideWeight="0.5272727" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Command Line Tools Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.6515913" sideWeight="0.48863637" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34166667" sideWeight="0.9044586" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21105528" sideWeight="0.530303" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18636364" sideWeight="0.9044586" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32328308" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21105528" sideWeight="0.47272727" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21105528" sideWeight="0.46969697" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29480737" sideWeight="0.4825493" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26136363" sideWeight="0.5845896" order="4" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18333334" sideWeight="0.0955414" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26136363" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18636364" sideWeight="0.0955414" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26136363" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25378788" sideWeight="0.4237856" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39865997" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1707,6 +1230,7 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Command Line Tools Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.6515913" sideWeight="0.48863637" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32343236" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1784,7 +1308,8 @@
     <MESSAGE value="Empece a registrar los paises , localidades ,provinicias&#10;&#10;Model&#10;Controller&#10;Route&#10;&#10;Model js" />
     <MESSAGE value="paises, falta parte de provincias y localidades&#10;" />
     <MESSAGE value="Modificaciones en provincias e inicie la parte de localidades.. &#10;falta arreglar el alta &#10;crear modificacion y delet&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="Modificaciones en provincias e inicie la parte de localidades.. &#10;falta arreglar el alta &#10;crear modificacion y delet&#10;" />
+    <MESSAGE value="Inicio de imp de calendario de instancias.... &#10;&#10;Inicio de imp de anuncios.&#10;Alta de anuncio y listado. falta un par de cosas" />
+    <option name="LAST_COMMIT_MESSAGE" value="Inicio de imp de calendario de instancias.... &#10;&#10;Inicio de imp de anuncios.&#10;Alta de anuncio y listado. falta un par de cosas" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1810,13 +1335,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/Http/Requests/UsuarioUpdateRequest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="31" column="55" selection-start-line="31" selection-start-column="55" selection-end-line="31" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/assets/js/components/comedor/menu/comidas/Show.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -2015,7 +1533,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-486">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2023,7 +1540,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
           <caret line="16" column="6" selection-start-line="16" selection-start-column="6" selection-end-line="16" selection-end-column="6" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2039,7 +1555,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="504">
           <caret line="28" column="57" selection-start-line="28" selection-start-column="57" selection-end-line="28" selection-end-column="57" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2047,7 +1562,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
           <caret line="22" column="57" selection-start-line="22" selection-start-column="57" selection-end-line="22" selection-end-column="57" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2055,7 +1569,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="18">
           <caret line="104" column="73" selection-start-line="104" selection-start-column="73" selection-end-line="104" selection-end-column="73" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2063,7 +1576,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="18">
           <caret line="71" column="59" selection-start-line="71" selection-start-column="59" selection-end-line="71" selection-end-column="59" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2071,7 +1583,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="307">
           <caret line="29" column="43" selection-start-line="29" selection-start-column="43" selection-end-line="29" selection-end-column="72" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2079,10 +1590,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="298">
           <caret line="171" column="35" selection-start-line="171" selection-start-column="35" selection-end-line="171" selection-end-column="35" />
-          <folding>
-            <marker date="1507720490440" expanded="true" signature="1926:2000" ph="..." />
-            <marker date="1507720490440" expanded="true" signature="2064:2078" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2090,21 +1597,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="234">
           <caret line="43" column="41" selection-start-line="43" selection-start-column="35" selection-end-line="43" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/assets/js/components/comedor/menu/anuncios/Create.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="828">
-          <caret line="46" column="46" selection-start-line="46" selection-start-column="46" selection-end-line="46" selection-end-column="46" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="379">
+        <state relative-caret-position="1746">
           <caret line="106" column="24" selection-start-line="106" selection-start-column="24" selection-end-line="106" selection-end-column="24" />
           <folding />
         </state>
@@ -2138,7 +1636,6 @@
       <provider editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
@@ -2151,7 +1648,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="234">
           <caret line="25" column="22" selection-start-line="25" selection-start-column="22" selection-end-line="25" selection-end-column="22" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2159,33 +1655,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="522">
           <caret line="29" column="41" selection-start-line="29" selection-start-column="41" selection-end-line="29" selection-end-column="41" />
-          <folding>
-            <element signature="e#37#67#0#PHP" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Api/AnunciosController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
+        <state relative-caret-position="630">
           <caret line="39" column="46" selection-start-line="39" selection-start-column="46" selection-end-line="39" selection-end-column="46" />
-          <folding>
-            <element signature="e#44#67#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/assets/js/components/forms/InputsAnuncio.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-431">
-          <caret line="4" column="27" selection-start-line="4" selection-start-column="27" selection-end-line="4" selection-end-column="27" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Models/Comedor.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="293">
+        <state relative-caret-position="792">
           <caret line="51" column="35" selection-start-line="51" selection-start-column="35" selection-end-line="51" selection-end-column="35" />
           <folding />
         </state>
@@ -2193,32 +1676,56 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Models/Anuncio.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
+        <state relative-caret-position="414">
           <caret line="30" column="53" selection-start-line="30" selection-start-column="53" selection-end-line="30" selection-end-column="53" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/assets/less/miapp.less">
+    <entry file="file://$PROJECT_DIR$/public/js/miapp.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="740" column="17" selection-start-line="740" selection-start-column="17" selection-end-line="740" selection-end-column="17" />
+        <state relative-caret-position="147">
+          <caret line="48235" column="8" selection-start-line="48235" selection-start-column="8" selection-end-line="48235" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/assets/js/components/comedor/menu/anuncios/Create.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-666">
+          <caret line="2" column="31" selection-start-line="2" selection-start-column="31" selection-end-line="2" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/assets/js/components/forms/InputsAnuncio.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-198">
+          <caret line="4" column="27" selection-start-line="4" selection-start-column="27" selection-end-line="4" selection-end-column="27" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/assets/js/utilities/Tabla.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4387">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="-3474">
+          <caret line="35" column="66" selection-start-line="35" selection-start-column="66" selection-end-line="35" selection-end-column="66" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/assets/js/components/comedor/menu/anuncios/Index.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="94" column="38" selection-start-line="94" selection-start-column="38" selection-end-line="94" selection-end-column="38" />
+        <state relative-caret-position="475">
+          <caret line="34" column="67" selection-start-line="34" selection-start-column="67" selection-end-line="34" selection-end-column="67" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/assets/less/miapp.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="747" column="11" selection-start-line="747" selection-start-column="11" selection-end-line="747" selection-end-column="11" />
           <folding />
         </state>
       </provider>

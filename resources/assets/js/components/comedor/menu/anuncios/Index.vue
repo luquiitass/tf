@@ -18,30 +18,38 @@
                     <div class="body">
                         <div class="chat">
 
-                            <div id="create_anuncio">
+                            <div id="create_anuncio" style="display: none">
                                 <create
-                                    @addAnuncio="addAnuncio">
+                                    @addAnuncio="addAnuncio"
+                                    @cancelado="toggleCreate()"
+
+                                >
                                 </create>
                             </div>
 
-                            <div class="direct-chat-messages">
+                            <div class="anuncios">
                                 <!-- Message. Default to the left -->
-                                <div class="direct-chat-msg border-top" v-for="anuncio in anuncios">
-                                    <div class="direct-chat-info clearfix">
-                                        <span class="direct-chat-name pull-left">{{anuncio.usuario.apellido}} {{anuncio.usuario.nombre}}</span>
-                                        <span class="direct-chat-timestamp pull-right">{{anuncio.registrado}}</span>
+                                <div class="anuncios-item" v-for="anuncio in anuncios">
+                                    <div class="clearfix">
+                                        <span class="pull-right">
+                                            <i class="fa fa-clock-o"></i>{{anuncio.registrado}}</span>
+                                        <p class="anuncio-title pull-left">{{anuncio.asunto}}</p>
                                     </div>
-                                    <!-- /.direct-chat-info -->
-                                    <img class="direct-chat-img" :src="anuncio.usuario.foto" alt="message user image">
-                                    <!-- /.direct-chat-img -->
-                                    <div class="direct-chat-text">
-                                        <p class="direct-chat-title">{{anuncio.asunto}}</p>
+
+                                    <div class="anuncio-cuerpo">
                                         <p>{{anuncio.cuerpo}}</p>
                                     </div>
 
-                                    <div class="">
-                                        <small  class="pull-right">visible hasta <cite title="Source Title">{{anuncio.hasta}}</cite></small>
+                                    <div class="clearfix">
+                                        <span class="anuncio-usuario pull-left">
+                                            <i class="fa fa-user"></i>
+                                             {{anuncio.usuario.apellido}} {{anuncio.usuario.nombre}}
+                                        </span>
+                                        <small  class="pull-right">
+                                            <i class="fa fa-eye"></i>
+                                             visible hasta <cite title="Source Title">{{anuncio.hasta}}</cite></small>
                                     </div>
+
                                     <!-- /.direct-chat-text -->
                                 </div>
                                 <!-- /.direct-chat-msg -->
