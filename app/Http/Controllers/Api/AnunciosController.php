@@ -76,7 +76,10 @@ class AnunciosController extends ApiController
      */
     public function update(Requests\AnuncioUpdateRequest $request, $id)
     {
-        //
+        $anuncio = Anuncio::findOrFail($id);
+        $anuncio->update($request->only('asunto','cuerpo','hasta','usuario_id'));
+
+        return $this->jsonMensajeData('Felicidades','Anuncio modificado','success',$anuncio);
     }
 
     /**
@@ -87,6 +90,12 @@ class AnunciosController extends ApiController
      */
     public function destroy($id)
     {
-        //
+        try{
+            $anuncio = Anuncio::findOrFail($id);
+            $anuncio->delete();
+            return response('true');
+        }catch (\Exception $e){
+            return $this->jsonMensajeError($e->getMessage());
+        }
     }
 }

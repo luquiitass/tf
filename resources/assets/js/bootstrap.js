@@ -158,7 +158,41 @@ Vue.mixin({
     },
     hasRoute: function (partial) {
       return (window.location.href.indexOf(partial) > -1)
+    },
+
+    listToObjectId(list){
+      return _.indexBy(list, 'id');
+    },
+
+
+    addList(list,item){
+      var datos = this.listToObjectId(list);
+      datos[item.id] = item;
+      list =  _.values(datos);
+    },
+
+    replaceObjectList(list,item){
+      var datos = this.listToObjectId(list);
+      datos[item.id] = item;
+      return _.values(datos);
+    },
+
+    removeObjectList(list,item){
+      var datos = this.listToObjectId(list);
+      if(datos[item]){
+        delete datos[item];
+        console.log('remove for id')
+
+      }else{
+        if(datos[item.id]) {
+          delete datos[item.id];
+          console.log('remove for id of object')
+        }
+      }
+      return datos;
     }
+
+
   }
 });
 

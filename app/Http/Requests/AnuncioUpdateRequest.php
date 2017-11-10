@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use App\Http\Requests\Request;
+use Carbon\Carbon;
 
 class AnuncioUpdateRequest extends Request
 {
@@ -13,7 +14,7 @@ class AnuncioUpdateRequest extends Request
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +25,9 @@ class AnuncioUpdateRequest extends Request
     public function rules()
     {
         return [
-            //
+            'asunto'=>'required|min:4',
+            'cuerpo'=>'required|min:8',
+            'hasta'=>'required|date|after:' . Carbon::now(),
         ];
     }
 }

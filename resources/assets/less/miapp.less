@@ -747,9 +747,19 @@
 .anuncios-item {
   padding:5px;
   border-bottom: 1px solid rgba(139, 139, 139, 0.38);
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   border-left: 2px solid #3b8864;
   border-radius: 10px;
+}
+
+
+
+.anuncios-item .hov {
+  display: none;
+}
+
+.anuncios-item:hover .hov {
+  display: inline-block;
 }
 
  .anuncio-title {
@@ -762,8 +772,11 @@
 }
 
 .anuncio-cuerpo {
-  padding: 11px;
-  padding-left: 15px;
+	padding: 11px;
+	padding-left: 15px;
+	border-radius: 10px;
+	font-style: italic;
+	background-color: rgba(0, 0, 0, 0.04);
 }
 
 .anuncio-usuario {
