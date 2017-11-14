@@ -8,12 +8,16 @@
             <div class="col xs 12 col-md-8 col-md-offset-2">
                 <div class="box box-solid">
                     <div class="box-header with-border">
+
                         <div class="box-tools">
-                            <button class="btn btn-xs btn-default" @click="toggleCreate()">
+                            <button class="btn btn-xs btn-default" data-toggle="tooltip" data-placement="top" data-original-title="Nuevo Anuncio" @click="toggleCreate()">
                                 <i class="fa fa-plus"></i>
                             </button>
+
                         </div>
-                        <h3 class="box-title"></h3>
+                        <h3 class="box-title">
+                            <i class="fa fa-comment"></i>
+                        </h3>
                     </div>
                     <div class="body">
                         <div class="chat">
@@ -34,12 +38,12 @@
                                 </create>
                             </div>
 
-                            <div class="anuncios">
+                            <div class="anuncios" v-if="anuncios.length">
                                 <!-- Message. Default to the left -->
-                                <div :id="'anuncio_' + anuncio.id" class="anuncios-item" v-for="anuncio in anuncios">
+                                <div :id="'anuncio_' + anuncio.id" :class="classAnuncio(anuncio)" v-for="anuncio in anuncios">
                                     <div class="clearfix">
                                         <span class="pull-right">
-                                            <i class="fa fa-clock-o "></i>{{anuncio.registrado}}
+                                            <i class="fa fa-clock-o"></i> {{anuncio.registrado}}
 
                                             <a class="btn btn-xs hov" data-toggle="tooltip" data-placement="top" data-original-title="Eliminar" @click="showDelet(anuncio)">
                                                 <i class="fa fa-trash-o"></i>
@@ -61,7 +65,7 @@
                                              {{anuncio.usuario.apellido}} {{anuncio.usuario.nombre}}
                                         </span>
                                         <small  class="pull-right">
-                                            <i class="fa fa-eye"></i>
+                                            <i :class="classAnuncioVisible(anuncio)"></i>
                                              visible hasta <cite title="Source Title">{{anuncio.hasta}}</cite></small>
                                     </div>
 
@@ -70,6 +74,11 @@
                                 <!-- /.direct-chat-msg -->
 
                             </div>
+
+                            <div v-else="">
+                                Sin anuncios
+                            </div>
+
 
                         </div>
                     </div>
@@ -153,6 +162,12 @@ export  default{
         },
         showDelet(anuncio){
             this.anuncioDelet = anuncio;
+        },
+        classAnuncio(anuncio){
+            return anuncio.visible ? 'anuncios-item': 'anuncios-item bg-danger';
+        },
+        classAnuncioVisible(anuncio){
+            return anuncio.visible ? 'fa fa-eyes' :'fa fa-eye-slash';
         }
     }
 }

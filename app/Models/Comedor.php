@@ -52,6 +52,10 @@ class Comedor extends Model
          return $this->hasMany(Anuncio::class)->with('usuario');
      }
 
+     public function anunciosActivos(){
+         return $this->anuncios->where('activo',true);
+     }
+
      public function comidasByTipoComida(){
          $retorno = /*array();
          $tipos = */$this->comidas->groupBy('tipoComida.nombre');
@@ -99,7 +103,31 @@ class Comedor extends Model
 //         }
 //        return $retorno;
 //         return $dias;
-
      }
+
+     public function crearInstanciasSemanal(){
+         foreach ( $this->comidas as $comida){
+             try {
+                 if ($comida->activo){
+                     $comida->crearInstancia();
+                 }
+             }catch (\Exception $e){
+                //echo $e->getMessage();
+                 //return;
+             }
+         }
+     }
+
+     public function instancias(){
+         return Instancia::join('comidas','comidas.id','=','instancias.comida_id')
+             ->join('comedores','comedores.id','=','comidas.comedor_id')
+             ->where('comedores.id',$this->id)
+             ->select('instancias.*')
+             ->with('comida')
+             ->get();
+     }
+
+
+
 
  }

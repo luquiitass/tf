@@ -24,9 +24,13 @@ class Comida extends Model
 
      protected $appends = ['fecha'];
 
+    protected $with = ['dia','tipoComida'];
+
     protected $casts = [
         'activo' => 'boolean'
     ];
+
+
 
      public function dia(){
          return $this->belongsTo(Dia::class);
@@ -40,6 +44,10 @@ class Comida extends Model
          return $this->belongsToMany(Comensal::class);
      }
 
+     public function instancia(){
+         return $this->hasOne(Instancia::class);
+     }
+
      public function getFechaAttribute(){
          $hoy = Carbon::now();
          $func = 'is' . $this->dia->name;
@@ -47,6 +55,16 @@ class Comida extends Model
 
          //return Date::parse('this sunday');
      }
+
+     public function crearInstancia(){
+         $fecha = $this->fecha;
+         $inicio = $this->inicio;
+         $fecha->setTimeFromTimeString($inicio);
+
+         //$fecha->setTime($inicio->hour,$inicio->minute,$inicio->second);
+         return $this->instancia()->create(['fecha'=> $fecha]);
+     }
+
 
 
 

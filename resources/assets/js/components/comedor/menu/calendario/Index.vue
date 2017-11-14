@@ -3,8 +3,6 @@
     <div>
         <titulo>
             Calendario
-
-            <a @click="calendar()"> probar</a>
         </titulo>
 
         <div id="calendar"></div>
@@ -22,7 +20,8 @@
 export  default{
     data(){
         return{
-
+            instancias : [],
+            events : []
         }
     },
     props: {
@@ -31,17 +30,29 @@ export  default{
     created(){
         this.init();
     },
+    watch:{
+        instancias(){
+            this.events = _.map(this.instancias , function (item) {
+                return {
+                    title: item.comida.tipo_comida.nombre,
+                    start : item.fecha,
+                    backgroundColor : '#f56954'
+                }
+            });
+            this.calendar();
+        }
+    },
     methods:{
         init(){
-
-
+            Comedor.attribure(
+                    vm.app.comedor.id,
+                    'instancias',
+                    instancias => {
+                        this.instancias = instancias
+                    }
+            );
         },
         calendar(){
-
-            var date = new Date()
-            var d    = date.getDate(),
-                m    = date.getMonth(),
-                y    = date.getFullYear()
 
             $('#calendar').fullCalendar({
                 locale: 'es',
@@ -51,6 +62,7 @@ export  default{
                     right: 'month,basicWeek,basicDay'
                 },
                 editable: true,
+                events :this.events
             });
         }
     }

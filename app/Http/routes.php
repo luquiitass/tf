@@ -15,22 +15,8 @@ use App\Models\User;
 
 Route::get('/prueba',function (){
 
-//    $comedor = \App\Models\Comedor::first();
-//    $usuarios= \App\Models\User::get();
-//
-//    $comida = $comedor->comidas->first();
-//
-//    foreach ($usuarios as $usuario) {
-//        try{
-//        //$comensal = \App\Models\Comensal::create(['user_id' => $usuario->id, 'comedor_id' => $comedor->id]);
-//        $usuario->comensal->comidas()->detach($comida->id);
-//        }catch (Exception $e){
-//            echo 'Error => ' . $e->getMessage();
-//        }
-//    }
-
-//    $retorno = $comedor->comidas;
-    //$retorno = \App\Models\Comensal::find(100)->inscripciones;
+    $comedor = \App\Models\Comedor::first();
+    return $comedor->crearInstanciasSemanal();
 });
 
 Route::get('/', function () {

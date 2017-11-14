@@ -9,7 +9,7 @@ class Presencia extends Model
 
     protected $table = "presencias";
 
-    protected $fillable = [];
+    protected $fillable = ['estado','hora','comensal_id','instancia_id'];
 
     public $timestamps = false;
 

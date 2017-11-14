@@ -63,6 +63,9 @@ export  default{
     computed : {
         comidas(){
             return this.comedor.comidas;
+        },
+        comidasByDia(){
+            return this.comidasByDia();
         }
     },
     watch:{
@@ -139,11 +142,12 @@ export  default{
         },
         comidasPorDia(){
             var retorno = {};
-            var dias = this.dias;
+            var dias = this.dias
+            var comidas = this.comedor.comidas;
             for( var key in dias){
-                var exist = _.has(this.comidas , dias[key]);
+                var exist = _.has(comidas , dias[key]);
                 if(exist){
-                    retorno[dias[key]] = this.comidas[dias[key]];
+                    retorno[dias[key]] = comidas[dias[key]];
                 }
             }
             return retorno;

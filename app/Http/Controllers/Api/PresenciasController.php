@@ -2,15 +2,12 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Models\Anuncio;
-use App\Models\RetornoAjax;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
-class AnunciosController extends ApiController
+class PresenciasController extends ApiController
 {
-    use RetornoAjax;
     /**
      * Display a listing of the resource.
      *
@@ -18,7 +15,7 @@ class AnunciosController extends ApiController
      */
     public function index()
     {
-        return Anuncio::get();
+        //
     }
 
     /**
@@ -37,12 +34,9 @@ class AnunciosController extends ApiController
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Requests\AnuncioStoreRequest $request)
+    public function store(Request $request)
     {
-        $anuncio = Anuncio::create( $request->only('asunto','cuerpo','hasta','user_id','comedor_id') );
-        $anuncio->load('usuario');
-
-        return $this->jsonMensajeData('Felicidades','Anuncio registrado exitosamente','success',$anuncio);
+        //
     }
 
     /**
@@ -74,12 +68,9 @@ class AnunciosController extends ApiController
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Requests\AnuncioUpdateRequest $request, $id)
+    public function update(Request $request, $id)
     {
-        $anuncio = Anuncio::findOrFail($id);
-        $anuncio->update($request->only('asunto','cuerpo','hasta','usuario_id'));
-
-        return $this->jsonMensajeData('Felicidades','Anuncio modificado','success',$anuncio);
+        //
     }
 
     /**
@@ -90,12 +81,6 @@ class AnunciosController extends ApiController
      */
     public function destroy($id)
     {
-        try{
-            $anuncio = Anuncio::findOrFail($id);
-            $anuncio->delete();
-            return response('true');
-        }catch (\Exception $e){
-            return $this->jsonMensajeError($e->getMessage());
-        }
+        //
     }
 }

@@ -1,86 +1,36 @@
 <template>
-    <div>
-        <section class="hero is-dark ">
-            <!-- Hero head: will stick at the top -->
-            <div class="hero-head">
-                <header class="navbar">
-                    <div class="container">
-                        <div class="navbar-brand">
-                            <a class="navbar-item">
-                                <img src="http://bulma.io/images/bulma-type-white.png" alt="Logo">
-                            </a>
-                            <span class="navbar-burger burger" data-target="navbarMenuHeroC">
-            <span></span>
-            <span></span>
-            <span></span>
-          </span>
-                        </div>
-                        <div id="navbarMenuHeroC" class="navbar-menu">
-                            <div class="navbar-end">
-                                <a class="navbar-item is-active">
-                                    Inicio
-                                </a>
-                                <a class="navbar-item">
-                                    Examples
-                                </a>
-                                <a class="navbar-item">
-                                    Documentation
-                                </a>
-                                <span class="navbar-item">
-              <a class="button is-success is-inverted">
-                <span class="icon">
-                  <i class="fa fa-github"></i>
-                </span>
-                <span>Download</span>
-              </a>
-            </span>
-                            </div>
-                        </div>
-                    </div>
-                </header>
-            </div>
 
-            <!-- Hero content: will be in the middle -->
-            <div class="hero-body">
-                <div class="container  has-text-centered">
-                    <h1 class="title">
-                        Title
-                    </h1>
-                    <h2 class="subtitle">
-                        Subtitle
-                    </h2>
-                </div>
-            </div>
+    <router-view name="content_comensal"></router-view>
 
-            <!-- Hero footer: will stick at the bottom -->
-            <div class="hero-foot">
-                <nav class="tabs is-boxed is-fullwidth">
-                    <div class="container">
-                        <ul>
-                            <li class="is-active"><a>Datos</a></li>
-                            <li><a>Faltas</a></li>
-                            <li><a>Inscripciones</a></li>
-                            <li><a>Anuncios</a></li>
-                            <li><a>Actividades</a></li>
-                            <li><a>Contacto</a></li>
-                        </ul>
-                    </div>
-                </nav>
-            </div>
-        </section>
-
-    </div>
 </template>
 
 <script>
 
-
 export default{
+    props:{
+        p_comensal:{
+            required:true,
+        },
+        p_usuario:{
+            required:true,
+        }
+    },
     data(){
         return{
-
+            comensal : this.p_comensal,
+        }
+    },
+    created(){
+        this.init();
+    },
+    methods:{
+        init(){
+            Vue.set(vm.$data.app,'comedor',this.p_comensal.comedor);
+            Vue.set(vm.$data.app,'comensal',this.p_comensal);
+            Vue.set(vm.$data.app,'usuario',this.p_usuario);
         }
     }
+
 }
 
 </script>

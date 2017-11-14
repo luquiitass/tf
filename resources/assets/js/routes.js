@@ -126,6 +126,41 @@ let routes = [
     },
 
 
+
+    //Rutas de un comensal
+
+    {
+        path : '/c_inicio',
+        components :{
+            content_comensal : require('./components/comensal/inicio/Index')
+        }
+    },
+    {
+        path : '/c_inscripciones',
+        components :{
+            content_comensal : require('./components/comensal/inscripciones/Index')
+        }
+    },
+    {
+        path : '/c_actividades',
+        components :{
+            content_comensal : require('./components/comensal/actividades/Index')
+        }
+    },
+    {
+        path : '/c_faltas',
+        components :{
+            content_comensal : require('./components/comensal/faltas/Index')
+        }
+    },
+    {
+        path : '/c_anuncios',
+        components :{
+            content_comensal : require('./components/comensal/anuncios/Index')
+        }
+    },
+
+
 ];
 
 function dynamicPropsFn (route) {

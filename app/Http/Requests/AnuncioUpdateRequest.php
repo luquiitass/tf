@@ -27,7 +27,7 @@ class AnuncioUpdateRequest extends Request
         return [
             'asunto'=>'required|min:4',
             'cuerpo'=>'required|min:8',
-            'hasta'=>'required|date|after:' . Carbon::now(),
+            'hasta'=>'required|date',
         ];
     }
 }

@@ -8,6 +8,7 @@ use App\Helper\Funciones;
 use App\Helper\Tabla;
 use App\Http\Controllers\Auth\Filtros;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use phpDocumentor\Reflection\Types\Object_;
 
@@ -19,6 +20,7 @@ class Anuncio extends Model
 
      protected $fillable = ['asunto','cuerpo','hasta','user_id','comedor_id'];
 
+    protected $appends = ['visible'];
 
      protected $with = ['usuario'];
 
@@ -33,6 +35,10 @@ class Anuncio extends Model
 
      public function comedor(){
          return $this->belongsTo(Comedor::class);
+     }
+
+     public function getVisibleAttribute(){
+         return $this->hasta > Carbon::now();
      }
 
  }

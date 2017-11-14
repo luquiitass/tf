@@ -18,6 +18,7 @@ class CreateComedoresTable extends Migration {
 			$table->string('nombre', 250);
 			$table->date('creado');
 			$table->timestamps();
+            $table->rememberToken();
 		});
 	}
 

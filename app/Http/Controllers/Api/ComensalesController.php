@@ -74,6 +74,13 @@ class ComensalesController extends ApiController
     public function show(Comensal $comensal)
     {
         $comensal->load('usuario','inscripciones');
+
+        if (!request()->ajax()){
+            $comensal->load('comedor');
+            $usuario = \Auth::user();
+            return view('comensal.show',compact('usuario','comensal'));
+        }
+
         return $comensal;
     }
 

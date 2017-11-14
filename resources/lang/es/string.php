@@ -17,5 +17,8 @@ return [
     'anuncios'=>'Anuncios',
     'administradores'=>'Administradores',
     'tipos_de_comida'=>'Tipos de Comida',
-    'localidades' => 'Localidades'
+    'localidades' => 'Localidades',
+    'inscripciones'=>'Inscripciones',
+    'actividades'=>'Actividades',
+    'faltas'=>'Faltas',
 ];
