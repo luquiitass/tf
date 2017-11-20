@@ -95,7 +95,7 @@ class AnunciosController extends ApiController
             $anuncio->delete();
             return response('true');
         }catch (\Exception $e){
-            return $this->jsonMensajeError($e->getMessage());
+            return $this->jsonMensajeError('Error',$e->getMessage());
         }
     }
 }

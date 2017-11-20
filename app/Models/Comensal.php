@@ -36,8 +36,16 @@ class Comensal extends Model
         return $this->hasMany(Inscripcion::class)->with('comida','usuario');
     }
 
+    public function presencias(){
+        return $this->hasMany(Presencia::class);
+    }
+
     public function inscripcionesWithMes(){
         return $this->inscripciones()->select('inscripciones.*',\DB::raw("DATE_FORMAT(created_at, '%m-%Y') mes"))->orderBy('created_at','desc')->get();
+    }
+
+    public function inscripcionesByDate(){
+        return $this->hasMany(Inscripcion::class)->with('comida','usuario')->select('inscripciones.*',\DB::raw("DATE_FORMAT(created_at, '%d-%m-%Y') mes"))->orderBy('created_at','desc');
     }
 
     public function scopeGetData($query,$idComedor){

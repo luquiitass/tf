@@ -33,9 +33,9 @@ let routes = [
         }
     },
     {
-        path : '/mercaderias',
+        path : '/estados',
         components :{
-            menu : require('./views/Mercaderias')
+            menu : require('./components/sistema/estados/Index')
         }
     },
     {
@@ -96,7 +96,22 @@ let routes = [
         path : '/calendario',
         components :{
             content_comedor : require('./components/comedor/menu/calendario/Index.vue'),
-        }
+        },
+        children : [
+            {
+                path : '/',
+                components : {
+                    submenu: require('./components/comedor/menu/calendario/Calendario.vue'),
+                },
+                props : dynamicPropsFn
+            }
+            ,{
+                path : ':id/instancia',
+                components : {
+                    submenu: require('./components/comedor/menu/calendario/Instancia.vue'),
+                },
+            }
+        ]
     },
 
     {

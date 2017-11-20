@@ -128,7 +128,7 @@ export  default{
         init(){
             Comensal.attribure(
                     this.comensal.id,
-                    'inscripcionesWithMes',
+                    'inscripcionesByDate',
                     inscripciones=> this.inscripciones = inscripciones
             )
         },

@@ -61,27 +61,10 @@ export  default{
         this.init();
     },
     computed : {
-        comidas(){
-            return this.comedor.comidas;
-        },
-        comidasByDia(){
-            return this.comidasByDia();
-        }
+
     },
     watch:{
-        dias(){
-            console.log(' updates comids by dis')
-            this.comidasByDia = this.comidasPorDia();
-        },
-        comidas(){
-            console.log(' updates comids by comidas')
-            this.comidasByDia = this.comidasPorDia();
-        },
-        asistencias(){
-            console.log(' updates comids by asistencias')
-            this.comidasByDia = this.comidasPorDia();
 
-        }
 
     },
     methods: {
@@ -90,19 +73,29 @@ export  default{
             Comedor.attribure(
                     this.comedor.id,
                     'comidasByDia',
-                    comidas => this.comedor.comidas = comidas
+                    comidas => {
+                        this.comedor.comidas = comidas;
+                        this.updateComidasByDia();
+                    }
             );
 
             Dia.all(dias => {
                 this.dias = _.pluck(dias, 'nombre');
+                this.updateComidasByDia();
             });
 
             Comensal.attribure(
                     this.comensal.id,
                     'comidas',
-                    asistencias => this.asistencias = new Coleccion(asistencias)
+                    asistencias => {
+                        this.asistencias = new Coleccion(asistencias);
+                        this.updateComidasByDia();
+                    }
             );
             //
+        },
+        updateComidasByDia(){
+            this.comidasByDia = this.comidasPorDia();
         },
         change(comida){
             this.select = comida;

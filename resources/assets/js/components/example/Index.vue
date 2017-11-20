@@ -1,7 +1,10 @@
 <template>
     <div>
-        <router-view name="submenu"></router-view>
+        <titulo>
+            Titlo
+        </titulo>
     </div>
+
 </template>
 
 

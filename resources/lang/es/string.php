@@ -21,4 +21,5 @@ return [
     'inscripciones'=>'Inscripciones',
     'actividades'=>'Actividades',
     'faltas'=>'Faltas',
+    'estados'=>'Estados',
 ];

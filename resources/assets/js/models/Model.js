@@ -42,10 +42,21 @@ class Model {
 
         return Conexion.get(PATH + this.url())
 
-            .then(comedores => {
-                then(comedores);
+            .then(data => {
+                then(data);
                 vm.$forceUpdate();
             })
+    }
+
+    containId(object){
+        if(object[0].id){
+            return true;
+        }
+        return false;
+    }
+
+    static indexById(){
+        return _.indexBy(list, 'id');
     }
 }
 

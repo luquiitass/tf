@@ -35,6 +35,8 @@ import Comida from './models/Comida';
 import Direccion from './models/Direccion';
 import Pais from './models/Pais';
 import Provincia from './models/Provincia';
+import Instancia from './models/Instancia';
+import Estado from './models/Estado';
 
 
 import Lang from 'lang.js';
@@ -56,6 +58,8 @@ window.Comida = Comida;
 window.Direccion = Direccion;
 window.Pais = Pais;
 window.Provincia = Provincia;
+window.Instancia = Instancia;
+window.Estado = Estado;
 
 
 window.Vue = Vue;
@@ -165,31 +169,16 @@ Vue.mixin({
     },
 
 
-    addList(list,item){
-      var datos = this.listToObjectId(list);
-      datos[item.id] = item;
-      list =  _.values(datos);
+    addFirstList(list,item){
+        list.unshift(item);
     },
 
     replaceObjectList(list,item){
-      var datos = this.listToObjectId(list);
-      datos[item.id] = item;
-      return _.values(datos);
+      Utilidades.changeObjectListById(list,item.id,item);
     },
 
     removeObjectList(list,item){
-      var datos = this.listToObjectId(list);
-      if(datos[item]){
-        delete datos[item];
-        console.log('remove for id')
-
-      }else{
-        if(datos[item.id]) {
-          delete datos[item.id];
-          console.log('remove for id of object')
-        }
-      }
-      return datos;
+      Utilidades.deleteObjectList(list,item.id);
     }
 
 

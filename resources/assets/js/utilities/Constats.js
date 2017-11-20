@@ -7,6 +7,7 @@ class Constants{
         return ['Lunes','Martes','Miércoles','Jueves','Viernes','Sábado','Domingo'];
     }
 
+
 }
 
 export default Constants;

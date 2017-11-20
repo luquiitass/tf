@@ -40,7 +40,20 @@
 
                             <div class="anuncios" v-if="anuncios.length">
                                 <!-- Message. Default to the left -->
-                                <div :id="'anuncio_' + anuncio.id" :class="classAnuncio(anuncio)" v-for="anuncio in anuncios">
+                                <div v-for="anuncio in anuncios">
+
+                                    <show
+                                        :p_anuncio="anuncio"
+                                        :isAdmin="true"
+                                        @editar="selectAnuncio(anuncio)"
+                                        @eliminar="showDelet(anuncio)"
+                                    >
+                                    </show>
+
+
+                                </div>
+
+                                <!--<div :id="'anuncio_' + anuncio.id" :class="classAnuncio(anuncio)" v-for="anuncio in anuncios">
                                     <div class="clearfix">
                                         <span class="pull-right">
                                             <i class="fa fa-clock-o"></i> {{anuncio.registrado}}
@@ -69,8 +82,8 @@
                                              visible hasta <cite title="Source Title">{{anuncio.hasta}}</cite></small>
                                     </div>
 
-                                    <!-- /.direct-chat-text -->
-                                </div>
+                                    &lt;!&ndash; /.direct-chat-text &ndash;&gt;
+                                </div>-->
                                 <!-- /.direct-chat-msg -->
 
                             </div>
@@ -104,6 +117,7 @@
 
 import Create from './Create.vue';
 import Edit from './Edit.vue';
+import Show from './Show.vue';
 
 export  default{
     data(){
@@ -116,7 +130,8 @@ export  default{
     },
     components:{
         Create,
-        Edit
+        Edit,
+        Show
     },
     props: {
 
@@ -134,10 +149,11 @@ export  default{
 
         },
         addAnuncio(anuncio){
-            this.anuncios.unshift(anuncio);
+            this.addFirstList(this.anuncios,anuncio);
+            //this.anuncios.unshift(anuncio);
         },
         editedAnuncio(anuncio){
-            this.anuncios = this.replaceObjectList(this.anuncios,anuncio);
+            this.replaceObjectList(this.anuncios,anuncio);
         },
         deletedAnuncio(anuncio){
             this.$notify({
@@ -147,7 +163,8 @@ export  default{
                 type: 'success',
                 duration: 20000,
             });
-            this.anuncios = this.removeObjectList(this.anuncios,anuncio.id);
+            this.removeObjectList(this.anuncios,anuncio);
+            //this.anuncios = this.removeObjectList(this.anuncios,anuncio.id);
         },
 
 

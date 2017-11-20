@@ -62,7 +62,11 @@ class Comida extends Model
          $fecha->setTimeFromTimeString($inicio);
 
          //$fecha->setTime($inicio->hour,$inicio->minute,$inicio->second);
-         return $this->instancia()->create(['fecha'=> $fecha]);
+         $instancia =  $this->instancia()->create(['fecha'=> $fecha]);
+
+         $instancia->crearNuevaInstanciaEstado();
+
+         return $instancia;
      }
 
 

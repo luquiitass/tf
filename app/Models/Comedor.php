@@ -8,6 +8,7 @@ use App\Helper\Funciones;
 use App\Helper\Tabla;
 use App\Http\Controllers\Auth\Filtros;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use phpDocumentor\Reflection\Types\Object_;
 
@@ -53,7 +54,7 @@ class Comedor extends Model
      }
 
      public function anunciosActivos(){
-         return $this->anuncios->where('activo',true);
+         return $this->hasMany(Anuncio::class)->where('hasta','>=',Carbon::now()) ;
      }
 
      public function comidasByTipoComida(){
@@ -112,7 +113,8 @@ class Comedor extends Model
                      $comida->crearInstancia();
                  }
              }catch (\Exception $e){
-                //echo $e->getMessage();
+                 echo $e->getMessage();
+                echo $e->getTraceAsString() ;
                  //return;
              }
          }

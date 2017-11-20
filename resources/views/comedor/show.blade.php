@@ -24,7 +24,7 @@
 
             </comedor-index>
 
-            <notifications group="g" />
+            <notifications class="manita" group="g" />
 
         </section><!-- /.content -->
     </div><!-- /.content-wrapper -->

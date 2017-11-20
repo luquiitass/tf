@@ -15,8 +15,24 @@ use App\Models\User;
 
 Route::get('/prueba',function (){
 
-    $comedor = \App\Models\Comedor::first();
-    return $comedor->crearInstanciasSemanal();
+    try{
+        DB::beginTransaction();
+
+        //$comedor = \App\Models\Comedor::first();
+        //$retorno = $comedor->crearInstanciasSemanal();
+        $instancia = \App\Models\Instancia::find(21);
+
+        $retorno = $instancia->generarPresencias();
+
+        DB::commit();
+
+    }catch (Exception $e){
+        // dd( $e->getMessage());
+        dd( $e);
+        DB::rollBack();
+    }
+
+    return $retorno;
 });
 
 Route::get('/', function () {
@@ -92,4 +108,9 @@ Route::resource('localidad','Api\LocalidadesController');
 
 Route::resource('anuncio','Api\AnunciosController');
 
+Route::get('instancia/{instancia}/attribute','Api\InstanciasController@attribute');
+Route::resource('instancia','Api\InstanciasController');
 
+
+Route::get('estado/{estado}/attribute','Api\EstadosController@attribute');
+Route::resource('estado','Api\EstadosController');

@@ -3,19 +3,20 @@
 namespace App\Http\Controllers\Api;
 
 use App\Helper\AjaxGetAttribute;
-use App\Models\Instancia;
+use App\Models\Estado;
 use App\Models\RetornoAjax;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
-class InstanciasController extends ApiController
+class EstadosController extends ApiController
 {
-    use RetornoAjax,AjaxGetAttribute;
+    use AjaxGetAttribute,RetornoAjax;
 
-    public function attribute(Instancia $instancia){
-        return $this->ajaxGetAtribute($instancia);
+    public function attribute(Estado $estado){
+        return $this->ajaxGetAtribute($estado);
     }
+
     /**
      * Display a listing of the resource.
      *
@@ -23,10 +24,13 @@ class InstanciasController extends ApiController
      */
     public function index()
     {
-        $instancias = Instancia::get();
+        if (request()->has('tabla')){
+            $estados = Estado::where('tabla',request()->get('tabla'))->get();
+        }else{
+            $estados =  Estado::get();
+        }
 
-
-        return response()->json($instancias);
+        return response()->json($estados);
     }
 
     /**
@@ -42,12 +46,16 @@ class InstanciasController extends ApiController
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param Requests\EstadoSaveRequest|Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Requests\EstadoSaveRequest $request)
     {
-        //
+        $posicion = Estado::where('tabla',$request->get('tabla'))->count() + 1 ;
+        $request->posicion = $posicion;
+        $estado = Estado::create($request->only('nombre','tabla','posicion'));
+
+        return $this->jsonMensajeData('Felicidades','Estado registrado','success',$estado);
     }
 
     /**
@@ -58,12 +66,7 @@ class InstanciasController extends ApiController
      */
     public function show($id)
     {
-        $instancia = Instancia::findOrFail($id);
-
-        //$instancia->estados();
-        $instancia->instanciaEstadoActivo();
-
-        return $instancia->load('comida.comensales','instanciasEstado','estados','presencias');
+        //
     }
 
     /**

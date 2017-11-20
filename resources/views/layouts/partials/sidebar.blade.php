@@ -77,6 +77,14 @@
                 </a>
             </router-link>
 
+            <router-link tag="li" to="/estados" exact>
+                <a>
+                    <i class='fa fa-link'></i>
+                    <span>{{trans('string.estados') }}
+                </span>
+                </a>
+            </router-link>
+
             {{--<router-link tag="li" to="/mercaderias" exact>--}}
                 {{--<a>--}}
                     {{--<i class='fa fa-link'></i>--}}
