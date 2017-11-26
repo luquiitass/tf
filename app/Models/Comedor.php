@@ -25,8 +25,16 @@ class Comedor extends Model
 
      public $timestamps = true;
 
+    public function unidadesDeMedidas(){
+        return $this->hasMany(UnidadDeMedida::class);
+    }
+    public function unidadesDeMedidasWithPublic(){
+        return UnidadDeMedida::where('publico','1')->orWhere('comedor_id',$this->id)->with('comedor')->get();
+    }
 
-
+    public function insumos(){
+        return $this->hasMany(Insumo::class);
+    }
 
      public function administradores(){
          return $this->belongsToMany(User::class);

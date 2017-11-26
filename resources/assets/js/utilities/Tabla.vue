@@ -207,6 +207,7 @@
       },
       list: function (value) {
         this.model.data = this.list;
+        this.items = this.list;
       },
       page(){
         if (this.model.total) {

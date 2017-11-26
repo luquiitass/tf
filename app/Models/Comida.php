@@ -41,7 +41,7 @@ class Comida extends Model
      }
 
      public function comensales(){
-         return $this->belongsToMany(Comensal::class);
+         return $this->belongsToMany(Comensal::class)->with('usuario');
      }
 
      public function instancia(){
@@ -70,6 +70,15 @@ class Comida extends Model
      }
 
 
+     /*Mutadores*/
+     public function getComensalesCountAttribute(){
+         return $this->comensales()->count();
+     }
+
+
+     public function getCierreInscripcionAttribute(){
+
+     }
 
 
  }

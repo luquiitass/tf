@@ -33,9 +33,9 @@ let routes = [
         }
     },
     {
-        path : '/estados',
+        path : '/unidadesDeMedida',
         components :{
-            menu : require('./components/sistema/estados/Index')
+            menu : require('./components/sistema/unidades_de_medida/Index')
         }
     },
     {
@@ -128,6 +128,12 @@ let routes = [
         }
     },
     {
+        path : '/insumos',
+        components :{
+            content_comedor : require('./components/comedor/menu/insumos/Index.vue'),
+        }
+    },
+    {
         path : '/administradores',
         components :{
             content_comedor : require('./components/comedor/menu/Administradores.vue')
@@ -137,6 +143,12 @@ let routes = [
         path : '/saludar',
         components :{
             content_comedor : require('./views/Saludar')
+        }
+    },
+    {
+        path : '/parametros/unidadesDeMedida',
+        components :{
+            content_comedor : require('./components/comedor/menu/parametros/unidades_de_medida/Index.vue')
         }
     },
 

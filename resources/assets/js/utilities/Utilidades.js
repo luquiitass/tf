@@ -207,6 +207,11 @@ class Utilidades{
     }
 
 
+    static random4(){
+
+        return _.random(0, 9999);
+    }
+
 
 }
 

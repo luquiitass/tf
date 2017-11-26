@@ -3,18 +3,19 @@
 namespace App\Http\Controllers\Api;
 
 use App\Helper\AjaxGetAttribute;
-use App\Models\Instancia;
+use App\Http\Requests\InsumoStoreRequest;
+use App\Models\Insumo;
 use App\Models\RetornoAjax;
 use Illuminate\Http\Request;
 
-use App\Http\Requests;
 
-class InstanciasController extends ApiController
+class InsumosController extends ApiController
 {
-    use RetornoAjax,AjaxGetAttribute;
 
-    public function attribute(Instancia $instancia){
-        return $this->ajaxGetAtribute($instancia);
+    use AjaxGetAttribute,RetornoAjax;
+
+    public function attribute(Insumo $insumo){
+        return $this->ajaxGetAtribute($insumo);
     }
     /**
      * Display a listing of the resource.
@@ -23,10 +24,7 @@ class InstanciasController extends ApiController
      */
     public function index()
     {
-        $instancias = Instancia::get();
-
-
-        return response()->json($instancias);
+        //
     }
 
     /**
@@ -42,12 +40,19 @@ class InstanciasController extends ApiController
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param InsumoStoreRequest|Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(InsumoStoreRequest $request)
     {
-        //
+        try {
+            $insumo = Insumo::create($request->only('nombre', 'minimo', 'comedor_id', 'unidad_de_medida_id', 'disponibilidad'));
+
+        }catch (\Exception $e){
+            return $this->jsonMensajeError('Error',$e->getMessage());
+        }
+
+        return $this->jsonMensajeData('Felicidades','Insumo registrado Correctamente','success',$insumo);
     }
 
     /**
@@ -58,12 +63,7 @@ class InstanciasController extends ApiController
      */
     public function show($id)
     {
-        $instancia = Instancia::findOrFail($id);
-
-        //$instancia->estados();
-        $instancia->instanciaEstadoActivo();
-
-        return $instancia->load('comida','instanciasEstado','estados','presencias');
+        //
     }
 
     /**
@@ -98,5 +98,10 @@ class InstanciasController extends ApiController
     public function destroy($id)
     {
         //
+    }
+
+    public function getData()
+    {
+        return Insumo::searchPaginateAndOrder();
     }
 }

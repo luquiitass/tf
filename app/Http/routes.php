@@ -114,3 +114,14 @@ Route::resource('instancia','Api\InstanciasController');
 
 Route::get('estado/{estado}/attribute','Api\EstadosController@attribute');
 Route::resource('estado','Api\EstadosController');
+
+
+Route::get('unidadDeMedida/{unidadDeMedida}/attribute','Api\UnidadesDeMedidaController@attribute');
+Route::resource('unidadDeMedida','Api\UnidadesDeMedidaController');
+
+
+Route::get('insumo/{insumo}/attribute','Api\InsumosController@attribute');
+Route::post('insumo/getData','Api\InsumosController@getData');
+Route::resource('insumo','Api\InsumosController');
+
+

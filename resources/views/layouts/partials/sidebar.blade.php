@@ -85,6 +85,14 @@
                 </a>
             </router-link>
 
+            <router-link tag="li" to="/unidadesDeMedida" exact>
+                <a>
+                    <i class='fa fa-link'></i>
+                    <span>{{trans('string.unidades_de_medida') }}
+                </span>
+                </a>
+            </router-link>
+
             {{--<router-link tag="li" to="/mercaderias" exact>--}}
                 {{--<a>--}}
                     {{--<i class='fa fa-link'></i>--}}

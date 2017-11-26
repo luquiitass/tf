@@ -37,6 +37,8 @@ import Pais from './models/Pais';
 import Provincia from './models/Provincia';
 import Instancia from './models/Instancia';
 import Estado from './models/Estado';
+import UnidadDeMedida from './models/UnidadDeMedida';
+import Insumo from './models/Insumo';
 
 
 import Lang from 'lang.js';
@@ -60,6 +62,8 @@ window.Pais = Pais;
 window.Provincia = Provincia;
 window.Instancia = Instancia;
 window.Estado = Estado;
+window.UnidadDeMedida = UnidadDeMedida;
+window.Insumo = Insumo;
 
 
 window.Vue = Vue;

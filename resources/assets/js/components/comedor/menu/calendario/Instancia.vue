@@ -21,15 +21,11 @@
 
         <div>
             <div>
-                <div class="callout callout-info">
-                    <h4>
-                        <i class="icon fa fa-info"></i>
-                        Estado de instancia
-                    </h4>
 
-                    <p>Descripcion del estado</p>
-                </div>
-                <!--Descripcion de cuando la fecha esta abierta-->
+                <component :p_instancia="instancia" :is="'desc-abierta'" ></component>
+
+
+                <component :p_instancia="instancia" :is="'info-abierta'" ></component>
 
 
                 <div>
@@ -59,24 +55,9 @@
                     </div>
                 </div>
                 <div class="col-xs-12 col-md-9">
-                    <div class="box box-success">
-                        <div class="box-header with-border">
-                            <h3 class="box-title">
-                                Anotados
-                            </h3>
-                        </div>
-                        <div class="box-body">
 
-                            <div>
-                                <ul class="list-group">
-                                    <li class="list-group-item" v-for="presencia in instancia.presencias">
-                                        {{presencia.comensal.usuario.apellido}} {{presencia.comensal.usuario.nombre}}
-                                    </li>
-                                </ul>
-                            </div>
+                    <component :p_instancia="instancia" :is="'tabla-abierta'" ></component>
 
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -86,12 +67,21 @@
 
 
 <script>
+import DescAbierta from './Estados/abierta/Descripcion.vue';
+import InfoAbierta from './Estados/abierta/Informacion.vue';
+import TablaAbierta from './Estados/abierta/Tabla.vue';
+
 
 export  default{
     data(){
         return{
             instancia :{}
         }
+    },
+    components:{
+        DescAbierta,
+        InfoAbierta,
+        TablaAbierta
     },
     props: {
 

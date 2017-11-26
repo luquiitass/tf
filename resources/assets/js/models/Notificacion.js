@@ -1,4 +1,4 @@
-class Notificaion{
+class Notificacion{
 
     static  mostrarMensaje(mensaje){
         vm.$notify({
@@ -12,4 +12,4 @@ class Notificaion{
 
 }
 
-export default Notificaion;
+export default Notificacion;

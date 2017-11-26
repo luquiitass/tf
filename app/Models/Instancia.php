@@ -29,7 +29,7 @@ class Instancia extends Model
     }
 
     public function presencias(){
-        return $this->hasMany(Presencia::class)->with('comensal');
+        return $this->hasMany(Presencia::class);
     }
 
     public function getEstadoAttribute(){

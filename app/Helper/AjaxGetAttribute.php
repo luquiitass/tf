@@ -17,14 +17,25 @@ trait AjaxGetAttribute
         $retorno = '';
 
         if($object->existAttribute($attribute)) {
-
+            \Log::info('Lucas ajax attribute',[$attribute]);
             $retorno = $object->$attribute;
 
         }else if($object->existFunction($attribute)){
+            \Log::info('Lucas ajax funcion',[$attribute]);
 
             $retorno = $object->$attribute();
 
+        }else{
+            \Log::info('Lucas ajax Sentencia',[$attribute]);
+            try{
+                $retorno = $object->$attribute;
+            }catch (\Exception $e){
+                \Log::debug('Lucas debug Ajax Attribute -->>la sentencia =>' .$attribute ,[$e->getMessage()]);
+
+            }
         }
+
+
         return response()->json($retorno);
 
     }
@@ -35,8 +46,8 @@ trait AjaxGetAttribute
 
     public function existAttribute($name){
         try{
-            $this->$name;
-            return true;
+            return $this->$name? true : false;
+            //return true;
         }catch (\Exception $e){
             return false;
         }

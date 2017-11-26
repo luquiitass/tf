@@ -22,4 +22,7 @@ return [
     'actividades'=>'Actividades',
     'faltas'=>'Faltas',
     'estados'=>'Estados',
+    'insumos'=>'Insumos',
+    'parametros'=>'Parametros',
+    'unidades_de_medida'=> 'Unidades de medida'
 ];

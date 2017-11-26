@@ -88,6 +88,34 @@
             </router-link>
 
 
+            <router-link tag="li" to="/insumos" :claass="{
+            active : hasRoute('/insumos')}">
+                <a>
+                    <i class='fa fa-link'></i>
+                    <span>{{trans('string.insumos') }}
+                </span>
+                </a>
+            </router-link>
+
+            <li :class="{treeview :true , active : hasRoute('/parametros')}">
+                <a href="#">
+                    <i class='fa fa-link'></i>
+                    <span>{{ trans('string.parametros') }}</span>
+                    <i class="fa fa-angle-left pull-right"></i>
+                </a>
+
+                <ul class="treeview-menu">
+
+                    <router-link tag="li" to="/parametros/unidadesDeMedida" :claass="{active : hasRoute('/parametros/unidadesDeMedida')}">
+                        <a>
+                            <i class='fa fa-link'></i>
+                            {{ trans('string.unidades_de_medida') }}
+                        </a>
+                    </router-link>
+                </ul>
+            </li>
+
+
 
             <router-link tag="li" to="/administradores" exact>
                 <a>

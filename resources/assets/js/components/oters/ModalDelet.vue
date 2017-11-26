@@ -44,6 +44,7 @@ export default{
             $('#modal-delet').modal('toggle');
         },
         eliminar(){
+            var self = this;
             axios.delete(PATH + this.url)
                     .then(data=>{
                         if (data.data == true ){
