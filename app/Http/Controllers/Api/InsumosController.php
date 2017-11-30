@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Helper\AjaxGetAttribute;
 use App\Http\Requests\InsumoStoreRequest;
+use App\Http\Requests\InsumoUpdateRequest;
 use App\Models\Insumo;
 use App\Models\RetornoAjax;
 use Illuminate\Http\Request;
@@ -74,19 +75,28 @@ class InsumosController extends ApiController
      */
     public function edit($id)
     {
-        //
+
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param InsumoUpdateRequest|Request $request
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(InsumoUpdateRequest $request, $id)
     {
-        //
+        try{
+            $insumo = Insumo::findOrFail($id);
+            $insumo->update($request->only('nombre','disponibilidad','minimo'));
+            $insumo->load('unidadDeMedida','comedor');
+        }catch (\Exception $e){
+            return $this->jsonMensajeError('Error',$e->getMessage());
+        }
+
+        return $this->jsonMensajeData('Felicidades','Insumo modificado correctamente','success',$insumo);
+
     }
 
     /**
@@ -102,6 +112,6 @@ class InsumosController extends ApiController
 
     public function getData()
     {
-        return Insumo::searchPaginateAndOrder();
+        return Insumo::getData();
     }
 }

@@ -112,8 +112,8 @@ let routes = [
                 },
             }
         ]
-    },
-
+    }
+    ,
     {
         path : '/anuncios',
         components :{
@@ -128,9 +128,30 @@ let routes = [
         }
     },
     {
-        path : '/insumos',
+        path : '/almacen/insumos',
         components :{
-            content_comedor : require('./components/comedor/menu/insumos/Index.vue'),
+            content_comedor : require('./components/comedor/menu/almacen/insumos/Index.vue'),
+        },
+        children : [
+            {
+                path : '/',
+                components : {
+                    submenu: require('./components/comedor/menu/almacen/insumos/Index.vue'),
+                },
+                props : dynamicPropsFn
+            }
+            ,{
+                path : '/:id',
+                components : {
+                    submenu: require('./components/comedor/menu/almacen/insumos/Show.vue'),
+                },
+            }
+        ]
+    },
+    {
+        path : '/almacen/ingresos',
+        components :{
+            content_comedor : require('./components/comedor/menu/almacen/ingreso/Index.vue'),
         }
     },
     {

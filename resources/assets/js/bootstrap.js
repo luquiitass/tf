@@ -111,6 +111,7 @@ Vue.component('modal-delet',require('./components/oters/ModalDelet.vue'));
 Vue.component('search',require('./components/oters/Search.vue'));
 Vue.component('data-viewer',require('./utilities/DataViewer.vue'));
 Vue.component('tabla',require('./utilities/Tabla.vue'));
+Vue.component('tabla2',require('./utilities/Tabla2.vue'));
 Vue.component('select-auto',require('./utilities/Select.vue'));
 Vue.component('comensal-index',require('./components/comensal/Index.vue'));
 Vue.component('comedor-index',require('./components/comedor/Index.vue'));

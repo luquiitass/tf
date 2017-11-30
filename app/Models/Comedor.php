@@ -20,9 +20,6 @@ class Comedor extends Model
 
      protected $fillable = ['nombre','capacidad','activo'];
 
-
-     protected $with = ['administradores'];
-
      public $timestamps = true;
 
     public function unidadesDeMedidas(){
@@ -33,7 +30,7 @@ class Comedor extends Model
     }
 
     public function insumos(){
-        return $this->hasMany(Insumo::class);
+        return $this->hasMany(Insumo::class)->with('unidadDeMedida');
     }
 
      public function administradores(){

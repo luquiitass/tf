@@ -23,6 +23,8 @@ return [
     'faltas'=>'Faltas',
     'estados'=>'Estados',
     'insumos'=>'Insumos',
+    'ingresos'=>'Ingresos',
     'parametros'=>'Parametros',
+    'almacen'=>'Almacén',
     'unidades_de_medida'=> 'Unidades de medida'
 ];

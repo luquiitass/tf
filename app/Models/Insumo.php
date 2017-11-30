@@ -25,4 +25,17 @@ class Insumo extends Model
         return $this->belongsTo(UnidadDeMedida::class);
     }
 
+
+    public function scopeGetData($query){
+        $comedor_id = request()->get('comedor_id');
+
+        if ($comedor_id){
+            $query
+                ->join('unidades_de_medida','unidades_de_medida.id','=','insumos.unidad_de_medida_id')
+                ->where('insumos.comedor_id',$comedor_id)
+                ->select('insumos.*','unidades_de_medida.nombre as um')
+                ->with('comedor','unidadDeMedida');
+        }
+        return  $this->scopeSearchPaginateAndOrder($query);
+    }
  }

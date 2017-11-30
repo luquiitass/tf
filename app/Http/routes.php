@@ -18,11 +18,11 @@ Route::get('/prueba',function (){
     try{
         DB::beginTransaction();
 
-        //$comedor = \App\Models\Comedor::first();
-        //$retorno = $comedor->crearInstanciasSemanal();
-        $instancia = \App\Models\Instancia::find(21);
+        $comedor = \App\Models\Comedor::find(1);
+        $retorno = $comedor->crearInstanciasSemanal();
+       /* $instancia = \App\Models\Instancia::find(21);
 
-        $retorno = $instancia->generarPresencias();
+        $retorno = $instancia->generarPresencias();*/
 
         DB::commit();
 

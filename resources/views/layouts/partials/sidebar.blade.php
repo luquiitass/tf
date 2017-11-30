@@ -77,14 +77,6 @@
                 </a>
             </router-link>
 
-            <router-link tag="li" to="/estados" exact>
-                <a>
-                    <i class='fa fa-link'></i>
-                    <span>{{trans('string.estados') }}
-                </span>
-                </a>
-            </router-link>
-
             <router-link tag="li" to="/unidadesDeMedida" exact>
                 <a>
                     <i class='fa fa-link'></i>

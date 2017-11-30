@@ -88,14 +88,42 @@
             </router-link>
 
 
-            <router-link tag="li" to="/insumos" :claass="{
+           {{-- <router-link tag="li" to="/insumos" :claass="{
             active : hasRoute('/insumos')}">
                 <a>
                     <i class='fa fa-link'></i>
                     <span>{{trans('string.insumos') }}
                 </span>
                 </a>
-            </router-link>
+            </router-link>--}}
+
+
+            <li :class="{treeview :true , active : hasRoute('/almacen')}">
+                <a href="#">
+                    <i class='fa fa-link'></i>
+                    <span>{{ trans('string.almacen') }}</span>
+                    <i class="fa fa-angle-left pull-right"></i>
+                </a>
+
+                <ul class="treeview-menu">
+
+                    <router-link tag="li" to="/almacen/insumos" :claass="{active : hasRoute('/almacen/insumos')}">
+                        <a>
+                            <i class='fa fa-link'></i>
+                            {{ trans('string.insumos') }}
+                        </a>
+                    </router-link>
+
+                    <router-link tag="li" to="/almacen/ingresos" :claass="{active : hasRoute('/almacen/ingresos')}">
+                        <a>
+                            <i class='fa fa-link'></i>
+                            {{ trans('string.ingresos') }}
+                        </a>
+                    </router-link>
+                </ul>
+            </li>
+
+
 
             <li :class="{treeview :true , active : hasRoute('/parametros')}">
                 <a href="#">
@@ -114,7 +142,6 @@
                     </router-link>
                 </ul>
             </li>
-
 
 
             <router-link tag="li" to="/administradores" exact>

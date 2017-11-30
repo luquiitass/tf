@@ -1,7 +1,7 @@
 <template>
     <div class="box box-solid">
         <div class="box-header wit-border">
-            <h3 class="box-title">Editar ####</h3>
+            <h3 class="box-title">Editar Insumo</h3>
         </div>
 
         <div class="box-body">
@@ -9,9 +9,11 @@
 
                 <inputs :form="form" :edit="true" @cancelar(cancelarCreate)></inputs>
 
-                <button type="submit" :disabled="form.errors.any()" class="btn btn-success">Modificar</button>
+                <div class="box-footer pull-right">
+                    <button type="submit" :disabled="form.errors.any()" class="btn btn-success">Modificar</button>
+                    <a class="btn btn-warning" @click="cancelar()">Cancelar</a>
 
-                <a class="btn btn-warning" @click="cancelar()">Cancelat</a>
+                </div>
 
                 <div class="has-error">
                     <span class="help-block" v-if="form.errors.any()">Verificar los datos ingresados</span>
@@ -38,13 +40,18 @@ export default{
             required:true
         }
     },
+    watch:{
+        objeto(){
+            this.form = new Form(this.objeto);
+        }
+    },
     components:{
         Inputs
     },
     methods:{
         onSubmit(){
             this.form
-                    .put(PATH +'path/' + this.objeto.id)
+                    .put(PATH +'insumo/' + this.objeto.id)
                     .then(data => this.$emit('edited',data));
         },
         cancelar(){

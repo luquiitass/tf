@@ -13,7 +13,7 @@ class InsumoUpdateRequest extends Request
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -23,8 +23,14 @@ class InsumoUpdateRequest extends Request
      */
     public function rules()
     {
+        $id = $this->route()->parameters()['insumo'];
+        $idComedor = $this->request->get('comedor_id');
         return [
-            //
+            'nombre'=>'required|unique:insumos,nombre,'.$id.',id,comedor_id,' . $idComedor,
+            'unidad_de_medida_id'=>'required',
+            'minimo'=>'required',
+            'comedor_id'=>'required',
+            'disponibilidad'=>'required',
         ];
     }
 }
