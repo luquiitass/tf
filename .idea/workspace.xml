@@ -2,30 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="61da1a9e-8e11-4143-bc4a-92b2c7a4a68c" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/npm-debug.log" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/assets/js/components/comedor/menu/recetas/Create.vue" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/assets/js/components/comedor/menu/recetas/Edit.vue" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/assets/js/components/comedor/menu/recetas/Index.vue" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/assets/js/components/comedor/menu/recetas/Inputs.vue" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/assets/js/components/comedor/menu/recetas/List.vue" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/assets/js/components/comedor/menu/recetas/Show.vue" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Helper/Tabla.php" afterPath="$PROJECT_DIR$/app/Helper/Tabla.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/InsumosController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/InsumosController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Requests/InsumoUpdateRequest.php" afterPath="$PROJECT_DIR$/app/Http/Requests/InsumoUpdateRequest.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Models/Insumo.php" afterPath="$PROJECT_DIR$/app/Models/Insumo.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/miapp.js" afterPath="$PROJECT_DIR$/public/js/miapp.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/js/components/comedor/menu/almacen/insumos/Index.vue" afterPath="$PROJECT_DIR$/resources/assets/js/components/comedor/menu/almacen/insumos/Index.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/js/components/comedor/menu/almacen/insumos/Inputs.vue" afterPath="$PROJECT_DIR$/resources/assets/js/components/comedor/menu/almacen/insumos/Inputs.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/js/components/comedor/menu/almacen/insumos/List.vue" afterPath="$PROJECT_DIR$/resources/assets/js/components/comedor/menu/almacen/insumos/List.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/js/components/comedor/menu/almacen/insumos/Show.vue" afterPath="$PROJECT_DIR$/resources/assets/js/components/comedor/menu/almacen/insumos/Show.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/js/components/example/Create.vue" afterPath="$PROJECT_DIR$/resources/assets/js/components/example/Create.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/js/components/example/Index.vue" afterPath="$PROJECT_DIR$/resources/assets/js/components/example/Index.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/js/components/example/List.vue" afterPath="$PROJECT_DIR$/resources/assets/js/components/example/List.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/js/routes.js" afterPath="$PROJECT_DIR$/resources/assets/js/routes.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/assets/js/utilities/Tabla.vue" afterPath="$PROJECT_DIR$/resources/assets/js/utilities/Tabla.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/lang/es/string.php" afterPath="$PROJECT_DIR$/resources/lang/es/string.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/comedor/partials/sidebar.blade.php" afterPath="$PROJECT_DIR$/resources/views/comedor/partials/sidebar.blade.php" />
     </list>
     <ignored path="TF.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -1026,7 +1003,7 @@
       <workItem from="1511904129474" duration="7829000" />
       <workItem from="1511987636896" duration="961000" />
       <workItem from="1511988627862" duration="14300000" />
-      <workItem from="1512037978489" duration="17923000" />
+      <workItem from="1512037978489" duration="18003000" />
     </task>
     <task id="LOCAL-00001" summary="Primer commit -&gt; Proyecto limpio&#10;">
       <created>1505193084411</created>
@@ -1182,11 +1159,18 @@
       <option name="project" value="LOCAL" />
       <updated>1512014907851</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Cambieos en las vistas y rutas de insumos..&#10;Abm completo -&gt;falta eliminar el insumo&#10;&#10;&#10;Creando una vista generica para index,create,list,show&#10;&#10;">
+      <created>1512073511737</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1512073511737</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1204441000" />
+    <option name="totallyTimeSpent" value="1204521000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1303,7 +1287,8 @@
     <MESSAGE value="Empezando con los abm de Insumos y Unidad de medidas.&#10;&#10;&#10;falta &#10;&#10;" />
     <MESSAGE value="Abm de unidades de medidas finalizados.. tanto a nivel sistema como en comedor.&#10;&#10;Terminando la de insumos." />
     <MESSAGE value="Terminado los Insumos&#10;&#10;Create,&#10;Update,&#10;Show in modal&#10;&#10;Falta Delete ; - )&#10;&#10;&#10;Pienso modificar unas vista x eso el commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="Terminado los Insumos&#10;&#10;Create,&#10;Update,&#10;Show in modal&#10;&#10;Falta Delete ; - )&#10;&#10;&#10;Pienso modificar unas vista x eso el commit" />
+    <MESSAGE value="Cambieos en las vistas y rutas de insumos..&#10;Abm completo -&gt;falta eliminar el insumo&#10;&#10;&#10;Creando una vista generica para index,create,list,show&#10;&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Cambieos en las vistas y rutas de insumos..&#10;Abm completo -&gt;falta eliminar el insumo&#10;&#10;&#10;Creando una vista generica para index,create,list,show&#10;&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
