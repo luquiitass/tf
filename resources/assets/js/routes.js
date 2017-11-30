@@ -27,12 +27,6 @@ let routes = [
         }
     },
     {
-        path : '/recetas',
-        components :{
-            menu : require('./views/Recetas')
-        }
-    },
-    {
         path : '/unidadesDeMedida',
         components :{
             menu : require('./components/sistema/unidades_de_medida/Index')
@@ -131,27 +125,24 @@ let routes = [
         path : '/almacen/insumos',
         components :{
             content_comedor : require('./components/comedor/menu/almacen/insumos/Index.vue'),
-        },
-        children : [
-            {
-                path : '/',
-                components : {
-                    submenu: require('./components/comedor/menu/almacen/insumos/Index.vue'),
-                },
-                props : dynamicPropsFn
-            }
-            ,{
-                path : '/:id',
-                components : {
-                    submenu: require('./components/comedor/menu/almacen/insumos/Show.vue'),
-                },
-            }
-        ]
+        }
+    },
+    {
+        path : '/almacen/insumos/:id',
+        components :{
+            content_comedor : require('./components/comedor/menu/almacen/insumos/Show.vue'),
+        }
     },
     {
         path : '/almacen/ingresos',
         components :{
-            content_comedor : require('./components/comedor/menu/almacen/ingreso/Index.vue'),
+            content_comedor : require('./components/comedor/menu/almacen/insumos/Index.vue'),
+        }
+    },
+    {
+        path : '/recetas',
+        components :{
+            content_comedor : require('./components/example/Index.vue')
         }
     },
     {

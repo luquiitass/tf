@@ -47,8 +47,6 @@ trait Tabla {
             throw new \Illuminate\Validation\ValidationException($v);
         }
 
-
-
         $retorno = $query
             ->orderBy($request->column, $request->direction)
             ->where(function($query) use ($requestArray,$request,$columns) {

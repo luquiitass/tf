@@ -31,6 +31,7 @@ class InsumoUpdateRequest extends Request
             'minimo'=>'required',
             'comedor_id'=>'required',
             'disponibilidad'=>'required',
+            'activo'=>'required'
         ];
     }
 }

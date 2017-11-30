@@ -1,19 +1,17 @@
 <template>
     <div class="box box-solid">
         <div class="box-header wit-border">
-            <a class="btn btn-xs pull-right" @click="cancelar()"><i class="fa fa-close"></i></a>
-            <h3 class="box-title">Crear ####</h3>
+            <h3 class="box-title">Editar ####</h3>
         </div>
 
         <div class="box-body">
             <form @submit.prevent="onSubmit" @keydown="form.errors.clear()" >
 
-                <inputs :form="form" :edit="false" @cancelar(cancelarCreate)></inputs>
+                <inputs :form="form" :edit="true" @cancelar(cancelarCreate)></inputs>
 
-                <div class="box-footer pull-right">
-                    <button type="submit" :disabled="form.errors.any()" class="btn btn-success">Guardar</button>
-                    <a class="btn btn-warning" @click="cancelar()">Cancelar</a>
-                </div>
+                <button type="submit" :disabled="form.errors.any()" class="btn btn-success">Guardar</button>
+
+                <a class="btn btn-warning" @click="cancelar()">Cancelat</a>
 
                 <div class="has-error">
                     <span class="help-block" v-if="form.errors.any()">Verificar los datos ingresados</span>
@@ -32,7 +30,12 @@ export default{
 
     data(){
         return{
-            form: new Form({}),
+            form: new Form(this.objeto),
+        }
+    },
+    props:{
+        objeto:{
+            required:true
         }
     },
     components:{
@@ -41,8 +44,8 @@ export default{
     methods:{
         onSubmit(){
             this.form
-                    .post(PATH +'')
-                    .then(data => this.$emit('add',data));
+                    .put(PATH +'path/' + this.objeto.id)
+                    .then(data => this.$emit('edited',data));
         },
         cancelar(){
             this.$emit('cancelar');

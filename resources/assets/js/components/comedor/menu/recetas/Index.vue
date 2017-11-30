@@ -5,20 +5,19 @@
         </titulo>
 
         <div id="create">
-
             <create
                 @add="add"
-                @cancelar="showCreate(false)">
+                @cancelado="showCreate(false)">
             </create>
-            <!--Form create-->
-        </div><!--Vreta toggle-->
+            <!--Formulario de Alta-->
+        </div>
 
         <div>
             <list
-                :p_list="list"
-                @nuevo="showCreate(true)">
+                :p_list="list">
             </list>
-        </div>
+
+        </div><!--List de items-->
 
     </div>
 
@@ -75,12 +74,11 @@ export  default{
         //Mostrar Ocultar Vista Create, Edit, Show ,Delet}
 
         showCreate(visible){
-            if(visible){
-                $('#create').show(1000)
+            if (visible){
+                $('#create').show(1000);
             }else{
-                $('#create').hide(1000)
+                $('#create').hide(1000);
             }
-
         },
         showEdit(item){
 

@@ -78,6 +78,13 @@
                       <span v-else>&darr;</span>
                     </span>
               </th>
+
+              <slot name="th1"></slot>
+              <slot name="th2"></slot>
+              <slot name="th3"></slot>
+              <slot name="th4"></slot>
+              <slot name="th5"></slot>
+
               <th v-if="isOperaciones">Op.</th>
 
             </tr>
@@ -85,6 +92,13 @@
           <tbody>
             <tr v-if="!items.lenght" v-for="row in items" :class="classRow(row)">
               <td v-for="(value,key) in columns">{{row[key]}}</td>
+
+             <slot :name="slotTd(1,row)"></slot>
+             <slot :name="slotTd(2,row)"></slot>
+             <slot :name="slotTd(3,row)"></slot>
+             <slot :name="slotTd(4,row)"></slot>
+             <slot :name="slotTd(5,row)"></slot>
+
               <td v-if="isOperaciones">
                 <div class="btn-group">
                   <button class="btn btn-xs btn-success" @click="selectRow(row)">
@@ -338,6 +352,10 @@
       },
       isOperaciones(){
         return this.ver;
+      },
+      slotTd(num,row){
+        console.log('ta'+num + '_td_' + row.id)
+        return num + '_td_' + row.id;
       }
     }
   }

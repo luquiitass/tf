@@ -10,10 +10,7 @@
 
                 <inputs :form="form" :edit="false" @cancelar(cancelarCreate)></inputs>
 
-                <div class="box-footer pull-right">
-                    <button type="submit" :disabled="form.errors.any()" class="btn btn-success">Guardar</button>
-                    <a class="btn btn-warning" @click="cancelar()">Cancelar</a>
-                </div>
+                <button type="submit" :disabled="form.errors.any()" class="btn btn-success">Guardar</button>
 
                 <div class="has-error">
                     <span class="help-block" v-if="form.errors.any()">Verificar los datos ingresados</span>

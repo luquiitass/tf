@@ -48,7 +48,7 @@ class InsumosController extends ApiController
     {
         try {
             $insumo = Insumo::create($request->only('nombre', 'minimo', 'comedor_id', 'unidad_de_medida_id', 'disponibilidad'));
-
+            $insumo->load('unidadDeMedida','comedor');
         }catch (\Exception $e){
             return $this->jsonMensajeError('Error',$e->getMessage());
         }
@@ -62,9 +62,10 @@ class InsumosController extends ApiController
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Insumo $insumo)
     {
-        //
+        $insumo->load('comedor','unidadDeMedida');
+        return response()->json($insumo);
     }
 
     /**
@@ -89,6 +90,7 @@ class InsumosController extends ApiController
     {
         try{
             $insumo = Insumo::findOrFail($id);
+            $request->minimo = $request->minimo ? 1 : 0;
             $insumo->update($request->only('nombre','disponibilidad','minimo'));
             $insumo->load('unidadDeMedida','comedor');
         }catch (\Exception $e){

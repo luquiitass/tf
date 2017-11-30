@@ -17,6 +17,10 @@ class Insumo extends Model
 
      public $timestamps = false;
 
+     protected $casts = [
+        'activo'=>'boolean'
+     ];
+
     public function comedor(){
         return $this->belongsTo(Comedor::class);
     }
@@ -31,9 +35,9 @@ class Insumo extends Model
 
         if ($comedor_id){
             $query
-                ->join('unidades_de_medida','unidades_de_medida.id','=','insumos.unidad_de_medida_id')
+                //->join('unidades_de_medida','unidades_de_medida.id','=','insumos.unidad_de_medida_id')
                 ->where('insumos.comedor_id',$comedor_id)
-                ->select('insumos.*','unidades_de_medida.nombre as um')
+                //->select('insumos.*','unidades_de_medida.nombre as um')
                 ->with('comedor','unidadDeMedida');
         }
         return  $this->scopeSearchPaginateAndOrder($query);

@@ -87,6 +87,15 @@
                 </a>
             </router-link>
 
+            <router-link tag="li" to="/recetas" :claass="{
+            active : hasRoute('/recetas')}">
+                <a>
+                    <i class='fa fa-link'></i>
+                    <span>{{trans('string.recetas') }}
+                </span>
+                </a>
+            </router-link>
+
 
            {{-- <router-link tag="li" to="/insumos" :claass="{
             active : hasRoute('/insumos')}">

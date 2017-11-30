@@ -32,7 +32,7 @@
             </list>
 
 
-            <modal
+            <!--<modal
                 :p_show="insumoSelect"
                 v-show="insumoSelect"
                 @cancelado="showInsumo(null)">
@@ -47,7 +47,7 @@
                 </show>
 
                 <div slot="footer"></div>
-            </modal>
+            </modal>-->
 
         </div>
     </div>
@@ -112,7 +112,9 @@ export  default{
         },
 
         showInsumo(insumo){
-            this.insumoSelect = insumo;
+            if (insumo.id){
+                router.push({ path: '/almacen/insumos/' + insumo.id});
+            }
         },
         showEdit(insumo){
             this.viewShow = 'edit';
