@@ -79,7 +79,7 @@ class Instancia extends Model
     }
 
 
-    //Mutadores
+    //Mutadoress
 
     public function getTablaAttribute(){
         return 'instancias';
