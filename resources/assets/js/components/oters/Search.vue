@@ -18,6 +18,7 @@
                         </li>
                     </slot>
                 </ul>
+                <p v-if="isMensajeError()">No se han encontrado registros con <span class="label label-default"> {{stringSearch}}</span></p>
             </div>
         </slot>
     </div>
@@ -76,6 +77,9 @@ export default{
                 this.m_items =[];
                 this.stringSearch = '',
                 this.$emit('itemSelected',item);
+        },
+        isMensajeError(){
+            return this.items.length == 0 && this.stringSearch.length > 1;
         }
     }
 

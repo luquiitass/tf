@@ -39,6 +39,7 @@ import Instancia from './models/Instancia';
 import Estado from './models/Estado';
 import UnidadDeMedida from './models/UnidadDeMedida';
 import Insumo from './models/Insumo';
+import Receta from './models/Receta';
 
 
 import Lang from 'lang.js';
@@ -64,6 +65,7 @@ window.Instancia = Instancia;
 window.Estado = Estado;
 window.UnidadDeMedida = UnidadDeMedida;
 window.Insumo = Insumo;
+window.Receta = Receta;
 
 
 window.Vue = Vue;
@@ -158,6 +160,12 @@ Vue.mixin({
       }
       return ob;
     },
+    bol(value){
+      return value == 1 ? true :false;
+    },
+    text( text){
+      return text ? text.split('\n') : [''];
+    },
     get(list,keys){
       var ret =  _.pick(list,function (value, key, object) {
         var val = _.values(keys);
@@ -183,7 +191,7 @@ Vue.mixin({
     },
 
     removeObjectList(list,item){
-      Utilidades.deleteObjectList(list,item.id);
+      Utilidades.deleteObjectList(list,item);
     }
 
 

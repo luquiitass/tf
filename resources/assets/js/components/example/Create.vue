@@ -38,11 +38,20 @@ export default{
     components:{
         Inputs
     },
+    created(){
+        this.loadForm();
+    },
     methods:{
+        loadForm(){
+            this.form = new Form({});
+        },
         onSubmit(){
             this.form
                     .post(PATH +'')
-                    .then(data => this.$emit('add',data));
+                    .then(data => {
+                        this.$emit('add',data;
+                        this.loadForm();
+                    });
         },
         cancelar(){
             this.$emit('cancelar');

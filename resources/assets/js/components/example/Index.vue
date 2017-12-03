@@ -4,7 +4,7 @@
             Titulo
         </titulo>
 
-        <div id="create">
+        <div id="create" class="not-display">
 
             <create
                 @add="add"
@@ -16,7 +16,8 @@
         <div>
             <list
                 :p_list="list"
-                @nuevo="showCreate(true)">
+                @nuevo="showCreate(true)"
+                @select="showItem">
             </list>
         </div>
 
@@ -87,6 +88,13 @@ export  default{
         },
         showDelet(item){
 
+        },
+
+
+
+        /*List*/
+        showItem(item){
+            router.push({ path: '/almacen/insumos/' + item.id});
         }
     }
 }

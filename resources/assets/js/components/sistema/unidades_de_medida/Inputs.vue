@@ -8,7 +8,7 @@
         </div>
 
         <div :class="form.getClassForm('abreviatura')" >
-            <label >Nombre</label>
+            <label >Abreviatura</label>
             <input type="text" class="form-control"  v-model="form.abreviatura">
             <span class="help-block" v-if="form.errors.has('abreviatura')" v-text="form.errors.get('abreviatura')"></span>
         </div>

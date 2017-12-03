@@ -119,9 +119,13 @@ Route::resource('estado','Api\EstadosController');
 Route::get('unidadDeMedida/{unidadDeMedida}/attribute','Api\UnidadesDeMedidaController@attribute');
 Route::resource('unidadDeMedida','Api\UnidadesDeMedidaController');
 
-
+Route::get('/insumo/search','Api\InsumosController@search');
 Route::get('insumo/{insumo}/attribute','Api\InsumosController@attribute');
 Route::post('insumo/getData','Api\InsumosController@getData');
 Route::resource('insumo','Api\InsumosController');
+
+Route::post('receta/getData','Api\RecetasController@getData');
+Route::get('receta/{receta}/attribute','Api\RecetasController@attribute');
+Route::resource('receta','Api\RecetasController');
 
 

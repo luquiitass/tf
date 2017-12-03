@@ -43,16 +43,8 @@ class Instancia extends Model
         }
     }
 
-    public function estados(){
-        return $this->hasMany(Estado::class,'tabla','tabla')->orderBy('posicion');//Estado::where('tabla','instancias')->get();
-    }
-
-    public function instanciasEstado(){
-        return $this->hasMany(InstanciaEstado::class);
-    }
-
-    public function instanciaEstadoActivo(){
-        return $this->instanciaEstadoActivo = $this->instanciasEstado()->where('activo',1)->first();
+    public function cabeceras(){
+        $this->belongsToMany(Cabecera::class);
     }
 
 

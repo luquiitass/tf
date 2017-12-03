@@ -49,7 +49,7 @@ export default{
     },
     methods:{
         init(){
-            this.form = new Form({nombre:'',disponibilidad:'0',unidad_de_medida_id:'',minimo:'1',comedor_id:vm.app.comedor.id});
+            this.form = new Form({nombre:'',disponibilidad:'0',unidad_de_medida_id:'',activo:1,minimo:'1',comedor_id:vm.app.comedor.id});
         },
         onSubmit(){
             this.form

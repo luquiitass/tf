@@ -142,7 +142,13 @@ let routes = [
     {
         path : '/recetas',
         components :{
-            content_comedor : require('./components/example/Index.vue')
+            content_comedor : require('./components/comedor/menu/recetas/Index.vue')
+        }
+    },
+    {
+        path : '/receta/:id',
+        components :{
+            content_comedor : require('./components/comedor/menu/recetas/Show.vue')
         }
     },
     {

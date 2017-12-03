@@ -62,7 +62,6 @@ export  default{
             this.$emit('select',item);
         },
         slotTd(num,row){
-            console.log('list'+num + '_td_' + row.id)
             return num + '_td_' + row.id;
         }
 

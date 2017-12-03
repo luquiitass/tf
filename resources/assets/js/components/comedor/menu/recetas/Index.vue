@@ -1,23 +1,25 @@
 <template>
     <div>
         <titulo>
-            Titulo
+            Recetas
         </titulo>
 
-        <div id="create">
+        <div id="create" class="not-display">
+
             <create
                 @add="add"
-                @cancelado="showCreate(false)">
+                @cancelar="showCreate(false)">
             </create>
-            <!--Formulario de Alta-->
-        </div>
+            <!--Form create-->
+        </div><!--Vreta toggle-->
 
         <div>
             <list
-                :p_list="list">
+                :p_list.sync="recetas"
+                @nuevo="showCreate(true)"
+                @select="showItem">
             </list>
-
-        </div><!--List de items-->
+        </div>
 
     </div>
 
@@ -34,7 +36,7 @@ export  default{
     data(){
         return{
             comedor : vm.app.comedor,
-            list : []
+            recetas : []
         }
     },
     components:{
@@ -51,18 +53,22 @@ export  default{
     },
     methods:{
         init(){
-
+            Comedor.attribure(
+                    comedor.id,
+                    'recetas',
+                    recetas => this.recetas = recetas
+            )
         },
         add(item){
-            this.addFirstList(this.list,item);
+            this.addFirstList(this.recetas,item);
             //Otras operaciones;
         },
         edited(item){
-            this.replaceObjectList(this.lsit,item);
+            this.replaceObjectList(this.recetas,item);
             //Ocultar view Edit
         },
         deleted(item){
-            this.removeObjectList(this.item,item.id);
+            this.removeObjectList(this.recetas,item.id);
             Notificacion.mostrarMensaje({
                 titulo:'Felicides',
                 mensaje:'El #### ha sido eliminado',
@@ -74,17 +80,25 @@ export  default{
         //Mostrar Ocultar Vista Create, Edit, Show ,Delet}
 
         showCreate(visible){
-            if (visible){
-                $('#create').show(1000);
+            if(visible){
+                $('#create').show(1000)
             }else{
-                $('#create').hide(1000);
+                $('#create').hide(1000)
             }
+
         },
         showEdit(item){
 
         },
         showDelet(item){
 
+        },
+
+
+
+        /*List*/
+        showItem(item){
+            router.push({ path: '/receta/' + item.id});
         }
     }
 }

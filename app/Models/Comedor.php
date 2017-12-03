@@ -29,6 +29,10 @@ class Comedor extends Model
         return UnidadDeMedida::where('publico','1')->orWhere('comedor_id',$this->id)->with('comedor')->get();
     }
 
+    public function recetas(){
+        return $this->hasMany(Receta::class);
+    }
+
     public function insumos(){
         return $this->hasMany(Insumo::class)->with('unidadDeMedida');
     }

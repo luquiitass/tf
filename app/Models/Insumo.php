@@ -17,6 +17,8 @@ class Insumo extends Model
 
      public $timestamps = false;
 
+    protected $with = ['unidadDeMedida'];
+
      protected $casts = [
         'activo'=>'boolean'
      ];
@@ -27,6 +29,10 @@ class Insumo extends Model
 
     public function unidadDeMedida(){
         return $this->belongsTo(UnidadDeMedida::class);
+    }
+
+    public function recetas(){
+        return  $this->belongsToMany(Receta::class,'ingredientes');
     }
 
 

@@ -36,7 +36,7 @@
                 <span class="help-block" v-if="form.errors.has('disponibilidad')" v-text="form.errors.get('disponibilidad')"></span>
             </div>
 
-            <div :class="form.getClassForm('activo')" >
+            <div :class="form.getClassForm('activo')" v-if="edit" >
                 <label >Activo</label>
                 <input type="checkbox"  v-model="form.activo">
                 <span class="help-block" v-if="form.errors.has('activo')" v-text="form.errors.get('activo')"></span>

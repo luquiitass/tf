@@ -9,7 +9,7 @@
             :itemSelected="p_itemSelect"
 
             :nuevo="true"
-            @nuevo="nuevo()"
+            @nuevo="nuevo"
             @selectItem="select">
 
 
@@ -53,9 +53,11 @@ export  default{
         },
 
         /*Propios*/
-        /*Propios*/
         nuevo(){
             this.$emit('nuevo');
+        },
+        select(item){
+            this.$emit('select',item);
         }
     }
 }

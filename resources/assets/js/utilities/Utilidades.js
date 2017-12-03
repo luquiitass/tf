@@ -51,14 +51,27 @@ class Utilidades{
         list.push(x);
     }
 
-    static deleteObjectList(list,id){
+    static deleteObjectList(list,item){
         for (var i in list) {
-            if(!list[i].id){
-                console.error('No existe id en los objetos de la coleccion');
-                return;
+            if(!item.id){
+
+                if (list[i].id == item) {
+                    console.error('No existe id en los objetos de la coleccion');
+                    list.splice(i,1);
+                    return true;
+                    //Stop this loop, we found it!
+                }
+
+
+                if(list[i] == item){
+                    list.splice(i,1);
+                    console.error('Objeto eliminado xq son iguales');
+                    return true
+                }
             }
 
-            if (list[i].id == id) {
+            if (list[i].id == item.id) {
+                console.error('Objeto eliminado x id');
                 list.splice(i,1);
                 return true;
                 //Stop this loop, we found it!

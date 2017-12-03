@@ -64,7 +64,7 @@ class InsumosController extends ApiController
      */
     public function show(Insumo $insumo)
     {
-        $insumo->load('comedor','unidadDeMedida');
+        $insumo->load('comedor','unidadDeMedida','recetas');
         return response()->json($insumo);
     }
 
@@ -89,11 +89,21 @@ class InsumosController extends ApiController
     public function update(InsumoUpdateRequest $request, $id)
     {
         try{
+            \DB::beginTransaction();
+            $inputs = $request->only('nombre','disponibilidad','minimo','activo','unidad_de_medida_id');
             $insumo = Insumo::findOrFail($id);
-            $request->minimo = $request->minimo ? 1 : 0;
-            $insumo->update($request->only('nombre','disponibilidad','minimo'));
-            $insumo->load('unidadDeMedida','comedor');
-        }catch (\Exception $e){
+
+            $insumo->nombre = $inputs['nombre'];
+            $insumo->disponibilidad = $inputs['disponibilidad'];
+            $insumo->minimo = $inputs['minimo'];
+            $insumo->activo = $inputs['activo'];
+            $insumo->unidad_de_medida_id = $inputs['unidad_de_medida_id'];
+
+            $insumo->save();
+            $insumo->load('unidadDeMedida','comedor','recetas');
+            \DB::commit();
+        }catch (\Exception$e){
+            \DB::rollBack();
             return $this->jsonMensajeError('Error',$e->getMessage());
         }
 
@@ -115,5 +125,14 @@ class InsumosController extends ApiController
     public function getData()
     {
         return Insumo::getData();
+    }
+
+    public function search(){
+        $insumos  = Insumo::search()->get();
+
+        $retorno = $insumos->each(function ($item, $key) {
+            return $item['text'] = $item->nombre;
+        });
+        return response()->json($insumos);
     }
 }

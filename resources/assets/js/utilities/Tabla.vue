@@ -206,6 +206,9 @@
     created() {
       this.columns = this.attributes
       Vue.set(this.$data, 'items', this.list)
+      /*Prueba*/
+      Vue.set(this.items , this.list);
+      /*Prueba*/
       this.itemSelect= this.listSelected;
       this.filter()
     },
@@ -214,7 +217,9 @@
           this.$emit('updatedList',this.items);
       },
       itemSelect:function () {
+        if(this.itemSelect){
           this.$emit('selectItem',this.itemSelect);
+        }
       },
       itemSelected : function (value) {
           this.itemSelect = this.itemSelected;
@@ -346,6 +351,7 @@
       },
       setItems(){
         this.items = this.model.data;
+        //this.list =this.items;
       },
       showNuevo(){
         this.$emit('nuevo');
@@ -354,7 +360,6 @@
         return this.ver;
       },
       slotTd(num,row){
-        console.log('ta'+num + '_td_' + row.id)
         return num + '_td_' + row.id;
       }
     }
