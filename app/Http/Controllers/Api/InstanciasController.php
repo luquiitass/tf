@@ -61,9 +61,11 @@ class InstanciasController extends ApiController
         $instancia = Instancia::findOrFail($id);
 
         //$instancia->estados();
-        $instancia->instanciaEstadoActivo();
+        //$instancia->instanciaEstadoActivo();
+        $instancia->allEstados();
+        $instancia->estadoActual();
 
-        return $instancia->load('comida','instanciasEstado','estados','presencias');
+        return $instancia->load('comida','estados','presencias');
     }
 
     /**
@@ -99,4 +101,5 @@ class InstanciasController extends ApiController
     {
         //
     }
+
 }

@@ -18,18 +18,16 @@ Route::get('/prueba',function (){
     try{
         DB::beginTransaction();
 
-        $comedor = \App\Models\Comedor::find(1);
-        $retorno = $comedor->crearInstanciasSemanal();
-       /* $instancia = \App\Models\Instancia::find(21);
+       $comedor = \App\Models\Comedor::first();
 
-        $retorno = $instancia->generarPresencias();*/
-
+        $comedor->crearInstanciasSemanal();
+        $retorno = 'Ok';
         DB::commit();
 
     }catch (Exception $e){
         // dd( $e->getMessage());
-        dd( $e);
         DB::rollBack();
+        dd( $e);
     }
 
     return $retorno;
@@ -68,6 +66,7 @@ Route::get('/usuarios/search','Api\UsersController@search');
 Route::resource('usuario','Api\UsersController');
 
 //Route Comedor
+Route::get('comedor/{comedor}/crearInstancias','Api\ComedoresController@crearInstancias');
 Route::get('comedor/{comedor}/attribute','Api\ComedoresController@attribute');
 Route::post('comedor/attachUsuario/{comedor}','Api\ComedoresController@attachUsuario');
 Route::delete('comedor/detachUsuario/{comedor}','Api\ComedoresController@detachUsuario');

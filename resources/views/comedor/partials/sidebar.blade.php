@@ -123,12 +123,12 @@
                         </a>
                     </router-link>
 
-                    <router-link tag="li" to="/almacen/ingresos" :claass="{active : hasRoute('/almacen/ingresos')}">
+                    {{--<router-link tag="li" to="/almacen/ingresos" :claass="{active : hasRoute('/almacen/ingresos')}">
                         <a>
                             <i class='fa fa-link'></i>
                             {{ trans('string.ingresos') }}
                         </a>
-                    </router-link>
+                    </router-link>--}}
                 </ul>
             </li>
 

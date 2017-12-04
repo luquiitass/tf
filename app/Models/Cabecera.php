@@ -16,24 +16,21 @@ class Cabecera extends Model
 {
     use Tabla,AjaxGetAttribute;
 
-    protected $table = "cabecera";
+    protected $table = "cabeceras";
 
-    protected $fillable = ['nombre'];
+    protected $fillable = ['nombre','tabla'];
 
     public $timestamps = false;
-
-
 
 
     public function instancias(){
      return $this->belongsToMany(Instancia::class);
     }
 
-
-
     public function caminoEstados(){
      return $this->hasOne(CaminoEstados::class);
     }
+
 
 
  }

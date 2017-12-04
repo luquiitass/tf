@@ -5,6 +5,10 @@
             Calendario
         </titulo>
 
+        <div class="text-center">
+            <a :href="crearInstancia" class="btn btn-primary"> Generar instancias por una semana</a>
+        </div>
+
         <div id="calendar"></div>
 
         <div id="m"></div>
@@ -20,8 +24,10 @@
 export  default{
     data(){
         return{
+            comedor : vm.app.comedor,
             instancias : [],
-            events : []
+            events : [],
+            crearInstancia :PATH
         }
     },
     props: {
@@ -47,6 +53,8 @@ export  default{
     },
     methods:{
         init(){
+            this.crearInstancia =  PATH + 'comedor/' + this.comedor.id + '/crearInstancias';
+
             Comedor.attribure(
                     vm.app.comedor.id,
                     'instancias',
@@ -67,6 +75,16 @@ export  default{
                 editable: true,
                 events :this.events
             });
+        },
+        generarInstancias(){
+            Comedor.attribure(
+                    this.comedor.id,
+                    'crearInstanciasSemanal',
+                    instancias => {
+                        this.instancias = instancias;
+                        this.calendar();
+                    }
+            );
         }
     }
 }

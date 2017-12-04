@@ -32044,7 +32044,8 @@ var Form = function () {
                         _this.submit(requestType, url);
                     }
                     if (error.request.status == 402 || error.request.status == 422) {
-                        _this.verificarMensajes(error.response.data, resolve);
+                        _this.verificarMensajes(error.response, reject);
+
                         _this.onFail(error.response.data);
                     }
 
@@ -43025,7 +43026,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   }) : _vm._e()]), _vm._v(" "), _c('div', {
     class: _vm.form.getClassForm('abreviatura')
-  }, [_c('label', [_vm._v("Nombre")]), _vm._v(" "), _c('input', {
+  }, [_c('label', [_vm._v("Abreviatura")]), _vm._v(" "), _c('input', {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -50282,13 +50283,19 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
         return {
+            comedor: vm.app.comedor,
             instancias: [],
-            events: []
+            events: [],
+            crearInstancia: PATH
         };
     },
 
@@ -50316,6 +50323,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         init: function init() {
             var _this = this;
 
+            this.crearInstancia = PATH + 'comedor/' + this.comedor.id + '/crearInstancias';
             Comedor.attribure(vm.app.comedor.id, 'instancias', function (instancias) {
                 _this.instancias = instancias;
             });
@@ -50332,6 +50340,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 editable: true,
                 events: this.events
             });
+        },
+        generarInstancias: function generarInstancias() {
+            var _this2 = this;
+
+            Comedor.attribure(this.comedor.id, 'crearInstanciasSemanal', function (instancias) {
+                _this2.instancias = instancias;
+                _this2.calendar();
+            });
         }
     }
 });
@@ -50342,6 +50358,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', [_c('titulo', [_vm._v("\n        Calendario\n    ")]), _vm._v(" "), _c('div', {
+    staticClass: "text-center"
+  }, [_c('a', {
+    staticClass: "btn btn-primary",
+    attrs: {
+      "href": _vm.crearInstancia
+    }
+  }, [_vm._v(" Generar instancias por una semana")])]), _vm._v(" "), _c('div', {
     attrs: {
       "id": "calendar"
     }
@@ -50513,13 +50536,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             router.go(-1);
         },
         isEstadoActivo: function isEstadoActivo(estado) {
-            return this.instancia.instanciaEstadoActivo.estado.id == estado.id;
+            return this.instancia.estadoActivo.id == estado.id;
         },
         isEstado: function isEstado(estado, nombre) {
             return estado.nombre == nombre;
         },
         getClassEstado: function getClassEstado(estado) {
-            var misEstados = _.indexBy(this.instancia.instancias_estado, 'estado_id');
+            var misEstados = _.indexBy(this.instancia.estados, 'id');
 
             var contain = _.has(misEstados, estado.id);
 
@@ -50533,6 +50556,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         },
         getComensales: function getComensales() {
             return this.instancia.presencias ? this.instancia.presencias : [];
+        },
+        allEstados: function allEstados() {
+            return _.sortBy(this.instancia.allEstados, 'id');
         }
     }
 });
@@ -50964,7 +50990,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "box-body"
   }, [_c('ul', {
     staticClass: "list-group"
-  }, _vm._l((_vm.instancia.estados), function(estado) {
+  }, _vm._l((_vm.allEstados()), function(estado) {
     return _c('li', {
       class: _vm.getClassEstado(estado)
     }, [_vm._v("\n                                " + _vm._s(estado.nombre) + "\n                            ")])
@@ -57330,7 +57356,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -57397,7 +57422,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   }) : _vm._e()]), _vm._v(" "), _c('div', {
     class: _vm.form.getClassForm('abreviatura')
-  }, [_c('label', [_vm._v("Nombre")]), _vm._v(" "), _c('input', {
+  }, [_c('label', [_vm._v("Abreviatura")]), _vm._v(" "), _c('input', {
     directives: [{
       name: "model",
       rawName: "v-model",

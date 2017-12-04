@@ -20,7 +20,7 @@ class Instancia extends Model
 
      public $timestamps = true;
 
-    protected $appends = ['estado'];
+   // protected $appends = ['estado'];
 
     protected $with = ['comida'];
 
@@ -32,7 +32,19 @@ class Instancia extends Model
         return $this->hasMany(Presencia::class);
     }
 
-    public function getEstadoAttribute(){
+    public function allEstados(){
+        return $this->allEstados = Estado::get();
+    }
+
+    public function estados(){
+        return $this->belongsToMany(Estado::class,'instancia_estado')->withPivot(['activo'])->withTimestamps();
+    }
+
+    public function estadoActual(){
+        return $this->estadoActivo =  $this->estados()->wherePivot('activo',1)->first();
+    }
+
+   /* public function getEstadoAttribute(){
         $hoy = Carbon::now();
         $fecha = $this->fecha;
 
@@ -41,48 +53,86 @@ class Instancia extends Model
         }elseif ($fecha < $hoy){
             return 'pasado';
         }
-    }
+    }*/
 
     public function cabeceras(){
-        $this->belongsToMany(Cabecera::class);
+        return $this->hasMany(Cabecera::class,'tabla','tabla');
     }
 
 
-    /*Funciones */
-
-
-    /*Metodos de Estados */
-
-    public function crearNuevaInstanciaEstado(){
-        return InstanciaEstado::crearEstado($this);
-    }
-
-    public function siguienteEstado(){
-        return $this->instanciaEstadoActivo()->siguienteEstado($this);
-    }
-
-    public function generarPresencias(){
-
-        if ($this->instanciaEstadoActivo()->estado->nombre == 'Abierta'){
-
-            $comensales = $this->comida->comensales;
-
-            foreach ($comensales as $comensal){
-                $this->presencias()->create(['comensal_id'=>$comensal->id]);
-            }
-
-            $this->siguienteEstado();
-
-        }else{
-            throw new Exception('La planilla no se ecuentra abierta. La inscripciones ya han sido generadas');
-        }
-    }
-
-
-    //Mutadoress
+    /*mutadores*/
 
     public function getTablaAttribute(){
         return 'instancias';
     }
 
+    /*Funciones */
+
+   public function crearEstadoInicial(){
+       $cabecera = Cabecera::where('nombre','instancias_estados_1')->first();
+
+       if (!$cabecera){
+           $this->crearCabeceraEstadosCaminos();
+       }
+
+       $camino = $cabecera->caminoEstados()->where('inicio',1)->first();
+       $estado = $camino->origen;
+       /*Obtener el camino con inicio activo de cabecera*/
+
+       /*asignar unas relacion al estado origen de la cabecera*/
+       //$this->estadoActual()->pivot->activo = 0;
+       //$this->estadoActual()->pivot->save();
+       $this->estados()->attach($estado,['activo'=>1]);
+
+
+       /*Devolver instancia*/
+
+       return $this->load('estados');
+
+
+   }
+
+
+   public function siguienteEstado(){
+       $cabecera = Cabecera::where('nombre','instancias_estados_1')->first();
+
+       /*Obtener el estado actual*/
+
+       /*buscar el siguiente estado en cabecera con origen del estado actual*/
+
+       /*Crear la relacion con el elstado destino*/
+
+       /*Debolver la instancoia*/
+   }
+
+   public function SuspenderInstancia(){
+       /*Obtener el estado relacionado con los caminos de la instancia con el nombre de    "Suspendido"*/
+
+       /*Crear la relacion entre la instancia y el comedor*/
+
+       /*Retornar la instancia*/
+
+   }
+
+
+
+    public static function crearCabeceraEstadosCaminos()
+    {
+        $cabecera = Cabecera::create(['nombre'=>'instancias_estados_1','tabla'=>'instancias']);
+
+        $estado1 = Estado::create(['nombre'=>'Inscripcion abierta']);
+        $estado2 = Estado::create(['nombre'=>'Inscripcion cerrada']);
+        $estado3 = Estado::create(['nombre'=>'Finalizada']);
+        $estado4 = Estado::create(['nombre'=>'Suspendida']);
+
+        $cabecera->caminoEstados()->create(['origen'=>$estado1->id,'destino'=>$estado2->id,'inicio'=>'1']);
+        $cabecera->caminoEstados()->create(['origen'=>$estado2->id,'destino'=>$estado3->id,'inicio'=>'0']);
+        $cabecera->caminoEstados()->create(['origen'=>$estado1->id,'destino'=>$estado4->id,'inicio'=>'0']);
+        $cabecera->caminoEstados()->create(['origen'=>$estado2->id,'destino'=>$estado4->id,'inicio'=>'0']);
+        $cabecera->caminoEstados()->create(['origen'=>$estado3->id,'destino'=>$estado4->id,'inicio'=>'0']);
+
+    }
+
+
+    /*Metodos de Estados */
  }

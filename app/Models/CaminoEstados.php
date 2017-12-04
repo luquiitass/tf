@@ -18,7 +18,7 @@ class CaminoEstados extends Model
 
      protected $table = "caminos_estados";
 
-     protected $fillable = ['origrn','destino','inicio','cabecera_id'];
+     protected $fillable = ['origen','destino','inicio','cabecera_id'];
 
      public $timestamps = false;
 

@@ -47,7 +47,7 @@
                         </div>
                         <div class="box-body">
                             <ul class="list-group">
-                                <li :class="getClassEstado(estado)" v-for="estado in instancia.estados">
+                                <li :class="getClassEstado(estado)" v-for="estado in allEstados()">
                                     {{estado.nombre}}
                                 </li>
                             </ul>
@@ -97,13 +97,13 @@ export  default{
             router.go(-1)
         },
         isEstadoActivo(estado){
-            return this.instancia.instanciaEstadoActivo.estado.id == estado.id
+            return this.instancia.estadoActivo.id == estado.id
         },
         isEstado(estado,nombre){
             return estado.nombre == nombre;
         },
         getClassEstado(estado){
-            var misEstados =_.indexBy(this.instancia.instancias_estado, 'estado_id')
+            var misEstados =_.indexBy(this.instancia.estados, 'id')
 
             var contain =  _.has(misEstados, estado.id);
 
@@ -117,6 +117,9 @@ export  default{
         },
         getComensales(){
             return this.instancia.presencias ? this.instancia.presencias : [] ;
+        },
+        allEstados(){
+            return _.sortBy(this.instancia.allEstados, 'id');
         }
     }
 }

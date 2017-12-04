@@ -119,7 +119,7 @@ class Comedor extends Model
          foreach ( $this->comidas as $comida){
              try {
                  if ($comida->activo){
-                     $comida->crearInstancia();
+                    $comida->crearInstancia();
                  }
              }catch (\Exception $e){
                  echo $e->getMessage();
@@ -127,6 +127,7 @@ class Comedor extends Model
                  //return;
              }
          }
+         return $this->instancias();
      }
 
      public function instancias(){

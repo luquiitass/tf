@@ -130,7 +130,8 @@ class Form {
                         this.submit(requestType,url);
                     }
                     if (error.request.status == 402 || error.request.status  == 422){
-                        this.verificarMensajes(error.response.data, resolve);
+                        this.verificarMensajes(error.response, reject);
+
                         this.onFail(error.response.data);
                     }
 

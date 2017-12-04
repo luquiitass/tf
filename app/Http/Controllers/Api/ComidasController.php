@@ -7,13 +7,14 @@ use App\Http\Requests\ComidaStoreRequst;
 use App\Models\Comedor;
 use App\Models\Comida;
 use App\Models\Dia;
+use App\Models\RetornoAjax;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
 class ComidasController extends ApiController
 {
-    use AjaxGetAttribute;
+    use AjaxGetAttribute,RetornoAjax;
 
     public function attribute(Comida $comida){
         return $comida->ajaxGetAtribute($comida);
@@ -62,7 +63,7 @@ class ComidasController extends ApiController
 
 
         }catch (\Exception $e){
-            return response()->json($e->getMessage(),402);
+            return $this->jsonMensajeError('Error',$e->getMessage());//response()->json($e->getMessage(),402);
         }
 
         return $comedor->comidasByTipoComida();

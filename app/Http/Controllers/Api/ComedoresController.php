@@ -170,4 +170,12 @@ class ComedoresController extends ApiController
     {
         return Comedor::searchPaginateAndOrder();
     }
+
+    public function crearInstancias(Comedor $comedor){
+
+        $comedor->crearInstanciasSemanal();
+
+        return redirect()->to('comedor/'.$comedor->id.'#/calendario');
+
+    }
 }
