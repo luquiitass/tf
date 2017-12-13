@@ -696,7 +696,7 @@ comedor_id</columns>
     </column>
     <column id="205" parent="36" name="cantidad">
       <mandatory>1</mandatory>
-      <data-type>decimal(10)|0</data-type>
+      <data-type>decimal(4,2)|0</data-type>
     </column>
     <column id="206" parent="36" name="primordial">
       <mandatory>1</mandatory>
@@ -1070,7 +1070,7 @@ comedor_id</columns>
       <data-type>int(11)|0</data-type>
       <sequence-identity>1</sequence-identity>
     </column>
-    <column id="290" parent="44" name="cant_anotados">
+    <column id="290" parent="44" name="cantidad">
       <mandatory>1</mandatory>
       <data-type>int(11)|0</data-type>
     </column>

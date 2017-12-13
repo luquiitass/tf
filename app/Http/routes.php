@@ -147,6 +147,12 @@ Route::post('receta/getData','Api\RecetasController@getData');
 Route::get('receta/{receta}/attribute','Api\RecetasController@attribute');
 Route::resource('receta','Api\RecetasController');
 
+Route::get('menu/{menu}/attribute','Api\MenusController@attribute');
+Route::resource('menu','Api\MenusController');
+
+
+
+
 Route::put('configuracionesComedor/{id}/inicioFin','Api\ComedorConfiguracionesController@inicioFin');
 
 Route::get('function/{clase}/{id}/{function}','Api\InstanciasController@runFunction');

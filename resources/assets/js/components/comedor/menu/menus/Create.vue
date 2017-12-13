@@ -8,7 +8,7 @@
         <div class="box-body">
             <form @submit.prevent="onSubmit" @keydown="form.errors.clear()" >
 
-                <inputs :form="form" :edit="false" @cancelar(cancelarCreate)></inputs>
+                <inputs :form="form" :p_instancia="p_instancia" :edit="false" @cancelar(cancelarCreate)></inputs>
 
                 <div class="box-footer pull-right">
                     <button type="submit" :disabled="form.errors.any()" class="btn btn-success">Guardar</button>
@@ -48,7 +48,7 @@ export default{
     },
     methods:{
         loadForm(){
-            this.form = new Form({instancia_id:this.p_instancia.id, recetas:[]});
+            this.form = new Form({instancia_id:this.p_instancia.id, recetas:[],cantidad:0});
         },
         onSubmit(){
             this.form

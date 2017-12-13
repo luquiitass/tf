@@ -69,7 +69,10 @@ export  default{
             Comida.attribure(
                     this.p_instancia.comida.id,
                     'comensales_count',
-                     count => { this.countComensales = count }
+                     count => {
+                        this.countComensales = count
+                        this.p_instancia.count_comensales = count;
+                    }
             )
         }
     }

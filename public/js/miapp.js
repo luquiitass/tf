@@ -51717,6 +51717,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
             Comida.attribure(this.p_instancia.comida.id, 'comensales_count', function (count) {
                 _this.countComensales = count;
+                _this.p_instancia.count_comensales = count;
             });
         }
     }
@@ -52113,7 +52114,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     methods: {
         loadForm: function loadForm() {
-            this.form = new Form({ instancia_id: this.p_instancia.id, recetas: [] });
+            this.form = new Form({ instancia_id: this.p_instancia.id, recetas: [], cantidad: 0 });
         },
         onSubmit: function onSubmit() {
             var _this = this;
@@ -52258,6 +52259,30 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -52276,11 +52301,52 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         AddReceta: __WEBPACK_IMPORTED_MODULE_0__recetas_AddReceta_vue___default.a
     },
     computed: {
+        countComensales: function countComensales() {
+            if (!this.p_instancia.count_comensales) {
+                //this.p_instancia.count_comensales = 0;
+            }
+            return this.p_instancia.count_comensales;
+        },
         total: function total() {
-            return parseInt(this.diferencia) + parseInt(4);
+            //var cantComensales = this.p_instancia.count_comensales ? this.p_instancia.count_comensales : 0;
+            return parseInt(this.diferencia) + parseInt(this.p_instancia.count_comensales);
         },
         ingredientes: function ingredientes() {
-            return [{ nombre: 'Papa' }, { nombre: 'Cebolla' }, { nombre: 'Carne' }];
+            var ingredientes = [];
+            var self = this;
+            _.each(this.form.recetas, function (receta) {
+                _.each(receta.receta.ingredientes, function (ingrediente) {
+                    var exist = false;
+                    var ingreExist = {};
+
+                    _.each(ingredientes, function (ing) {
+                        if (!exist) {
+                            exist = ing.ingrediente.insumo.id == ingrediente.insumo.id;
+                            if (exist) {
+                                ingreExist = ing;
+                            }
+                        }
+                    });
+
+                    if (exist) {
+
+                        var cantXPorcion = ingrediente.cantidad;
+                        var necesario = parseFloat(parseFloat(receta.cantidad) * parseFloat(cantXPorcion));
+
+                        ingreExist.necesario = parseFloat(parseFloat(ingreExist.necesario) + parseFloat(necesario));
+                    } else {
+
+                        var cantXPorcion = ingrediente.cantidad;
+                        var necesario = parseFloat(parseFloat(receta.cantidad) * parseFloat(cantXPorcion));
+
+                        var ingre = { ingrediente_id: ingrediente.id, abreviatura: ingrediente.insumo.unidad_de_medida.abreviatura, cantUM: cantXPorcion, necesario: necesario, ingrediente: ingrediente };
+
+                        self.addFirstList(ingredientes, ingre);
+                    }
+                });
+            });
+
+            return ingredientes;
         }
     },
     props: {
@@ -52290,25 +52356,55 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         edit: {
             required: false,
             default: false
+        },
+        p_instancia: {
+            required: true
         }
     },
     created: function created() {
         this.init();
     },
 
+    watch: {
+        countComensales: function countComensales(val) {
+            console.log(val);
+            console.log(this.total);
+        }
+    },
     methods: {
         init: function init() {
-            this.form.cant_comensales = this.todo;
+            this.p_instancia.count_comensales = this.p_instancia.count_comensales ? this.p_instancia.count_comensales : 0;
         },
         selectReceta: function selectReceta(receta) {
-            var rece = { instanci: instanci };
-            this.recetaSelect = receta;
+            var rece = { receta: receta, cantidad: this.total };
+            this.recetaSelect = rece;
         },
         addRecetaa: function addRecetaa() {
-
-            this.addFirstList(this.form.recetas, this.recetaSelect);
-            this.recetaSelect = null;
+            if (this.recetaSelect.cantidad > 0) {
+                this.form.cantidad = this.total;
+                this.addFirstList(this.form.recetas, this.recetaSelect);
+                this.recetaSelect = null;
+            } else {
+                this.mensajeIngredienteCantidad = 'Debe indicar la cantidad de comensales que comeran';
+            }
+        },
+        removeReceta: function removeReceta(receta) {
+            this.removeObjectList(this.form.recetas, receta);
         }
+        /* ingre(){
+             var ingredientes = [];
+             var self = this;
+             _.each(this.form.recetas, function(receta){
+                 _.each(receta.receta.ingredientes, function(ingrediente){
+                     var cantXPorcion = ingrediente.cantidad;
+                     var necesario =parseFloat( parseFloat(receta.cantidad) * parseFloat(cantXPorcion) );
+                     var ingre = {necesario : necesario,ingrediente:ingrediente}
+                     self.addFirstList(ingredientes,ingre);
+                 });
+             });
+              return ingredientes;
+         }*/
+
     }
 });
 
@@ -52472,38 +52568,49 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, _vm._l((_vm.form.recetas), function(receta) {
     return _c('li', {
       staticClass: "list-group-item"
-    }, [_vm._v("\n                    " + _vm._s(receta.nombre) + "\n                ")])
+    }, [_vm._v("\n                    " + _vm._s(receta.receta.nombre) + "\n                    "), _c('a', {
+      staticClass: "manita pull-right",
+      on: {
+        "click": function($event) {
+          _vm.removeReceta(receta)
+        }
+      }
+    }, [_c('i', {
+      staticClass: "fa fa-close"
+    })]), _vm._v(" "), _c('span', {
+      staticClass: "pull-right"
+    }, [_c('strong', [_vm._v(_vm._s(receta.cantidad))]), _vm._v(" comensales ")])])
   })), _vm._v(" "), _c('div', [_c('add-receta', {
     on: {
       "select": _vm.selectReceta
     }
-  }), _vm._v(" "), (_vm.recetaSelect) ? _c('div', [_c('div', [_c('h3', {
+  }), _vm._v(" "), (_vm.recetaSelect) ? _c('div', [_c('div', {
     staticClass: "text-center"
-  }, [_vm._v(_vm._s(_vm.recetaSelect.nombre))]), _vm._v(" "), _c('div', {
+  }, [_c('h3', [_vm._v(_vm._s(_vm.recetaSelect.receta.nombre))]), _vm._v(" "), _c('div', {
     class: {
-      'form-group col-xs-12 col-md-6 text-center': true, 'has-error': _vm.mensajeIngredienteCantidad.length
+      'form-group col-xs-12 col-md-6 col-md-offset-3 text-center': true, 'has-error': _vm.mensajeIngredienteCantidad.length
     }
   }, [_c('label', {
     staticClass: "control-label"
-  }, [_vm._v("Cantidad")]), _vm._v(" "), _c('div', {}, [_c('input', {
+  }, [_vm._v("Cantidad de comensales")]), _vm._v(" "), _c('div', {}, [_c('input', {
     directives: [{
       name: "model",
       rawName: "v-model",
-      value: (_vm.nuevoIngrediente.cantidad),
-      expression: "nuevoIngrediente.cantidad"
+      value: (_vm.recetaSelect.cantidad),
+      expression: "recetaSelect.cantidad"
     }],
     staticClass: "form-control input-sm",
     attrs: {
       "type": "number",
-      "placeholder": _vm.insumoSelect.unidad_de_medida.abreviatura
+      "placeholder": "Numero de Comensales"
     },
     domProps: {
-      "value": (_vm.nuevoIngrediente.cantidad)
+      "value": (_vm.recetaSelect.cantidad)
     },
     on: {
       "input": function($event) {
         if ($event.target.composing) { return; }
-        _vm.nuevoIngrediente.cantidad = $event.target.value
+        _vm.recetaSelect.cantidad = $event.target.value
       }
     }
   }), _vm._v(" "), (_vm.mensajeIngredienteCantidad.length) ? _c('span', {
@@ -52511,8 +52618,10 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     domProps: {
       "textContent": _vm._s(_vm.mensajeIngredienteCantidad)
     }
-  }) : _vm._e()])]), _vm._v(" "), _c('a', {
-    staticClass: "manita pull-right",
+  }) : _vm._e()])]), _vm._v(" "), _c('div', {
+    staticClass: "col-xs-12 text-center"
+  }, [_c('a', {
+    staticClass: "manita",
     on: {
       "click": function($event) {
         _vm.addRecetaa()
@@ -52520,18 +52629,18 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   }, [_c('i', {
     staticClass: "fa fa-plus"
-  }), _vm._v("\n                            añadir\n                        ")])])]) : _vm._e()], 1)]), _vm._v(" "), _c('div', {
+  }), _vm._v("\n                                añadir\n                            ")])])])]) : _vm._e()], 1)]), _vm._v(" "), _c('div', {
     staticClass: "col-xs-12 col-md-6"
   }, [_c('div', {
     staticClass: "col-xs-12 col md-6"
-  }, [_c('ul', {
-    staticClass: "list-group"
-  }, _vm._l((_vm.ingredientes), function(ingrediente) {
-    return _c('li', {
-      staticClass: "list-group-item"
-    }, [_vm._v("\n                        " + _vm._s(ingrediente.nombre) + "\n                    ")])
-  }))])])])])
-},staticRenderFns: []}
+  }, [_vm._v("\n                Ingredientes\n                "), _c('table', {
+    staticClass: "table table-striped table-bordered"
+  }, [_vm._m(0), _vm._v(" "), _vm._l((_vm.ingredientes), function(ingrediente, num) {
+    return _c('tr', [_c('td', [_vm._v(_vm._s(num + 1))]), _vm._v(" "), _c('td', [_vm._v(_vm._s(ingrediente.ingrediente.insumo.nombre))]), _vm._v(" "), _c('td', [_vm._v(_vm._s(ingrediente.ingrediente.insumo.disponibilidad) + " " + _vm._s(ingrediente.abreviatura))]), _vm._v(" "), _c('td', [_vm._v(_vm._s(ingrediente.necesario) + " " + _vm._s(ingrediente.abreviatura))])])
+  })], 2)])])])])
+},staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
+  return _c('tr', [_c('th', [_vm._v("#")]), _vm._v(" "), _c('th', [_vm._v("Nombre")]), _vm._v(" "), _c('th', [_vm._v("disponible")]), _vm._v(" "), _c('th', [_vm._v("Necesario")])])
+}]}
 module.exports.render._withStripped = true
 if (false) {
   module.hot.accept()
@@ -52575,6 +52684,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_c('inputs', {
     attrs: {
       "form": _vm.form,
+      "p_instancia": _vm.p_instancia,
       "edit": false
     },
     on: {

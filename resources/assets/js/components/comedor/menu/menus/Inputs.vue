@@ -26,7 +26,9 @@
 
                 <ul class="list-group">
                     <li class="list-group-item" v-for="receta in form.recetas">
-                        {{receta.nombre}}
+                        {{receta.receta.nombre}}
+                        <a class="manita pull-right" @click="removeReceta(receta)"><i class="fa fa-close"></i></a>
+                        <span class="pull-right"><strong>{{receta.cantidad}}</strong> comensales </span>
                     </li>
                 </ul>
 
@@ -37,23 +39,27 @@
 
                     <div v-if="recetaSelect">
 
-                        <div>
+                        <div class="text-center">
 
-                            <h3 class="text-center">{{recetaSelect.nombre}}</h3>
+                            <h3 >{{recetaSelect.receta.nombre}}</h3>
 
-                            <div :class="{'form-group col-xs-12 col-md-6 text-center':true,'has-error':mensajeIngredienteCantidad.length}">
-                                <label class="control-label">Cantidad</label>
+                            <div :class="{'form-group col-xs-12 col-md-6 col-md-offset-3 text-center':true,'has-error':mensajeIngredienteCantidad.length}">
+                                <label class="control-label">Cantidad de comensales</label>
                                 <div class="">
-                                    <input type="number"  class="form-control input-sm" :placeholder="insumoSelect.unidad_de_medida.abreviatura" v-model="nuevoIngrediente.cantidad">
+                                    <input type="number"  class="form-control input-sm" placeholder="Numero de Comensales" v-model="recetaSelect.cantidad">
                                     <span class="help-block" v-if="mensajeIngredienteCantidad.length" v-text="mensajeIngredienteCantidad"></span>
 
                                 </div>
                             </div>
 
-                            <a class="manita pull-right" @click="addRecetaa()">
-                                <i class="fa fa-plus"></i>
-                                añadir
-                            </a>
+                            <div class="col-xs-12 text-center">
+                                <a class="manita" @click="addRecetaa()">
+                                    <i class="fa fa-plus"></i>
+                                    añadir
+                                </a>
+                            </div>
+
+
 
                         </div>
                     </div>
@@ -64,11 +70,29 @@
             <div class="col-xs-12 col-md-6">
 
                 <div class="col-xs-12 col md-6">
-                    <ul class="list-group">
-                        <li class="list-group-item" v-for="ingrediente in ingredientes">
-                            {{ingrediente.nombre}}
+                    <!--<ul class="list-group">
+                        Ingredientes necesarios
+                        <li class="list-group-item" v-for="ingrediente in ingre()">
+                            {{ingrediente.ingrediente.insumo.nombre}} <span class="pull-right">{{ingrediente.necesario}}</span>
                         </li>
-                    </ul>
+                    </ul>-->
+                    Ingredientes
+                    <table class="table table-striped table-bordered">
+                        <tr>
+                            <th>#</th>
+                            <th>Nombre</th>
+                            <th>disponible</th>
+                            <!--<th>Necesario</th>-->
+                            <th>Necesario</th>
+                        </tr>
+                        <tr v-for="(ingrediente,num) in ingredientes">
+                            <td>{{num + 1}}</td>
+                            <td>{{ingrediente.ingrediente.insumo.nombre}}</td>
+                            <td>{{ingrediente.ingrediente.insumo.disponibilidad}} {{ingrediente.abreviatura}}</td>
+                            <!--<td>{{ingrediente.cantUM}} {{ingrediente.abreviatura}}</td>-->
+                            <td>{{ingrediente.necesario}} {{ingrediente.abreviatura}}</td>
+                        </tr>
+                    </table>
                 </div>
 
             </div>
@@ -89,18 +113,62 @@ export  default{
             comedor: vm.app.comedor,
             diferencia : 0,
             recetaSelect:null,
-            mensajeIngredienteCantidad : ''
+            mensajeIngredienteCantidad : '',
         }
     },
     components:{
         AddReceta
     },
     computed:{
+        countComensales(){
+            if (!this.p_instancia.count_comensales){
+                //this.p_instancia.count_comensales = 0;
+            }
+            return this.p_instancia.count_comensales ;
+        },
         total(){
-            return parseInt(this.diferencia) + parseInt(4);
+            //var cantComensales = this.p_instancia.count_comensales ? this.p_instancia.count_comensales : 0;
+            return parseInt(this.diferencia) + parseInt(this.p_instancia.count_comensales);
         },
         ingredientes(){
-            return [{nombre:'Papa'},{nombre:'Cebolla'},{nombre:'Carne'}]
+            var ingredientes = [];
+            var self = this;
+            _.each(this.form.recetas, function(receta){
+                _.each(receta.receta.ingredientes, function(ingrediente){
+                    var exist = false;
+                    var ingreExist = {}
+
+                    _.each(ingredientes, function(ing){
+                        if (!exist){
+                            exist = ing.ingrediente.insumo.id == ingrediente.insumo.id;
+                            if (exist){
+                                ingreExist = ing;
+                            }
+                        }
+                    });
+
+                    if (exist){
+
+                        var cantXPorcion = ingrediente.cantidad;
+                        var necesario =parseFloat( parseFloat(receta.cantidad) * parseFloat(cantXPorcion) );
+
+                        ingreExist.necesario = parseFloat( parseFloat(ingreExist.necesario) + parseFloat(necesario) );
+
+                    }else{
+
+                        var cantXPorcion = ingrediente.cantidad;
+                        var necesario =parseFloat( parseFloat(receta.cantidad) * parseFloat(cantXPorcion) );
+
+                        var ingre = {ingrediente_id : ingrediente.id, abreviatura :ingrediente.insumo.unidad_de_medida.abreviatura, cantUM: cantXPorcion, necesario : necesario,ingrediente:ingrediente}
+
+                        self.addFirstList(ingredientes,ingre);
+                    }
+
+                });
+            });
+
+            return ingredientes;
+
         }
     },
     props: {
@@ -110,24 +178,55 @@ export  default{
         edit : {
             required:false,
             default : false
+        },
+        p_instancia:{
+            required:true,
         }
     },
     created(){
         this.init();
     },
+    watch:{
+        countComensales:function(val){
+            console.log(val)
+            console.log(this.total);
+        }
+    },
     methods:{
         init(){
-            this.form.cant_comensales = this.todo;
+            this.p_instancia.count_comensales = this.p_instancia.count_comensales ? this.p_instancia.count_comensales : 0;
         },
         selectReceta(receta){
-            var rece = {instanci}
-            this.recetaSelect = receta;
+            var rece = {receta : receta, cantidad : this.total};
+            this.recetaSelect = rece;
         },
         addRecetaa(){
+            if(this.recetaSelect.cantidad > 0){
+                this.form.cantidad = this.total;
+                this.addFirstList(this.form.recetas,this.recetaSelect);
+                this.recetaSelect = null;
+            }else{
+                this.mensajeIngredienteCantidad = 'Debe indicar la cantidad de comensales que comeran';
+            }
+        },
 
-            this.addFirstList(this.form.recetas,this.recetaSelect);
-            this.recetaSelect = null;
+        removeReceta(receta){
+            this.removeObjectList(this.form.recetas,receta);
         }
+       /* ingre(){
+            var ingredientes = [];
+            var self = this;
+            _.each(this.form.recetas, function(receta){
+                _.each(receta.receta.ingredientes, function(ingrediente){
+                    var cantXPorcion = ingrediente.cantidad;
+                    var necesario =parseFloat( parseFloat(receta.cantidad) * parseFloat(cantXPorcion) );
+                    var ingre = {necesario : necesario,ingrediente:ingrediente}
+                    self.addFirstList(ingredientes,ingre);
+                });
+            });
+
+            return ingredientes;
+        }*/
     }
 }
 

@@ -157,7 +157,7 @@ class RecetasController extends ApiController
 
     public function search($comedor_id){
         $filtros = ['comedor_id'=>$comedor_id];
-        $insumos  = Receta::search($filtros )->get();
+        $insumos  = Receta::with('ingredientes')->search($filtros )->get();
 
         $retorno = $insumos->each(function ($item, $key) {
             return $item['text'] = $item->nombre;
