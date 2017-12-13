@@ -37,7 +37,7 @@ class Comensal extends Model
     }
 
     public function presencias(){
-        return $this->hasMany(Presencia::class);
+        return $this->hasMany(Presencia::class)->with('instancia');
     }
 
     public function inscripcionesWithMes(){

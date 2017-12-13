@@ -17,4 +17,8 @@ class Presencia extends Model
         return $this->belongsTo(Comensal::class)->with('usuario');
     }
 
+    public function instancia(){
+        return $this->belongsTo(Instancia::class);
+    }
+
 }

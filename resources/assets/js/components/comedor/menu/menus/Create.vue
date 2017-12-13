@@ -2,7 +2,7 @@
     <div class="box box-solid">
         <div class="box-header wit-border">
             <a class="btn btn-xs pull-right" @click="cancelar()"><i class="fa fa-close"></i></a>
-            <h3 class="box-title">Crear ####</h3>
+            <h3 class="box-title">Crear Menú</h3>
         </div>
 
         <div class="box-body">
@@ -38,16 +38,21 @@ export default{
     components:{
         Inputs
     },
+    props:{
+        p_instancia:{
+            required:true
+        }
+    },
     created(){
         this.loadForm();
     },
     methods:{
         loadForm(){
-            this.form = new Form({});
+            this.form = new Form({instancia_id:this.p_instancia.id, recetas:[]});
         },
         onSubmit(){
             this.form
-                    .post(PATH +'')
+                    .post(PATH +'menu')
                     .then(data => {
                         this.$emit('add',data);
                         this.loadForm();

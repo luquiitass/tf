@@ -9,9 +9,14 @@
 namespace App\Helper;
 
 
+use App\Models\Instancia;
+
+use App\Models\RetornoAjax;
+use PhpParser\Builder\Class_;
+
+
 trait AjaxGetAttribute
 {
-
     public function ajaxGetAtribute($object){
         $attribute = request()->get('attribute');
         $retorno = '';
@@ -50,6 +55,30 @@ trait AjaxGetAttribute
             //return true;
         }catch (\Exception $e){
             return false;
+        }
+    }
+
+    public function runFunction($clase ,$id,$funcion){
+        try {
+            $clase = 'App\Models\\' . $clase;
+            if (class_exists($clase)) {
+
+                $objeto = $clase::find($id);
+
+                if ($objeto) {
+
+                    return $objeto->$funcion();
+
+                } else {
+                    echo 'no Existe clase';
+                }
+
+            } else {
+                echo 'no Existe clase';
+
+            }
+        }catch (\Exception $e){
+            return response()->json(['Error',$e->getMessage()],422);
         }
     }
 

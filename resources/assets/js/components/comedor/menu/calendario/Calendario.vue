@@ -39,13 +39,18 @@ export  default{
     watch:{
         instancias(){
             var url = document.URL;
+            var self = this;
             this.events = _.map(this.instancias , function (item) {
                 var link =  url + '/' + item.id + '/' + 'instancia';
+                var color = self.getColorEstado(item);
                 return {
                     title: item.comida.tipo_comida.nombre,
                     start : item.fecha,
                     url : link,
-                    backgroundColor : '#f56954'
+                    backgroundColor: '#58D68D', //Info (aqua)
+                    borderColor    : '#922B21',
+                    textColor    : '#922B21',
+                    color    : '#4A235A'
                 }
             });
             this.calendar();
@@ -85,7 +90,23 @@ export  default{
                         this.calendar();
                     }
             );
+        },
+        getColorEstado(instancia){
+            console.log(instancia);
+            var color = '#000';
+            var estado = instancia.instancia_estado_actual.estado.nombre;
+            if(estado == 'Inscripcion abierta'){
+                color = '#00a65a';
+            }else if(estado == 'Inscripcion cerrada'){
+                color = '#8080ff';
+            }else if(estado == 'Finalizada'){
+                color = '#1aa3ff';
+            }else{
+                color = '#ff471a';
+            }
+            return color;
         }
+
     }
 }
 

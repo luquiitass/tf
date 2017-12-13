@@ -1,7 +1,7 @@
 <template>
     <div>
         <titulo>
-            Recetas
+            Titulo
         </titulo>
 
         <div id="create" class="not-display">
@@ -15,7 +15,7 @@
 
         <div>
             <list
-                :p_list.sync="recetas"
+                :p_list="list"
                 @nuevo="showCreate(true)"
                 @select="showItem">
             </list>
@@ -36,7 +36,7 @@ export  default{
     data(){
         return{
             comedor : vm.app.comedor,
-            recetas : []
+            list : []
         }
     },
     components:{
@@ -53,22 +53,18 @@ export  default{
     },
     methods:{
         init(){
-            Comedor.attribure(
-                    this.comedor.id,
-                    'recetas',
-                    recetas => this.recetas = recetas
-            )
+
         },
         add(item){
-            this.addFirstList(this.recetas,item);
+            this.addFirstList(this.list,item);
             //Otras operaciones;
         },
         edited(item){
-            this.replaceObjectList(this.recetas,item);
+            this.replaceObjectList(this.lsit,item);
             //Ocultar view Edit
         },
         deleted(item){
-            this.removeObjectList(this.recetas,item.id);
+            this.removeObjectList(this.item,item.id);
             Notificacion.mostrarMensaje({
                 titulo:'Felicides',
                 mensaje:'El #### ha sido eliminado',
@@ -98,7 +94,7 @@ export  default{
 
         /*List*/
         showItem(item){
-            router.push({ path: '/receta/' + item.id});
+            router.push({ path: '/almacen/insumos/' + item.id});
         }
     }
 }

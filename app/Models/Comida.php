@@ -31,7 +31,6 @@ class Comida extends Model
     ];
 
 
-
      public function dia(){
          return $this->belongsTo(Dia::class);
      }
@@ -44,25 +43,32 @@ class Comida extends Model
          return $this->belongsToMany(Comensal::class)->with('usuario');
      }
 
+     public function instancias(){
+         return $this->hasMany(Instancia::class);
+     }
+
      public function instancia(){
-         return $this->hasOne(Instancia::class);
+         return $this->hasOne(Instancia::class,'fecha','fecha');
      }
 
      public function getFechaAttribute(){
          $hoy = Carbon::now();
+         $hoy->setTimeFromTimeString($this->inicio);
+
          $func = 'is' . $this->dia->name;
-         return $hoy->$func() ? /*'Hoy'*/ $hoy : Carbon::parse('next ' . $this->dia->name);
+         return $hoy->$func() ? /*'Hoy'*/ $hoy : Carbon::parse('next ' . $this->dia->name)->setTimeFromTimeString($this->inicio);
 
          //return Date::parse('this sunday');
      }
 
      public function crearInstancia(){
          $fecha = $this->fecha;
-         $inicio = $this->inicio;
-         $fecha->setTimeFromTimeString($inicio);
+         //$inicio = $this->inicio;
+         //c$fecha->setTimeFromTimeString($inicio);
 
          //$fecha->setTime($inicio->hour,$inicio->minute,$inicio->second);
-         $instancia =  $this->instancia()->create(['fecha'=> $fecha]);
+
+         $instancia =  $this->instancias()->create(['fecha'=> $fecha]);
          \Log::alert('Lucas creo una instanica',[$instancia]);
 
          $instancia->crearEstadoInicial();
@@ -78,8 +84,8 @@ class Comida extends Model
 
 
      public function getCierreInscripcionAttribute(){
-
+        $fecha = $this->fecha;
+         return $fecha->subHours($this->hora_pre_inscripcion);
      }
-
 
  }

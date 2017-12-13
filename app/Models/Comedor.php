@@ -66,6 +66,10 @@ class Comedor extends Model
          return $this->hasMany(Anuncio::class)->where('hasta','>=',Carbon::now()) ;
      }
 
+     public function configuracion(){
+         return $this->hasOne(ComedorConfiguracion::class);
+     }
+
      public function comidasByTipoComida(){
          $retorno = /*array();
          $tipos = */$this->comidas->groupBy('tipoComida.nombre');
@@ -135,7 +139,7 @@ class Comedor extends Model
              ->join('comedores','comedores.id','=','comidas.comedor_id')
              ->where('comedores.id',$this->id)
              ->select('instancias.*')
-             ->with('comida')
+             ->with('comida','InstanciaEstadoActual')
              ->get();
      }
 

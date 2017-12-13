@@ -1,11 +1,11 @@
 <template>
     <div>
         <search
-            :url="'insumo/comedor/'+ comedor.id +'/search'"
+            :url="'receta/comedor/'+ comedor.id +'/search'"
             :columns="'nombre'"
-            :items="insumos"
-            @update="insu=>{insumos=insu}"
-            @itemSelected="selectInsumo">
+            :items="recetas"
+            @update="rece=>{recetas=rece}"
+            @itemSelected="selectReceta">
         </search>
 
     </div>
@@ -19,8 +19,7 @@ export  default{
     data(){
         return{
             comedor : vm.app.comedor,
-            insumos: [],
-            form: new Form()
+            recetas: [],
         }
     },
     props: {
@@ -33,8 +32,8 @@ export  default{
         init(){
 
         },
-        selectInsumo(insumo){
-            this.$emit('select',insumo);
+        selectReceta(receta){
+            this.$emit('select',receta);
         }
     }
 }

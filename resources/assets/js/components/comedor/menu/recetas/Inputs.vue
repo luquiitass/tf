@@ -79,6 +79,7 @@
                                     <h3>{{insumoSelect.nombre}}</h3>
 
                                     <div>
+
                                         <div :class="{'form-group col-xs-12 col-md-6 text-center':true,'has-error':mensajeIngredienteCantidad.length}">
                                             <label class="control-label">Cantidad</label>
                                             <div class="">

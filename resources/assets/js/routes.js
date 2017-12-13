@@ -164,6 +164,12 @@ let routes = [
         }
     },
     {
+        path : '/configuraciones',
+        components :{
+            content_comedor : require('./components/comedor/menu/configuraciones/Index.vue')
+        }
+    },
+    {
         path : '/parametros/unidadesDeMedida',
         components :{
             content_comedor : require('./components/comedor/menu/parametros/unidades_de_medida/Index.vue')

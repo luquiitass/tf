@@ -6,7 +6,7 @@ class Notificacion{
             title:mensaje.titulo,
             text:mensaje.mensaje,
             type:mensaje.tipo,
-            duration:5000
+            duration:9000
         });
     }
 

@@ -3,14 +3,10 @@
         <div class="callout callout-info">
             <h4>
                 <i class="icon fa fa-info"></i>
-                Instancia con estado : "{{p_instancia.estadoActivo.nombre}}"
+                Instancia "Suspendida"
             </h4>
 
-            <p> Las inscripciones a esta comida se encuentran abiertas hasta el
-                <span class="badge badge-secondary">
-                    <i class="fa fa-clock-o"></i> {{p_instancia.fechaCierreInscripcion.date}}
-                </span>
-            </p>
+            <p> Las inscripciones a esta se encuantran cerradas y se llevaran a cabo el dia "@@Dia@@"</p>
         </div>
 
     </div>

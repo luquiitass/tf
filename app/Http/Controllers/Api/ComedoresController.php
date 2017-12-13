@@ -53,13 +53,17 @@ class ComedoresController extends ApiController
             \DB::beginTransaction();
             $inputs = request()->only('nombre', 'capacidad');
             $inputs['activo']=0;
+
+
             $comedor = Comedor::create($inputs);
             $administradores = $request->get('administradores');
+
+            $comedor->configuracion()->create([]);
 
             //dd(self::getIds($administradores));
 
             $comedor->administradores()->sync(self::getIds($administradores));
-            $comedor->load('administradores');
+            $comedor->load('administradores','configuracion');
             \DB::commit();
         }catch (\Exception $e){
             \DB::rollBack();
@@ -77,7 +81,7 @@ class ComedoresController extends ApiController
      */
     public function show(Comedor $comedor)
     {
-        $comedor->load('administradores');
+        $comedor->load('administradores','configuracion');
         $comedor->comidasByDia();//=
 
         $usuario = \Auth::user()->load('roles');

@@ -9,43 +9,47 @@ use Illuminate\Database\Eloquent\Model;
 
 class Insumo extends Model
 {
-    use Tabla,AjaxGetAttribute,Search;
+    use Tabla, AjaxGetAttribute, Search;
 
-     protected $table = "insumos";
+    protected $table = "insumos";
 
-     protected $fillable = ['nombre','disponibilidad','minimo','unidad_de_medida_id','comedor_id'];
+    protected $fillable = ['nombre', 'disponibilidad', 'minimo', 'unidad_de_medida_id', 'comedor_id'];
 
-     public $timestamps = false;
+    public $timestamps = false;
 
     protected $with = ['unidadDeMedida'];
 
-     protected $casts = [
-        'activo'=>'boolean'
-     ];
+    protected $casts = [
+        'activo' => 'boolean'
+    ];
 
-    public function comedor(){
+    public function comedor()
+    {
         return $this->belongsTo(Comedor::class);
     }
 
-    public function unidadDeMedida(){
+    public function unidadDeMedida()
+    {
         return $this->belongsTo(UnidadDeMedida::class);
     }
 
-    public function recetas(){
-        return  $this->belongsToMany(Receta::class,'ingredientes');
+    public function recetas()
+    {
+        return $this->belongsToMany(Receta::class, 'ingredientes');
     }
 
 
-    public function scopeGetData($query){
+    public function scopeGetData($query)
+    {
         $comedor_id = request()->get('comedor_id');
 
-        if ($comedor_id){
+        if ($comedor_id) {
             $query
                 //->join('unidades_de_medida','unidades_de_medida.id','=','insumos.unidad_de_medida_id')
-                ->where('insumos.comedor_id',$comedor_id)
+                ->where('insumos.comedor_id', $comedor_id)
                 //->select('insumos.*','unidades_de_medida.nombre as um')
-                ->with('comedor','unidadDeMedida');
+                ->with('comedor', 'unidadDeMedida');
         }
-        return  $this->scopeSearchPaginateAndOrder($query);
+        return $this->scopeSearchPaginateAndOrder($query);
     }
- }
+}

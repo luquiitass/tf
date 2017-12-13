@@ -54,6 +54,7 @@
 export  default{
     data(){
         return{
+            comedor : vm.app.comedor,
             unidadesDeMedidas:[]
         }
     },
@@ -71,7 +72,14 @@ export  default{
     },
     methods:{
         init(){
-            UnidadDeMedida.all(unidades =>this.unidadesDeMedidas = unidades);
+            Comedor.attribure(
+                    this.comedor.id,
+                    'unidadesDeMedidasWithPublic',
+                    unidades => {
+                        this.unidadesDeMedidas = unidades
+                    }
+            )
+            //UnidadDeMedida.all(unidades =>this.unidadesDeMedidas = unidades);
         }
     }
 }

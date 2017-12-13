@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Helper\AjaxGetAttribute;
 use App\Helper\DataViewer;
 use App\Helper\Funciones;
+use App\Helper\Search;
 use App\Helper\Tabla;
 use App\Http\Controllers\Auth\Filtros;
 use App\Models\User;
@@ -14,7 +15,7 @@ use phpDocumentor\Reflection\Types\Object_;
 
 class Receta extends Model
 {
-    use Tabla,AjaxGetAttribute;
+    use Tabla,Search,AjaxGetAttribute;
 
     protected $table = "recetas";
 

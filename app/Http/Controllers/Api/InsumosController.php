@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Helper\AjaxGetAttribute;
 use App\Http\Requests\InsumoStoreRequest;
 use App\Http\Requests\InsumoUpdateRequest;
+use App\Models\Comedor;
 use App\Models\Insumo;
 use App\Models\RetornoAjax;
 use Illuminate\Http\Request;
@@ -127,8 +128,9 @@ class InsumosController extends ApiController
         return Insumo::getData();
     }
 
-    public function search(){
-        $insumos  = Insumo::search()->get();
+    public function search($comedor_id){
+       $filtros = ['comedor_id'=>$comedor_id];
+        $insumos  = Insumo::search($filtros )->get();
 
         $retorno = $insumos->each(function ($item, $key) {
             return $item['text'] = $item->nombre;

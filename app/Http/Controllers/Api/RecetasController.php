@@ -154,4 +154,14 @@ class RecetasController extends ApiController
     {
         return Receta::getData();
     }
+
+    public function search($comedor_id){
+        $filtros = ['comedor_id'=>$comedor_id];
+        $insumos  = Receta::search($filtros )->get();
+
+        $retorno = $insumos->each(function ($item, $key) {
+            return $item['text'] = $item->nombre;
+        });
+        return response()->json($insumos);
+    }
 }

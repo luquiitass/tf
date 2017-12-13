@@ -28,4 +28,5 @@ return [
     'almacen'=>'Almacén',
     'unidades_de_medida'=> 'Unidades de medida',
     'recetas'=>'Recetas',
+    'configuraciones'=>'Configuraciones',
 ];

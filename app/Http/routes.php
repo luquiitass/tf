@@ -18,10 +18,29 @@ Route::get('/prueba',function (){
     try{
         DB::beginTransaction();
 
-       $comedor = \App\Models\Comedor::first();
+        $id = request()->get('instancia');
 
-        $comedor->crearInstanciasSemanal();
-        $retorno = 'Ok';
+        if ($id){
+            $intancia = \App\Models\Instancia::find($id);
+
+            //dd($intancia->comida->fecha);
+
+            echo  'Fecha :' .$intancia->comida->fecha;
+            echo  '\n Hora inicio :' .$intancia->comida->inicio;
+            echo  '\n Hora pre inscripcion :' .$intancia->comida->hora_pre_inscripcion;
+            echo  ' Hora pre inscripcion :' . $intancia->comida->cierreInscripcion;
+            /*if ($intancia){
+                $intancia->finalizarInstancia();
+                $retorno = $intancia;
+            }else{
+                echo 'no existe instancia';
+            }*/
+
+        }else{
+            echo 'Falta instancia';
+        }
+
+
         DB::commit();
 
     }catch (Exception $e){
@@ -118,13 +137,16 @@ Route::resource('estado','Api\EstadosController');
 Route::get('unidadDeMedida/{unidadDeMedida}/attribute','Api\UnidadesDeMedidaController@attribute');
 Route::resource('unidadDeMedida','Api\UnidadesDeMedidaController');
 
-Route::get('/insumo/search','Api\InsumosController@search');
+Route::get('/insumo/comedor/{comedor}/search','Api\InsumosController@search');
 Route::get('insumo/{insumo}/attribute','Api\InsumosController@attribute');
 Route::post('insumo/getData','Api\InsumosController@getData');
 Route::resource('insumo','Api\InsumosController');
 
+Route::get('/receta/comedor/{comedor}/search','Api\RecetasController@search');
 Route::post('receta/getData','Api\RecetasController@getData');
 Route::get('receta/{receta}/attribute','Api\RecetasController@attribute');
 Route::resource('receta','Api\RecetasController');
 
+Route::put('configuracionesComedor/{id}/inicioFin','Api\ComedorConfiguracionesController@inicioFin');
 
+Route::get('function/{clase}/{id}/{function}','Api\InstanciasController@runFunction');

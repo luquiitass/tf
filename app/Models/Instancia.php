@@ -18,6 +18,8 @@ class Instancia extends Model
 
      protected $fillable = ['fecha','comida_id'];
 
+    protected $appends = ['fechaCierreInscripcion'];
+
      public $timestamps = true;
 
    // protected $appends = ['estado'];
@@ -32,6 +34,14 @@ class Instancia extends Model
         return $this->hasMany(Presencia::class);
     }
 
+    public function presentes(){
+        return $this->hasMany(Presencia::class)->where('estado',1);
+    }
+
+    public function ausentes(){
+        return $this->hasMany(Presencia::class)->where('estado',0);
+    }
+
     public function allEstados(){
         return $this->allEstados = Estado::get();
     }
@@ -41,8 +51,19 @@ class Instancia extends Model
     }
 
     public function estadoActual(){
-        return $this->estadoActivo =  $this->estados()->wherePivot('activo',1)->first();
+        return $this->estadoActivo =  $this->belongsToMany(Estado::class,'instancia_estado')->wherePivot('activo',1)->first();
+
     }
+
+    public function InstanciaEstadoActual(){
+        return $this->hasOne(InstanciaEstado::class)->where('activo',1)->with('estado');
+    }
+
+    public function cabeceraActual(){
+        return Cabecera::where('nombre','instancias_estados_1')->first();
+    }
+
+
 
    /* public function getEstadoAttribute(){
         $hoy = Carbon::now();
@@ -66,6 +87,10 @@ class Instancia extends Model
         return 'instancias';
     }
 
+    public function getFechaCierreInscripcionAttribute(){
+        return $this->comida->cierreInscripcion;
+    }
+
     /*Funciones */
 
    public function crearEstadoInicial(){
@@ -73,6 +98,7 @@ class Instancia extends Model
 
        if (!$cabecera){
            $this->crearCabeceraEstadosCaminos();
+           $cabecera = Cabecera::where('nombre','instancias_estados_1')->first();
        }
 
        $camino = $cabecera->caminoEstados()->where('inicio',1)->first();
@@ -80,8 +106,6 @@ class Instancia extends Model
        /*Obtener el camino con inicio activo de cabecera*/
 
        /*asignar unas relacion al estado origen de la cabecera*/
-       //$this->estadoActual()->pivot->activo = 0;
-       //$this->estadoActual()->pivot->save();
        $this->estados()->attach($estado,['activo'=>1]);
 
 
@@ -89,30 +113,73 @@ class Instancia extends Model
 
        return $this->load('estados');
 
-
    }
 
 
-   public function siguienteEstado(){
-       $cabecera = Cabecera::where('nombre','instancias_estados_1')->first();
+   public function cerrarInscripcion(){
 
-       /*Obtener el estado actual*/
 
-       /*buscar el siguiente estado en cabecera con origen del estado actual*/
+       $estadoActual = $this->estadoActual();
 
-       /*Crear la relacion con el elstado destino*/
-
-       /*Debolver la instancoia*/
-   }
-
-   public function SuspenderInstancia(){
+       $estadoInscripcionCerrada = $this->allEstados()->where('nombre','Inscripcion cerrada')->first();
        /*Obtener el estado relacionado con los caminos de la instancia con el nombre de    "Suspendido"*/
 
-       /*Crear la relacion entre la instancia y el comedor*/
+       $this->crearPrsenciasComensales();
+       /*crear predsencias */
 
+
+       $estadoActual->pivot->activo = 0;
+       $estadoActual->pivot->save();
+       //Cancela ultimo estado activo
+
+       $this->estados()->attach($estadoInscripcionCerrada->id);
+       /*Crea la relacion con estado "Inscripcion abierta y lo coloca como estado activo*/
+       $this->estadoActual();
+
+       return $this->load('estados','presencias.comensal.usuario');
+       /*Retornar la instancia*/
+   }
+
+   public function finalizarInstancia(){
+       $estadoActual = $this->estadoActual();
+
+       $estadoInscripcionFinalizada = $this->allEstados()->where('nombre','Finalizada')->first();
+       /*Obtener el estado relacionado con los caminos de la instancia con el nombre de    "Suspendido"*/
+
+
+       $estadoActual->pivot->activo = 0;
+       $estadoActual->pivot->save();
+       //Cancela ultimo estado activo
+
+       $this->estados()->attach($estadoInscripcionFinalizada->id);
+       /*Crea la relacion con estado "Inscripcion abierta y lo coloca como estado activo*/
+
+       $this->estadoActual();
+
+       return $this->load('estados','presentes.comensal.usuario','ausentes.comensal.usuario');
+   }
+
+   public function suspenderInstancia(){
+
+       $estadoActual = $this->estadoActual();
+
+       $estadoSuspendido = $this->allEstados()->where('nombre','Suspendida')->first();
+       /*Obtener el estado relacionado con los caminos de la instancia con el nombre de    "Suspendido"*/
+
+       $estadoActual->pivot->activo = 0;
+       $estadoActual->pivot->save();
+       //Cancela ultimo estado activo
+
+       $this->estados()->attach($estadoSuspendido->id);
+       /*Crea la relacion con estado suspendido y lo coloca como estado activo*/
+
+       $this->estadoActual();
+
+       return $this->load('estados');
        /*Retornar la instancia*/
 
    }
+
 
 
 
@@ -135,4 +202,14 @@ class Instancia extends Model
 
 
     /*Metodos de Estados */
+
+
+    //Metodos al cambiar de estado a cierre de inscripcion
+    public function crearPrsenciasComensales(){
+        $comensales = $this->comida->comensales;
+        
+        foreach ($comensales as $comensal){
+            $comensal->presencias()->create(['instancia_id'=>$this->id]);
+        }
+    }
  }

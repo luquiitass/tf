@@ -18,6 +18,25 @@ class Model {
 
     }
 
+    static function(clase, id , funcion , then){
+
+        return Conexion.get(PATH + 'function' + '/' + clase + '/' + id +'/' + funcion )
+
+            .then(data=> {
+                then(data);
+                vm.$forceUpdate();
+            }).catch(error=>{
+                this.$notify({
+                    group:'g',
+                    title:'Error',
+                    text:error.data,
+                    type:'danger',
+                    duration:2000
+                });
+            });
+
+    }
+
     static consult(url , then){
 
         return Conexion.get(PATH + this.url())

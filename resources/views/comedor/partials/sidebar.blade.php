@@ -161,6 +161,14 @@
                 </a>
             </router-link>
 
+            <router-link tag="li" to="/configuraciones" exact>
+                <a>
+                    <i class='fa fa-link'></i>
+                    <span>{{trans('string.configuraciones') }}
+                </span>
+                </a>
+            </router-link>
+
             {{--<router-link tag="li" to="/mercaderias" exact>--}}
                 {{--<a>--}}
                     {{--<i class='fa fa-link'></i>--}}
