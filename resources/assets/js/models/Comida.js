@@ -7,6 +7,10 @@ class Comida extends Model{
         return 'comida';
     }
 
+    static model(){
+        return 'Comensal'
+    }
+
 
 }
 

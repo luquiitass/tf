@@ -49,8 +49,8 @@
     <link href="{{ asset('/plugins/select2/select2.css') }}" rel="stylesheet" type="text/css" />
 
 
-    <link  href="{{ asset('/plugins/fullcalendar2/dist/fullcalendar.css') }}" rel="stylesheet" type="text/css" />
-    <link  href="{{ asset('/plugins/fullcalendar2/dist/fullcalendar.print.min.css') }}" rel="stylesheet" type="text/css" />
+    <link  href="{{ asset('/plugins/fullcalendar/fullcalendar.min.css') }}" rel="stylesheet"/>
+    <link  href="{{ asset('/plugins/fullcalendar/fullcalendar.print.min.css') }}" rel="stylesheet" media="print"/>
 
 
     {{--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.6.2/fullcalendar.min.css">--}}

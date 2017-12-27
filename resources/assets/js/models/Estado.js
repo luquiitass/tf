@@ -7,6 +7,10 @@ class Estado extends Model{
         return 'estado';
     }
 
+    static model(){
+        return 'Estado'
+    }
+
 
 }
 

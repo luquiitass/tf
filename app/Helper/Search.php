@@ -26,10 +26,14 @@ trait Search
 
         //dd($columns);
         foreach ($columns as $column){
-            $query->where(function ($que) use ($column,$query_search){
-                $que->orWhere($column, 'LIKE', '%'.$query_search.'%');
+            if ($filtros){
+                $query->where(function ($que) use ($column,$query_search){
+                    $que->orWhere($column, 'LIKE', '%'.$query_search.'%');
 
-            });
+                });
+            }else{
+                $query->orWhere($column, 'LIKE', '%'.$query_search.'%');
+            }
         }
     }
 

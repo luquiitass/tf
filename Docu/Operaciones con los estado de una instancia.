@@ -1,0 +1,85 @@
+Observaciones :
+	Añadir un atributo a la tabla presencia para informar si la parecencia fue por inscripción o no. 
+
+
+Estados
+
+1 Insc. abierta.
+	
+	Descripción:
+	La instancia cuando se encuentre en esta instancia. Los comensales podrán inscribirse a una comida en especial para poder comer.
+
+	Datos que se mostrar
+		#1 Lista de comensales
+		#2 numero de comensales.
+		#3 fecha en la que se credo la instancia.
+		#4 Fecha de cierre de las inscripciones 
+
+	Operaciones:
+		#1 cerrar inscripciones
+		#2 suspender instancia.
+		
+
+	Pasos.
+		#1 crear una asociación al estado inscripción abierta.
+		#2 retornar instancia con los datos.
+
+
+2 insc. cerrada.
+
+	Descripción:
+	La instancia cuando se pasa a este estado. se crea la presencia del comensal a una instancia con el estado falso.En este estado el administrador podrá añadir el menú que se realizara el día y el sistema obtendrá las cantidades necesarias para realizar la comida 
+
+	Datos que se mostrar
+		#1 Lista de comensales inscriptos
+		#2 numero de comensales.
+		#3 fecha en la que que cerro la inscripción de la instancia.
+		#4 fecha y hora que se llevara a cabo la comida.
+		#5 Los menús con sus ingredientes correspondientes, con cantidades.
+
+
+	Operaciones:
+		#1 Finalizar instancia.
+		#2 Añadir menú.
+		#2 suspender instancia.
+		
+
+	Pasos.
+		#1 obtener todos los comensales de una comida.
+		#2 generar las presencias.
+		#1 retornar instancia con los datos.
+
+
+3 Instancia finalizada.
+
+	Descripción:
+	LA instancia posee este estado después de llevarse a cabo la comida. presentara todos los usuario que asistieron a al comedor y los que no.
+	mostrando también lo que en realidad se cocino.
+
+	Datos que se mostrar
+		#1 Lista de comensales que asistieron
+		#2 Lista de comensales que no asistieron.
+		#3 fecha en la que se llevo a cabo la comida.
+		#4 fecha y hora que se llevara a cabo la comida.
+		#5 Menú que se realizo ese día con las cantidades reales consumidas .
+
+
+	Operaciones:
+		Viendo que operaciones agregar
+		
+
+	Pasos.
+		#1 Viendo que poner.
+
+
+4 Instancia suspendida.
+	Si el sistema se encuentra en :
+
+	Abierta:
+		Solo cambiar de estado:
+
+	Cerrada:
+		suspender todas las presencias.
+		suspender el menú .
+
+

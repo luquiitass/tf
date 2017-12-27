@@ -65,7 +65,7 @@ class InstanciasController extends ApiController
         $instancia->allEstados();
         $instancia->estadoActual();
 
-        return $instancia->load('comida','estados','presencias');
+        return $instancia->load('comida','estados','presencias','presentes','ausentes','menu.recetas.ingredientes');
     }
 
     /**

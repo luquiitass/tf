@@ -941,7 +941,7 @@ comida_id</columns>
     </column>
     <column id="261" parent="41" name="disponibilidad">
       <mandatory>1</mandatory>
-      <data-type>decimal(10)|0</data-type>
+      <data-type>decimal(4,2)|0</data-type>
     </column>
     <column id="262" parent="41" name="unidad_de_medida_id">
       <mandatory>1</mandatory>
@@ -1038,53 +1038,52 @@ comedor_id</columns>
     <column id="282" parent="43" name="updated_at">
       <data-type>datetime|0</data-type>
     </column>
-    <column id="283" parent="43" name="created_at">
+    <column id="283" parent="43" name="cantidad">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+    </column>
+    <column id="284" parent="43" name="created_at">
       <data-type>datetime|0</data-type>
     </column>
-    <index id="284" parent="43" name="menus_menu_receta_fk">
+    <index id="285" parent="43" name="menus_menu_receta_fk">
       <columns>menu_id</columns>
       <desc-columns></desc-columns>
     </index>
-    <index id="285" parent="43" name="recetas_menu_receta_fk">
+    <index id="286" parent="43" name="recetas_menu_receta_fk">
       <columns>receta_id</columns>
       <desc-columns></desc-columns>
     </index>
-    <key id="286" parent="43" name="PRIMARY">
+    <key id="287" parent="43" name="PRIMARY">
       <columns>id</columns>
       <primary>1</primary>
     </key>
-    <foreign-key id="287" parent="43" name="menus_menu_receta_fk">
+    <foreign-key id="288" parent="43" name="menus_menu_receta_fk">
       <columns>menu_id</columns>
       <ref-key>~.menus.PRIMARY</ref-key>
       <cascade-update-rule>no_action</cascade-update-rule>
       <cascade-delete-rule>no_action</cascade-delete-rule>
     </foreign-key>
-    <foreign-key id="288" parent="43" name="recetas_menu_receta_fk">
+    <foreign-key id="289" parent="43" name="recetas_menu_receta_fk">
       <columns>receta_id</columns>
       <ref-key>~.recetas.PRIMARY</ref-key>
       <cascade-update-rule>no_action</cascade-update-rule>
       <cascade-delete-rule>no_action</cascade-delete-rule>
     </foreign-key>
-    <column id="289" parent="44" name="id">
+    <column id="290" parent="44" name="id">
       <mandatory>1</mandatory>
       <data-type>int(11)|0</data-type>
       <sequence-identity>1</sequence-identity>
     </column>
-    <column id="290" parent="44" name="cantidad">
+    <column id="291" parent="44" name="cantidad">
       <mandatory>1</mandatory>
       <data-type>int(11)|0</data-type>
     </column>
-    <column id="291" parent="44" name="cant_presentes">
-      <mandatory>1</mandatory>
-      <data-type>int(11)|0</data-type>
-      <default-expression>&apos;0&apos;</default-expression>
-    </column>
-    <column id="292" parent="44" name="planilla_id">
+    <column id="292" parent="44" name="instancia_id">
       <mandatory>1</mandatory>
       <data-type>int(11)|0</data-type>
     </column>
     <index id="293" parent="44" name="planillas_menus_fk">
-      <columns>planilla_id</columns>
+      <columns>instancia_id</columns>
       <desc-columns></desc-columns>
     </index>
     <key id="294" parent="44" name="PRIMARY">
@@ -1092,7 +1091,7 @@ comedor_id</columns>
       <primary>1</primary>
     </key>
     <foreign-key id="295" parent="44" name="planillas_menus_fk">
-      <columns>planilla_id</columns>
+      <columns>instancia_id</columns>
       <ref-key>~.instancias.PRIMARY</ref-key>
       <cascade-update-rule>no_action</cascade-update-rule>
       <cascade-delete-rule>no_action</cascade-delete-rule>
@@ -1349,8 +1348,7 @@ instancia_id</columns>
       <desc-columns></desc-columns>
     </index>
     <index id="355" parent="52" name="recetas_idx">
-      <columns>nombre
-comedor_id</columns>
+      <columns>nombre</columns>
       <desc-columns></desc-columns>
       <unique>1</unique>
     </index>
@@ -1359,8 +1357,7 @@ comedor_id</columns>
       <primary>1</primary>
     </key>
     <key id="357" parent="52" name="recetas_idx">
-      <columns>nombre
-comedor_id</columns>
+      <columns>nombre</columns>
       <underlying-index>recetas_idx</underlying-index>
     </key>
     <foreign-key id="358" parent="52" name="comedores_recetas_fk">

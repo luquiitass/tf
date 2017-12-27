@@ -16,6 +16,10 @@ class Direccion extends Model{
         this.localidad_id = '';
     }
 
+    static model(){
+        return 'Comensal'
+    }
+
 
 }
 

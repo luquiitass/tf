@@ -6,7 +6,7 @@
                 Instancia "Suspendida"
             </h4>
 
-            <p> Las inscripciones a esta se encuantran cerradas y se llevaran a cabo el dia "@@Dia@@"</p>
+            <p> Esta instancia se encuantran Suspendida"</p>
         </div>
 
     </div>

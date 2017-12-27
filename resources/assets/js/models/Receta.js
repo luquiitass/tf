@@ -7,6 +7,10 @@ class Receta extends Model{
         return 'receta';
     }
 
+    static model(){
+        return 'Receta'
+    }
+
 
 }
 

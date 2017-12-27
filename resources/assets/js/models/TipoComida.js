@@ -7,6 +7,9 @@ class TipoComida extends Model{
         return 'tipoComida';
     }
 
+    static model(){
+        return 'TipoComida'
+    }
 
 }
 

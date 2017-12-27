@@ -7,6 +7,10 @@ class Comedor extends Model{
         return 'comedor';
     }
 
+    static model(){
+        return 'Comedor'
+    }
+
 
 }
 

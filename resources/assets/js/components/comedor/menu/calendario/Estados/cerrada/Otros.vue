@@ -12,8 +12,18 @@
                <div>
                    <div id="create">
                        <create-menu
-                            :p_instancia="p_instancia">
+                        v-if="!p_instancia.menu"
+                        :p_instancia="p_instancia"
+                        @add="addMenu"
+                       >
                        </create-menu>
+
+                       <show-menu
+                        v-else=""
+                        :p_menu="p_instancia.menu">
+                       </show-menu>
+
+
                    </div>
                </div>
             </div>
@@ -29,6 +39,7 @@
 <script>
 
 import CreateMenu from '../../../menus/Create.vue';
+import ShowMenu from '../../../menus/Show.vue';
 
 export  default{
     data(){
@@ -38,6 +49,7 @@ export  default{
     },
     components:{
         CreateMenu,
+        ShowMenu,
     },
     props: {
         p_instancia:{
@@ -48,9 +60,12 @@ export  default{
         this.init();
     },
     methods:{
-      init(){
+        init(){
 
-      }
+        },
+        addMenu(menu){
+          Vue.set(this.p_instancia,'menu',menu);
+        }
     }
 }
 

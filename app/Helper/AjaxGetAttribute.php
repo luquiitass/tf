@@ -58,6 +58,7 @@ trait AjaxGetAttribute
         }
     }
 
+
     public function runFunction($clase ,$id,$funcion){
         try {
             $clase = 'App\Models\\' . $clase;
@@ -70,9 +71,55 @@ trait AjaxGetAttribute
                     return $objeto->$funcion();
 
                 } else {
-                    echo 'no Existe clase';
+                    echo 'no Existe ' . $clase . " con id --" . $id;
                 }
 
+            } else {
+                echo 'no Existe clase';
+
+            }
+        }catch (\Exception $e){
+            return response()->json(['Error',$e->getMessage()],422);
+        }
+    }
+
+    public function getAtribute($clase ,$id,$attribute){
+        try {
+            $clase = 'App\Models\\' . $clase;
+            if (class_exists($clase)) {
+
+                $objeto = $clase::find($id);
+
+                if ($objeto) {
+
+                    return response()->json($objeto->$attribute);
+
+                } else {
+                    echo 'no Existe ' . $clase . " con id --" . $id;
+                }
+
+            } else {
+                echo 'no Existe clase';
+
+            }
+        }catch (\Exception $e){
+            return response()->json(['Error',$e->getMessage()],422);
+        }
+    }
+
+
+    public function runMethodStatic($clase,$funcion){
+        try {
+            $clase = 'App\Models\\' . $clase;
+            if (class_exists($clase)) {
+
+                try{
+
+                    return $clase::$funcion();
+
+                }catch (\Exception $e){
+                    return response()->json($e->getMessage());
+                }
             } else {
                 echo 'no Existe clase';
 

@@ -8,6 +8,9 @@ class Provincia extends Model{
     }
 
 
+    static model(){
+        return 'Provincia'
+    }
 }
 
 export default Provincia;

@@ -9,9 +9,12 @@
             <a :href="crearInstancia" class="btn btn-primary"> Generar instancias por una semana</a>
         </div>
 
-        <div id="calendar"></div>
+        <div class="box box-primary">
+            <div class="box-body">
+                <div id="calendar"></div>
+            </div>
+        </div>
 
-        <div id="m"></div>
 
     </div>
 
@@ -47,10 +50,7 @@ export  default{
                     title: item.comida.tipo_comida.nombre,
                     start : item.fecha,
                     url : link,
-                    backgroundColor: '#58D68D', //Info (aqua)
-                    borderColor    : '#922B21',
-                    textColor    : '#922B21',
-                    color    : '#4A235A'
+                    backgroundColor: color,
                 }
             });
             this.calendar();
@@ -77,7 +77,8 @@ export  default{
                     center: 'title',
                     right: 'month,basicWeek,basicDay'
                 },
-                editable: true,
+                editable: false,
+                droppable : false,
                 events :this.events
             });
         },

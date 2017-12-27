@@ -31,7 +31,7 @@ class Instancia extends Model
     }
 
     public function presencias(){
-        return $this->hasMany(Presencia::class);
+        return $this->hasMany(Presencia::class)->with('comensal.usuario');
     }
 
     public function presentes(){
@@ -53,6 +53,10 @@ class Instancia extends Model
     public function estadoActual(){
         return $this->estadoActivo =  $this->belongsToMany(Estado::class,'instancia_estado')->wherePivot('activo',1)->first();
 
+    }
+
+    public function menu(){
+        return $this->hasOne(Menu::class);
     }
 
     public function InstanciaEstadoActual(){

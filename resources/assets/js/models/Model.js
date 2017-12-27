@@ -6,6 +6,11 @@ class Model {
         return 'falta_indicar_la_ruta_del_modelo'
     }
 
+    static model(){
+        return 'falta_indicar_el_nombre_del_modelo'
+    }
+
+
 
     static find(id ,then){
 
@@ -57,9 +62,21 @@ class Model {
 
 
 
+/*
     static all(then) {
 
         return Conexion.get(PATH + this.url())
+
+            .then(data => {
+                then(data);
+                vm.$forceUpdate();
+            })
+    }
+*/
+
+    static all(then) {
+
+        return Conexion.get(PATH +'model/' +this.model() +'/get')
 
             .then(data => {
                 then(data);

@@ -54,9 +54,17 @@ class MenusController extends ApiController
 
             $menu = Menu::create($request->only('instancia_id','cantidad'));
 
-            $menu->recetas()->sync($id_recetas);
+            $menu->recetas()->delete();
+
+            //dd($recetas[0]);
+
+            foreach ($recetas as $receta) {
+                $menu->recetas()->attach($receta['receta']['id'], ['cantidad' => $receta['cantidad']]);
+            }
+            $menu->load('recetas.ingredientes');
 
             \DB::commit();
+            return $this->jsonMensajeData('Menu guardado','','success',$menu);
         }catch (\Exception $e){
             \DB::rollBack();
             return $this->jsonMensajeError('Error',$e->getMessage());

@@ -2,15 +2,17 @@
     <div class="box box-success">
         <div class="box-header with-border">
             <h3 class="box-title">
-                Posibles comensales
+                Comensales inscriptos
             </h3>
         </div>
         <div class="box-body">
 
             <div>
                 <ul class="list-group">
-                    <li class="list-group-item" v-for="comensal in comensales">
-                        {{comensal.usuario.apellido}} {{comensal.usuario.nombre}}
+                    <li class="list-group-item" v-for="presencia in presencias">
+                        {{presencia.comensal.usuario.apellido}} {{presencia.comensal.usuario.nombre}}
+
+                        <span class="pull-right">{{isPresente(presencia)}}</span>
                     </li>
                 </ul>
             </div>
@@ -26,7 +28,7 @@
 export  default{
     data(){
         return{
-            comensales : {}
+            presencias : {}
         }
     },
     props: {
@@ -39,11 +41,19 @@ export  default{
     },
     methods:{
         init(){
-            Comida.attribure(
+            Instancia.attribure(
+                    this.p_instancia.id,
+                    'presencias',
+                    presencias => this.presencias = presencias
+            );
+           /* Comida.attribure(
                     this.p_instancia.comida.id,
                     'comensales',
                     comensales => this.comensales = comensales
-            )
+            )*/
+        },
+        isPresente(presencia){
+            return presencia.estado == 1 ? "Presente" : "Ausente";
         }
     }
 }

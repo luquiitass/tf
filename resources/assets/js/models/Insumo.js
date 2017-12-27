@@ -7,6 +7,9 @@ class Insumo extends Model{
         return 'insumo';
     }
 
+    static model(){
+        return 'Insumo'
+    }
 
 }
 

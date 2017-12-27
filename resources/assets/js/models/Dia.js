@@ -7,6 +7,10 @@ class Dia extends Model{
         return 'dia';
     }
 
+    static model(){
+        return 'Comensal'
+    }
+
 
 }
 

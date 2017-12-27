@@ -155,4 +155,8 @@ Route::resource('menu','Api\MenusController');
 
 Route::put('configuracionesComedor/{id}/inicioFin','Api\ComedorConfiguracionesController@inicioFin');
 
+
+//Ajax directo
+Route::get('attribute/{clase}/{id}/{attribute}','Api\InstanciasController@getAtribute');
 Route::get('function/{clase}/{id}/{function}','Api\InstanciasController@runFunction');
+Route::get('model/{clase}/{function}','Api\InstanciasController@runMethodStatic');

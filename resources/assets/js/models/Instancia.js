@@ -8,6 +8,10 @@ class Instancia extends Model{
     }
 
 
+    static model(){
+        return 'Instancia'
+    }
+
 }
 
 export default Instancia;

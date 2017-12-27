@@ -8,6 +8,10 @@ class Pais extends Model{
     }
 
 
+    static model(){
+        return 'Pais'
+    }
+
 }
 
 export default Pais;

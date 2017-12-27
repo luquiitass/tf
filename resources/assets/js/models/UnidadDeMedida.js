@@ -7,6 +7,9 @@ class UnidadDeMedida extends Model{
         return 'unidadDeMedida';
     }
 
+    static model(){
+        return 'UnidadDeMedida'
+    }
 
 }
 
