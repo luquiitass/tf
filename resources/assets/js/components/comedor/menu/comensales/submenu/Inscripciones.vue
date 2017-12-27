@@ -70,7 +70,7 @@ export  default{
     methods: {
         init(){
             this.asistencias = new Coleccion(this.comensal.asistencias);
-            Comedor.attribure(
+            Comedor.function2(
                     this.comedor.id,
                     'comidasByDia',
                     comidas => {
@@ -84,7 +84,7 @@ export  default{
                 this.updateComidasByDia();
             });
 
-            Comensal.attribure(
+            Comensal.attribute2(
                     this.comensal.id,
                     'comidas',
                     asistencias => {

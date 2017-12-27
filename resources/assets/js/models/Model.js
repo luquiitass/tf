@@ -42,6 +42,25 @@ class Model {
 
     }
 
+    static function2(id , funcion , then){
+
+        return Conexion.get(PATH + 'function' + '/' + this.model() + '/' + id +'/' + funcion )
+
+            .then(data=> {
+                then(data);
+                vm.$forceUpdate();
+            }).catch(error=>{
+                this.$notify({
+                    group:'g',
+                    title:'Error',
+                    text:error.data,
+                    type:'danger',
+                    duration:2000
+                });
+            });
+
+    }
+
     static consult(url , then){
 
         return Conexion.get(PATH + this.url())
@@ -54,6 +73,14 @@ class Model {
 
     static attribure(id,attribute ,then){
         Conexion.get(PATH + this.url() + '/' + id + '/attribute?attribute=' + attribute)
+            .then(data => {
+                then(data);
+                vm.$forceUpdate();
+            });
+    }
+
+    static attribute2(id,attribute ,then){
+        Conexion.get(PATH +'attribute/'+ this.model() + '/' + id + '/' + attribute)
             .then(data => {
                 then(data);
                 vm.$forceUpdate();

@@ -103,7 +103,8 @@ trait AjaxGetAttribute
 
             }
         }catch (\Exception $e){
-            return response()->json(['Error',$e->getMessage()],422);
+            \Log::error(['error',$e->getTraceAsString()]);
+            return response()->json(['Error',$e->getMessage() . $e->getTraceAsString()],422);
         }
     }
 

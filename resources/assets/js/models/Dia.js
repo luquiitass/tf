@@ -8,7 +8,7 @@ class Dia extends Model{
     }
 
     static model(){
-        return 'Comensal'
+        return 'Dia'
     }
 
 

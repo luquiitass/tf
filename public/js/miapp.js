@@ -4741,6 +4741,24 @@ var Model = function () {
             });
         }
     }, {
+        key: 'function2',
+        value: function function2(id, funcion, then) {
+            var _this2 = this;
+
+            return Conexion.get(PATH + 'function' + '/' + this.model() + '/' + id + '/' + funcion).then(function (data) {
+                then(data);
+                vm.$forceUpdate();
+            }).catch(function (error) {
+                _this2.$notify({
+                    group: 'g',
+                    title: 'Error',
+                    text: error.data,
+                    type: 'danger',
+                    duration: 2000
+                });
+            });
+        }
+    }, {
         key: 'consult',
         value: function consult(url, then) {
 
@@ -4753,6 +4771,14 @@ var Model = function () {
         key: 'attribure',
         value: function attribure(id, attribute, then) {
             Conexion.get(PATH + this.url() + '/' + id + '/attribute?attribute=' + attribute).then(function (data) {
+                then(data);
+                vm.$forceUpdate();
+            });
+        }
+    }, {
+        key: 'attribute2',
+        value: function attribute2(id, attribute, then) {
+            Conexion.get(PATH + 'attribute/' + this.model() + '/' + id + '/' + attribute).then(function (data) {
                 then(data);
                 vm.$forceUpdate();
             });
@@ -35357,7 +35383,7 @@ var Dia = function (_Model) {
     }, {
         key: 'model',
         value: function model() {
-            return 'Comensal';
+            return 'Dia';
         }
     }]);
 
@@ -48948,7 +48974,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             var _this = this;
 
             this.asistencias = new Coleccion(this.comensal.asistencias);
-            Comedor.attribure(this.comedor.id, 'comidasByDia', function (comidas) {
+            Comedor.function2(this.comedor.id, 'comidasByDia', function (comidas) {
                 _this.comedor.comidas = comidas;
                 _this.updateComidasByDia();
             });
@@ -48958,7 +48984,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 _this.updateComidasByDia();
             });
 
-            Comensal.attribure(this.comensal.id, 'comidas', function (asistencias) {
+            Comensal.attribute2(this.comensal.id, 'comidas', function (asistencias) {
                 _this.asistencias = new Coleccion(asistencias);
                 _this.updateComidasByDia();
             });
