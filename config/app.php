@@ -190,9 +190,9 @@ return [
         Jenssegers\Date\DateServiceProvider::class,
 
         //Migrations Genetator
-        Way\Generators\GeneratorsServiceProvider::class,
+        //Way\Generators\GeneratorsServiceProvider::class,
 
-        Xethron\MigrationsGenerator\MigrationsGeneratorServiceProvider::class,
+        //Xethron\MigrationsGenerator\MigrationsGeneratorServiceProvider::class,
     ],
 
     /*
