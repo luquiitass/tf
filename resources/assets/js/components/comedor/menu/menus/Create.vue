@@ -48,7 +48,7 @@ export default{
     },
     methods:{
         loadForm(){
-            this.form = new Form({instancia_id:this.p_instancia.id, recetas:[],cantidad:0});
+            this.form = new Form({instancia_id:this.p_instancia.id, recetas:[],cantidad:0,recordar:false,nombre:''});
         },
         onSubmit(){
             this.form

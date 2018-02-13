@@ -5,6 +5,10 @@
         </titulo>
 
         <div>
+            <div class="alert alert-info" v-if="isEmpty(presencias)">
+                <p>No posee Faltas</p>
+            </div>
+
             <ul class="list-group">
                 <li class="list-group-item" v-for="presencia in presencias">
                     <a class="text-info" v-if="bol(presencia.estado)"> Presente <span>{{presencia.instancia.fecha}}</span></a>

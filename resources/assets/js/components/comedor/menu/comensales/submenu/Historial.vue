@@ -1,5 +1,8 @@
 <template>
     <div>
+        <div class="alert alert-info" v-if="isEmpty(todas)">
+            <p>No ha realizado modificaciones en sus inscripciones</p>
+        </div>
         <ul class="timeline timeline-inverse" v-for="(todas , mes) in groupByMes()">
 
             <li class="time-label">

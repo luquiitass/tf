@@ -9,7 +9,7 @@
             <p> Las inscripciones a esta comida se encuantran cerradas desde
                 <span class="badge badge-secondary">
                     <i class="fa fa-clock-o"></i>
-                     {{p_instancia.fechaCierreInscripcion.date}}
+                     {{p_instancia.fecha_cierre}}
                 </span>
                 y se llevara a cabo el
                 <span class="badge badge-secondary">

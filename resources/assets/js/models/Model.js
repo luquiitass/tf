@@ -42,6 +42,25 @@ class Model {
 
     }
 
+    static functionStatic(funcion , then){
+
+        return Conexion.get(PATH + this.model()  +'/' + funcion )
+
+            .then(data=> {
+                then(data);
+                vm.$forceUpdate();
+            }).catch(error=>{
+                this.$notify({
+                    group:'g',
+                    title:'Error',
+                    text:error.data,
+                    type:'danger',
+                    duration:2000
+                });
+            });
+
+    }
+
     static function2(id , funcion , then){
 
         return Conexion.get(PATH + 'function' + '/' + this.model() + '/' + id +'/' + funcion )

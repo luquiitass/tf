@@ -210,6 +210,12 @@ let routes = [
             content_comensal : require('./components/comensal/anuncios/Index')
         }
     },
+    {
+        path : '/c_configuraciones',
+        components :{
+            content_comensal : require('./components/comensal/configuraciones/Index')
+        }
+    },
 
 
 ];

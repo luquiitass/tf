@@ -76,9 +76,11 @@ class ComensalesController extends ApiController
         $comensal->load('usuario','inscripcionesByDate');
 
         if (!request()->ajax()){
-            $comensal->load('comedor','comedor.comidas','comedor.anunciosActivos','presencias');
-            $usuario = \Auth::user();
+            $comensal->load('comedor'/*,'comedor.comidas','comedor.anunciosActivos','presencias'*/,'usuario.direccion');
+            $usuario =$comensal->usuario;// \Auth::user()->load('direccion');
             return view('comensal.show',compact('usuario','comensal'));
+        }else{
+
         }
 
         return $comensal;

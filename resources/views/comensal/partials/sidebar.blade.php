@@ -65,6 +65,14 @@
 
             </router-link>
 
+            <router-link tag="li" to="c_configuraciones" exact>
+                <a>
+                    <i class='fa fa-link'></i>
+                    <span>{{trans('string.configuraciones') }}</span>
+                </a>
+
+            </router-link>
+
 
 {{--
             <router-link tag="li" to="/" exact>

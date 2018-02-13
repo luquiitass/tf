@@ -108,6 +108,7 @@ Vue.use(Notifications);
 Vue.use(VueMoment);
 
 Vue.component('titulo',require('./components/oters/Titulo.vue'));
+Vue.component('direccion',require('./components/oters/Direccion.vue'));
 Vue.component('modal',require('./components/oters/Modal.vue'));
 Vue.component('modal-delet',require('./components/oters/ModalDelet.vue'));
 Vue.component('search',require('./components/oters/Search.vue'));
@@ -118,6 +119,7 @@ Vue.component('select-auto',require('./utilities/Select.vue'));
 Vue.component('comensal-index',require('./components/comensal/Index.vue'));
 Vue.component('comedor-index',require('./components/comedor/Index.vue'));
 Vue.component('loading',require('./components/oters/Loading.vue'));
+Vue.component('myUpload',require('vue-image-crop-upload'));
 
 Vue.component('datepicker',require('vuejs-datepicker'));
 
@@ -192,9 +194,19 @@ Vue.mixin({
 
     removeObjectList(list,item){
       Utilidades.deleteObjectList(list,item);
+    },
+    isEmpty(obj) {
+      /*for(var key in obj) {
+        if(obj.hasOwnProperty(key))
+          return false;
+      }
+      return true;*/
+      return _.isEmpty(obj);
+    },
+    updateObject(viejo,nuevo){
+      Object.assign(viejo,nuevo);
+
     }
-
-
   }
 });
 

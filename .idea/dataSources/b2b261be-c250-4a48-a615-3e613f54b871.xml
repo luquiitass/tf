@@ -905,690 +905,695 @@ instancia_id</columns>
     <column id="253" parent="40" name="updated_at">
       <data-type>datetime|0</data-type>
     </column>
-    <index id="254" parent="40" name="comidas_instancias_fk">
+    <column id="254" parent="40" name="fecha_cierre">
+      <mandatory>1</mandatory>
+      <data-type>timestamp|0</data-type>
+      <default-expression>CURRENT_TIMESTAMP</default-expression>
+    </column>
+    <index id="255" parent="40" name="comidas_instancias_fk">
       <columns>comida_id</columns>
       <desc-columns></desc-columns>
     </index>
-    <index id="255" parent="40" name="planillas_idx">
+    <index id="256" parent="40" name="planillas_idx">
       <columns>fecha
 comida_id</columns>
       <desc-columns></desc-columns>
       <unique>1</unique>
     </index>
-    <key id="256" parent="40" name="PRIMARY">
+    <key id="257" parent="40" name="PRIMARY">
       <columns>id</columns>
       <primary>1</primary>
     </key>
-    <key id="257" parent="40" name="planillas_idx">
+    <key id="258" parent="40" name="planillas_idx">
       <columns>fecha
 comida_id</columns>
       <underlying-index>planillas_idx</underlying-index>
     </key>
-    <foreign-key id="258" parent="40" name="comidas_instancias_fk">
+    <foreign-key id="259" parent="40" name="comidas_instancias_fk">
       <columns>comida_id</columns>
       <ref-key>~.comidas.PRIMARY</ref-key>
       <cascade-update-rule>no_action</cascade-update-rule>
       <cascade-delete-rule>no_action</cascade-delete-rule>
     </foreign-key>
-    <column id="259" parent="41" name="id">
+    <column id="260" parent="41" name="id">
       <mandatory>1</mandatory>
       <data-type>int(11)|0</data-type>
       <sequence-identity>1</sequence-identity>
     </column>
-    <column id="260" parent="41" name="nombre">
+    <column id="261" parent="41" name="nombre">
       <mandatory>1</mandatory>
       <data-type>varchar(250)|0</data-type>
     </column>
-    <column id="261" parent="41" name="disponibilidad">
+    <column id="262" parent="41" name="disponibilidad">
       <mandatory>1</mandatory>
       <data-type>decimal(4,2)|0</data-type>
     </column>
-    <column id="262" parent="41" name="unidad_de_medida_id">
+    <column id="263" parent="41" name="unidad_de_medida_id">
       <mandatory>1</mandatory>
       <data-type>int(11)|0</data-type>
     </column>
-    <column id="263" parent="41" name="minimo">
+    <column id="264" parent="41" name="minimo">
       <mandatory>1</mandatory>
       <data-type>int(11)|0</data-type>
     </column>
-    <column id="264" parent="41" name="activo">
+    <column id="265" parent="41" name="activo">
       <mandatory>1</mandatory>
       <data-type>tinyint(1)|0</data-type>
       <default-expression>&apos;1&apos;</default-expression>
     </column>
-    <column id="265" parent="41" name="comedor_id">
+    <column id="266" parent="41" name="comedor_id">
       <mandatory>1</mandatory>
       <data-type>int(11)|0</data-type>
     </column>
-    <index id="266" parent="41" name="comedores_insumos_fk">
+    <index id="267" parent="41" name="comedores_insumos_fk">
       <columns>comedor_id</columns>
       <desc-columns></desc-columns>
     </index>
-    <index id="267" parent="41" name="insumos_idx">
+    <index id="268" parent="41" name="insumos_idx">
       <columns>nombre
 comedor_id</columns>
       <desc-columns></desc-columns>
       <unique>1</unique>
     </index>
-    <index id="268" parent="41" name="unidades_de_medida_insumos_fk">
+    <index id="269" parent="41" name="unidades_de_medida_insumos_fk">
       <columns>unidad_de_medida_id</columns>
       <desc-columns></desc-columns>
     </index>
-    <key id="269" parent="41" name="PRIMARY">
+    <key id="270" parent="41" name="PRIMARY">
       <columns>id</columns>
       <primary>1</primary>
     </key>
-    <key id="270" parent="41" name="insumos_idx">
+    <key id="271" parent="41" name="insumos_idx">
       <columns>nombre
 comedor_id</columns>
       <underlying-index>insumos_idx</underlying-index>
     </key>
-    <foreign-key id="271" parent="41" name="unidades_de_medida_insumos_fk">
+    <foreign-key id="272" parent="41" name="unidades_de_medida_insumos_fk">
       <columns>unidad_de_medida_id</columns>
       <ref-key>~.unidades_de_medida.PRIMARY</ref-key>
       <cascade-update-rule>no_action</cascade-update-rule>
       <cascade-delete-rule>no_action</cascade-delete-rule>
     </foreign-key>
-    <foreign-key id="272" parent="41" name="comedores_insumos_fk">
+    <foreign-key id="273" parent="41" name="comedores_insumos_fk">
       <columns>comedor_id</columns>
       <ref-key>~.comedores.PRIMARY</ref-key>
       <cascade-update-rule>no_action</cascade-update-rule>
       <cascade-delete-rule>no_action</cascade-delete-rule>
     </foreign-key>
-    <column id="273" parent="42" name="id">
+    <column id="274" parent="42" name="id">
       <mandatory>1</mandatory>
       <data-type>int(11)|0</data-type>
       <sequence-identity>1</sequence-identity>
     </column>
-    <column id="274" parent="42" name="nombre">
+    <column id="275" parent="42" name="nombre">
       <mandatory>1</mandatory>
       <data-type>varchar(100)|0</data-type>
     </column>
-    <column id="275" parent="42" name="provincia_id">
+    <column id="276" parent="42" name="provincia_id">
       <mandatory>1</mandatory>
       <data-type>int(11)|0</data-type>
     </column>
-    <index id="276" parent="42" name="provincias_localidades_fk">
+    <index id="277" parent="42" name="provincias_localidades_fk">
       <columns>provincia_id</columns>
       <desc-columns></desc-columns>
     </index>
-    <key id="277" parent="42" name="PRIMARY">
+    <key id="278" parent="42" name="PRIMARY">
       <columns>id</columns>
       <primary>1</primary>
     </key>
-    <foreign-key id="278" parent="42" name="provincias_localidades_fk">
+    <foreign-key id="279" parent="42" name="provincias_localidades_fk">
       <columns>provincia_id</columns>
       <ref-key>~.provincias.PRIMARY</ref-key>
       <cascade-update-rule>no_action</cascade-update-rule>
       <cascade-delete-rule>no_action</cascade-delete-rule>
     </foreign-key>
-    <column id="279" parent="43" name="id">
+    <column id="280" parent="43" name="id">
       <mandatory>1</mandatory>
       <data-type>int(11)|0</data-type>
       <sequence-identity>1</sequence-identity>
     </column>
-    <column id="280" parent="43" name="menu_id">
+    <column id="281" parent="43" name="menu_id">
       <mandatory>1</mandatory>
       <data-type>int(11)|0</data-type>
     </column>
-    <column id="281" parent="43" name="receta_id">
+    <column id="282" parent="43" name="receta_id">
       <mandatory>1</mandatory>
       <data-type>int(11)|0</data-type>
     </column>
-    <column id="282" parent="43" name="updated_at">
+    <column id="283" parent="43" name="updated_at">
       <data-type>datetime|0</data-type>
     </column>
-    <column id="283" parent="43" name="cantidad">
+    <column id="284" parent="43" name="cantidad">
       <mandatory>1</mandatory>
       <data-type>int(11)|0</data-type>
     </column>
-    <column id="284" parent="43" name="created_at">
+    <column id="285" parent="43" name="created_at">
       <data-type>datetime|0</data-type>
     </column>
-    <index id="285" parent="43" name="menus_menu_receta_fk">
+    <index id="286" parent="43" name="menus_menu_receta_fk">
       <columns>menu_id</columns>
       <desc-columns></desc-columns>
     </index>
-    <index id="286" parent="43" name="recetas_menu_receta_fk">
+    <index id="287" parent="43" name="recetas_menu_receta_fk">
       <columns>receta_id</columns>
       <desc-columns></desc-columns>
     </index>
-    <key id="287" parent="43" name="PRIMARY">
+    <key id="288" parent="43" name="PRIMARY">
       <columns>id</columns>
       <primary>1</primary>
     </key>
-    <foreign-key id="288" parent="43" name="menus_menu_receta_fk">
+    <foreign-key id="289" parent="43" name="menus_menu_receta_fk">
       <columns>menu_id</columns>
       <ref-key>~.menus.PRIMARY</ref-key>
       <cascade-update-rule>no_action</cascade-update-rule>
       <cascade-delete-rule>no_action</cascade-delete-rule>
     </foreign-key>
-    <foreign-key id="289" parent="43" name="recetas_menu_receta_fk">
+    <foreign-key id="290" parent="43" name="recetas_menu_receta_fk">
       <columns>receta_id</columns>
       <ref-key>~.recetas.PRIMARY</ref-key>
       <cascade-update-rule>no_action</cascade-update-rule>
       <cascade-delete-rule>no_action</cascade-delete-rule>
     </foreign-key>
-    <column id="290" parent="44" name="id">
+    <column id="291" parent="44" name="id">
       <mandatory>1</mandatory>
       <data-type>int(11)|0</data-type>
       <sequence-identity>1</sequence-identity>
     </column>
-    <column id="291" parent="44" name="cantidad">
+    <column id="292" parent="44" name="cantidad">
       <mandatory>1</mandatory>
       <data-type>int(11)|0</data-type>
     </column>
-    <column id="292" parent="44" name="instancia_id">
+    <column id="293" parent="44" name="instancia_id">
       <mandatory>1</mandatory>
       <data-type>int(11)|0</data-type>
     </column>
-    <index id="293" parent="44" name="planillas_menus_fk">
+    <index id="294" parent="44" name="planillas_menus_fk">
       <columns>instancia_id</columns>
       <desc-columns></desc-columns>
     </index>
-    <key id="294" parent="44" name="PRIMARY">
+    <key id="295" parent="44" name="PRIMARY">
       <columns>id</columns>
       <primary>1</primary>
     </key>
-    <foreign-key id="295" parent="44" name="planillas_menus_fk">
+    <foreign-key id="296" parent="44" name="planillas_menus_fk">
       <columns>instancia_id</columns>
       <ref-key>~.instancias.PRIMARY</ref-key>
       <cascade-update-rule>no_action</cascade-update-rule>
       <cascade-delete-rule>no_action</cascade-delete-rule>
     </foreign-key>
-    <column id="296" parent="45" name="migration">
+    <column id="297" parent="45" name="migration">
       <mandatory>1</mandatory>
       <data-type>varchar(255)|0</data-type>
     </column>
-    <column id="297" parent="45" name="batch">
+    <column id="298" parent="45" name="batch">
       <mandatory>1</mandatory>
       <data-type>int(11)|0</data-type>
     </column>
-    <column id="298" parent="46" name="id">
+    <column id="299" parent="46" name="id">
       <mandatory>1</mandatory>
       <data-type>int(11)|0</data-type>
       <sequence-identity>1</sequence-identity>
     </column>
-    <column id="299" parent="46" name="nombre">
+    <column id="300" parent="46" name="nombre">
       <mandatory>1</mandatory>
       <data-type>varchar(100)|0</data-type>
     </column>
-    <key id="300" parent="46" name="PRIMARY">
+    <key id="301" parent="46" name="PRIMARY">
       <columns>id</columns>
       <primary>1</primary>
     </key>
-    <column id="301" parent="47" name="id">
+    <column id="302" parent="47" name="id">
       <mandatory>1</mandatory>
       <data-type>int(11)|0</data-type>
       <sequence-identity>1</sequence-identity>
     </column>
-    <column id="302" parent="47" name="permission_id">
+    <column id="303" parent="47" name="permission_id">
       <mandatory>1</mandatory>
       <data-type>int(11)|0</data-type>
     </column>
-    <column id="303" parent="47" name="role_id">
+    <column id="304" parent="47" name="role_id">
       <mandatory>1</mandatory>
       <data-type>int(11)|0</data-type>
     </column>
-    <column id="304" parent="47" name="created_at">
+    <column id="305" parent="47" name="created_at">
       <data-type>datetime|0</data-type>
     </column>
-    <column id="305" parent="47" name="updated_at">
+    <column id="306" parent="47" name="updated_at">
       <data-type>datetime|0</data-type>
     </column>
-    <index id="306" parent="47" name="permission_role_permission_id_index">
+    <index id="307" parent="47" name="permission_role_permission_id_index">
       <columns>permission_id</columns>
       <desc-columns></desc-columns>
     </index>
-    <index id="307" parent="47" name="permission_role_role_id_index">
+    <index id="308" parent="47" name="permission_role_role_id_index">
       <columns>role_id</columns>
       <desc-columns></desc-columns>
     </index>
-    <key id="308" parent="47" name="PRIMARY">
+    <key id="309" parent="47" name="PRIMARY">
       <columns>id</columns>
       <primary>1</primary>
     </key>
-    <foreign-key id="309" parent="47" name="permission_role_permission_id_foreign">
+    <foreign-key id="310" parent="47" name="permission_role_permission_id_foreign">
       <columns>permission_id</columns>
       <ref-key>~.permissions.PRIMARY</ref-key>
       <cascade-update-rule>no_action</cascade-update-rule>
       <cascade-delete-rule>delete</cascade-delete-rule>
     </foreign-key>
-    <foreign-key id="310" parent="47" name="permission_role_role_id_foreign">
+    <foreign-key id="311" parent="47" name="permission_role_role_id_foreign">
       <columns>role_id</columns>
       <ref-key>~.roles.PRIMARY</ref-key>
       <cascade-update-rule>no_action</cascade-update-rule>
       <cascade-delete-rule>delete</cascade-delete-rule>
     </foreign-key>
-    <column id="311" parent="48" name="id">
+    <column id="312" parent="48" name="id">
       <mandatory>1</mandatory>
       <data-type>int(11)|0</data-type>
       <sequence-identity>1</sequence-identity>
     </column>
-    <column id="312" parent="48" name="permission_id">
+    <column id="313" parent="48" name="permission_id">
       <mandatory>1</mandatory>
       <data-type>int(11)|0</data-type>
     </column>
-    <column id="313" parent="48" name="user_id">
+    <column id="314" parent="48" name="user_id">
       <mandatory>1</mandatory>
       <data-type>int(11)|0</data-type>
     </column>
-    <column id="314" parent="48" name="created_at">
+    <column id="315" parent="48" name="created_at">
       <data-type>datetime|0</data-type>
     </column>
-    <column id="315" parent="48" name="updated_at">
+    <column id="316" parent="48" name="updated_at">
       <data-type>datetime|0</data-type>
     </column>
-    <index id="316" parent="48" name="permission_user_permission_id_index">
+    <index id="317" parent="48" name="permission_user_permission_id_index">
       <columns>permission_id</columns>
       <desc-columns></desc-columns>
     </index>
-    <index id="317" parent="48" name="permission_user_user_id_index">
+    <index id="318" parent="48" name="permission_user_user_id_index">
       <columns>user_id</columns>
       <desc-columns></desc-columns>
     </index>
-    <key id="318" parent="48" name="PRIMARY">
+    <key id="319" parent="48" name="PRIMARY">
       <columns>id</columns>
       <primary>1</primary>
     </key>
-    <foreign-key id="319" parent="48" name="permission_user_permission_id_foreign">
+    <foreign-key id="320" parent="48" name="permission_user_permission_id_foreign">
       <columns>permission_id</columns>
       <ref-key>~.permissions.PRIMARY</ref-key>
       <cascade-update-rule>no_action</cascade-update-rule>
       <cascade-delete-rule>delete</cascade-delete-rule>
     </foreign-key>
-    <foreign-key id="320" parent="48" name="permission_user_user_id_foreign">
+    <foreign-key id="321" parent="48" name="permission_user_user_id_foreign">
       <columns>user_id</columns>
       <ref-key>~.users.PRIMARY</ref-key>
       <cascade-update-rule>no_action</cascade-update-rule>
       <cascade-delete-rule>delete</cascade-delete-rule>
     </foreign-key>
-    <column id="321" parent="49" name="id">
+    <column id="322" parent="49" name="id">
       <mandatory>1</mandatory>
       <data-type>int(11)|0</data-type>
       <sequence-identity>1</sequence-identity>
     </column>
-    <column id="322" parent="49" name="name">
+    <column id="323" parent="49" name="name">
       <mandatory>1</mandatory>
       <data-type>varchar(255)|0</data-type>
     </column>
-    <column id="323" parent="49" name="slug">
+    <column id="324" parent="49" name="slug">
       <mandatory>1</mandatory>
       <data-type>varchar(255)|0</data-type>
     </column>
-    <column id="324" parent="49" name="description">
+    <column id="325" parent="49" name="description">
       <data-type>varchar(255)|0</data-type>
     </column>
-    <column id="325" parent="49" name="model">
+    <column id="326" parent="49" name="model">
       <data-type>varchar(255)|0</data-type>
     </column>
-    <column id="326" parent="49" name="created_at">
+    <column id="327" parent="49" name="created_at">
       <data-type>datetime|0</data-type>
     </column>
-    <column id="327" parent="49" name="updated_at">
+    <column id="328" parent="49" name="updated_at">
       <data-type>datetime|0</data-type>
     </column>
-    <index id="328" parent="49" name="permissions_slug_unique">
+    <index id="329" parent="49" name="permissions_slug_unique">
       <columns>slug</columns>
       <desc-columns></desc-columns>
       <unique>1</unique>
     </index>
-    <key id="329" parent="49" name="PRIMARY">
+    <key id="330" parent="49" name="PRIMARY">
       <columns>id</columns>
       <primary>1</primary>
     </key>
-    <key id="330" parent="49" name="permissions_slug_unique">
+    <key id="331" parent="49" name="permissions_slug_unique">
       <columns>slug</columns>
       <underlying-index>permissions_slug_unique</underlying-index>
     </key>
-    <column id="331" parent="50" name="id">
+    <column id="332" parent="50" name="id">
       <mandatory>1</mandatory>
       <data-type>int(11)|0</data-type>
       <sequence-identity>1</sequence-identity>
     </column>
-    <column id="332" parent="50" name="estado">
+    <column id="333" parent="50" name="estado">
       <mandatory>1</mandatory>
       <data-type>tinyint(1)|0</data-type>
       <default-expression>&apos;0&apos;</default-expression>
     </column>
-    <column id="333" parent="50" name="hora">
+    <column id="334" parent="50" name="hora">
       <data-type>datetime|0</data-type>
     </column>
-    <column id="334" parent="50" name="comensal_id">
+    <column id="335" parent="50" name="comensal_id">
       <mandatory>1</mandatory>
       <data-type>int(11)|0</data-type>
     </column>
-    <column id="335" parent="50" name="instancia_id">
+    <column id="336" parent="50" name="instancia_id">
       <mandatory>1</mandatory>
       <data-type>int(11)|0</data-type>
     </column>
-    <index id="336" parent="50" name="planillas_presencias_fk">
+    <index id="337" parent="50" name="planillas_presencias_fk">
       <columns>instancia_id</columns>
       <desc-columns></desc-columns>
     </index>
-    <index id="337" parent="50" name="presencias_idx">
+    <index id="338" parent="50" name="presencias_idx">
       <columns>comensal_id
 instancia_id</columns>
       <desc-columns></desc-columns>
       <unique>1</unique>
     </index>
-    <key id="338" parent="50" name="PRIMARY">
+    <key id="339" parent="50" name="PRIMARY">
       <columns>id</columns>
       <primary>1</primary>
     </key>
-    <key id="339" parent="50" name="presencias_idx">
+    <key id="340" parent="50" name="presencias_idx">
       <columns>comensal_id
 instancia_id</columns>
       <underlying-index>presencias_idx</underlying-index>
     </key>
-    <foreign-key id="340" parent="50" name="comensales_presencias_fk">
+    <foreign-key id="341" parent="50" name="comensales_presencias_fk">
       <columns>comensal_id</columns>
       <ref-key>~.comensales.PRIMARY</ref-key>
       <cascade-update-rule>update</cascade-update-rule>
       <cascade-delete-rule>delete</cascade-delete-rule>
     </foreign-key>
-    <foreign-key id="341" parent="50" name="planillas_presencias_fk">
+    <foreign-key id="342" parent="50" name="planillas_presencias_fk">
       <columns>instancia_id</columns>
       <ref-key>~.instancias.PRIMARY</ref-key>
       <cascade-update-rule>update</cascade-update-rule>
       <cascade-delete-rule>delete</cascade-delete-rule>
     </foreign-key>
-    <column id="342" parent="51" name="id">
+    <column id="343" parent="51" name="id">
       <mandatory>1</mandatory>
       <data-type>int(11)|0</data-type>
       <sequence-identity>1</sequence-identity>
     </column>
-    <column id="343" parent="51" name="nombre">
+    <column id="344" parent="51" name="nombre">
       <mandatory>1</mandatory>
       <data-type>varchar(100)|0</data-type>
     </column>
-    <column id="344" parent="51" name="pais_id">
+    <column id="345" parent="51" name="pais_id">
       <mandatory>1</mandatory>
       <data-type>int(11)|0</data-type>
     </column>
-    <index id="345" parent="51" name="paises_provincias_fk">
+    <index id="346" parent="51" name="paises_provincias_fk">
       <columns>pais_id</columns>
       <desc-columns></desc-columns>
     </index>
-    <key id="346" parent="51" name="PRIMARY">
+    <key id="347" parent="51" name="PRIMARY">
       <columns>id</columns>
       <primary>1</primary>
     </key>
-    <foreign-key id="347" parent="51" name="paises_provincias_fk">
+    <foreign-key id="348" parent="51" name="paises_provincias_fk">
       <columns>pais_id</columns>
       <ref-key>~.paises.PRIMARY</ref-key>
       <cascade-update-rule>no_action</cascade-update-rule>
       <cascade-delete-rule>no_action</cascade-delete-rule>
     </foreign-key>
-    <column id="348" parent="52" name="id">
+    <column id="349" parent="52" name="id">
       <mandatory>1</mandatory>
       <data-type>int(11)|0</data-type>
       <sequence-identity>1</sequence-identity>
     </column>
-    <column id="349" parent="52" name="nombre">
+    <column id="350" parent="52" name="nombre">
       <mandatory>1</mandatory>
       <data-type>varchar(250)|0</data-type>
     </column>
-    <column id="350" parent="52" name="porciones">
+    <column id="351" parent="52" name="porciones">
       <mandatory>1</mandatory>
       <data-type>int(11)|0</data-type>
     </column>
-    <column id="351" parent="52" name="descripcion">
+    <column id="352" parent="52" name="descripcion">
       <data-type>text|0</data-type>
     </column>
-    <column id="352" parent="52" name="preparacion">
+    <column id="353" parent="52" name="preparacion">
       <data-type>text|0</data-type>
     </column>
-    <column id="353" parent="52" name="comedor_id">
+    <column id="354" parent="52" name="comedor_id">
       <mandatory>1</mandatory>
       <data-type>int(11)|0</data-type>
     </column>
-    <index id="354" parent="52" name="comedores_recetas_fk">
+    <index id="355" parent="52" name="comedores_recetas_fk">
       <columns>comedor_id</columns>
       <desc-columns></desc-columns>
     </index>
-    <index id="355" parent="52" name="recetas_idx">
+    <index id="356" parent="52" name="recetas_idx">
       <columns>nombre</columns>
       <desc-columns></desc-columns>
       <unique>1</unique>
     </index>
-    <key id="356" parent="52" name="PRIMARY">
+    <key id="357" parent="52" name="PRIMARY">
       <columns>id</columns>
       <primary>1</primary>
     </key>
-    <key id="357" parent="52" name="recetas_idx">
+    <key id="358" parent="52" name="recetas_idx">
       <columns>nombre</columns>
       <underlying-index>recetas_idx</underlying-index>
     </key>
-    <foreign-key id="358" parent="52" name="comedores_recetas_fk">
+    <foreign-key id="359" parent="52" name="comedores_recetas_fk">
       <columns>comedor_id</columns>
       <ref-key>~.comedores.PRIMARY</ref-key>
       <cascade-update-rule>no_action</cascade-update-rule>
       <cascade-delete-rule>no_action</cascade-delete-rule>
     </foreign-key>
-    <column id="359" parent="53" name="id">
+    <column id="360" parent="53" name="id">
       <mandatory>1</mandatory>
       <data-type>int(11)|0</data-type>
       <sequence-identity>1</sequence-identity>
     </column>
-    <column id="360" parent="53" name="role_id">
+    <column id="361" parent="53" name="role_id">
       <mandatory>1</mandatory>
       <data-type>int(11)|0</data-type>
     </column>
-    <column id="361" parent="53" name="user_id">
+    <column id="362" parent="53" name="user_id">
       <mandatory>1</mandatory>
       <data-type>int(11)|0</data-type>
     </column>
-    <column id="362" parent="53" name="created_at">
+    <column id="363" parent="53" name="created_at">
       <data-type>datetime|0</data-type>
     </column>
-    <column id="363" parent="53" name="updated_at">
+    <column id="364" parent="53" name="updated_at">
       <data-type>datetime|0</data-type>
     </column>
-    <index id="364" parent="53" name="role_user_role_id_index">
+    <index id="365" parent="53" name="role_user_role_id_index">
       <columns>role_id</columns>
       <desc-columns></desc-columns>
     </index>
-    <index id="365" parent="53" name="role_user_user_id_index">
+    <index id="366" parent="53" name="role_user_user_id_index">
       <columns>user_id</columns>
       <desc-columns></desc-columns>
     </index>
-    <key id="366" parent="53" name="PRIMARY">
+    <key id="367" parent="53" name="PRIMARY">
       <columns>id</columns>
       <primary>1</primary>
     </key>
-    <foreign-key id="367" parent="53" name="role_user_role_id_foreign">
+    <foreign-key id="368" parent="53" name="role_user_role_id_foreign">
       <columns>role_id</columns>
       <ref-key>~.roles.PRIMARY</ref-key>
       <cascade-update-rule>no_action</cascade-update-rule>
       <cascade-delete-rule>delete</cascade-delete-rule>
     </foreign-key>
-    <foreign-key id="368" parent="53" name="role_user_user_id_foreign">
+    <foreign-key id="369" parent="53" name="role_user_user_id_foreign">
       <columns>user_id</columns>
       <ref-key>~.users.PRIMARY</ref-key>
       <cascade-update-rule>no_action</cascade-update-rule>
       <cascade-delete-rule>delete</cascade-delete-rule>
     </foreign-key>
-    <column id="369" parent="54" name="id">
+    <column id="370" parent="54" name="id">
       <mandatory>1</mandatory>
       <data-type>int(11)|0</data-type>
       <sequence-identity>1</sequence-identity>
     </column>
-    <column id="370" parent="54" name="name">
+    <column id="371" parent="54" name="name">
       <mandatory>1</mandatory>
       <data-type>varchar(255)|0</data-type>
     </column>
-    <column id="371" parent="54" name="slug">
+    <column id="372" parent="54" name="slug">
       <mandatory>1</mandatory>
       <data-type>varchar(255)|0</data-type>
     </column>
-    <column id="372" parent="54" name="description">
+    <column id="373" parent="54" name="description">
       <data-type>varchar(255)|0</data-type>
     </column>
-    <column id="373" parent="54" name="level">
+    <column id="374" parent="54" name="level">
       <mandatory>1</mandatory>
       <data-type>int(11)|0</data-type>
       <default-expression>&apos;1&apos;</default-expression>
     </column>
-    <column id="374" parent="54" name="created_at">
+    <column id="375" parent="54" name="created_at">
       <data-type>datetime|0</data-type>
     </column>
-    <column id="375" parent="54" name="updated_at">
+    <column id="376" parent="54" name="updated_at">
       <data-type>datetime|0</data-type>
     </column>
-    <index id="376" parent="54" name="roles_slug_unique">
+    <index id="377" parent="54" name="roles_slug_unique">
       <columns>slug</columns>
       <desc-columns></desc-columns>
       <unique>1</unique>
     </index>
-    <key id="377" parent="54" name="PRIMARY">
+    <key id="378" parent="54" name="PRIMARY">
       <columns>id</columns>
       <primary>1</primary>
     </key>
-    <key id="378" parent="54" name="roles_slug_unique">
+    <key id="379" parent="54" name="roles_slug_unique">
       <columns>slug</columns>
       <underlying-index>roles_slug_unique</underlying-index>
     </key>
-    <column id="379" parent="55" name="id">
+    <column id="380" parent="55" name="id">
       <mandatory>1</mandatory>
       <data-type>int(11)|0</data-type>
       <sequence-identity>1</sequence-identity>
     </column>
-    <column id="380" parent="55" name="nombre">
+    <column id="381" parent="55" name="nombre">
       <mandatory>1</mandatory>
       <data-type>varchar(250)|0</data-type>
     </column>
-    <index id="381" parent="55" name="tipos_comida_nombre_unique">
+    <index id="382" parent="55" name="tipos_comida_nombre_unique">
       <columns>nombre</columns>
       <desc-columns></desc-columns>
       <unique>1</unique>
     </index>
-    <key id="382" parent="55" name="PRIMARY">
+    <key id="383" parent="55" name="PRIMARY">
       <columns>id</columns>
       <primary>1</primary>
     </key>
-    <key id="383" parent="55" name="tipos_comida_nombre_unique">
+    <key id="384" parent="55" name="tipos_comida_nombre_unique">
       <columns>nombre</columns>
       <underlying-index>tipos_comida_nombre_unique</underlying-index>
     </key>
-    <column id="384" parent="56" name="id">
+    <column id="385" parent="56" name="id">
       <mandatory>1</mandatory>
       <data-type>int(11)|0</data-type>
       <sequence-identity>1</sequence-identity>
     </column>
-    <column id="385" parent="56" name="nombre">
+    <column id="386" parent="56" name="nombre">
       <mandatory>1</mandatory>
       <data-type>varchar(100)|0</data-type>
     </column>
-    <column id="386" parent="56" name="publico">
+    <column id="387" parent="56" name="publico">
       <mandatory>1</mandatory>
       <data-type>tinyint(1)|0</data-type>
     </column>
-    <column id="387" parent="56" name="comedor_id">
+    <column id="388" parent="56" name="comedor_id">
       <data-type>int(11)|0</data-type>
     </column>
-    <column id="388" parent="56" name="abreviatura">
+    <column id="389" parent="56" name="abreviatura">
       <mandatory>1</mandatory>
       <data-type>varchar(10)|0</data-type>
     </column>
-    <index id="389" parent="56" name="comedores_unidades_de_medida_fk">
+    <index id="390" parent="56" name="comedores_unidades_de_medida_fk">
       <columns>comedor_id</columns>
       <desc-columns></desc-columns>
     </index>
-    <key id="390" parent="56" name="PRIMARY">
+    <key id="391" parent="56" name="PRIMARY">
       <columns>id</columns>
       <primary>1</primary>
     </key>
-    <foreign-key id="391" parent="56" name="comedores_unidades_de_medida_fk">
+    <foreign-key id="392" parent="56" name="comedores_unidades_de_medida_fk">
       <columns>comedor_id</columns>
       <ref-key>~.comedores.PRIMARY</ref-key>
       <cascade-update-rule>no_action</cascade-update-rule>
       <cascade-delete-rule>no_action</cascade-delete-rule>
     </foreign-key>
-    <column id="392" parent="57" name="id">
+    <column id="393" parent="57" name="id">
       <mandatory>1</mandatory>
       <data-type>int(11)|0</data-type>
       <sequence-identity>1</sequence-identity>
     </column>
-    <column id="393" parent="57" name="nombre">
+    <column id="394" parent="57" name="nombre">
       <mandatory>1</mandatory>
       <data-type>varchar(255)|0</data-type>
     </column>
-    <column id="394" parent="57" name="apellido">
+    <column id="395" parent="57" name="apellido">
       <mandatory>1</mandatory>
       <data-type>varchar(255)|0</data-type>
     </column>
-    <column id="395" parent="57" name="dni">
+    <column id="396" parent="57" name="dni">
       <mandatory>1</mandatory>
       <data-type>varchar(255)|0</data-type>
     </column>
-    <column id="396" parent="57" name="fecha_nacimiento">
+    <column id="397" parent="57" name="fecha_nacimiento">
       <mandatory>1</mandatory>
       <data-type>date|0</data-type>
     </column>
-    <column id="397" parent="57" name="email">
+    <column id="398" parent="57" name="email">
       <mandatory>1</mandatory>
       <data-type>varchar(255)|0</data-type>
     </column>
-    <column id="398" parent="57" name="password">
+    <column id="399" parent="57" name="password">
       <mandatory>1</mandatory>
       <data-type>varchar(255)|0</data-type>
     </column>
-    <column id="399" parent="57" name="remember_token">
+    <column id="400" parent="57" name="remember_token">
       <data-type>varchar(100)|0</data-type>
     </column>
-    <column id="400" parent="57" name="foto">
+    <column id="401" parent="57" name="foto">
       <data-type>varchar(255)|0</data-type>
     </column>
-    <column id="401" parent="57" name="direccion_id">
+    <column id="402" parent="57" name="direccion_id">
       <data-type>int(11)|0</data-type>
     </column>
-    <column id="402" parent="57" name="datos_contacto_id">
+    <column id="403" parent="57" name="datos_contacto_id">
       <data-type>int(11)|0</data-type>
     </column>
-    <column id="403" parent="57" name="created_at">
+    <column id="404" parent="57" name="created_at">
       <data-type>datetime|0</data-type>
     </column>
-    <column id="404" parent="57" name="updated_at">
+    <column id="405" parent="57" name="updated_at">
       <data-type>datetime|0</data-type>
     </column>
-    <index id="405" parent="57" name="datos_contacto_users_fk">
+    <index id="406" parent="57" name="datos_contacto_users_fk">
       <columns>datos_contacto_id</columns>
       <desc-columns></desc-columns>
     </index>
-    <index id="406" parent="57" name="direcciones_users_fk">
+    <index id="407" parent="57" name="direcciones_users_fk">
       <columns>direccion_id</columns>
       <desc-columns></desc-columns>
     </index>
-    <index id="407" parent="57" name="users_dni_unique">
+    <index id="408" parent="57" name="users_dni_unique">
       <columns>dni</columns>
       <desc-columns></desc-columns>
       <unique>1</unique>
     </index>
-    <index id="408" parent="57" name="users_email_unique">
+    <index id="409" parent="57" name="users_email_unique">
       <columns>email</columns>
       <desc-columns></desc-columns>
       <unique>1</unique>
     </index>
-    <key id="409" parent="57" name="PRIMARY">
+    <key id="410" parent="57" name="PRIMARY">
       <columns>id</columns>
       <primary>1</primary>
     </key>
-    <key id="410" parent="57" name="users_dni_unique">
+    <key id="411" parent="57" name="users_dni_unique">
       <columns>dni</columns>
       <underlying-index>users_dni_unique</underlying-index>
     </key>
-    <key id="411" parent="57" name="users_email_unique">
+    <key id="412" parent="57" name="users_email_unique">
       <columns>email</columns>
       <underlying-index>users_email_unique</underlying-index>
     </key>
-    <foreign-key id="412" parent="57" name="direcciones_users_fk">
+    <foreign-key id="413" parent="57" name="direcciones_users_fk">
       <columns>direccion_id</columns>
       <ref-key>~.direcciones.PRIMARY</ref-key>
       <cascade-update-rule>no_action</cascade-update-rule>
       <cascade-delete-rule>no_action</cascade-delete-rule>
     </foreign-key>
-    <foreign-key id="413" parent="57" name="datos_contacto_users_fk">
+    <foreign-key id="414" parent="57" name="datos_contacto_users_fk">
       <columns>datos_contacto_id</columns>
       <ref-key>~.datos_contacto.PRIMARY</ref-key>
       <cascade-update-rule>no_action</cascade-update-rule>

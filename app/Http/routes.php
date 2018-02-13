@@ -63,7 +63,7 @@ Route::get('/admin',function (){
 
 Route::get('getUser',function (){
     if (!Auth::guest()){
-        return response()->json(Auth::user()->load('comedores','roles','comensal'));
+        return response()->json(Auth::user()->load('comedores','roles','comensal','direccion'));
     }
     return response()->json(['no login'],402);
 });
@@ -156,7 +156,16 @@ Route::resource('menu','Api\MenusController');
 Route::put('configuracionesComedor/{id}/inicioFin','Api\ComedorConfiguracionesController@inicioFin');
 
 
+Route::post('comensalConfiguracionesDato','Api\ComensalConfiguracionesController@saveDatos');
+Route::post('comensalConfiguracionesDireccion','Api\ComensalConfiguracionesController@saveDireccion');
+Route::post('comensalConfiguracionesContacto','Api\ComensalConfiguracionesController@saveContacto');
+
+
+Route::resource('direccion','Api\DireccionesController');
+
 //Ajax directo
-Route::get('attribute/{clase}/{id}/{attribute}','Api\InstanciasController@getAtribute');
-Route::get('function/{clase}/{id}/{function}','Api\InstanciasController@runFunction');
-Route::get('model/{clase}/{function}','Api\InstanciasController@runMethodStatic');
+Route::get('attribute/{clase}/{id}/{attribute}','Api\AjaxController@getAtribute');
+Route::get('function/{clase}/{id}/{function}','Api\AjaxController@runFunction');
+Route::get('model/{clase}/{function}','Api\AjaxController@runMethodStatic');
+
+Route::get('select2/{clase}','Api\AjaxController@getSelect');

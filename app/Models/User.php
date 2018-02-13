@@ -41,6 +41,11 @@ class User extends Authenticatable
     ];
 
 
+    public function direccion(){
+        return $this->belongsTo(Direccion::class)->with('localidad.provincia.pais');
+    }
+
+
     public function comedores(){
         return $this->belongsToMany(Comedor::class);
     }

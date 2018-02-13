@@ -10,23 +10,18 @@ use App\Http\Controllers\Auth\Filtros;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 
- class Localidad extends Model
+ class Direccion extends Model
 {
     use AjaxGetAttribute;
 
-     protected $table = "localidades";
+     protected $table = "direcciones";
 
-     protected $fillable = ['nombre','provincia_id'];
+     protected $fillable = ['calle','altura','piso','dpto','localidad_id'];
 
      public $timestamps = false;
 
-     public function provincia(){
-         return $this->belongsTo(Provincia::class);
+     public function localidad(){
+         return $this->belongsTo(Localidad::class);
      }
-
-     protected function direcciones(){
-         return $this->hasMany(Direccion::class);
-     }
-
 
  }

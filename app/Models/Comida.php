@@ -68,7 +68,7 @@ class Comida extends Model
 
          //$fecha->setTime($inicio->hour,$inicio->minute,$inicio->second);
 
-         $instancia =  $this->instancias()->create(['fecha'=> $fecha]);
+         $instancia =  $this->instancias()->create(['fecha'=> $fecha,'fecha_cierre'=>$this->cierreInscripcion]);
          \Log::alert('Lucas creo una instanica',[$instancia]);
 
          $instancia->crearEstadoInicial();

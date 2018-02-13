@@ -23,6 +23,8 @@ class Receta extends Model
 
     public $timestamps = false;
 
+    protected $with = ['ingredientes.insumo'];
+
     /*Relaciones*/
 
     public function comedor(){

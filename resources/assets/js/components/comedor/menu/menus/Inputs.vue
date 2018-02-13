@@ -19,6 +19,9 @@
                 </div>
             </div>
         </div>
+
+        <hr/>
+
         <h3>Comidas, ensaladas y postres</h3>
 
         <div class="row">
@@ -33,11 +36,16 @@
                 </ul>
 
                 <div>
-                    <add-receta
-                        @select="selectReceta">
-                    </add-receta>
+                    <div class="clearfix" v-if="!recetaSelect">
+                        <add-receta
+                            @select="selectReceta">
+                        </add-receta>
+                    </div>
 
-                    <div v-if="recetaSelect">
+
+                    <div v-else="">
+
+                        <a class="btn btn-xs pull-right" @click="recetaSelect = null"><i class="fa fa-close"></i></a>
 
                         <div class="text-center">
 
@@ -96,6 +104,20 @@
                 </div>
 
             </div>
+
+        </div>
+
+        <div class="clearfix">
+        <div>
+            *Recordar menú
+            <input type="checkbox" v-model="form.recordar" @click="toggleRecordar()"/>
+            
+            <div id="recordar" style="display: none">
+                <label >Nombre del menu</label>
+                <input type="text" class="form-control"  v-model="form.nombre">
+                <span class="help-block" v-if="form.errors.has('nombre')" v-text="form.errors.get('nombre')"></span>
+            </div>
+        </div>
 
         </div>
 
@@ -190,11 +212,13 @@ export  default{
         countComensales:function(val){
             console.log(val)
             console.log(this.total);
-        }
+        },
     },
     methods:{
         init(){
             this.p_instancia.count_comensales = this.p_instancia.count_comensales ? this.p_instancia.count_comensales : 0;
+            this.toggleRecordar();
+            //
         },
         selectReceta(receta){
             var rece = {receta : receta, cantidad : this.total};
@@ -212,6 +236,18 @@ export  default{
 
         removeReceta(receta){
             this.removeObjectList(this.form.recetas,receta);
+        },
+        toggleRecordar(){
+            console.log('toggle');
+            if (this.form.recordar){
+                console.log('show');
+
+                $('#recordar').show(400);
+            }else{
+                console.log('hide');
+
+                $('#recordar').hide(400);
+            }
         }
        /* ingre(){
             var ingredientes = [];

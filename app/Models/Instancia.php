@@ -16,7 +16,7 @@ class Instancia extends Model
 
      protected $table = "instancias";
 
-     protected $fillable = ['fecha','comida_id'];
+     protected $fillable = ['fecha','comida_id','fecha_cierre'];
 
     protected $appends = ['fechaCierreInscripcion'];
 
@@ -122,26 +122,38 @@ class Instancia extends Model
 
    public function cerrarInscripcion(){
 
+       try{
+           \DB::beginTransaction();
 
-       $estadoActual = $this->estadoActual();
-
-       $estadoInscripcionCerrada = $this->allEstados()->where('nombre','Inscripcion cerrada')->first();
-       /*Obtener el estado relacionado con los caminos de la instancia con el nombre de    "Suspendido"*/
-
-       $this->crearPrsenciasComensales();
-       /*crear predsencias */
+           $this->update(['fecha_cierre'=>new Carbon()]);
 
 
-       $estadoActual->pivot->activo = 0;
-       $estadoActual->pivot->save();
-       //Cancela ultimo estado activo
+           $estadoActual = $this->estadoActual();
 
-       $this->estados()->attach($estadoInscripcionCerrada->id);
-       /*Crea la relacion con estado "Inscripcion abierta y lo coloca como estado activo*/
-       $this->estadoActual();
+           $estadoInscripcionCerrada = $this->allEstados()->where('nombre','Inscripcion cerrada')->first();
+           /*Obtener el estado relacionado con los caminos de la instancia con el nombre de    "Suspendido"*/
 
-       return $this->load('estados','presencias.comensal.usuario');
-       /*Retornar la instancia*/
+           $this->crearPrsenciasComensales();
+           /*crear predsencias */
+
+
+           $estadoActual->pivot->activo = 0;
+           $estadoActual->pivot->save();
+           //Cancela ultimo estado activo
+
+           $this->estados()->attach($estadoInscripcionCerrada->id);
+           /*Crea la relacion con estado "Inscripcion abierta y lo coloca como estado activo*/
+           $this->estadoActual();
+
+
+           \DB::commit();
+
+           return $this->load('estados','presencias.comensal.usuario');
+           /*Retornar la instancia*/
+       }catch (\Exception $e){
+           \DB::rollBack();
+           return $e->getMessage();
+       }
    }
 
    public function finalizarInstancia(){
@@ -216,4 +228,7 @@ class Instancia extends Model
             $comensal->presencias()->create(['instancia_id'=>$this->id]);
         }
     }
- }
+
+
+
+}

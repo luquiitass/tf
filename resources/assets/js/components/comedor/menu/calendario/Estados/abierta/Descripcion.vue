@@ -8,7 +8,7 @@
 
             <p> Las inscripciones a esta comida se encuentran abiertas hasta el
                 <span class="badge badge-secondary">
-                    <i class="fa fa-clock-o"></i> {{p_instancia.fechaCierreInscripcion.date}}
+                    <i class="fa fa-clock-o"></i> {{p_instancia.fecha_cierre}}
                 </span>
             </p>
         </div>

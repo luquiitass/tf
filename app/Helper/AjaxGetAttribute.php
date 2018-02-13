@@ -9,6 +9,7 @@
 namespace App\Helper;
 
 
+use App\Http\Requests\UsuarioUpdateRequest;
 use App\Models\Instancia;
 
 use App\Models\RetornoAjax;
@@ -129,5 +130,30 @@ trait AjaxGetAttribute
             return response()->json(['Error',$e->getMessage()],422);
         }
     }
+
+    public function runAllMethodStatic($clase,$funcion){
+        try {
+            $clase = 'App\Models\\' . $clase;
+            if (class_exists($clase)) {
+
+                UsuarioUpdateRequest::createFromBase(request());
+
+                try{
+
+                    return $clase::$funcion();
+
+                }catch (\Exception $e){
+                    return response()->json($e->getMessage());
+                }
+            } else {
+                echo 'no Existe clase';
+
+            }
+        }catch (\Exception $e){
+            return response()->json(['Error',$e->getMessage()],422);
+        }
+    }
+
+
 
 }

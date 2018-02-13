@@ -19,6 +19,8 @@
 <script src="{{ asset('/plugins/fullcalendar2/dist/locale-all.js') }}"></script>
 {{--<script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.6.2/fullcalendar.min.js"></script>--}}
 
+<script src="{{ asset('/plugins/select2/select2.js') }}"></script>
+
 
 <!-- Bootstrap 3.3.2 JS -->
 <script src="{{ asset('/js/bootstrap.min.js') }}" type="text/javascript"></script>
